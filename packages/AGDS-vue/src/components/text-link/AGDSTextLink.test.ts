@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/vue'
-import { runAxe } from '../../test-utils/axe'
+import { runAxe } from '../../test/a11y'
 import AgDSTextLink from './AGDSTextLink.vue'
 import AgDSTextLinkExternal from './AGDSTextLinkExternal.vue'
 
@@ -11,7 +11,7 @@ describe('AgDSTextLink', () => {
       slots: { default: 'About us' },
     })
     const link = screen.getByRole('link', { name: 'About us' })
-    expect(link).toHaveAttribute('href', '/about')
+    expect(link.getAttribute('href')).toBe('/about')
   })
 
   it('has no axe violations', async () => {
@@ -22,8 +22,9 @@ describe('AgDSTextLink', () => {
     await runAxe(container)
   })
 
-  it('intentionally fails axe when href is missing (validates helper)', async () => {
-    const { container } = render({ template: '<a>No href</a>' })
+  it('intentionally fails axe when a link has no accessible name (validates helper)', async () => {
+    // An <a href> with no text content has no accessible name — WCAG 2.4.4
+    const { container } = render({ template: '<a href="/foo"></a>' })
     await expect(runAxe(container)).rejects.toThrow()
   })
 })
@@ -35,8 +36,8 @@ describe('AgDSTextLinkExternal', () => {
       slots: { default: 'Example' },
     })
     const link = screen.getByRole('link', { name: /Example/ })
-    expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(link.getAttribute('target')).toBe('_blank')
+    expect(link.getAttribute('rel')).toBe('noopener noreferrer')
   })
 
   it('includes offscreen "opens in a new tab" text', () => {
@@ -44,7 +45,7 @@ describe('AgDSTextLinkExternal', () => {
       props: { href: 'https://example.com' },
       slots: { default: 'Example' },
     })
-    expect(screen.getByText(/opens in a new tab/i)).toBeInTheDocument()
+    expect(screen.getByText(/opens in a new tab/i)).toBeTruthy()
   })
 
   it('has no axe violations', async () => {

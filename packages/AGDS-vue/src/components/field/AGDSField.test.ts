@@ -154,8 +154,10 @@ describe('AgDSField — axe accessibility', () => {
     }
   })
 
-  it('has a violation when a label has no associated control', async () => {
-    const { container } = render({ template: '<label>Orphan label</label>' })
+  it('has a violation when an input has no label', async () => {
+    // Verify the axe helper catches real violations — an input with no
+    // accessible name violates WCAG 4.1.2.
+    const { container } = render({ template: '<input type="text" />' })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })
 })

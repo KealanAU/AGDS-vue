@@ -109,7 +109,8 @@ let debounceTimer: ReturnType<typeof setTimeout> | null = null
 const cache: Record<string, Option[]> = {}
 
 const isLoading = computed(() => isFetching.value || !!props.loading)
-const showClear = computed(() => props.clearable && model.value != null)
+const inputText = ref('')
+const showClear = computed(() => props.clearable && (model.value != null || inputText.value.length > 0))
 
 // Only follow Reka UI's close signals (Escape, click outside, selection).
 // We control opening ourselves from fetch results so the dropdown never opens empty.
@@ -160,6 +161,7 @@ async function doFetch(query: string) {
 
 function handleInput(event: Event) {
   const query = (event.target as HTMLInputElement).value
+  inputText.value = query
   // Clear the selection when the user edits away from the selected label
   if (model.value != null && query !== model.value.label) {
     model.value = null
@@ -189,7 +191,13 @@ function handleClear() {
   isFetching.value = false
   networkError.value = false
   statusMessage.value = 'Selection cleared'
-  containerRef.value?.querySelector('input')?.focus()
+  inputText.value = ''
+  getAnchorEl()?.querySelector('input')?.focus()
+}
+
+function getAnchorEl(): HTMLElement | null {
+  const ref = containerRef.value as unknown as { $el?: HTMLElement } | null
+  return ref?.$el ?? (ref as HTMLElement | null)
 }
 
 function toggleDropdown() {
@@ -198,7 +206,7 @@ function toggleDropdown() {
   } else if (options.value.length > 0 || isFetching.value || networkError.value) {
     isOpen.value = true
   } else {
-    const inputEl = containerRef.value?.querySelector('input')
+    const inputEl = getAnchorEl()?.querySelector('input') as HTMLInputElement | null
     if (inputEl?.value) doFetch(inputEl.value)
   }
 }
@@ -207,7 +215,7 @@ onUnmounted(() => {
   if (debounceTimer) clearTimeout(debounceTimer)
 })
 
-defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() })
+defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
 </script>
 
 <template>
@@ -258,6 +266,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
             :aria-invalid="ariaInvalid"
             :aria-describedby="ariaDescribedby || undefined"
             :aria-busy="isLoading || undefined"
+            :disabled="!!props.loading"
             @input="handleInput"
             @focus="emit('focus', $event)"
             @blur="emit('blur', $event)"
@@ -274,7 +283,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
           <button
             v-if="showClear && !isLoading"
             type="button"
-            class="agds-combobox-async__btn"
+            class="agds-combobox-async__btn agds-combobox-async__clear"
             aria-label="Clear selection"
             tabindex="-1"
             @mousedown.prevent="handleClear"

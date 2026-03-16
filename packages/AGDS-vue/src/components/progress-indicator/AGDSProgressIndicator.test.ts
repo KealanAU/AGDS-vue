@@ -63,13 +63,13 @@ describe('AgDSProgressIndicator — rendering', () => {
 
   it('renders a mobile toggle button with aria-expanded', () => {
     const { container } = renderPI()
-    const btn = container.querySelector<HTMLButtonElement>('.agds-pi__toggle')
+    const btn = container.querySelector<HTMLButtonElement>('.agds-progress-indicator__toggle')
     expect(btn?.getAttribute('aria-expanded')).toBe('true')
   })
 
   it('applies the correct background class', () => {
     const { container } = renderPI({ background: 'bodyAlt' })
-    expect(container.querySelector('.agds-pi--bg-bodyAlt')).toBeTruthy()
+    expect(container.querySelector('.agds-progress-indicator--bg-bodyAlt')).toBeTruthy()
   })
 })
 
@@ -86,28 +86,28 @@ describe('AgDSProgressIndicator — item rendering', () => {
   it('renders a non-href item as <button>', () => {
     const { container } = renderPI()
     // 'Introduction' has no href → button
-    const buttons = container.querySelectorAll('.agds-pi__content[type="button"]')
+    const buttons = container.querySelectorAll('.agds-progress-indicator__content[type="button"]')
     expect(buttons.length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders correct href on link items', () => {
     const { container } = renderPI()
-    const link = container.querySelector<HTMLAnchorElement>('a.agds-pi__content')
+    const link = container.querySelector<HTMLAnchorElement>('a.agds-progress-indicator__content')
     expect(link?.href).toContain('/personal')
   })
 
   it('applies --first class to the first item', () => {
     const { container } = renderPI()
-    const items = container.querySelectorAll('.agds-pi__item')
-    expect(items[0].classList.contains('agds-pi__item--first')).toBe(true)
-    expect(items[1].classList.contains('agds-pi__item--first')).toBe(false)
+    const items = container.querySelectorAll('.agds-progress-indicator__item')
+    expect(items[0].classList.contains('agds-progress-indicator__item--first')).toBe(true)
+    expect(items[1].classList.contains('agds-progress-indicator__item--first')).toBe(false)
   })
 
   it('applies --last class to the last item', () => {
     const { container } = renderPI()
-    const items = container.querySelectorAll('.agds-pi__item')
+    const items = container.querySelectorAll('.agds-progress-indicator__item')
     const last = items[items.length - 1]
-    expect(last.classList.contains('agds-pi__item--last')).toBe(true)
+    expect(last.classList.contains('agds-progress-indicator__item--last')).toBe(true)
   })
 })
 
@@ -122,13 +122,13 @@ describe('AgDSProgressIndicator — activePath', () => {
 
   it('adds --active class to the active item', () => {
     const { container } = renderPI({ activePath: '/personal' })
-    const activeItem = container.querySelector('.agds-pi__item--active')
+    const activeItem = container.querySelector('.agds-progress-indicator__item--active')
     expect(activeItem).toBeTruthy()
   })
 
   it('makes the active label bold', () => {
     const { container } = renderPI({ activePath: '/personal' })
-    const boldLabel = container.querySelector('.agds-pi__label--bold')
+    const boldLabel = container.querySelector('.agds-progress-indicator__label--bold')
     expect(boldLabel).toBeTruthy()
     expect(boldLabel?.textContent).toBe('Personal information')
   })
@@ -141,13 +141,13 @@ describe('AgDSProgressIndicator — activePath', () => {
     const { container } = render(AgDSProgressIndicator, {
       props: { items: buttonItems, activePath: 'Step B' },
     })
-    const activeItem = container.querySelector('.agds-pi__item--active')
+    const activeItem = container.querySelector('.agds-progress-indicator__item--active')
     expect(activeItem?.textContent).toContain('Step B')
   })
 
   it('activates an item whose href is a prefix of activePath', () => {
     const { container } = renderPI({ activePath: '/personal/details' })
-    const activeItem = container.querySelector('.agds-pi__item--active')
+    const activeItem = container.querySelector('.agds-progress-indicator__item--active')
     expect(activeItem?.textContent).toContain('Personal information')
   })
 })
@@ -186,7 +186,7 @@ describe('AgDSProgressIndicator — level-2 sub-items', () => {
     const { container } = render(AgDSProgressIndicator, {
       props: { items: itemsWithSub, activePath: '/personal/contact' },
     })
-    const subLink = container.querySelector('.agds-pi__sub-link')
+    const subLink = container.querySelector('.agds-progress-indicator__sub-link')
     expect(subLink?.getAttribute('aria-current')).toBe('step')
     expect((subLink as HTMLAnchorElement)?.href).toContain('/personal/contact')
   })
@@ -197,17 +197,17 @@ describe('AgDSProgressIndicator — level-2 sub-items', () => {
 describe('AgDSProgressIndicator — mobile toggle', () => {
   it('collapses the list when the toggle is clicked', async () => {
     const { container } = renderPI()
-    const toggle = container.querySelector<HTMLButtonElement>('.agds-pi__toggle')!
+    const toggle = container.querySelector<HTMLButtonElement>('.agds-progress-indicator__toggle')!
 
     await fireEvent.click(toggle)
 
     expect(toggle.getAttribute('aria-expanded')).toBe('false')
-    expect(container.querySelector('.agds-pi--expanded')).toBeNull()
+    expect(container.querySelector('.agds-progress-indicator--expanded')).toBeNull()
   })
 
   it('re-expands when the toggle is clicked again', async () => {
     const { container } = renderPI()
-    const toggle = container.querySelector<HTMLButtonElement>('.agds-pi__toggle')!
+    const toggle = container.querySelector<HTMLButtonElement>('.agds-progress-indicator__toggle')!
 
     await fireEvent.click(toggle)
     await fireEvent.click(toggle)
