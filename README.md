@@ -2,7 +2,7 @@
 
 **Agriculture Design System (AgDS) as accessible Vue 3 components for the Department of Agriculture, Fisheries and Forestry.**
 
-[![npm](https://img.shields.io/npm/v/AGDS-vue)](https://www.npmjs.com/package/AGDS-vue)
+[![npm](https://img.shields.io/npm/v/agds-vue)](https://www.npmjs.com/package/agds-vue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
 [Visit the AgDS website](https://design-system.agriculture.gov.au/)
@@ -25,11 +25,11 @@ focus management out of the box, without any custom wheel-reinvention.
 ## Install
 
 ```bash
-pnpm add AGDS-vue
+pnpm add agds-vue
 # or
-npm install AGDS-vue
+npm install agds-vue
 # or
-yarn add AGDS-vue
+yarn add agds-vue
 ```
 
 `vue` is a peer dependency — install it alongside if you haven't already:
@@ -47,8 +47,8 @@ pnpm add vue
 ```ts
 // main.ts
 import { createApp } from 'vue'
-import AgDSVue from 'AGDS-vue'
-import 'AGDS-vue/styles'
+import AgDSVue from 'agds-vue'
+import 'agds-vue/styles'
 import App from './App.vue'
 
 createApp(App).use(AgDSVue).mount('#app')
@@ -66,8 +66,8 @@ createApp(App).use(AgDSVue).mount('#app')
 
 ```vue
 <script setup>
-import { AgDSButton } from 'AGDS-vue'
-import 'AGDS-vue/styles'
+import { AgDSButton } from 'agds-vue'
+import 'agds-vue/styles'
 </script>
 
 <template>
@@ -136,7 +136,7 @@ extend the design language without touching component code:
 }
 ```
 
-No Tailwind. No external CSS frameworks. One `import 'AGDS-vue/styles'`.
+No Tailwind. No external CSS frameworks. One `import 'agds-vue/styles'`.
 
 ---
 
