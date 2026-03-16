@@ -1,1 +1,1 @@
-export { default as AusGovGlobalAlert } from './AGDSGlobalAlert.vue';
+export { default as AgDSGlobalAlert } from './AGDSGlobalAlert.vue';

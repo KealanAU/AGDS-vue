@@ -1,1 +1,1 @@
-export { default as AusGovModal } from './AGDSModal.vue';
+export { default as AgDSModal } from './AGDSModal.vue';

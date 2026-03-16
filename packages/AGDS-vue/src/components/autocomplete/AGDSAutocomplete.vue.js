@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AusGovComboboxAsync from './AGDSComboboxAsync.vue';
+import AgDSComboboxAsync from './AGDSComboboxAsync.vue';
 const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (async () => {
     const props = withDefaults(defineProps(), {
         emptyResultsMessage: 'No results found',
@@ -27,7 +27,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     let __VLS_components;
     let __VLS_intrinsics;
     let __VLS_directives;
-    const __VLS_0 = AusGovComboboxAsync || AusGovComboboxAsync;
+    const __VLS_0 = AgDSComboboxAsync || AgDSComboboxAsync;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         ...{ 'onFocus': {} },
@@ -62,19 +62,11 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
             } });
     var __VLS_8 = {};
     const { default: __VLS_10 } = __VLS_3.slots;
-    if (__VLS_ctx.$slots.label) {
-        {
-            const { label: __VLS_11 } = __VLS_3.slots;
-            var __VLS_12 = {};
-            // @ts-ignore
-            [$slots,];
-        }
-    }
     if (__VLS_ctx.$slots.option) {
         {
-            const { option: __VLS_14 } = __VLS_3.slots;
-            const [slotProps] = __VLS_vSlot(__VLS_14);
-            var __VLS_15 = {
+            const { option: __VLS_11 } = __VLS_3.slots;
+            const [slotProps] = __VLS_vSlot(__VLS_11);
+            var __VLS_12 = {
                 ...(slotProps),
             };
             // @ts-ignore
@@ -86,7 +78,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     var __VLS_3;
     var __VLS_4;
     // @ts-ignore
-    var __VLS_9 = __VLS_8, __VLS_13 = __VLS_12, __VLS_16 = __VLS_15;
+    var __VLS_9 = __VLS_8, __VLS_13 = __VLS_12;
     // @ts-ignore
     [];
     return {};

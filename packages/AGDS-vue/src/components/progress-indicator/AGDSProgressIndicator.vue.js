@@ -1,8 +1,8 @@
 import { computed, ref } from 'vue';
-import AusGovProgressIndicatorItem from './AGDSProgressIndicatorItem.vue';
+import AgDSProgressIndicatorItem from './AGDSProgressIndicatorItem.vue';
 export default {};
 const __VLS_export = await (async () => {
-    defineOptions({ name: 'AusGovProgressIndicator' });
+    defineOptions({ name: 'AgDSProgressIndicator' });
     const props = withDefaults(defineProps(), {
         background: 'body',
         hideSubtitle: false,
@@ -57,46 +57,46 @@ const __VLS_export = await (async () => {
     let __VLS_components;
     let __VLS_intrinsics;
     let __VLS_directives;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__toggle']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__body']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__toggle']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__body']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__list']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__toggle']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__body']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__toggle']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__body']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__list']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.nav, __VLS_intrinsics.nav)({
-        ...{ class: "ausgov-pi" },
+        ...{ class: "agds-progress-indicator" },
         ...{ class: ([
-                `ausgov-pi--bg-${__VLS_ctx.background}`,
-                { 'ausgov-pi--expanded': __VLS_ctx.isExpanded },
+                `agds-progress-indicator--bg-${__VLS_ctx.background}`,
+                { 'agds-progress-indicator--expanded': __VLS_ctx.isExpanded },
             ]) },
         'aria-label': "Progress",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi--expanded']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator--expanded']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
         ...{ onClick: (__VLS_ctx.toggle) },
         type: "button",
-        ...{ class: "ausgov-pi__toggle" },
+        ...{ class: "agds-progress-indicator__toggle" },
         'aria-expanded': (__VLS_ctx.isExpanded),
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__toggle']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__toggle']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-        ...{ class: "ausgov-pi__toggle-text" },
+        ...{ class: "agds-progress-indicator__toggle-text" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__toggle-text']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__toggle-text']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-        ...{ class: "ausgov-pi__title" },
+        ...{ class: "agds-progress-indicator__title" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__title']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__title']} */ ;
     if (__VLS_ctx.subtitle) {
         __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-            ...{ class: "ausgov-pi__subtitle" },
+            ...{ class: "agds-progress-indicator__subtitle" },
         });
-        /** @type {__VLS_StyleScopedClasses['ausgov-pi__subtitle']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__subtitle']} */ ;
         (__VLS_ctx.subtitle);
     }
     __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
-        ...{ class: "ausgov-pi__chevron" },
-        ...{ class: ({ 'ausgov-pi__chevron--open': __VLS_ctx.isExpanded }) },
+        ...{ class: "agds-progress-indicator__chevron" },
+        ...{ class: ({ 'agds-progress-indicator__chevron--open': __VLS_ctx.isExpanded }) },
         'aria-hidden': "true",
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
@@ -106,21 +106,21 @@ const __VLS_export = await (async () => {
         'stroke-linecap': "round",
         'stroke-linejoin': "round",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__chevron']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__chevron--open']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__chevron']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__chevron--open']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.polyline)({
         points: "6 9 12 15 18 9",
     });
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-        ...{ class: "ausgov-pi__body" },
+        ...{ class: "agds-progress-indicator__body" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__body']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__body']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-        ...{ class: "ausgov-pi__list" },
+        ...{ class: "agds-progress-indicator__list" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-pi__list']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__list']} */ ;
     for (const [item, index] of __VLS_vFor((__VLS_ctx.processedItems))) {
-        const __VLS_0 = AusGovProgressIndicatorItem;
+        const __VLS_0 = AgDSProgressIndicatorItem;
         // @ts-ignore
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             key: (item.label),

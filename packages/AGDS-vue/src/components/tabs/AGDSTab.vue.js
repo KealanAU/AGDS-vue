@@ -14,23 +14,23 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab__label']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab__label']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
 let __VLS_0;
 /** @ts-ignore @type {typeof __VLS_components.TabsTrigger | typeof __VLS_components.TabsTrigger} */
 TabsTrigger;
@@ -38,20 +38,20 @@ TabsTrigger;
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     value: (props.value),
     disabled: (props.disabled),
-    ...{ class: "ausgov-tab" },
+    ...{ class: "agds-tab" },
 }));
 const __VLS_2 = __VLS_1({
     value: (props.value),
     disabled: (props.disabled),
-    ...{ class: "ausgov-tab" },
+    ...{ class: "agds-tab" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_1));
 var __VLS_5 = {};
-/** @type {__VLS_StyleScopedClasses['ausgov-tab']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab']} */ ;
 const { default: __VLS_6 } = __VLS_3.slots;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-    ...{ class: "ausgov-tab__label" },
+    ...{ class: "agds-tab__label" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-tab__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tab__label']} */ ;
 var __VLS_7 = {};
 var __VLS_9 = {};
 var __VLS_3;

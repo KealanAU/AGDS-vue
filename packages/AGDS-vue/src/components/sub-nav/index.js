@@ -1,1 +1,1 @@
-export { default as AusGovSubNav } from './AGDSSubNav.vue';
+export { default as AgDSSubNav } from './AGDSSubNav.vue';

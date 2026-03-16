@@ -51,11 +51,11 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__close']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__close']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link']} */ ;
 let __VLS_0;
 /** @ts-ignore @type {typeof __VLS_components.Teleport | typeof __VLS_components.Teleport} */
 Teleport;
@@ -72,19 +72,19 @@ let __VLS_6;
 Transition;
 // @ts-ignore
 const __VLS_7 = __VLS_asFunctionalComponent1(__VLS_6, new __VLS_6({
-    name: "ausgov-main-nav-dialog",
+    name: "agds-main-nav-dialog",
 }));
 const __VLS_8 = __VLS_7({
-    name: "ausgov-main-nav-dialog",
+    name: "agds-main-nav-dialog",
 }, ...__VLS_functionalComponentArgsRest(__VLS_7));
 const { default: __VLS_11 } = __VLS_9.slots;
 if (props.isOpen) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div)({
         ...{ onClick: (__VLS_ctx.close) },
-        ...{ class: "ausgov-main-nav-dialog__backdrop" },
+        ...{ class: "agds-main-nav-dialog__backdrop" },
         'aria-hidden': "true",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__backdrop']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__backdrop']} */ ;
 }
 // @ts-ignore
 [close,];
@@ -94,10 +94,10 @@ let __VLS_12;
 Transition;
 // @ts-ignore
 const __VLS_13 = __VLS_asFunctionalComponent1(__VLS_12, new __VLS_12({
-    name: "ausgov-main-nav-dialog-panel",
+    name: "agds-main-nav-dialog-panel",
 }));
 const __VLS_14 = __VLS_13({
-    name: "ausgov-main-nav-dialog-panel",
+    name: "agds-main-nav-dialog-panel",
 }, ...__VLS_functionalComponentArgsRest(__VLS_13));
 const { default: __VLS_17 } = __VLS_15.slots;
 if (props.isOpen) {
@@ -108,21 +108,21 @@ if (props.isOpen) {
         role: "dialog",
         'aria-modal': "true",
         'aria-label': "Main menu",
-        ...{ class: "ausgov-main-nav-dialog" },
+        ...{ class: "agds-main-nav-dialog" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-        ...{ class: "ausgov-main-nav-dialog__header" },
+        ...{ class: "agds-main-nav-dialog__header" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__header']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__header']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
         ...{ onClick: (__VLS_ctx.close) },
         ref: "closeButtonEl",
         type: "button",
-        ...{ class: "ausgov-main-nav-dialog__close" },
+        ...{ class: "agds-main-nav-dialog__close" },
         'aria-label': "Close menu",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__close']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__close']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
         'aria-hidden': "true",
         xmlns: "http://www.w3.org/2000/svg",
@@ -132,9 +132,9 @@ if (props.isOpen) {
         'stroke-width': "2.5",
         'stroke-linecap': "round",
         'stroke-linejoin': "round",
-        ...{ class: "ausgov-main-nav-dialog__close-icon" },
+        ...{ class: "agds-main-nav-dialog__close-icon" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__close-icon']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__close-icon']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.line)({
         x1: "18",
         y1: "6",
@@ -150,14 +150,14 @@ if (props.isOpen) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({});
     __VLS_asFunctionalElement1(__VLS_intrinsics.nav, __VLS_intrinsics.nav)({
         'aria-label': "Main",
-        ...{ class: "ausgov-main-nav-dialog__nav" },
+        ...{ class: "agds-main-nav-dialog__nav" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__nav']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__nav']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-        ...{ class: "ausgov-main-nav-dialog__list" },
+        ...{ class: "agds-main-nav-dialog__list" },
         role: "list",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__list']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__list']} */ ;
     for (const [item, index] of __VLS_vFor((props.items))) {
         (index);
         if (__VLS_ctx.isLinkItem(item)) {
@@ -167,26 +167,26 @@ if (props.isOpen) {
                 href: (item.href),
                 'aria-current': (item.href === props.activePath ? 'page' : undefined),
                 ...{ class: ([
-                        'ausgov-main-nav-dialog__link',
-                        { 'ausgov-main-nav-dialog__link--active': item.href === props.activePath },
+                        'agds-main-nav-dialog__link',
+                        { 'agds-main-nav-dialog__link--active': item.href === props.activePath },
                     ]) },
             });
-            /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link']} */ ;
-            /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link--active']} */ ;
+            /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link']} */ ;
+            /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link--active']} */ ;
             (item.label);
         }
         else if (__VLS_ctx.isDropdownItem(item)) {
             __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({});
             __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-                ...{ class: "ausgov-main-nav-dialog__group-label" },
+                ...{ class: "agds-main-nav-dialog__group-label" },
             });
-            /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__group-label']} */ ;
+            /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__group-label']} */ ;
             (item.label);
             __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-                ...{ class: "ausgov-main-nav-dialog__group-list" },
+                ...{ class: "agds-main-nav-dialog__group-list" },
                 role: "list",
             });
-            /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__group-list']} */ ;
+            /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__group-list']} */ ;
             for (const [sub, si] of __VLS_vFor((item.items))) {
                 __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({
                     key: (si),
@@ -197,14 +197,14 @@ if (props.isOpen) {
                         href: (sub.href),
                         'aria-current': (sub.href === props.activePath ? 'page' : undefined),
                         ...{ class: ([
-                                'ausgov-main-nav-dialog__link',
-                                'ausgov-main-nav-dialog__link--sub',
-                                { 'ausgov-main-nav-dialog__link--active': sub.href === props.activePath },
+                                'agds-main-nav-dialog__link',
+                                'agds-main-nav-dialog__link--sub',
+                                { 'agds-main-nav-dialog__link--active': sub.href === props.activePath },
                             ]) },
                     });
-                    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link']} */ ;
-                    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link--sub']} */ ;
-                    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link--active']} */ ;
+                    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link']} */ ;
+                    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link--sub']} */ ;
+                    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link--active']} */ ;
                     (sub.label);
                 }
                 else {
@@ -224,10 +224,10 @@ if (props.isOpen) {
                                 [close, close, close, close, handleKeydown, isLinkItem, isLinkItem, isDropdownItem,];
                             } },
                         type: "button",
-                        ...{ class: "ausgov-main-nav-dialog__link ausgov-main-nav-dialog__link--sub" },
+                        ...{ class: "agds-main-nav-dialog__link agds-main-nav-dialog__link--sub" },
                     });
-                    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link']} */ ;
-                    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link--sub']} */ ;
+                    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link']} */ ;
+                    /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link--sub']} */ ;
                     (sub.label);
                 }
                 // @ts-ignore
@@ -250,9 +250,9 @@ if (props.isOpen) {
                         [close,];
                     } },
                 type: "button",
-                ...{ class: "ausgov-main-nav-dialog__link" },
+                ...{ class: "agds-main-nav-dialog__link" },
             });
-            /** @type {__VLS_StyleScopedClasses['ausgov-main-nav-dialog__link']} */ ;
+            /** @type {__VLS_StyleScopedClasses['agds-main-nav-dialog__link']} */ ;
             (item.label);
         }
         // @ts-ignore

@@ -12,12 +12,12 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-badge']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-badge']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-    ...{ class: "ausgov-badge" },
-    ...{ class: (`ausgov-badge--${__VLS_ctx.tone}`) },
+    ...{ class: "agds-badge" },
+    ...{ class: (`agds-badge--${__VLS_ctx.tone}`) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-badge']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-badge']} */ ;
 (__VLS_ctx.label);
 // @ts-ignore
 [tone, label,];

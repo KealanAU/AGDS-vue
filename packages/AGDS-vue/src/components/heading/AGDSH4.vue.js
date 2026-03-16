@@ -1,9 +1,9 @@
-import AusGovHeading from './AGDSHeading.vue';
+import AgDSHeading from './AGDSHeading.vue';
 const __VLS_ctx = {};
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AusGovHeading || AusGovHeading;
+const __VLS_0 = AgDSHeading || AgDSHeading;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     type: "h4",

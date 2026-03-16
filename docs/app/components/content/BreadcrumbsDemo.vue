@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AgDSBreadcrumbs } from 'AGDS-vue'
+import { AgDSBreadcrumbs } from 'agds-vue'
 
 const props = defineProps<{
   /** 'basic' | 'collapsed' */

@@ -1,1 +1,1 @@
-export { default as AusGovFilterSidebar } from './AGDSFilterSidebar.vue';
+export { default as AgDSFilterSidebar } from './AGDSFilterSidebar.vue';

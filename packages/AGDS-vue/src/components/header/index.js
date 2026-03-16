@@ -1,1 +1,1 @@
-export { default as AusGovHeader } from './AGDSHeader.vue';
+export { default as AgDSHeader } from './AGDSHeader.vue';

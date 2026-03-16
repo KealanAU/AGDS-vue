@@ -1,4 +1,4 @@
-import AusGovIcon from '../icon/AGDSIcon.vue';
+import AgDSIcon from '../icon/AGDSIcon.vue';
 const __VLS_props = withDefaults(defineProps(), {
     external: false,
     focusRingFor: 'keyboard',
@@ -17,11 +17,11 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-cta']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-cta']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-cta']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-cta']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-cta__icon']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta__icon']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.a, __VLS_intrinsics.a)({
     ...{ onClick: (...[$event]) => {
             __VLS_ctx.$emit('click', $event);
@@ -42,28 +42,28 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.a, __VLS_intrinsics.a)({
     target: (__VLS_ctx.external ? '_blank' : undefined),
     rel: (__VLS_ctx.external ? 'noopener noreferrer' : undefined),
     ...{ class: ([
-            'ausgov-cta',
-            { 'ausgov-cta--focus-all': __VLS_ctx.focusRingFor === 'all' },
+            'agds-cta',
+            { 'agds-cta--focus-all': __VLS_ctx.focusRingFor === 'all' },
         ]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-cta']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-cta--focus-all']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta--focus-all']} */ ;
 var __VLS_0 = {};
-const __VLS_2 = AusGovIcon;
+const __VLS_2 = AgDSIcon;
 // @ts-ignore
 const __VLS_3 = __VLS_asFunctionalComponent1(__VLS_2, new __VLS_2({
     name: "mdi:chevron-right",
     size: "sm",
-    ...{ class: "ausgov-cta__icon" },
+    ...{ class: "agds-cta__icon" },
     'aria-hidden': "true",
 }));
 const __VLS_4 = __VLS_3({
     name: "mdi:chevron-right",
     size: "sm",
-    ...{ class: "ausgov-cta__icon" },
+    ...{ class: "agds-cta__icon" },
     'aria-hidden': "true",
 }, ...__VLS_functionalComponentArgsRest(__VLS_3));
-/** @type {__VLS_StyleScopedClasses['ausgov-cta__icon']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-cta__icon']} */ ;
 if (__VLS_ctx.external) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
         ...{ class: "sr-only" },

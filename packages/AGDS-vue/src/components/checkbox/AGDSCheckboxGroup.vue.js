@@ -26,48 +26,48 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.fieldset, __VLS_intrinsics.fieldset)({
-    ...{ class: "ausgov-checkbox-group" },
-    ...{ class: ({ 'ausgov-checkbox-group--invalid': props.invalid }) },
+    ...{ class: "agds-checkbox-group" },
+    ...{ class: ({ 'agds-checkbox-group--invalid': props.invalid }) },
     disabled: (props.disabled || undefined),
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group--invalid']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-checkbox-group']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-checkbox-group--invalid']} */ ;
 if (props.legend || __VLS_ctx.$slots.legend) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.legend, __VLS_intrinsics.legend)({
-        ...{ class: "ausgov-checkbox-group__legend" },
+        ...{ class: "agds-checkbox-group__legend" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group__legend']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-checkbox-group__legend']} */ ;
     var __VLS_0 = {};
     (props.legend);
     if (props.required) {
         __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-            ...{ class: "ausgov-checkbox-group__required" },
+            ...{ class: "agds-checkbox-group__required" },
             'aria-hidden': "true",
         });
-        /** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group__required']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-checkbox-group__required']} */ ;
     }
 }
 if (__VLS_ctx.$slots.hint) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-        ...{ class: "ausgov-checkbox-group__hint" },
+        ...{ class: "agds-checkbox-group__hint" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group__hint']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-checkbox-group__hint']} */ ;
     var __VLS_2 = {};
 }
 if (props.invalid && __VLS_ctx.$slots.message) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
         id: (props.messageId),
-        ...{ class: "ausgov-checkbox-group__message" },
+        ...{ class: "agds-checkbox-group__message" },
         role: "alert",
         'aria-live': "assertive",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group__message']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-checkbox-group__message']} */ ;
     var __VLS_4 = {};
 }
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-checkbox-group__items" },
+    ...{ class: "agds-checkbox-group__items" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-checkbox-group__items']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-checkbox-group__items']} */ ;
 var __VLS_6 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0, __VLS_3 = __VLS_2, __VLS_5 = __VLS_4, __VLS_7 = __VLS_6;

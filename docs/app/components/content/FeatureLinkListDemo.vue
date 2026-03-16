@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AgDSFeatureLinkList } from 'AGDS-vue'
+import { AgDSFeatureLinkList } from 'agds-vue'
 
 const props = defineProps<{
   /** 'basic' | 'secondary' */

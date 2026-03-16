@@ -28,28 +28,28 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout__sidebar-col']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout__sidebar-col']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-app-layout" },
-    ...{ class: ({ 'ausgov-app-layout--focus-mode': __VLS_ctx.focusMode }) },
+    ...{ class: "agds-app-layout" },
+    ...{ class: ({ 'agds-app-layout--focus-mode': __VLS_ctx.focusMode }) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout--focus-mode']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout--focus-mode']} */ ;
 var __VLS_0 = {};
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-app-layout__body" },
+    ...{ class: "agds-app-layout__body" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout__body']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout__body']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-app-layout__sidebar-col" },
+    ...{ class: "agds-app-layout__sidebar-col" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout__sidebar-col']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout__sidebar-col']} */ ;
 var __VLS_2 = {};
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-app-layout__main" },
+    ...{ class: "agds-app-layout__main" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout__main']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout__main']} */ ;
 var __VLS_4 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0, __VLS_3 = __VLS_2, __VLS_5 = __VLS_4;

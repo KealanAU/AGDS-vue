@@ -1,2 +1,2 @@
-export { default as AusGovCallToActionLink } from './AGDSCallToActionLink.vue';
-export { default as AusGovCallToActionButton } from './AGDSCallToActionButton.vue';
+export { default as AgDSCallToActionLink } from './AGDSCallToActionLink.vue';
+export { default as AgDSCallToActionButton } from './AGDSCallToActionButton.vue';

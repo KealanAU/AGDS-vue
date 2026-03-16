@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter docs dev",
-    "build": "pnpm --filter AGDS-vue build && pnpm --filter docs build",
-    "build:lib": "pnpm --filter AGDS-vue build",
+    "build": "pnpm --filter agds-vue build && pnpm --filter docs build",
+    "build:lib": "pnpm --filter agds-vue build",
     "build:docs": "pnpm --filter docs build",
     "preview": "pnpm --filter docs preview",
-    "test": "pnpm --filter AGDS-vue test",
-    "test:coverage": "pnpm --filter AGDS-vue test:coverage",
+    "test": "pnpm --filter agds-vue test",
+    "test:coverage": "pnpm --filter agds-vue test:coverage",
     "lint": "pnpm -r lint",
     "type-check": "pnpm -r type-check"
   },

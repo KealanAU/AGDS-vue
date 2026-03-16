@@ -13,7 +13,7 @@
   "dependencies": {
     "@nuxt/content": "^3.5.1",
     "@vue/repl": "^4.5.0",
-    "AGDS-vue": "workspace:*",
+    "agds-vue": "workspace:*",
     "better-sqlite3": "^12.6.2",
     "nuxt": "^3.17.3",
     "reka-ui": "^2.9.0",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vue-tsc": "^3.2.5"
   }
 }

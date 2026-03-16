@@ -3,9 +3,9 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-card-inner" },
+    ...{ class: "agds-card-inner" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-card-inner']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-card-inner']} */ ;
 var __VLS_0 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0;

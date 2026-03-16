@@ -1,2 +1,2 @@
-export { default as AusGovVisuallyHidden } from './AGDSVisuallyHidden.vue';
-export { default as AusGovExternalLinkCallout } from './AGDSExternalLinkCallout.vue';
+export { default as AgDSVisuallyHidden } from './AGDSVisuallyHidden.vue';
+export { default as AgDSExternalLinkCallout } from './AGDSExternalLinkCallout.vue';

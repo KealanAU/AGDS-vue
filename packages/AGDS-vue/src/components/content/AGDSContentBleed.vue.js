@@ -3,19 +3,19 @@ import { CONTENT_SPACING_KEY } from './contentContext';
 const props = withDefaults(defineProps(), {});
 const spacing = inject(CONTENT_SPACING_KEY, 'none');
 const classes = computed(() => {
-    const cls = ['ausgov-content-bleed'];
+    const cls = ['agds-content-bleed'];
     if (spacing !== 'none') {
-        cls.push(`ausgov-content-bleed--${spacing}`);
+        cls.push(`agds-content-bleed--${spacing}`);
     }
     const v = props.visible;
     if (v === false) {
-        cls.push('ausgov-content-bleed--no-bleed');
+        cls.push('agds-content-bleed--no-bleed');
     }
     else if (v !== null && v !== undefined && typeof v === 'object') {
         if (v.xs === false)
-            cls.push('ausgov-content-bleed--no-bleed-xs');
+            cls.push('agds-content-bleed--no-bleed-xs');
         if (v.md === false)
-            cls.push('ausgov-content-bleed--no-bleed-md');
+            cls.push('agds-content-bleed--no-bleed-md');
     }
     return cls;
 });
@@ -29,8 +29,8 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-content-bleed--section']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-content-bleed--page']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-content-bleed--section']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-content-bleed--page']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
     ...{ class: (__VLS_ctx.classes) },
 });

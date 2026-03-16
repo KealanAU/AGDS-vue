@@ -1,1 +1,1 @@
-export { default as AusGovDetails } from './AGDSDetails.vue';
+export { default as AgDSDetails } from './AGDSDetails.vue';

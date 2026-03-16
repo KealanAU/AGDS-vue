@@ -3,9 +3,9 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.tbody, __VLS_intrinsics.tbody)({
-    ...{ class: "ausgov-table-body" },
+    ...{ class: "agds-table-body" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-table-body']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-table-body']} */ ;
 var __VLS_0 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0;

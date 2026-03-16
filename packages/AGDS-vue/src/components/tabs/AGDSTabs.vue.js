@@ -47,8 +47,8 @@ const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     defaultValue: (props.defaultValue),
     orientation: (__VLS_ctx.orientation),
     ...{ class: ([
-            'ausgov-tabs',
-            props.background === 'bodyAlt' && 'ausgov-tabs--body-alt',
+            'agds-tabs',
+            props.background === 'bodyAlt' && 'agds-tabs--body-alt',
         ]) },
 }));
 const __VLS_2 = __VLS_1({
@@ -57,15 +57,15 @@ const __VLS_2 = __VLS_1({
     defaultValue: (props.defaultValue),
     orientation: (__VLS_ctx.orientation),
     ...{ class: ([
-            'ausgov-tabs',
-            props.background === 'bodyAlt' && 'ausgov-tabs--body-alt',
+            'agds-tabs',
+            props.background === 'bodyAlt' && 'agds-tabs--body-alt',
         ]) },
 }, ...__VLS_functionalComponentArgsRest(__VLS_1));
 let __VLS_5;
 const __VLS_6 = ({ 'update:modelValue': {} },
     { 'onUpdate:modelValue': ((v) => __VLS_ctx.emit('update:modelValue', v)) });
 var __VLS_7 = {};
-/** @type {__VLS_StyleScopedClasses['ausgov-tabs']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tabs']} */ ;
 const { default: __VLS_8 } = __VLS_3.slots;
 var __VLS_9 = {};
 // @ts-ignore

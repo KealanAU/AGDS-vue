@@ -19,20 +19,17 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-table']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-table']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.table, __VLS_intrinsics.table)({
-    ...{ class: "ausgov-table" },
+    ...{ class: "agds-table" },
     ...{ class: ([
-            props.striped && 'ausgov-table--striped',
-            props.tableLayout === 'fixed' && 'ausgov-table--layout-fixed',
+            props.striped && 'agds-table--striped',
+            props.tableLayout === 'fixed' && 'agds-table--layout-fixed',
         ]) },
     tabindex: (props.tabIndex),
-    'aria-labelledby': (props['aria-labelledby']),
-    'aria-describedby': (props['aria-describedby']),
-    'aria-rowcount': (props['aria-rowcount']),
     id: (props.id),
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-table']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-table']} */ ;
 var __VLS_0 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0;

@@ -1,2 +1,2 @@
 import {} from 'vue';
-export const CARD_CONTEXT_KEY = Symbol('AusGovCard');
+export const CARD_CONTEXT_KEY = Symbol('AgDSCard');

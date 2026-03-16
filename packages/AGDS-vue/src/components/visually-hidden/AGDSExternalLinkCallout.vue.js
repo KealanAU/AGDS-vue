@@ -1,9 +1,9 @@
-import AusGovVisuallyHidden from './AGDSVisuallyHidden.vue';
+import AgDSVisuallyHidden from './AGDSVisuallyHidden.vue';
 const __VLS_ctx = {};
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AusGovVisuallyHidden || AusGovVisuallyHidden;
+const __VLS_0 = AgDSVisuallyHidden || AgDSVisuallyHidden;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({}));
 const __VLS_2 = __VLS_1({}, ...__VLS_functionalComponentArgsRest(__VLS_1));

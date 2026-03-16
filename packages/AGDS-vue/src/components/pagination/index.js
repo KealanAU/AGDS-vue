@@ -1,3 +1,3 @@
-export { default as AusGovPagination } from './AGDSPagination.vue';
-export { default as AusGovPaginationButtons } from './AGDSPaginationButtons.vue';
+export { default as AgDSPagination } from './AGDSPagination.vue';
+export { default as AgDSPaginationButtons } from './AGDSPaginationButtons.vue';
 export { usePagination } from './usePagination';

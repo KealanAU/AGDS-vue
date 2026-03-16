@@ -1,2 +1,2 @@
-export { default as AusGovBreadcrumbs } from './AGDSBreadcrumbs.vue';
-export { default as AusGovBreadcrumbsItem } from './AGDSBreadcrumbsItem.vue';
+export { default as AgDSBreadcrumbs } from './AGDSBreadcrumbs.vue';
+export { default as AgDSBreadcrumbsItem } from './AGDSBreadcrumbsItem.vue';

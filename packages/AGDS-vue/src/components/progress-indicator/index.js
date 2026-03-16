@@ -1,1 +1,1 @@
-export { default as AusGovProgressIndicator } from './AGDSProgressIndicator.vue';
+export { default as AgDSProgressIndicator } from './AGDSProgressIndicator.vue';

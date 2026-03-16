@@ -1,4 +1,4 @@
-export { default as AusGovTabs } from './AGDSTabs.vue';
-export { default as AusGovTabList } from './AGDSTabList.vue';
-export { default as AusGovTab } from './AGDSTab.vue';
-export { default as AusGovTabPanel } from './AGDSTabPanel.vue';
+export { default as AgDSTabs } from './AGDSTabs.vue';
+export { default as AgDSTabList } from './AGDSTabList.vue';
+export { default as AgDSTab } from './AGDSTab.vue';
+export { default as AgDSTabPanel } from './AGDSTabPanel.vue';

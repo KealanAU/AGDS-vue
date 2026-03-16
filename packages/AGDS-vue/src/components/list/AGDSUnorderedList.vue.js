@@ -12,11 +12,11 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-    ...{ class: "ausgov-unordered-list" },
-    ...{ class: ({ 'ausgov-list--nested': __VLS_ctx.nested }) },
+    ...{ class: "agds-unordered-list" },
+    ...{ class: ({ 'agds-list--nested': __VLS_ctx.nested }) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-unordered-list']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-list--nested']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-unordered-list']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-list--nested']} */ ;
 var __VLS_0 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0;

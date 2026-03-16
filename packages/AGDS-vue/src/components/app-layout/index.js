@@ -1,6 +1,6 @@
-export { default as AusGovAppLayout } from './AGDSAppLayout.vue';
-export { default as AusGovAppLayoutHeader } from './AGDSAppLayoutHeader.vue';
-export { default as AusGovAppLayoutSidebar } from './AGDSAppLayoutSidebar.vue';
-export { default as AusGovAppLayoutSidebarNav } from './AGDSAppLayoutSidebarNav.vue';
-export { default as AusGovAppLayoutFooter } from './AGDSAppLayoutFooter.vue';
-export { default as AusGovAppLayoutFooterDivider } from './AGDSAppLayoutFooterDivider.vue';
+export { default as AgDSAppLayout } from './AGDSAppLayout.vue';
+export { default as AgDSAppLayoutHeader } from './AGDSAppLayoutHeader.vue';
+export { default as AgDSAppLayoutSidebar } from './AGDSAppLayoutSidebar.vue';
+export { default as AgDSAppLayoutSidebarNav } from './AGDSAppLayoutSidebarNav.vue';
+export { default as AgDSAppLayoutFooter } from './AGDSAppLayoutFooter.vue';
+export { default as AgDSAppLayoutFooterDivider } from './AGDSAppLayoutFooterDivider.vue';

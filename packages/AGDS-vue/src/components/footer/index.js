@@ -1,2 +1,2 @@
-export { default as AusGovFooter } from './AGDSFooter.vue';
-export { default as AusGovFooterDivider } from './AGDSFooterDivider.vue';
+export { default as AgDSFooter } from './AGDSFooter.vue';
+export { default as AgDSFooterDivider } from './AGDSFooterDivider.vue';

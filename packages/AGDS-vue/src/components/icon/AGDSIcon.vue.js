@@ -8,10 +8,10 @@ const __VLS_export = await (async () => {
     });
     const attrs = useAttrs();
     const SIZE_MAP = {
-        sm: 'var(--ausgov-icon-size-sm)',
-        md: 'var(--ausgov-icon-size-md)',
-        lg: 'var(--ausgov-icon-size-lg)',
-        xl: 'var(--ausgov-icon-size-xl)',
+        sm: 'var(--agds-icon-size-sm)',
+        md: 'var(--agds-icon-size-md)',
+        lg: 'var(--agds-icon-size-lg)',
+        xl: 'var(--agds-icon-size-xl)',
     };
     // Strip the UnoCSS/Tailwind "i-" prefix so both "i-mdi:home" and "mdi:home" work
     const iconName = computed(() => typeof props.name === 'string' ? props.name.replace(/^i-/, '') : '');
@@ -66,36 +66,36 @@ const __VLS_export = await (async () => {
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             icon: (__VLS_ctx.iconName),
             focusable: "false",
-            ...{ class: "ausgov-icon" },
+            ...{ class: "agds-icon" },
             ...({ ...__VLS_ctx.$attrs, ...__VLS_ctx.a11yAttrs }),
             ...{ style: (__VLS_ctx.iconStyle) },
         }));
         const __VLS_2 = __VLS_1({
             icon: (__VLS_ctx.iconName),
             focusable: "false",
-            ...{ class: "ausgov-icon" },
+            ...{ class: "agds-icon" },
             ...({ ...__VLS_ctx.$attrs, ...__VLS_ctx.a11yAttrs }),
             ...{ style: (__VLS_ctx.iconStyle) },
         }, ...__VLS_functionalComponentArgsRest(__VLS_1));
         var __VLS_5 = {};
-        /** @type {__VLS_StyleScopedClasses['ausgov-icon']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-icon']} */ ;
         var __VLS_3;
     }
     else {
         const __VLS_6 = (__VLS_ctx.name);
         // @ts-ignore
         const __VLS_7 = __VLS_asFunctionalComponent1(__VLS_6, new __VLS_6({
-            ...{ class: "ausgov-icon" },
+            ...{ class: "agds-icon" },
             ...({ ...__VLS_ctx.$attrs, ...__VLS_ctx.a11yAttrs }),
             ...{ style: (__VLS_ctx.iconStyle) },
         }));
         const __VLS_8 = __VLS_7({
-            ...{ class: "ausgov-icon" },
+            ...{ class: "agds-icon" },
             ...({ ...__VLS_ctx.$attrs, ...__VLS_ctx.a11yAttrs }),
             ...{ style: (__VLS_ctx.iconStyle) },
         }, ...__VLS_functionalComponentArgsRest(__VLS_7));
         var __VLS_11 = {};
-        /** @type {__VLS_StyleScopedClasses['ausgov-icon']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-icon']} */ ;
         var __VLS_9;
     }
     // @ts-ignore

@@ -1,4 +1,4 @@
-import AusGovBaseContent from './AGDSBaseContent.vue';
+import AgDSBaseContent from './AGDSBaseContent.vue';
 const props = withDefaults(defineProps(), {
     as: 'div',
     maxWidth: 'container',
@@ -15,7 +15,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AusGovBaseContent || AusGovBaseContent;
+const __VLS_0 = AgDSBaseContent || AgDSBaseContent;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     as: (props.as),

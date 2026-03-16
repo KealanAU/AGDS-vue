@@ -1,4 +1,4 @@
-import AusGovFeatureLinkListItem from './AGDSFeatureLinkListItem.vue';
+import AgDSFeatureLinkListItem from './AGDSFeatureLinkListItem.vue';
 const __VLS_props = withDefaults(defineProps(), {
     background: 'body',
 });
@@ -14,11 +14,11 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-    ...{ class: "ausgov-feature-link-list" },
+    ...{ class: "agds-feature-link-list" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-feature-link-list']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-feature-link-list']} */ ;
 for (const [link, index] of __VLS_vFor((__VLS_ctx.links))) {
-    const __VLS_0 = AusGovFeatureLinkListItem;
+    const __VLS_0 = AgDSFeatureLinkListItem;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         key: (index),

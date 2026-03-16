@@ -1,1 +1,1 @@
-export { default as AusGovText } from './AGDSText.vue';
+export { default as AgDSText } from './AGDSText.vue';

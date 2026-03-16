@@ -5,7 +5,7 @@ const props = withDefaults(defineProps(), {
     popoverOffset: 8,
 });
 const uid = getCurrentInstance()?.uid ?? 0;
-const menuId = `ausgov-dropdown-menu-${uid}`;
+const menuId = `agds-dropdown-menu-${uid}`;
 const buttonId = `${menuId}-button`;
 const panelId = `${menuId}-panel`;
 // Raw state
@@ -134,9 +134,9 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-dropdown-menu" },
+    ...{ class: "agds-dropdown-menu" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-dropdown-menu']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dropdown-menu']} */ ;
 var __VLS_0 = {
     isMenuOpen: (__VLS_ctx.isMenuOpen),
 };

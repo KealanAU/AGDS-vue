@@ -1,2 +1,2 @@
-export { default as AusGovAccordion } from './AGDSAccordion.vue';
-export { default as AusGovAccordionItem } from './AGDSAccordionItem.vue';
+export { default as AgDSAccordion } from './AGDSAccordion.vue';
+export { default as AgDSAccordionItem } from './AGDSAccordionItem.vue';

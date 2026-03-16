@@ -1,7 +1,7 @@
-import AusGovDropdownMenu from '../dropdown-menu/AGDSDropdownMenu.vue';
-import AusGovDropdownMenuButton from '../dropdown-menu/AGDSDropdownMenuButton.vue';
-import AusGovDropdownMenuPanel from '../dropdown-menu/AGDSDropdownMenuPanel.vue';
-import AusGovDropdownMenuItemLink from '../dropdown-menu/AGDSDropdownMenuItemLink.vue';
+import AgDSDropdownMenu from '../dropdown-menu/AGDSDropdownMenu.vue';
+import AgDSDropdownMenuButton from '../dropdown-menu/AGDSDropdownMenuButton.vue';
+import AgDSDropdownMenuPanel from '../dropdown-menu/AGDSDropdownMenuPanel.vue';
+import AgDSDropdownMenuItemLink from '../dropdown-menu/AGDSDropdownMenuItemLink.vue';
 import { isLinkItem, isDropdownItem } from './mainNavTypes';
 const props = withDefaults(defineProps(), {
     ariaLabel: 'Main',
@@ -18,45 +18,45 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav__list-nav--primary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav__link']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav__link']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav__link--active']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dropdown-menu-btn']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav__list-nav--primary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav__link']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav__link']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav__link--active']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dropdown-menu-btn']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.nav, __VLS_intrinsics.nav)({
     'aria-label': (props.ariaLabel),
     ...{ class: ([
-            'ausgov-main-nav__list-nav',
-            `ausgov-main-nav__list-nav--${props.type}`,
+            'agds-main-nav__list-nav',
+            `agds-main-nav__list-nav--${props.type}`,
         ]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav__list-nav']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav__list-nav']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-    ...{ class: "ausgov-main-nav__list" },
+    ...{ class: "agds-main-nav__list" },
     role: "list",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-main-nav__list']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-main-nav__list']} */ ;
 for (const [item, index] of __VLS_vFor((props.items))) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({
         key: (index),
-        ...{ class: "ausgov-main-nav__list-item" },
+        ...{ class: "agds-main-nav__list-item" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-main-nav__list-item']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-main-nav__list-item']} */ ;
     if (__VLS_ctx.isLinkItem(item)) {
         __VLS_asFunctionalElement1(__VLS_intrinsics.a, __VLS_intrinsics.a)({
             href: (item.href),
             'aria-current': (item.href === props.activePath ? 'page' : undefined),
             ...{ class: ([
-                    'ausgov-main-nav__link',
-                    { 'ausgov-main-nav__link--active': item.href === props.activePath },
+                    'agds-main-nav__link',
+                    { 'agds-main-nav__link--active': item.href === props.activePath },
                 ]) },
         });
-        /** @type {__VLS_StyleScopedClasses['ausgov-main-nav__link']} */ ;
-        /** @type {__VLS_StyleScopedClasses['ausgov-main-nav__link--active']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-main-nav__link']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-main-nav__link--active']} */ ;
         (item.label);
     }
     else if (__VLS_ctx.isDropdownItem(item)) {
-        const __VLS_0 = AusGovDropdownMenu || AusGovDropdownMenu;
+        const __VLS_0 = AgDSDropdownMenu || AgDSDropdownMenu;
         // @ts-ignore
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             popoverPlacement: "bottom-end",
@@ -67,7 +67,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
             popoverOffset: (-8),
         }, ...__VLS_functionalComponentArgsRest(__VLS_1));
         const { default: __VLS_5 } = __VLS_3.slots;
-        const __VLS_6 = AusGovDropdownMenuButton || AusGovDropdownMenuButton;
+        const __VLS_6 = AgDSDropdownMenuButton || AgDSDropdownMenuButton;
         // @ts-ignore
         const __VLS_7 = __VLS_asFunctionalComponent1(__VLS_6, new __VLS_6({}));
         const __VLS_8 = __VLS_7({}, ...__VLS_functionalComponentArgsRest(__VLS_7));
@@ -76,7 +76,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
         // @ts-ignore
         [isLinkItem, isDropdownItem,];
         var __VLS_9;
-        const __VLS_12 = AusGovDropdownMenuPanel || AusGovDropdownMenuPanel;
+        const __VLS_12 = AgDSDropdownMenuPanel || AgDSDropdownMenuPanel;
         // @ts-ignore
         const __VLS_13 = __VLS_asFunctionalComponent1(__VLS_12, new __VLS_12({}));
         const __VLS_14 = __VLS_13({}, ...__VLS_functionalComponentArgsRest(__VLS_13));
@@ -84,7 +84,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
         for (const [sub, si] of __VLS_vFor((item.items))) {
             (si);
             if (__VLS_ctx.isLinkItem(sub)) {
-                const __VLS_18 = AusGovDropdownMenuItemLink || AusGovDropdownMenuItemLink;
+                const __VLS_18 = AgDSDropdownMenuItemLink || AgDSDropdownMenuItemLink;
                 // @ts-ignore
                 const __VLS_19 = __VLS_asFunctionalComponent1(__VLS_18, new __VLS_18({
                     href: (sub.href),
@@ -120,9 +120,9 @@ for (const [item, index] of __VLS_vFor((props.items))) {
                     [];
                 } },
             type: "button",
-            ...{ class: "ausgov-main-nav__link" },
+            ...{ class: "agds-main-nav__link" },
         });
-        /** @type {__VLS_StyleScopedClasses['ausgov-main-nav__link']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-main-nav__link']} */ ;
         (item.label);
     }
     // @ts-ignore

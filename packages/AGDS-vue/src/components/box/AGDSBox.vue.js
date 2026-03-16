@@ -6,7 +6,7 @@ const attrs = useAttrs();
 function spaceVar(val) {
     if (val === undefined)
         return undefined;
-    return typeof val === 'number' ? `var(--ausgov-space-${val})` : val;
+    return typeof val === 'number' ? `var(--agds-space-${val})` : val;
 }
 const style = computed(() => {
     // Start with shorthand padding so individual sides can override below

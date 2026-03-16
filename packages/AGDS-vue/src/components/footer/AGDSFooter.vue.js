@@ -14,17 +14,17 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-footer']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-footer']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.footer, __VLS_intrinsics.footer)({
-    ...{ class: "ausgov-footer" },
-    ...{ class: ([`ausgov-footer--${__VLS_ctx.background}`]) },
+    ...{ class: "agds-footer" },
+    ...{ class: ([`agds-footer--${__VLS_ctx.background}`]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-footer']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-footer']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-footer__inner" },
-    ...{ class: ([`ausgov-footer__inner--${__VLS_ctx.maxWidth}`]) },
+    ...{ class: "agds-footer__inner" },
+    ...{ class: ([`agds-footer__inner--${__VLS_ctx.maxWidth}`]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-footer__inner']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-footer__inner']} */ ;
 var __VLS_0 = {};
 // @ts-ignore
 var __VLS_1 = __VLS_0;

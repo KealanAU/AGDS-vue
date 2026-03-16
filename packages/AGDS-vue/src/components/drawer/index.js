@@ -1,1 +1,1 @@
-export { default as AusGovDrawer } from './AGDSDrawer.vue';
+export { default as AgDSDrawer } from './AGDSDrawer.vue';

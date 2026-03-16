@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AusGovTag from './AGDSTag.vue';
+import AgDSTag from './AGDSTag.vue';
 const __VLS_props = defineProps();
 const emit = defineEmits();
 const listRef = ref(null);
@@ -10,7 +10,7 @@ const listRef = ref(null);
  * change before they mutate the items array.
  */
 function onTagRemove(index, event) {
-    const buttons = listRef.value?.querySelectorAll('.ausgov-tag__remove');
+    const buttons = listRef.value?.querySelectorAll('.agds-tag__remove');
     if (buttons?.length) {
         const targetIndex = Math.max(0, index - 1);
         buttons[targetIndex]?.focus();
@@ -28,22 +28,22 @@ let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-tags" },
+    ...{ class: "agds-tags" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-tags']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tags']} */ ;
 var __VLS_0 = {};
 __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
     ref: "listRef",
-    ...{ class: "ausgov-tags__list" },
+    ...{ class: "agds-tags__list" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-tags__list']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-tags__list']} */ ;
 for (const [item, index] of __VLS_vFor((__VLS_ctx.items))) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({
         key: (index),
-        ...{ class: "ausgov-tags__item" },
+        ...{ class: "agds-tags__item" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-tags__item']} */ ;
-    const __VLS_2 = AusGovTag;
+    /** @type {__VLS_StyleScopedClasses['agds-tags__item']} */ ;
+    const __VLS_2 = AgDSTag;
     // @ts-ignore
     const __VLS_3 = __VLS_asFunctionalComponent1(__VLS_2, new __VLS_2({
         ...{ 'onRemove': {} },

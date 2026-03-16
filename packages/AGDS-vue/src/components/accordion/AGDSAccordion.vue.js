@@ -35,7 +35,7 @@ const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     collapsible: (props.type === 'single' ? props.collapsible : undefined),
     modelValue: (props.modelValue),
     defaultValue: (props.defaultValue),
-    ...{ class: "ausgov-accordion" },
+    ...{ class: "agds-accordion" },
 }));
 const __VLS_2 = __VLS_1({
     ...{ 'onUpdate:modelValue': {} },
@@ -43,13 +43,13 @@ const __VLS_2 = __VLS_1({
     collapsible: (props.type === 'single' ? props.collapsible : undefined),
     modelValue: (props.modelValue),
     defaultValue: (props.defaultValue),
-    ...{ class: "ausgov-accordion" },
+    ...{ class: "agds-accordion" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_1));
 let __VLS_5;
 const __VLS_6 = ({ 'update:modelValue': {} },
     { 'onUpdate:modelValue': ((v) => v !== undefined && __VLS_ctx.emit('update:modelValue', v)) });
 var __VLS_7 = {};
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion']} */ ;
 const { default: __VLS_8 } = __VLS_3.slots;
 var __VLS_9 = {};
 // @ts-ignore

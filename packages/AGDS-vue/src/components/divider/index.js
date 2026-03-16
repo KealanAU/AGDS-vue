@@ -1,1 +1,1 @@
-export { default as AusGovDivider } from './AGDSDivider.vue';
+export { default as AgDSDivider } from './AGDSDivider.vue';

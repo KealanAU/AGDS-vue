@@ -23,13 +23,13 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__trigger']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__trigger']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__trigger']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__chevron']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__panel']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__panel']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__panel-inner']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__chevron']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel-inner']} */ ;
 let __VLS_0;
 /** @ts-ignore @type {typeof __VLS_components.AccordionItem | typeof __VLS_components.AccordionItem} */
 AccordionItem;
@@ -37,15 +37,15 @@ AccordionItem;
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     value: (props.value),
     disabled: (props.disabled),
-    ...{ class: "ausgov-accordion-item" },
+    ...{ class: "agds-accordion-item" },
 }));
 const __VLS_2 = __VLS_1({
     value: (props.value),
     disabled: (props.disabled),
-    ...{ class: "ausgov-accordion-item" },
+    ...{ class: "agds-accordion-item" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_1));
 var __VLS_5 = {};
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item']} */ ;
 const { default: __VLS_6 } = __VLS_3.slots;
 let __VLS_7;
 /** @ts-ignore @type {typeof __VLS_components.AccordionHeader | typeof __VLS_components.AccordionHeader} */
@@ -53,13 +53,13 @@ AccordionHeader;
 // @ts-ignore
 const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
     as: (`h${props.headingLevel}`),
-    ...{ class: "ausgov-accordion-item__heading" },
+    ...{ class: "agds-accordion-item__heading" },
 }));
 const __VLS_9 = __VLS_8({
     as: (`h${props.headingLevel}`),
-    ...{ class: "ausgov-accordion-item__heading" },
+    ...{ class: "agds-accordion-item__heading" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_8));
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__heading']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__heading']} */ ;
 const { default: __VLS_12 } = __VLS_10.slots;
 let __VLS_13;
 /** @ts-ignore @type {typeof __VLS_components.AccordionTrigger | typeof __VLS_components.AccordionTrigger} */
@@ -67,28 +67,28 @@ AccordionTrigger;
 // @ts-ignore
 const __VLS_14 = __VLS_asFunctionalComponent1(__VLS_13, new __VLS_13({
     ...{ class: ([
-            'ausgov-accordion-item__trigger',
-            `ausgov-accordion-item__trigger--bg-${__VLS_ctx.activeBackground}`,
-            { 'ausgov-accordion-item__trigger--indented': __VLS_ctx.indent },
+            'agds-accordion-item__trigger',
+            `agds-accordion-item__trigger--bg-${__VLS_ctx.activeBackground}`,
+            { 'agds-accordion-item__trigger--indented': __VLS_ctx.indent },
         ]) },
 }));
 const __VLS_15 = __VLS_14({
     ...{ class: ([
-            'ausgov-accordion-item__trigger',
-            `ausgov-accordion-item__trigger--bg-${__VLS_ctx.activeBackground}`,
-            { 'ausgov-accordion-item__trigger--indented': __VLS_ctx.indent },
+            'agds-accordion-item__trigger',
+            `agds-accordion-item__trigger--bg-${__VLS_ctx.activeBackground}`,
+            { 'agds-accordion-item__trigger--indented': __VLS_ctx.indent },
         ]) },
 }, ...__VLS_functionalComponentArgsRest(__VLS_14));
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__trigger']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__trigger--indented']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger--indented']} */ ;
 const { default: __VLS_18 } = __VLS_16.slots;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-    ...{ class: "ausgov-accordion-item__title" },
+    ...{ class: "agds-accordion-item__title" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__title']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__title']} */ ;
 (props.title);
 __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
-    ...{ class: "ausgov-accordion-item__chevron" },
+    ...{ class: "agds-accordion-item__chevron" },
     'aria-hidden': "true",
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 24 24",
@@ -98,7 +98,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
     'stroke-linecap': "round",
     'stroke-linejoin': "round",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__chevron']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__chevron']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.polyline)({
     points: "6 9 12 15 18 9",
 });
@@ -114,23 +114,23 @@ AccordionContent;
 // @ts-ignore
 const __VLS_20 = __VLS_asFunctionalComponent1(__VLS_19, new __VLS_19({
     ...{ class: ([
-            'ausgov-accordion-item__panel',
-            { 'ausgov-accordion-item__panel--indented': __VLS_ctx.indent },
+            'agds-accordion-item__panel',
+            { 'agds-accordion-item__panel--indented': __VLS_ctx.indent },
         ]) },
 }));
 const __VLS_21 = __VLS_20({
     ...{ class: ([
-            'ausgov-accordion-item__panel',
-            { 'ausgov-accordion-item__panel--indented': __VLS_ctx.indent },
+            'agds-accordion-item__panel',
+            { 'agds-accordion-item__panel--indented': __VLS_ctx.indent },
         ]) },
 }, ...__VLS_functionalComponentArgsRest(__VLS_20));
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__panel']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__panel--indented']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel--indented']} */ ;
 const { default: __VLS_24 } = __VLS_22.slots;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-accordion-item__panel-inner" },
+    ...{ class: "agds-accordion-item__panel-inner" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-accordion-item__panel-inner']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel-inner']} */ ;
 var __VLS_25 = {};
 // @ts-ignore
 [indent,];

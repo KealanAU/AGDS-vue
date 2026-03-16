@@ -1,1 +1,1 @@
-export { default as AusGovNotificationBadge } from './AGDSNotificationBadge.vue';
+export { default as AgDSNotificationBadge } from './AGDSNotificationBadge.vue';

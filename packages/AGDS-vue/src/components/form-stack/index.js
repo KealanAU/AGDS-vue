@@ -1,1 +1,1 @@
-export { default as AusGovFormStack } from './AGDSFormStack.vue';
+export { default as AgDSFormStack } from './AGDSFormStack.vue';

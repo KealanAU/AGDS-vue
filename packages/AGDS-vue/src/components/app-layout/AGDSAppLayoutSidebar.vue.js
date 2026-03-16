@@ -1,6 +1,6 @@
 import { ref, watch, nextTick, computed } from 'vue';
 import { useAppLayoutContext } from './appLayoutContext';
-import AusGovAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue';
+import AgDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue';
 import { findBestMatch, } from './appLayoutTypes';
 const props = withDefaults(defineProps(), {
     background: 'bodyAlt',
@@ -58,19 +58,19 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-alsdialog__close']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-alsdialog__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-alsdialog__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-alsdialog__close']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.aside, __VLS_intrinsics.aside)({
-    ...{ class: "ausgov-app-layout-sidebar" },
+    ...{ class: "agds-app-layout-sidebar" },
     ...{ class: ([
-            `ausgov-app-layout-sidebar--${__VLS_ctx.background}`,
-            { 'ausgov-app-layout-sidebar--focus-mode': __VLS_ctx.focusMode },
+            `agds-app-layout-sidebar--${__VLS_ctx.background}`,
+            { 'agds-app-layout-sidebar--focus-mode': __VLS_ctx.focusMode },
         ]) },
     'aria-label': "Navigation",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout-sidebar']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-app-layout-sidebar--focus-mode']} */ ;
-const __VLS_0 = AusGovAppLayoutSidebarNav;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout-sidebar']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-app-layout-sidebar--focus-mode']} */ ;
+const __VLS_0 = AgDSAppLayoutSidebarNav;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     items: (__VLS_ctx.items),
@@ -100,19 +100,19 @@ let __VLS_11;
 Transition;
 // @ts-ignore
 const __VLS_12 = __VLS_asFunctionalComponent1(__VLS_11, new __VLS_11({
-    name: "ausgov-alsdialog-backdrop",
+    name: "agds-alsdialog-backdrop",
 }));
 const __VLS_13 = __VLS_12({
-    name: "ausgov-alsdialog-backdrop",
+    name: "agds-alsdialog-backdrop",
 }, ...__VLS_functionalComponentArgsRest(__VLS_12));
 const { default: __VLS_16 } = __VLS_14.slots;
 if (__VLS_ctx.isMobileMenuOpen) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div)({
         ...{ onClick: (__VLS_ctx.closeMobileMenu) },
-        ...{ class: "ausgov-alsdialog__backdrop" },
+        ...{ class: "agds-alsdialog__backdrop" },
         'aria-hidden': "true",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-alsdialog__backdrop']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-alsdialog__backdrop']} */ ;
 }
 // @ts-ignore
 [background, background, focusMode, items, bestMatch, subLevelVisible, isMobileMenuOpen, closeMobileMenu,];
@@ -122,36 +122,36 @@ let __VLS_17;
 Transition;
 // @ts-ignore
 const __VLS_18 = __VLS_asFunctionalComponent1(__VLS_17, new __VLS_17({
-    name: "ausgov-alsdialog-panel",
+    name: "agds-alsdialog-panel",
 }));
 const __VLS_19 = __VLS_18({
-    name: "ausgov-alsdialog-panel",
+    name: "agds-alsdialog-panel",
 }, ...__VLS_functionalComponentArgsRest(__VLS_18));
 const { default: __VLS_22 } = __VLS_20.slots;
 if (__VLS_ctx.isMobileMenuOpen) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
         ...{ onKeydown: (__VLS_ctx.handleKeydown) },
-        id: "ausgov-app-layout-sidebar-dialog",
+        id: "agds-app-layout-sidebar-dialog",
         ref: "dialogEl",
         role: "dialog",
         'aria-modal': "true",
         'aria-label': "Menu",
-        ...{ class: "ausgov-alsdialog" },
-        ...{ class: ([`ausgov-alsdialog--${__VLS_ctx.background}`]) },
+        ...{ class: "agds-alsdialog" },
+        ...{ class: ([`agds-alsdialog--${__VLS_ctx.background}`]) },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-alsdialog']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-alsdialog']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-        ...{ class: "ausgov-alsdialog__header" },
+        ...{ class: "agds-alsdialog__header" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-alsdialog__header']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-alsdialog__header']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
         ...{ onClick: (__VLS_ctx.closeMobileMenu) },
         ref: "closeButtonEl",
         type: "button",
-        ...{ class: "ausgov-alsdialog__close" },
+        ...{ class: "agds-alsdialog__close" },
         'aria-label': "Close menu",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-alsdialog__close']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-alsdialog__close']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
         'aria-hidden': "true",
         xmlns: "http://www.w3.org/2000/svg",
@@ -161,9 +161,9 @@ if (__VLS_ctx.isMobileMenuOpen) {
         'stroke-width': "2.5",
         'stroke-linecap': "round",
         'stroke-linejoin': "round",
-        ...{ class: "ausgov-alsdialog__close-icon" },
+        ...{ class: "agds-alsdialog__close-icon" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-alsdialog__close-icon']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-alsdialog__close-icon']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.line)({
         x1: "18",
         y1: "6",
@@ -177,7 +177,7 @@ if (__VLS_ctx.isMobileMenuOpen) {
         y2: "18",
     });
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({});
-    const __VLS_23 = AusGovAppLayoutSidebarNav;
+    const __VLS_23 = AgDSAppLayoutSidebarNav;
     // @ts-ignore
     const __VLS_24 = __VLS_asFunctionalComponent1(__VLS_23, new __VLS_23({
         ...{ 'onClose': {} },

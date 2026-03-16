@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import AusGovCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue';
+import AgDSCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue';
 const props = withDefaults(defineProps(), {
     activeFiltersCount: 0,
     background: 'body',
@@ -30,11 +30,11 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__body']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__clear-btn']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__clear-btn']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__clear-btn']} */ ;
-const __VLS_0 = AusGovCollapsingSideBar || AusGovCollapsingSideBar;
+/** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__body']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
+const __VLS_0 = AgDSCollapsingSideBar || AgDSCollapsingSideBar;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     title: (__VLS_ctx.title),
@@ -51,16 +51,16 @@ const __VLS_2 = __VLS_1({
 var __VLS_5 = {};
 const { default: __VLS_6 } = __VLS_3.slots;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-filter-sidebar__body" },
+    ...{ class: "agds-filter-sidebar__body" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__body']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__body']} */ ;
 var __VLS_7 = {};
 if (props.showClearFilters) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.hr)({
-        ...{ class: "ausgov-filter-sidebar__divider" },
+        ...{ class: "agds-filter-sidebar__divider" },
         'aria-hidden': "true",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__divider']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__divider']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
         ...{ onClick: (...[$event]) => {
                 if (!(props.showClearFilters))
@@ -70,9 +70,9 @@ if (props.showClearFilters) {
                 [title, ariaLabel, emit,];
             } },
         type: "button",
-        ...{ class: "ausgov-filter-sidebar__clear-btn" },
+        ...{ class: "agds-filter-sidebar__clear-btn" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-filter-sidebar__clear-btn']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
 }
 // @ts-ignore
 [];

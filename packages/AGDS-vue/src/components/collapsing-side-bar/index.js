@@ -1,1 +1,1 @@
-export { default as AusGovCollapsingSideBar } from './AGDSCollapsingSideBar.vue';
+export { default as AgDSCollapsingSideBar } from './AGDSCollapsingSideBar.vue';

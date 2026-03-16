@@ -24,10 +24,10 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__dialog']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__close']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__close']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__title']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__dialog']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__title']} */ ;
 let __VLS_0;
 /** @ts-ignore @type {typeof __VLS_components.DialogRoot | typeof __VLS_components.DialogRoot} */
 DialogRoot;
@@ -61,28 +61,28 @@ let __VLS_15;
 DialogOverlay;
 // @ts-ignore
 const __VLS_16 = __VLS_asFunctionalComponent1(__VLS_15, new __VLS_15({
-    ...{ class: "ausgov-modal__overlay" },
+    ...{ class: "agds-modal__overlay" },
 }));
 const __VLS_17 = __VLS_16({
-    ...{ class: "ausgov-modal__overlay" },
+    ...{ class: "agds-modal__overlay" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_16));
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__overlay']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__overlay']} */ ;
 let __VLS_20;
 /** @ts-ignore @type {typeof __VLS_components.DialogContent | typeof __VLS_components.DialogContent} */
 DialogContent;
 // @ts-ignore
 const __VLS_21 = __VLS_asFunctionalComponent1(__VLS_20, new __VLS_20({
     ...{ 'onOpenAutoFocus': {} },
-    ...{ class: "ausgov-modal__dialog" },
+    ...{ class: "agds-modal__dialog" },
 }));
 const __VLS_22 = __VLS_21({
     ...{ 'onOpenAutoFocus': {} },
-    ...{ class: "ausgov-modal__dialog" },
+    ...{ class: "agds-modal__dialog" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_21));
 let __VLS_25;
 const __VLS_26 = ({ openAutoFocus: {} },
     { onOpenAutoFocus: (__VLS_ctx.onOpenAutoFocus) });
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__dialog']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__dialog']} */ ;
 const { default: __VLS_27 } = __VLS_23.slots;
 let __VLS_28;
 /** @ts-ignore @type {typeof __VLS_components.DialogClose | typeof __VLS_components.DialogClose} */
@@ -97,12 +97,12 @@ const __VLS_30 = __VLS_29({
 const { default: __VLS_33 } = __VLS_31.slots;
 __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
     type: "button",
-    ...{ class: "ausgov-modal__close" },
+    ...{ class: "agds-modal__close" },
     'aria-label': "Close modal",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__close']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__close']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
-    ...{ class: "ausgov-modal__close-icon" },
+    ...{ class: "agds-modal__close-icon" },
     'aria-hidden': "true",
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 24 24",
@@ -112,7 +112,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
     'stroke-linecap': "round",
     'stroke-linejoin': "round",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__close-icon']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__close-icon']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.line)({
     x1: "18",
     y1: "6",
@@ -136,30 +136,30 @@ DialogTitle;
 const __VLS_35 = __VLS_asFunctionalComponent1(__VLS_34, new __VLS_34({
     ref: "titleRef",
     tabindex: "-1",
-    ...{ class: "ausgov-modal__title" },
+    ...{ class: "agds-modal__title" },
 }));
 const __VLS_36 = __VLS_35({
     ref: "titleRef",
     tabindex: "-1",
-    ...{ class: "ausgov-modal__title" },
+    ...{ class: "agds-modal__title" },
 }, ...__VLS_functionalComponentArgsRest(__VLS_35));
 var __VLS_39 = {};
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__title']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__title']} */ ;
 const { default: __VLS_41 } = __VLS_37.slots;
 (props.title);
 // @ts-ignore
 [];
 var __VLS_37;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-modal__body" },
+    ...{ class: "agds-modal__body" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-modal__body']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-modal__body']} */ ;
 var __VLS_42 = {};
 if (__VLS_ctx.$slots.actions) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-        ...{ class: "ausgov-modal__actions" },
+        ...{ class: "agds-modal__actions" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-modal__actions']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-modal__actions']} */ ;
     var __VLS_44 = {};
 }
 // @ts-ignore

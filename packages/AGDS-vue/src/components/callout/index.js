@@ -1,1 +1,1 @@
-export { default as AusGovCallout } from './AGDSCallout.vue';
+export { default as AgDSCallout } from './AGDSCallout.vue';

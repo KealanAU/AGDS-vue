@@ -1,5 +1,10 @@
-import AusGovFlex from '../flex/AGDSFlex.vue';
-const __VLS_props = defineProps();
+import AgDSFlex from '../flex/AGDSFlex.vue';
+const __VLS_props = withDefaults(defineProps(), {
+    as: 'div',
+});
+const __VLS_defaults = {
+    as: 'div',
+};
 const __VLS_ctx = {
     ...{},
     ...{},
@@ -8,7 +13,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AusGovFlex || AusGovFlex;
+const __VLS_0 = AgDSFlex || AgDSFlex;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     as: (__VLS_ctx.as),
@@ -32,6 +37,7 @@ var __VLS_8 = __VLS_7;
 [];
 const __VLS_base = (await import('vue')).defineComponent({
     __typeProps: {},
+    props: {},
 });
 const __VLS_export = {};
 export default {};

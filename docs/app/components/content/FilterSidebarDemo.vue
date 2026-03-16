@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { AgDSFilterSidebar } from 'AGDS-vue'
+import { AgDSFilterSidebar } from 'agds-vue'
 
 const props = defineProps<{
   /** 'default' | 'active' | 'clear' | 'bodyAlt' */

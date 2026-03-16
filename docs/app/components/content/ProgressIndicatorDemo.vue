@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { AgDSProgressIndicator } from 'AGDS-vue'
-import type { ProgressIndicatorItem } from 'AGDS-vue'
+import { AgDSProgressIndicator } from 'agds-vue'
+import type { ProgressIndicatorItem } from 'agds-vue'
 
 const props = defineProps<{
   /** 'default' | 'statuses' | 'sub-items' | 'bodyAlt' */

@@ -1,1 +1,1 @@
-export { default as AusGovFlex } from './AGDSFlex.vue';
+export { default as AgDSFlex } from './AGDSFlex.vue';

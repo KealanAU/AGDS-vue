@@ -27,38 +27,38 @@ let __VLS_intrinsics;
 let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.nav, __VLS_intrinsics.nav)({
     'aria-label': "Main",
-    ...{ class: "ausgov-alsnav" },
-    'aria-labelledby': "ausgov-alsnav-label",
+    ...{ class: "agds-alsnav" },
+    'aria-labelledby': "agds-alsnav-label",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-alsnav']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-alsnav']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-    id: "ausgov-alsnav-label",
+    id: "agds-alsnav-label",
     ...{ class: "sr-only" },
 });
 /** @type {__VLS_StyleScopedClasses['sr-only']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.ul, __VLS_intrinsics.ul)({
-    ...{ class: "ausgov-alsnav__list" },
+    ...{ class: "agds-alsnav__list" },
     role: "list",
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-alsnav__list']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-alsnav__list']} */ ;
 for (const [group, gi] of __VLS_vFor((__VLS_ctx.groups))) {
     (gi);
     if (gi > 0) {
         __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({
-            ...{ class: "ausgov-alsnav__divider-item" },
+            ...{ class: "agds-alsnav__divider-item" },
             ...{ class: ({
-                    'ausgov-alsnav__divider-item--no-top': __VLS_ctx.groups[gi - 1].options?.disableGroupPadding,
-                    'ausgov-alsnav__divider-item--no-bottom': group.options?.disableGroupPadding,
+                    'agds-alsnav__divider-item--no-top': __VLS_ctx.groups[gi - 1].options?.disableGroupPadding,
+                    'agds-alsnav__divider-item--no-bottom': group.options?.disableGroupPadding,
                 }) },
             'aria-hidden': "true",
         });
-        /** @type {__VLS_StyleScopedClasses['ausgov-alsnav__divider-item']} */ ;
-        /** @type {__VLS_StyleScopedClasses['ausgov-alsnav__divider-item--no-top']} */ ;
-        /** @type {__VLS_StyleScopedClasses['ausgov-alsnav__divider-item--no-bottom']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-alsnav__divider-item']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-alsnav__divider-item--no-top']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-alsnav__divider-item--no-bottom']} */ ;
         __VLS_asFunctionalElement1(__VLS_intrinsics.hr)({
-            ...{ class: "ausgov-alsnav__divider" },
+            ...{ class: "agds-alsnav__divider" },
         });
-        /** @type {__VLS_StyleScopedClasses['ausgov-alsnav__divider']} */ ;
+        /** @type {__VLS_StyleScopedClasses['agds-alsnav__divider']} */ ;
     }
     for (const [item, ii] of __VLS_vFor((group.items))) {
         const __VLS_0 = AppLayoutSidebarNavItem;

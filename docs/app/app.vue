@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import 'AGDS-vue/styles'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div id="app">

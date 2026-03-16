@@ -1,2 +1,2 @@
 import {} from 'vue';
-export const TABLE_CONTEXT_KEY = Symbol('AusGovTable');
+export const TABLE_CONTEXT_KEY = Symbol('AgDSTable');

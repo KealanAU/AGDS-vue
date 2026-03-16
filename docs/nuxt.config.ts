@@ -10,6 +10,12 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
+  },
+
   modules: ['@nuxt/content'],
 
   content: {

@@ -1,1 +1,1 @@
-export { default as AusGovLoadingBlanket } from './AGDSLoadingBlanket.vue';
+export { default as AgDSLoadingBlanket } from './AGDSLoadingBlanket.vue';

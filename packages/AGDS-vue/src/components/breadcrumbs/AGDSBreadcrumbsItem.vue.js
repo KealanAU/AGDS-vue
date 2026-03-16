@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AusGovBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue';
+import AgDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue';
 const __VLS_props = withDefaults(defineProps(), {
     current: false,
 });
@@ -17,14 +17,14 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-breadcrumbs__item']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-breadcrumbs__link']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-breadcrumbs__link']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__item']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__link']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__link']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({
-    ...{ class: "ausgov-breadcrumbs__item" },
+    ...{ class: "agds-breadcrumbs__item" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-breadcrumbs__item']} */ ;
-const __VLS_0 = AusGovBreadcrumbsDivider;
+/** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__item']} */ ;
+const __VLS_0 = AgDSBreadcrumbsDivider;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({}));
 const __VLS_2 = __VLS_1({}, ...__VLS_functionalComponentArgsRest(__VLS_1));
@@ -33,9 +33,9 @@ if (__VLS_ctx.href) {
         ref: "linkRef",
         href: (__VLS_ctx.href),
         'aria-current': (__VLS_ctx.current ? 'page' : undefined),
-        ...{ class: "ausgov-breadcrumbs__link" },
+        ...{ class: "agds-breadcrumbs__link" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-breadcrumbs__link']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__link']} */ ;
     (__VLS_ctx.label);
     if (__VLS_ctx.current) {
         __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
@@ -47,9 +47,9 @@ if (__VLS_ctx.href) {
 else {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
         'aria-current': (__VLS_ctx.current ? 'page' : undefined),
-        ...{ class: "ausgov-breadcrumbs__text" },
+        ...{ class: "agds-breadcrumbs__text" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-breadcrumbs__text']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__text']} */ ;
     (__VLS_ctx.label);
     if (__VLS_ctx.current) {
         __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({

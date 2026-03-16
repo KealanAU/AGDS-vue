@@ -26,12 +26,12 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio--active']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__label']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio--checked']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio--active']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio--checked']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio__label']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
     ...{ onClick: (__VLS_ctx.handleClick) },
     ref: "itemEl",
@@ -40,41 +40,41 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
     tabindex: "-1",
     'aria-checked': (__VLS_ctx.checked),
     ...{ class: ([
-            'ausgov-dm-radio',
+            'agds-dm-radio',
             {
-                'ausgov-dm-radio--active': __VLS_ctx.isActive,
-                'ausgov-dm-radio--checked': __VLS_ctx.checked,
+                'agds-dm-radio--active': __VLS_ctx.isActive,
+                'agds-dm-radio--checked': __VLS_ctx.checked,
             },
         ]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio--active']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio--checked']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio--active']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio--checked']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-    ...{ class: "ausgov-dm-radio__stack" },
+    ...{ class: "agds-dm-radio__stack" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__stack']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio__stack']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     ...{ class: ([
-            'ausgov-dm-radio__label',
-            { 'ausgov-dm-radio__label--checked': __VLS_ctx.checked },
+            'agds-dm-radio__label',
+            { 'agds-dm-radio__label--checked': __VLS_ctx.checked },
         ]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__label']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__label--checked']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-radio__label--checked']} */ ;
 var __VLS_0 = {};
 if (__VLS_ctx.secondaryText) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-        ...{ class: "ausgov-dm-radio__secondary" },
+        ...{ class: "agds-dm-radio__secondary" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__secondary']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-dm-radio__secondary']} */ ;
     (__VLS_ctx.secondaryText);
 }
 if (__VLS_ctx.$slots.endElement) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
-        ...{ class: "ausgov-dm-radio__end" },
+        ...{ class: "agds-dm-radio__end" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-dm-radio__end']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-dm-radio__end']} */ ;
     var __VLS_2 = {};
 }
 // @ts-ignore

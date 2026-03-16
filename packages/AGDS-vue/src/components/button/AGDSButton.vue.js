@@ -42,16 +42,16 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--primary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--primary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--secondary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--secondary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--tertiary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--tertiary']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--text']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--text']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--primary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--primary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--secondary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--secondary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--tertiary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--tertiary']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--text']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--text']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
     ...{ onClick: (__VLS_ctx.handleClick) },
     ...{ onFocus: (...[$event]) => {
@@ -75,64 +75,64 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
     'aria-busy': (props.loading ? true : undefined),
     'aria-disabled': ((props.disabled || props.loading) ? true : undefined),
     ...{ class: ([
-            'ausgov-button',
-            `ausgov-button--${props.variant}`,
-            `ausgov-button--${props.size}`,
+            'agds-button',
+            `agds-button--${props.variant}`,
+            `agds-button--${props.size}`,
             {
-                'ausgov-button--block': props.block,
-                'ausgov-button--loading': props.loading,
-                'ausgov-button--disabled': props.disabled,
-                'ausgov-button--focus-all': props.focusRingFor === 'all',
+                'agds-button--block': props.block,
+                'agds-button--loading': props.loading,
+                'agds-button--disabled': props.disabled,
+                'agds-button--focus-all': props.focusRingFor === 'all',
             },
         ]) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-button']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--block']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--loading']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--disabled']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button--focus-all']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--block']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--loading']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--disabled']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button--focus-all']} */ ;
 if (__VLS_ctx.$slots.iconBefore) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-        ...{ class: "ausgov-button__icon" },
+        ...{ class: "agds-button__icon" },
         'aria-hidden': "true",
-        ...{ class: ({ 'ausgov-button__icon--hidden': props.loading }) },
+        ...{ class: ({ 'agds-button__icon--hidden': props.loading }) },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-button__icon']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-button__icon--hidden']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-button__icon']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-button__icon--hidden']} */ ;
     var __VLS_0 = {};
 }
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-    ...{ class: "ausgov-button__label" },
-    ...{ class: ({ 'ausgov-button__label--hidden': props.loading }) },
+    ...{ class: "agds-button__label" },
+    ...{ class: ({ 'agds-button__label--hidden': props.loading }) },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-button__label']} */ ;
-/** @type {__VLS_StyleScopedClasses['ausgov-button__label--hidden']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button__label--hidden']} */ ;
 var __VLS_2 = {};
 if (__VLS_ctx.$slots.iconAfter) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-        ...{ class: "ausgov-button__icon" },
+        ...{ class: "agds-button__icon" },
         'aria-hidden': "true",
-        ...{ class: ({ 'ausgov-button__icon--hidden': props.loading }) },
+        ...{ class: ({ 'agds-button__icon--hidden': props.loading }) },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-button__icon']} */ ;
-    /** @type {__VLS_StyleScopedClasses['ausgov-button__icon--hidden']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-button__icon']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-button__icon--hidden']} */ ;
     var __VLS_4 = {};
 }
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     'aria-live': "assertive",
-    ...{ class: "ausgov-button__live-region" },
+    ...{ class: "agds-button__live-region" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-button__live-region']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-button__live-region']} */ ;
 if (props.loading) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
-        ...{ class: "ausgov-button__loading-indicator" },
+        ...{ class: "agds-button__loading-indicator" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-button__loading-indicator']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-button__loading-indicator']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.span)({
-        ...{ class: "ausgov-button__spinner" },
+        ...{ class: "agds-button__spinner" },
         'aria-hidden': "true",
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-button__spinner']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-button__spinner']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
         ...{ class: "sr-only" },
     });

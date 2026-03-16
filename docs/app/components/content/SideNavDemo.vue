@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { AgDSSideNav } from 'AGDS-vue'
-import type { SideNavItem } from 'AGDS-vue'
+import { AgDSSideNav } from 'agds-vue'
+import type { SideNavItem } from 'agds-vue'
 
 const props = defineProps<{
   /** 'default' | 'always' */

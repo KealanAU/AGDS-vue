@@ -80,13 +80,13 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-/** @type {__VLS_StyleScopedClasses['ausgov-dropdown-menu__panel']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dropdown-menu__panel']} */ ;
 if (!__VLS_ctx.isMenuOpen) {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div)({
         id: (__VLS_ctx.panelId),
-        ...{ class: "ausgov-dropdown-menu__placeholder" },
+        ...{ class: "agds-dropdown-menu__placeholder" },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-dropdown-menu__placeholder']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-dropdown-menu__placeholder']} */ ;
 }
 else {
     __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
@@ -98,12 +98,12 @@ else {
         'aria-labelledby': (__VLS_ctx.buttonId),
         'aria-activedescendant': (__VLS_ctx.activeDescendantId ?? undefined),
         ...{ class: ([
-                'ausgov-dropdown-menu__panel',
-                `ausgov-dropdown-menu__panel--${__VLS_ctx.popoverPlacement}`,
+                'agds-dropdown-menu__panel',
+                `agds-dropdown-menu__panel--${__VLS_ctx.popoverPlacement}`,
             ]) },
         ...{ style: (__VLS_ctx.panelStyle) },
     });
-    /** @type {__VLS_StyleScopedClasses['ausgov-dropdown-menu__panel']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-dropdown-menu__panel']} */ ;
     var __VLS_0 = {};
 }
 // @ts-ignore

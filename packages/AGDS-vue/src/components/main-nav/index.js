@@ -1,1 +1,1 @@
-export { default as AusGovMainNav } from './AGDSMainNav.vue';
+export { default as AgDSMainNav } from './AGDSMainNav.vue';

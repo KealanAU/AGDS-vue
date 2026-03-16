@@ -1,1 +1,1 @@
-export { default as AusGovIcon } from './AGDSIcon.vue';
+export { default as AgDSIcon } from './AGDSIcon.vue';

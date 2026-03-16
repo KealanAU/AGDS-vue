@@ -37,15 +37,15 @@ let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     ...(__VLS_ctx.attrs),
     ...{ class: ([
-            'ausgov-avatar',
-            `ausgov-avatar--${props.tone}`,
-            `ausgov-avatar--${props.size}`,
+            'agds-avatar',
+            `agds-avatar--${props.tone}`,
+            `agds-avatar--${props.size}`,
         ]) },
     role: (__VLS_ctx.isHidden ? undefined : 'img'),
     'aria-label': (__VLS_ctx.ariaLabel),
     'aria-hidden': (__VLS_ctx.isHidden ? 'true' : undefined),
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-avatar']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-avatar']} */ ;
 (__VLS_ctx.initials);
 // @ts-ignore
 [attrs, isHidden, isHidden, ariaLabel, initials,];

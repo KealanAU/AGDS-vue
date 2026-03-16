@@ -16,14 +16,14 @@ let __VLS_directives;
 __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
     role: "group",
     'aria-labelledby': (__VLS_ctx.groupId),
-    ...{ class: "ausgov-dm-group" },
+    ...{ class: "agds-dm-group" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-group']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-group']} */ ;
 __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     id: (__VLS_ctx.groupId),
-    ...{ class: "ausgov-dm-group__label" },
+    ...{ class: "agds-dm-group__label" },
 });
-/** @type {__VLS_StyleScopedClasses['ausgov-dm-group__label']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-dm-group__label']} */ ;
 (__VLS_ctx.label);
 var __VLS_0 = {};
 // @ts-ignore

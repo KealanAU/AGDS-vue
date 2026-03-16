@@ -1,1 +1,1 @@
-export { default as AusGovBox } from './AGDSBox.vue';
+export { default as AgDSBox } from './AGDSBox.vue';
