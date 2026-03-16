@@ -101,7 +101,7 @@ const tokenGroups = [
               <tr>
                 <th scope="col">Token</th>
                 <th scope="col">Value</th>
-                <th v-if="group.tokens[0].type === 'color'" scope="col">Swatch</th>
+                <th v-if="group.tokens[0]?.type === 'color'" scope="col">Swatch</th>
               </tr>
             </thead>
             <tbody>

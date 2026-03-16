@@ -8,6 +8,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         description: z.string().optional(),
+        category: z.string().optional(),
         status: z.enum(['stable', 'beta', 'deprecated']).optional().default('stable'),
       }),
     }),

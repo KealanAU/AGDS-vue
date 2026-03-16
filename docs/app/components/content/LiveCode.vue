@@ -14,19 +14,17 @@ const showCode = ref(false)
 
 // Lazy-load @vue/repl only in browser
 const Repl = shallowRef<ReturnType<typeof defineAsyncComponent> | null>(null)
+const store = shallowRef<unknown>(null)
 
 onMounted(async () => {
-  const { Repl: Repl_, ReplStore } = await import('@vue/repl')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const vueRepl = await import('@vue/repl') as any
   await import('@vue/repl/style.css')
 
-  const store = new ReplStore()
-  store.setFiles({
-    'App.vue': editableCode.value,
-  })
-
-  // We expose the store so the template can use it
-  ;(globalThis as any).__replStore = store
-  Repl.value = Repl_
+  const s = new vueRepl.ReplStore()
+  s.setFiles({ 'App.vue': editableCode.value })
+  store.value = s
+  Repl.value = vueRepl.Repl
 })
 
 async function copyCode() {
@@ -60,7 +58,7 @@ async function copyCode() {
       <component
         :is="Repl"
         v-if="Repl"
-        :store="(globalThis as any).__replStore"
+        :store="store"
         :show-compile-output="false"
         :show-import-map="false"
         :clear-console="false"

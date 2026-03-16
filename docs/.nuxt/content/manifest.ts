@@ -1,9 +1,5 @@
-export const checksums = {
-  "components": "v3.5.0--pq0ewDJvgGVqdnaStfjc98gUlWxRTYpomZ-XdfJK-Dw"
-}
-export const checksumsStructure = {
-  "components": "k0HHvow0Tks50o9BHraIV5jEOQBmEvdN0jLtK26C-uo"
-}
+export const checksums = {}
+export const checksumsStructure = {}
 
 export const tables = {
   "components": "_content_components",
@@ -17,6 +13,7 @@ export default {
       "id": "string",
       "title": "string",
       "body": "json",
+      "category": "string",
       "description": "string",
       "extension": "string",
       "meta": "json",

@@ -19,6 +19,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content'],
 
   content: {
+    // @ts-ignore — highlight is a valid runtime option; @nuxt/content types lag behind
     highlight: {
       theme: 'github-light',
       langs: ['vue', 'ts', 'html', 'css', 'bash', 'json'],

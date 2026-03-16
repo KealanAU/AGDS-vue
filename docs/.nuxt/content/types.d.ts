@@ -11,6 +11,7 @@ declare module '@nuxt/content' {
   interface ComponentsCollectionItem extends PageCollectionItemBase {
     title: string;
     description?: string;
+    category?: string;
     status?: "stable" | "beta" | "deprecated";
   }
   
