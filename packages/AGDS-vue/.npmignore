@@ -1,0 +1,17 @@
+# Source
+src/
+
+# Tests
+coverage/
+**/*.test.ts
+**/__tests__/
+
+# Config
+vite.config.ts
+vitest.config.ts
+tsconfig.json
+tsconfig.tsbuildinfo
+
+# Dev
+node_modules/
+*.local

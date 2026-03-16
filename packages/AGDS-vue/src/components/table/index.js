@@ -1,0 +1,9 @@
+export { default as AusGovTable } from './AGDSTable.vue';
+export { default as AusGovTableBody } from './AGDSTableBody.vue';
+export { default as AusGovTableCaption } from './AGDSTableCaption.vue';
+export { default as AusGovTableHead } from './AGDSTableHead.vue';
+export { default as AusGovTableHeader } from './AGDSTableHeader.vue';
+export { default as AusGovTableHeaderSortable } from './AGDSTableHeaderSortable.vue';
+export { default as AusGovTableCell } from './AGDSTableCell.vue';
+export { default as AusGovTableRow } from './AGDSTableRow.vue';
+export { default as AusGovTableScroller } from './AGDSTableScroller.vue';

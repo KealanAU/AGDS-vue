@@ -1,0 +1,61 @@
+{
+  "name": "agds-vue",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Agriculture Design System (AgDS) — accessible Vue 3 components for the Department of Agriculture, Fisheries and Forestry",
+  "keywords": [
+    "vue",
+    "australia",
+    "government",
+    "design-system",
+    "accessibility"
+  ],
+  "author": "kealanc",
+  "license": "MIT",
+  "main": "./dist/AGDS-vue.umd.cjs",
+  "module": "./dist/AGDS-vue.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/AGDS-vue.js",
+      "require": "./dist/AGDS-vue.umd.cjs"
+    },
+    "./styles": "./dist/AGDS-vue.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vue-tsc --build && vite build",
+    "type-check": "vue-tsc --build --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@iconify/vue": "^5.0.0",
+    "reka-ui": "^2.9.0"
+  },
+  "peerDependencies": {
+    "vue": ">=3.5.0"
+  },
+  "devDependencies": {
+    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/vue": "^8.1.0",
+    "@vitejs/plugin-vue": "^6.0.4",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vue/tsconfig": "^0.8.1",
+    "axe-core": "^4.11.1",
+    "happy-dom": "^20.8.3",
+    "jsdom": "^28.1.0",
+    "reka-ui": "^2.9.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.0.18",
+    "vue": "^3.5.29",
+    "vue-tsc": "^3.2.5"
+  }
+}

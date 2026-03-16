@@ -1,0 +1,28 @@
+{
+  "name": "agds-vue-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter docs dev",
+    "build": "pnpm --filter AGDS-vue build && pnpm --filter docs build",
+    "build:lib": "pnpm --filter AGDS-vue build",
+    "build:docs": "pnpm --filter docs build",
+    "preview": "pnpm --filter docs preview",
+    "test": "pnpm --filter AGDS-vue test",
+    "test:coverage": "pnpm --filter AGDS-vue test:coverage",
+    "lint": "pnpm -r lint",
+    "type-check": "pnpm -r type-check"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "better-sqlite3",
+      "esbuild",
+      "vue-demi"
+    ]
+  }
+}

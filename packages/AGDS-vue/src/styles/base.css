@@ -1,0 +1,23 @@
+@import './tokens.css';
+
+/**
+ * Minimal base resets for AGDS-vue components.
+ * These are scoped/light resets — not a global CSS reset.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Focus-visible ring — applied to all interactive elements */
+:focus-visible {
+  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline-offset: 2px;
+}
+
+/* Remove default focus ring in favour of :focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}

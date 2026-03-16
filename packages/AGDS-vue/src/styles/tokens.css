@@ -1,0 +1,321 @@
+/**
+ * Agriculture Design System (AgDS) — CSS Custom Properties
+ * Based on the AgDS specification with --agds-* namespace
+ */
+
+:root {
+  /* ── Colour: Brand ─────────────────────────────────────── */
+  --agds-color-brand:           #00698f;
+  --agds-color-brand-hover:     #005572;
+  --agds-color-brand-active:    #004260;
+  --agds-color-brand-muted:     #e0f0f5;
+  --agds-color-brand-muted-fg:  #003d54;
+
+  /* ── Colour: Text ──────────────────────────────────────── */
+  --agds-color-text:            #313131;
+  --agds-color-text-muted:      #6e6e6e;
+  --agds-color-text-inverse:    #ffffff;
+  --agds-color-text-disabled:   #9d9d9d;
+
+  /* ── Colour: Background ────────────────────────────────── */
+  --agds-color-bg:              #ffffff;
+  --agds-color-bg-subtle:       #f5f5f5;
+  --agds-color-bg-muted:        #e8e8e8;
+  --agds-color-overlay:         rgb(0 0 0 / 0.6);
+
+  /* ── Colour: Border ────────────────────────────────────── */
+  --agds-color-border:          #d3d3d3;
+  --agds-color-border-strong:   #313131;
+  --agds-color-border-brand:    #00698f;
+
+  /* ── Colour: Focus ─────────────────────────────────────── */
+  --agds-color-focus:           #9263de;
+  --agds-color-focus-width:     3px;
+
+  /* ── Colour: Status ────────────────────────────────────── */
+  --agds-color-success:         #0b7e00;
+  --agds-color-success-muted:   #e5f5e3;
+  --agds-color-warning:         #c56900;
+  --agds-color-warning-muted:   #fdf3e3;
+  --agds-color-error:           #d60000;
+  --agds-color-error-muted:     #fde8e8;
+  --agds-color-info:            #00698f;
+  --agds-color-info-muted:      #e0f0f5;
+
+  /* ── Colour: Interactive states ────────────────────────── */
+  --agds-color-action-primary:         #00698f;
+  --agds-color-action-primary-hover:   #005572;
+  --agds-color-action-primary-active:  #004260;
+  --agds-color-action-primary-fg:      #ffffff;
+
+  --agds-color-action-secondary:        #313131;
+  --agds-color-action-secondary-hover:  #1a1a1a;
+  --agds-color-action-secondary-active: #000000;
+  --agds-color-action-secondary-fg:     #ffffff;
+
+  /* ── Typography: Font families ─────────────────────────── */
+  --agds-font-family-body:    system-ui, -apple-system, BlinkMacSystemFont,
+                                'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+                                'Open Sans', 'Helvetica Neue', sans-serif;
+  --agds-font-family-heading: var(--agds-font-family-body);
+  --agds-font-family-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco,
+                                Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  /* ── Typography: Size scale ────────────────────────────── */
+  --agds-font-size-xs:   0.75rem;    /* 12px */
+  --agds-font-size-sm:   0.875rem;   /* 14px */
+  --agds-font-size-md:   1rem;       /* 16px */
+  --agds-font-size-lg:   1.125rem;   /* 18px */
+  --agds-font-size-xl:   1.25rem;    /* 20px */
+  --agds-font-size-2xl:  1.5rem;     /* 24px */
+  --agds-font-size-3xl:  1.875rem;   /* 30px */
+  --agds-font-size-4xl:  2.25rem;    /* 36px */
+
+  /* ── Typography: Line heights ──────────────────────────── */
+  --agds-line-height-tight:   1.25;
+  --agds-line-height-snug:    1.375;
+  --agds-line-height-normal:  1.5;
+  --agds-line-height-relaxed: 1.625;
+
+  /* ── Typography: Font weights ──────────────────────────── */
+  --agds-font-weight-normal:    400;
+  --agds-font-weight-medium:    500;
+  --agds-font-weight-semibold:  600;
+  --agds-font-weight-bold:      700;
+
+  /* ── Spacing scale ─────────────────────────────────────── */
+  --agds-space-0:   0;
+  --agds-space-1:   0.25rem;   /* 4px  */
+  --agds-space-2:   0.5rem;    /* 8px  */
+  --agds-space-3:   0.75rem;   /* 12px */
+  --agds-space-4:   1rem;      /* 16px */
+  --agds-space-5:   1.25rem;   /* 20px */
+  --agds-space-6:   1.5rem;    /* 24px */
+  --agds-space-8:   2rem;      /* 32px */
+  --agds-space-10:  2.5rem;    /* 40px */
+  --agds-space-12:  3rem;      /* 48px */
+  --agds-space-16:  4rem;      /* 64px */
+  --agds-space-20:  5rem;      /* 80px */
+  --agds-space-24:  6rem;      /* 96px */
+
+  /* ── Border radius ─────────────────────────────────────── */
+  --agds-radius-none:   0;
+  --agds-radius-sm:     0.125rem;   /* 2px  */
+  --agds-radius-md:     0.25rem;    /* 4px  */
+  --agds-radius-lg:     0.5rem;     /* 8px  */
+  --agds-radius-xl:     0.75rem;    /* 12px */
+  --agds-radius-full:   9999px;
+
+  /* ── Border widths ─────────────────────────────────────── */
+  --agds-border-width-sm:   1px;
+  --agds-border-width-md:   2px;
+
+  /* ── Shadows ───────────────────────────────────────────── */
+  --agds-shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --agds-shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.1),
+                        0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --agds-shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.1),
+                        0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* ── Z-index scale ─────────────────────────────────────── */
+  --agds-z-base:      0;
+  --agds-z-raised:    10;
+  --agds-z-dropdown:  100;
+  --agds-z-sticky:    200;
+  --agds-z-overlay:   300;
+  --agds-z-modal:     400;
+  --agds-z-toast:     500;
+
+  /* ── Transition ────────────────────────────────────────── */
+  --agds-transition-fast:    100ms ease;
+  --agds-transition-normal:  200ms ease;
+  --agds-transition-slow:    300ms ease;
+
+  /* ── Avatar component tokens ───────────────────────────── */
+  --agds-avatar-size-sm:        2rem;      /* 32px */
+  --agds-avatar-size-md:        2.5rem;    /* 40px */
+  --agds-avatar-size-lg:        3rem;      /* 48px */
+  --agds-avatar-size-xl:        4rem;      /* 64px */
+  --agds-avatar-size-xxl:       4.5rem;    /* 72px */
+  --agds-avatar-size-xxxl:      5rem;      /* 80px */
+
+  --agds-avatar-font-size-sm:   var(--agds-font-size-xs);
+  --agds-avatar-font-size-md:   var(--agds-font-size-sm);
+  --agds-avatar-font-size-lg:   var(--agds-font-size-md);
+  --agds-avatar-font-size-xl:   var(--agds-font-size-lg);
+  --agds-avatar-font-size-xxl:  var(--agds-font-size-xl);
+  --agds-avatar-font-size-xxxl: var(--agds-font-size-xl);
+
+  /* ── Callout component tokens ──────────────────────────── */
+  --agds-callout-border-left-width:       4px;
+  --agds-callout-border-radius:           var(--agds-radius-md);
+
+  --agds-callout-padding-compact:         var(--agds-space-4);   /* 1rem  */
+  --agds-callout-padding-regular:         var(--agds-space-6);   /* 1.5rem */
+  --agds-callout-padding-feature:         var(--agds-space-6);   /* 1.5rem */
+
+  --agds-callout-icon-gap-compact:        var(--agds-space-2);   /* 0.5rem */
+  --agds-callout-icon-gap-regular:        var(--agds-space-2);   /* 0.5rem */
+  --agds-callout-icon-gap-feature:        var(--agds-space-4);   /* 1rem   */
+
+  --agds-callout-text-gap-compact:        var(--agds-space-2);   /* 0.5rem */
+  --agds-callout-text-gap-regular:        var(--agds-space-4);   /* 1rem   */
+
+  --agds-callout-icon-size-md:            1.25rem;   /* 20px */
+  --agds-callout-icon-size-lg:            1.5rem;    /* 24px */
+
+  --agds-callout-title-padding-top-compact: 0.125rem; /* 2px optical alignment */
+
+  /* ── Card component tokens ─────────────────────────────── */
+  --agds-card-border-width:               1px;
+  --agds-card-border-color:               var(--agds-color-border);
+  --agds-card-border-radius:              var(--agds-radius-md);
+  --agds-card-padding:                    var(--agds-space-6);      /* 1.5rem */
+  --agds-card-shadow-sm:                  var(--agds-shadow-sm);
+  --agds-card-shadow-md:                  var(--agds-shadow-md);
+  --agds-card-footer-outside-padding-top: var(--agds-space-4);      /* 1rem   */
+  --agds-card-footer-outside-padding-x:   var(--agds-space-1);      /* 0.25rem */
+
+  /* ── Divider component tokens ──────────────────────────── */
+  --agds-divider-border-width:    1px;
+  --agds-divider-color:           var(--agds-color-border);
+  --agds-divider-gap:             var(--agds-space-4);   /* 1rem   */
+  --agds-divider-min-line-width:  var(--agds-space-6);   /* 1.5rem */
+  --agds-divider-max-text-width:  40rem;                   /* 640px  */
+
+  /* ── Details component tokens ──────────────────────────── */
+  --agds-details-summary-padding-y:    var(--agds-space-2);   /* 0.5rem */
+  --agds-details-summary-gap:          var(--agds-space-2);   /* 0.5rem */
+  --agds-details-chevron-size:         1.25rem;                 /* 20px   */
+  --agds-details-chevron-gap:          var(--agds-space-1);   /* 0.25rem */
+  --agds-details-icon-size:            1.25rem;                 /* 20px   */
+  --agds-details-border-left-width:    4px;
+  --agds-details-content-padding:      var(--agds-space-6);   /* 1.5rem */
+  --agds-details-content-margin-top:   var(--agds-space-2);   /* 0.5rem */
+
+  /* ── FeatureLinkList component tokens ──────────────────── */
+  --agds-feature-link-list-border-color:          var(--agds-color-border);
+  --agds-feature-link-list-border-width:          1px;
+  --agds-feature-link-list-padding-y:             var(--agds-space-4);    /* 1rem   */
+  --agds-feature-link-list-label-size:            var(--agds-font-size-lg);
+  --agds-feature-link-list-label-weight:          var(--agds-font-weight-bold);
+  --agds-feature-link-list-chevron-size:          1.25rem;                  /* 20px   */
+  /* Hover backgrounds: body → subtle shade; bodyAlt → muted shade */
+  --agds-feature-link-list-hover-body:            var(--agds-color-bg-subtle);
+  --agds-feature-link-list-hover-body-alt:        var(--agds-color-bg-muted);
+
+  /* ── Icon component tokens ─────────────────────────────── */
+  --agds-icon-size-sm:   1rem;      /* 16px */
+  --agds-icon-size-md:   1.5rem;    /* 24px */
+  --agds-icon-size-lg:   2rem;      /* 32px */
+  --agds-icon-size-xl:   2.5rem;    /* 40px */
+
+  /* ── Table component tokens ────────────────────────────── */
+  --agds-table-cell-padding:            0.75rem;    /* 12px */
+  --agds-table-border-color:            var(--agds-color-border);
+  --agds-table-header-border-bottom:    3px;
+  --agds-table-stripe-bg:               var(--agds-color-bg-subtle);
+  --agds-table-selected-bg:             var(--agds-color-brand-muted);
+  --agds-table-selected-border:         var(--agds-color-brand);
+  --agds-table-invalid-bg:              var(--agds-color-error-muted);
+  --agds-table-sort-active-border:      3px solid var(--agds-table-selected-border);
+  --agds-table-scrollbar-height:        0.75rem;    /* 12px */
+  --agds-table-scrollbar-track-bg:      var(--agds-color-bg-subtle);
+  --agds-table-scrollbar-thumb-color:   var(--agds-color-border);
+
+  /* ── Modal component tokens ────────────────────────────── */
+  --agds-modal-max-width:           45rem;
+  --agds-modal-margin-top:          var(--agds-space-12);
+  --agds-modal-padding:             var(--agds-space-6);
+  --agds-modal-padding-mobile-x:    var(--agds-space-4);
+
+  /* ── Tabs component tokens ─────────────────────────────── */
+  /* Local palette vars are set via .agds-tabs / .agds-tabs--body-alt */
+  --agds-tabs-selected-bar-height: 3px;    /* active top indicator (desktop) */
+  --agds-tabs-selected-bar-width:  4px;    /* active left indicator (mobile)  */
+  --agds-tabs-panel-padding-x:     var(--agds-space-6);    /* 1.5rem */
+  --agds-tabs-panel-padding-y:     var(--agds-space-6);    /* 1.5rem */
+  --agds-tabs-button-padding-x:    var(--agds-space-6);    /* 1.5rem */
+  --agds-tabs-button-padding-y:    var(--agds-space-3);    /* 0.75rem */
+
+  /* ── Header component tokens ───────────────────────────── */
+  --agds-header-padding-y-sm:      var(--agds-space-6);    /* 1.5rem  */
+  --agds-header-padding-y-md:      var(--agds-space-8);    /* 2rem    */
+  --agds-header-padding-x:         var(--agds-space-4);    /* 1rem    */
+  --agds-header-gap:               var(--agds-space-6);    /* 1.5rem  */
+  --agds-header-max-width:         75rem;                    /* 1200px  */
+  --agds-header-max-width-lg:      90rem;                    /* 1440px  */
+
+  /* ── Footer component tokens ───────────────────────────── */
+  --agds-footer-border-top-width:      4px;
+  --agds-footer-border-color:          var(--agds-color-accent);
+  --agds-footer-padding-y:             var(--agds-space-8);    /* 2rem   */
+  --agds-footer-padding-x:             var(--agds-space-4);    /* 1rem   */
+  --agds-footer-gap:                   var(--agds-space-6);    /* 1.5rem */
+  --agds-footer-max-width:             75rem;                    /* 1200px — container */
+  --agds-footer-max-width-lg:          90rem;                    /* 1440px — containerLg */
+  --agds-footer-divider-width:         1px;
+  --agds-footer-divider-color-accent:  var(--agds-color-accent);
+  --agds-footer-divider-color-muted:   var(--agds-color-border);
+
+  /* ── Tag component tokens ──────────────────────────────── */
+  --agds-tag-border-radius:     var(--agds-radius-xl);     /* 0.75rem — pill shape */
+  --agds-tag-padding-y:         0.0625rem;                    /* 1px  */
+  --agds-tag-padding-x:         var(--agds-space-2);        /* 0.5rem */
+  --agds-tag-font-size:         var(--agds-font-size-xs);   /* 0.75rem / 12px */
+  --agds-tag-gap:               var(--agds-space-1);        /* 0.25rem — between label & remove */
+  --agds-tag-remove-size:       1.5rem;                       /* 24px — square remove button */
+  --agds-tag-group-gap:         var(--agds-space-1);        /* 0.25rem — heading → list */
+  --agds-tag-group-list-gap:    var(--agds-space-2);        /* 0.5rem — between pills */
+
+  /* ── Progress Indicator component tokens ──────────────── */
+  --agds-progress-indicator-timeline-width: 2px;
+  --agds-progress-indicator-ring-gap:       3px;
+  --agds-progress-indicator-content-padding-x: var(--agds-space-2);   /* 0.5rem */
+  --agds-progress-indicator-content-padding-y: var(--agds-space-4);   /* 1rem   */
+
+  /* ── Button component tokens ───────────────────────────── */
+  --agds-button-height-sm:       2rem;      /* 32px */
+  --agds-button-height-md:       2.5rem;    /* 40px */
+  --agds-button-height-lg:       3rem;      /* 48px */
+  --agds-button-padding-x-sm:    var(--agds-space-3);
+  --agds-button-padding-x-md:    var(--agds-space-4);
+  --agds-button-padding-x-lg:    var(--agds-space-6);
+  --agds-button-font-size-sm:    var(--agds-font-size-sm);
+  --agds-button-font-size-md:    var(--agds-font-size-md);
+  --agds-button-font-size-lg:    var(--agds-font-size-lg);
+  --agds-button-border-radius:   var(--agds-radius-md);
+  --agds-button-border-width:    2px;
+  --agds-button-font-weight:     var(--agds-font-weight-semibold);
+
+  /* ── LoadingBlanket component tokens ───────────────────── */
+  --agds-loading-blanket-z-index:           var(--agds-z-overlay);
+  --agds-loading-blanket-gap:               var(--agds-space-4);      /* 1rem   */
+  --agds-loading-blanket-padding:           var(--agds-space-8);      /* 2rem   */
+  --agds-loading-blanket-label-font-size:   var(--agds-font-size-lg);
+  --agds-loading-blanket-label-font-weight: var(--agds-font-weight-bold);
+  --agds-loading-dots-gap:                  var(--agds-space-2);      /* 0.5rem */
+  --agds-loading-dots-size:                 0.75rem;                    /* 12px   */
+
+  /* ── Content / SectionContent / PageContent tokens ─────── */
+  --agds-content-max-width:               75rem;                    /* 1200px — 'container'   */
+  --agds-content-max-width-lg:            90rem;                    /* 1440px — 'containerLg' */
+  --agds-content-padding-x:               var(--agds-space-4);    /* 1rem    mobile         */
+  --agds-content-padding-x-md:            var(--agds-space-6);    /* 1.5rem  desktop        */
+
+  /* section padding (symmetric top + bottom) */
+  --agds-section-content-padding-y:       var(--agds-space-6);    /* 1.5rem  mobile         */
+  --agds-section-content-padding-y-md:    var(--agds-space-8);    /* 2rem    desktop        */
+
+  /* page padding (asymmetric: smaller top) */
+  --agds-page-content-padding-top:        var(--agds-space-4);    /* 1rem    mobile         */
+  --agds-page-content-padding-top-md:     var(--agds-space-6);    /* 1.5rem  desktop        */
+  --agds-page-content-padding-bottom:     var(--agds-space-6);    /* 1.5rem  mobile         */
+  --agds-page-content-padding-bottom-md:  var(--agds-space-8);    /* 2rem    desktop        */
+
+  /* ── NotificationBadge component tokens ────────────────── */
+  --agds-badge-height:      1.5rem;                       /* 24px — matches mapSpacing(1.5) */
+  --agds-badge-min-width:   1.5rem;                       /* keeps single-digit badges circular */
+  --agds-badge-padding-x:   var(--agds-space-2);        /* 8px  */
+  --agds-badge-font-size:   var(--agds-font-size-sm);   /* 14px */
+}
