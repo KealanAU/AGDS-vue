@@ -37,9 +37,5 @@ defineProps<{
 .component-preview__canvas {
   padding: var(--agds-space-8) var(--agds-space-6);
   background-color: var(--agds-color-bg);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--agds-space-4);
 }
 </style>

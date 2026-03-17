@@ -16,6 +16,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['agds-vue/styles'],
+
   modules: ['@nuxt/content'],
 
   content: {
