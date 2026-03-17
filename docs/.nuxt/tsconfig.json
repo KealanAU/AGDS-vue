@@ -137,7 +137,7 @@
         "./mdc-imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/8a1aff7c-671a-4bf2-93ff-fdb6007283a7.json"
+        "./manifest/meta/dev"
       ],
       "#components": [
         "./components"
@@ -185,6 +185,8 @@
     "../app/**/*",
     "../../node_modules/.pnpm/@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2/node_modules/runtime",
     "../../node_modules/.pnpm/@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2/node_modules/dist/runtime",
+    "../modules/runtime",
+    "../modules/dist/runtime",
     "../../node_modules/.pnpm/@nuxt+devtools@3.2.2_vite@7.3.1_@types+node@24.12.0_jiti@2.6.1_terser@5.46.0_yaml@2.8.2__vue@3.5.29_typescript@5.9.3_/node_modules/runtime",
     "../../node_modules/.pnpm/@nuxt+devtools@3.2.2_vite@7.3.1_@types+node@24.12.0_jiti@2.6.1_terser@5.46.0_yaml@2.8.2__vue@3.5.29_typescript@5.9.3_/node_modules/dist/runtime",
     "../../node_modules/.pnpm/@nuxt+telemetry@2.7.0_@nuxt+kit@3.21.1_magicast@0.5.2_/node_modules/runtime",
@@ -209,12 +211,14 @@
     "../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/node_modules",
     "../../node_modules/.pnpm/@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2/node_modules/runtime/server",
     "../../node_modules/.pnpm/@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2/node_modules/dist/runtime/server",
+    "../modules/runtime/server",
+    "../modules/dist/runtime/server",
     "../../node_modules/.pnpm/@nuxt+devtools@3.2.2_vite@7.3.1_@types+node@24.12.0_jiti@2.6.1_terser@5.46.0_yaml@2.8.2__vue@3.5.29_typescript@5.9.3_/node_modules/runtime/server",
     "../../node_modules/.pnpm/@nuxt+devtools@3.2.2_vite@7.3.1_@types+node@24.12.0_jiti@2.6.1_terser@5.46.0_yaml@2.8.2__vue@3.5.29_typescript@5.9.3_/node_modules/dist/runtime/server",
     "../../node_modules/.pnpm/@nuxt+telemetry@2.7.0_@nuxt+kit@3.21.1_magicast@0.5.2_/node_modules/runtime/server",
     "../../node_modules/.pnpm/@nuxt+telemetry@2.7.0_@nuxt+kit@3.21.1_magicast@0.5.2_/node_modules/dist/runtime/server",
     "../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/runtime/server",
     "../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/dist/runtime/server",
-    "../.output"
+    "dev"
   ]
 }

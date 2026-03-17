@@ -23,10 +23,12 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger--bg-bodyAlt']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__trigger']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__chevron']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item__panel-inner']} */ ;
@@ -37,12 +39,12 @@ AccordionItem;
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     value: (props.value),
     disabled: (props.disabled),
-    ...{ class: "agds-accordion-item" },
+    ...{ class: (['agds-accordion-item', `agds-accordion-item--bg-${__VLS_ctx.activeBackground}`]) },
 }));
 const __VLS_2 = __VLS_1({
     value: (props.value),
     disabled: (props.disabled),
-    ...{ class: "agds-accordion-item" },
+    ...{ class: (['agds-accordion-item', `agds-accordion-item--bg-${__VLS_ctx.activeBackground}`]) },
 }, ...__VLS_functionalComponentArgsRest(__VLS_1));
 var __VLS_5 = {};
 /** @type {__VLS_StyleScopedClasses['agds-accordion-item']} */ ;
@@ -103,7 +105,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.polyline)({
     points: "6 9 12 15 18 9",
 });
 // @ts-ignore
-[activeBackground, indent,];
+[activeBackground, activeBackground, indent,];
 var __VLS_16;
 // @ts-ignore
 [];

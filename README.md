@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/v/agds-vue)](https://www.npmjs.com/package/agds-vue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-[Visit the AgDS website](https://design-system.agriculture.gov.au/)
+**[Documentation & live examples → kealanau.github.io/AGDS-vue](https://kealanau.github.io/AGDS-vue/)**
 
 ---
 
@@ -73,25 +73,6 @@ import 'agds-vue/styles'
 <template>
   <AgDSButton variant="secondary">Cancel</AgDSButton>
 </template>
-```
-
----
-
-## Documentation
-
-Full documentation, live examples, and a props reference are available at:
-
-**[kealanau.github.io/AGDS-vue](https://kealanau.github.io/AGDS-vue/)**
-
-Or run the docs locally:
-
-```bash
-git clone https://github.com/KealanAU/AGDS-vue
-cd AGDS-vue
-pnpm install
-pnpm build:lib
-pnpm dev
-# → http://localhost:3000
 ```
 
 ---

@@ -43,7 +43,7 @@ const indent = inject<boolean>('accordionIndent', false)
   <AccordionItem
     :value="props.value"
     :disabled="props.disabled"
-    class="agds-accordion-item"
+    :class="['agds-accordion-item', `agds-accordion-item--bg-${activeBackground}`]"
   >
     <AccordionHeader :as="`h${props.headingLevel}`" class="agds-accordion-item__heading">
       <AccordionTrigger
@@ -112,7 +112,7 @@ const indent = inject<boolean>('accordionIndent', false)
   width: 100%;
   padding: var(--agds-space-4);
 
-  background: none;
+  background-color: var(--agds-color-bg);
   border: none;
   cursor: pointer;
 
@@ -128,6 +128,11 @@ const indent = inject<boolean>('accordionIndent', false)
 /* Indent variant */
 .agds-accordion-item__trigger--indented {
   padding-left: var(--agds-space-8);
+}
+
+/* Default background per variant */
+.agds-accordion-item__trigger--bg-bodyAlt {
+  background-color: var(--agds-color-bg-subtle);
 }
 
 /* Hover — body background (on white) */
@@ -176,6 +181,11 @@ const indent = inject<boolean>('accordionIndent', false)
 
 .agds-accordion-item__panel {
   overflow: hidden;
+  background-color: var(--agds-color-bg);
+}
+
+.agds-accordion-item--bg-bodyAlt .agds-accordion-item__panel {
+  background-color: var(--agds-color-bg-subtle);
 }
 
 /* Reka exposes --reka-accordion-content-height for smooth open/close */

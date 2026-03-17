@@ -1,3 +1,4 @@
+/// <reference types="./modules/agds-components" />
 /// <reference types="@nuxt/content" />
 /// <reference types="@nuxt/devtools" />
 /// <reference types="@nuxt/telemetry" />

@@ -2100,7 +2100,7 @@ const _YXG3nlQuBNXycVSW56McceM_Wl9FMuE1hYO139sk4 = (function(nitro) {
 
 const rootDir = "/Users/kealanclarke/Documents/Code/agds-vue/docs";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Accessible Vue 3 components for the Australian Government Design System"}],"link":[],"style":[],"script":[],"noscript":[],"title":"AGDS-vue — Australian Government Design System"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Accessible Vue 3 components for the Agriculture Design System (AgDS) — Department of Agriculture, Fisheries and Forestry"}],"link":[],"style":[],"script":[],"noscript":[],"title":"AgDS-vue — Agriculture Design System"};
 
 const appRootTag = "div";
 
@@ -2687,10 +2687,10 @@ async function decompressSQLDump(base64Str, compressionType = "gzip") {
 }
 
 const checksums = {
-  "components": "v3.5.0--pq0ewDJvgGVqdnaStfjc98gUlWxRTYpomZ-XdfJK-Dw"
+  "components": "v3.5.0--RcOn8qFAEtShmsUU0t6SdiuhH_yGSyI09sShVLUHJpk"
 };
 const checksumsStructure = {
-  "components": "k0HHvow0Tks50o9BHraIV5jEOQBmEvdN0jLtK26C-uo"
+  "components": "FCjwvVSaUjepqCJdfBYOmdCqf6anFubtn4rV-MkRft0"
 };
 const tables = {
   "components": "_content_components",
@@ -2703,6 +2703,7 @@ const contentManifest = {
       "id": "string",
       "title": "string",
       "body": "json",
+      "category": "string",
       "description": "string",
       "extension": "string",
       "meta": "json",

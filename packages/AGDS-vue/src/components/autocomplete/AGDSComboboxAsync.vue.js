@@ -42,7 +42,8 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     let debounceTimer = null;
     const cache = {};
     const isLoading = computed(() => isFetching.value || !!props.loading);
-    const showClear = computed(() => props.clearable && model.value != null);
+    const inputText = ref('');
+    const showClear = computed(() => props.clearable && (model.value != null || inputText.value.length > 0));
     // Only follow Reka UI's close signals (Escape, click outside, selection).
     // We control opening ourselves from fetch results so the dropdown never opens empty.
     function handleOpenChange(open) {
@@ -94,6 +95,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     }
     function handleInput(event) {
         const query = event.target.value;
+        inputText.value = query;
         // Clear the selection when the user edits away from the selected label
         if (model.value != null && query !== model.value.label) {
             model.value = null;
@@ -123,7 +125,12 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
         isFetching.value = false;
         networkError.value = false;
         statusMessage.value = 'Selection cleared';
-        containerRef.value?.querySelector('input')?.focus();
+        inputText.value = '';
+        getAnchorEl()?.querySelector('input')?.focus();
+    }
+    function getAnchorEl() {
+        const ref = containerRef.value;
+        return ref?.$el ?? ref;
     }
     function toggleDropdown() {
         if (isOpen.value) {
@@ -133,7 +140,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
             isOpen.value = true;
         }
         else {
-            const inputEl = containerRef.value?.querySelector('input');
+            const inputEl = getAnchorEl()?.querySelector('input');
             if (inputEl?.value)
                 doFetch(inputEl.value);
         }
@@ -142,7 +149,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
         if (debounceTimer)
             clearTimeout(debounceTimer);
     });
-    const __VLS_exposed = { focus: () => containerRef.value?.querySelector('input')?.focus() };
+    const __VLS_exposed = { focus: () => getAnchorEl()?.querySelector('input')?.focus() };
     defineExpose(__VLS_exposed);
     let __VLS_modelEmit;
     const __VLS_defaults = {
@@ -274,6 +281,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
             'aria-invalid': (ariaInvalid),
             'aria-describedby': (ariaDescribedby || undefined),
             'aria-busy': (__VLS_ctx.isLoading || undefined),
+            disabled: (!!props.loading),
         }));
         const __VLS_26 = __VLS_25({
             ...{ 'onInput': {} },
@@ -287,6 +295,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
             'aria-invalid': (ariaInvalid),
             'aria-describedby': (ariaDescribedby || undefined),
             'aria-busy': (__VLS_ctx.isLoading || undefined),
+            disabled: (!!props.loading),
         }, ...__VLS_functionalComponentArgsRest(__VLS_25));
         let __VLS_29;
         const __VLS_30 = ({ input: {} },
@@ -317,11 +326,12 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
             __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
                 ...{ onMousedown: (__VLS_ctx.handleClear) },
                 type: "button",
-                ...{ class: "agds-combobox-async__btn" },
+                ...{ class: "agds-combobox-async__btn agds-combobox-async__clear" },
                 'aria-label': "Clear selection",
                 tabindex: "-1",
             });
             /** @type {__VLS_StyleScopedClasses['agds-combobox-async__btn']} */ ;
+            /** @type {__VLS_StyleScopedClasses['agds-combobox-async__clear']} */ ;
             __VLS_asFunctionalElement1(__VLS_intrinsics.svg, __VLS_intrinsics.svg)({
                 'aria-hidden': "true",
                 width: "16",

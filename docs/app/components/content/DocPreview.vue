@@ -9,7 +9,9 @@ defineProps<{
   <div class="doc-preview">
     <p v-if="label" class="doc-preview__label">{{ label }}</p>
     <div class="doc-preview__canvas">
-      <slot />
+      <ClientOnly>
+        <slot />
+      </ClientOnly>
     </div>
   </div>
 </template>
@@ -37,5 +39,12 @@ defineProps<{
 .doc-preview__canvas {
   padding: var(--agds-space-8) var(--agds-space-6);
   background-color: var(--agds-color-bg);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--agds-color-bg-subtle) 0px,
+    var(--agds-color-bg-subtle) 2px,
+    transparent 2px,
+    transparent 12px
+  );
 }
 </style>

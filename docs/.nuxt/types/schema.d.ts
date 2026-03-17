@@ -85,6 +85,7 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
 declare module '@nuxt/schema' {
   interface ModuleDependencies {
     ["@nuxt/content"]?: ModuleDependencyMeta<typeof import("@nuxt/content").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["agds-components"]?: ModuleDependencyMeta<typeof import("./../../modules/agds-components").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/devtools"]?: ModuleDependencyMeta<typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/telemetry"]?: ModuleDependencyMeta<typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxtjs/mdc"]?: ModuleDependencyMeta<typeof import("@nuxtjs/mdc").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
@@ -94,6 +95,10 @@ declare module '@nuxt/schema' {
      * Configuration for `@nuxt/content`
      */
     ["content"]: typeof import("@nuxt/content").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `./../../modules/agds-components`
+     */
+    ["agds-components"]: typeof import("./../../modules/agds-components").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
     /**
      * Configuration for `@nuxt/devtools`
      */
@@ -113,6 +118,10 @@ declare module '@nuxt/schema' {
      */
     ["content"]?: typeof import("@nuxt/content").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
     /**
+     * Configuration for `./../../modules/agds-components`
+     */
+    ["agds-components"]?: typeof import("./../../modules/agds-components").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
      * Configuration for `@nuxt/devtools`
      */
     ["devtools"]?: typeof import("@nuxt/devtools").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
@@ -124,7 +133,7 @@ declare module '@nuxt/schema' {
      * Configuration for `@nuxtjs/mdc`
      */
     ["mdc"]?: typeof import("@nuxtjs/mdc").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/content", Exclude<NuxtConfig["content"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxtjs/mdc", Exclude<NuxtConfig["mdc"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/content", Exclude<NuxtConfig["content"], boolean>] | ["./../../modules/agds-components", Exclude<NuxtConfig["agds-components"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxtjs/mdc", Exclude<NuxtConfig["mdc"], boolean>])[],
   }
   interface RuntimeConfig extends UserRuntimeConfig {}
   interface PublicRuntimeConfig extends UserPublicRuntimeConfig {}
@@ -132,6 +141,7 @@ declare module '@nuxt/schema' {
 declare module 'nuxt/schema' {
   interface ModuleDependencies {
     ["@nuxt/content"]?: ModuleDependencyMeta<typeof import("@nuxt/content").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
+    ["agds-components"]?: ModuleDependencyMeta<typeof import("./../../modules/agds-components").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/devtools"]?: ModuleDependencyMeta<typeof import("@nuxt/devtools").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxt/telemetry"]?: ModuleDependencyMeta<typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
     ["@nuxtjs/mdc"]?: ModuleDependencyMeta<typeof import("@nuxtjs/mdc").default extends NuxtModule<infer O> ? O | false : Record<string, unknown>> | false
@@ -142,6 +152,11 @@ declare module 'nuxt/schema' {
      * @see https://content.nuxt.com
      */
     ["content"]: typeof import("@nuxt/content").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
+    /**
+     * Configuration for `./../../modules/agds-components`
+     * @see https://www.npmjs.com/package/./../../modules/agds-components
+     */
+    ["agds-components"]: typeof import("./../../modules/agds-components").default extends NuxtModule<infer O, unknown, boolean> ? O | false : Record<string, any> | false
     /**
      * Configuration for `@nuxt/devtools`
      * @see https://www.npmjs.com/package/@nuxt/devtools
@@ -165,6 +180,11 @@ declare module 'nuxt/schema' {
      */
     ["content"]?: typeof import("@nuxt/content").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
     /**
+     * Configuration for `./../../modules/agds-components`
+     * @see https://www.npmjs.com/package/./../../modules/agds-components
+     */
+    ["agds-components"]?: typeof import("./../../modules/agds-components").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
+    /**
      * Configuration for `@nuxt/devtools`
      * @see https://www.npmjs.com/package/@nuxt/devtools
      */
@@ -179,7 +199,7 @@ declare module 'nuxt/schema' {
      * @see https://www.npmjs.com/package/@nuxtjs/mdc
      */
     ["mdc"]?: typeof import("@nuxtjs/mdc").default extends NuxtModule<infer O, unknown, boolean> ? Partial<O> | false : Record<string, any> | false
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/content", Exclude<NuxtConfig["content"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxtjs/mdc", Exclude<NuxtConfig["mdc"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/content", Exclude<NuxtConfig["content"], boolean>] | ["./../../modules/agds-components", Exclude<NuxtConfig["agds-components"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>] | ["@nuxtjs/mdc", Exclude<NuxtConfig["mdc"], boolean>])[],
   }
   interface RuntimeConfig extends SharedRuntimeConfig {}
   interface PublicRuntimeConfig extends SharedPublicRuntimeConfig {}
