@@ -137,7 +137,7 @@
         "./mdc-imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/bf9fb2de-bcc8-4a72-b948-eb98a15bee30.json"
       ],
       "#components": [
         "./components"
@@ -219,6 +219,6 @@
     "../../node_modules/.pnpm/@nuxt+telemetry@2.7.0_@nuxt+kit@3.21.1_magicast@0.5.2_/node_modules/dist/runtime/server",
     "../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/runtime/server",
     "../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/dist/runtime/server",
-    "dev"
+    "../.output"
   ]
 }

@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/v/agds-vue)](https://www.npmjs.com/package/agds-vue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-**[Documentation & live examples → kealanau.github.io/AGDS-vue](https://kealanau.github.io/AGDS-vue/)**
+**[Documentation](https://kealanau.github.io/AGDS-vue/)**
 
 ---
 
