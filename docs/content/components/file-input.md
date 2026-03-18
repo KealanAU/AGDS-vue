@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and listen for the `change` event to read the selected files.
 
 ::doc-preview
-<AGDSFileInput label="Upload your CV" />
+<FileInputDemo />
 ::
 
 ```vue
@@ -31,7 +31,7 @@ function onFileChange(event) {
 Pass an array of MIME types to `accept`. The hint text is automatically generated from the MIME types if no explicit `hint` is provided.
 
 ::doc-preview{label="With accept"}
-<AGDSFileInput label="Upload identity document" :accept="['image/jpeg', 'image/png', 'application/pdf']" />
+<FileInputDemo variant="accept" />
 ::
 
 ```vue
@@ -58,7 +58,7 @@ Use `multiple` to allow the user to pick more than one file.
 Use `hint` for guidance and `invalid`/`message` to show a validation error.
 
 ::doc-preview{label="With hint and error"}
-<AGDSFileInput label="Proof of address" hint="Must be dated within the last 3 months." invalid message="You must upload a proof of address document" />
+<FileInputDemo variant="validation" />
 ::
 
 ```vue

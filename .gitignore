@@ -40,3 +40,7 @@ __screenshots__/
 
 # Claude Code
 CLAUDE.md
+
+# Nuxt (docs/)
+docs/.nuxt/
+docs/.output/

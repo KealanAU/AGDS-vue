@@ -1,13 +1,24 @@
 ---
 title: Grouped fields
-description: A fieldset wrapper for two form inputs that sit side-by-side. Manages aria-invalid and aria-describedby for each field independently via a scoped slot, while sharing a common legend, hint, and error message.
+description: A fieldset wrapper for two related form inputs that sit side-by-side on the same row. Provides a shared legend, hint, and error message, while managing aria-invalid and aria-describedby independently for each field via a scoped slot.
 category: Forms
 status: stable
 ---
 
+Use `AGDSGroupedFields` when two related inputs belong together conceptually and should appear on the same row — for example a date range (From / To) or a price range (Min / Max). It wraps both in a `<fieldset>` so screen readers announce the group name before each control.
+
 ## Usage
 
-Use `AGDSGroupedFields` when two related inputs should appear on the same row — for example a date range (from/to) or a name split across first/last fields. Spread the `field1Props` and `field2Props` from the scoped slot onto each input.
+Spread `field1Props` and `field2Props` from the scoped slot onto each input to wire up the correct accessibility attributes.
+
+::doc-preview
+<AGDSGroupedFields legend="Date range">
+  <template #default="{ field1Props, field2Props }">
+    <AGDSTextInput v-bind="field1Props" label="From" placeholder="DD/MM/YYYY" />
+    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
+  </template>
+</AGDSGroupedFields>
+::
 
 ```vue
 <script setup lang="ts">
@@ -30,6 +41,15 @@ const to = ref('')
 
 Use `hint` to add supplementary text that applies to both fields.
 
+::doc-preview{label="With hint"}
+<AGDSGroupedFields legend="Date range" hint="Enter dates in DD/MM/YYYY format">
+  <template #default="{ field1Props, field2Props }">
+    <AGDSTextInput v-bind="field1Props" label="From" placeholder="DD/MM/YYYY" />
+    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
+  </template>
+</AGDSGroupedFields>
+::
+
 ```vue
 <template>
   <AGDSGroupedFields
@@ -46,7 +66,21 @@ Use `hint` to add supplementary text that applies to both fields.
 
 ## Independent field errors
 
-Each field's invalid state is controlled separately. The shared `message` is shown when either field is invalid, but `aria-invalid` and `aria-describedby` are set independently on each input so screen readers announce the correct field as erroneous.
+Each field's invalid state is controlled separately via `field1Invalid` and `field2Invalid`. The shared `message` is shown when either field is invalid, but `aria-invalid` and `aria-describedby` are set independently on each input so screen readers announce the correct field as erroneous.
+
+::doc-preview{label="Field 1 invalid"}
+<AGDSGroupedFields
+  legend="Date range"
+  :field1-invalid="true"
+  message="Enter a valid date range"
+  hint="Enter dates in DD/MM/YYYY format"
+>
+  <template #default="{ field1Props, field2Props }">
+    <AGDSTextInput v-bind="field1Props" label="From" :invalid="true" placeholder="DD/MM/YYYY" />
+    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
+  </template>
+</AGDSGroupedFields>
+::
 
 ```vue
 <template>
@@ -57,8 +91,8 @@ Each field's invalid state is controlled separately. The shared `message` is sho
     message="Enter a valid date range"
   >
     <template #default="{ field1Props, field2Props }">
-      <AGDSTextInput v-bind="field1Props" v-model="from" label="From" />
-      <AGDSTextInput v-bind="field2Props" v-model="to" label="To" />
+      <AGDSTextInput v-bind="field1Props" v-model="from" label="From" :invalid="fromError" />
+      <AGDSTextInput v-bind="field2Props" v-model="to" label="To" :invalid="toError" />
     </template>
   </AGDSGroupedFields>
 </template>
@@ -67,6 +101,15 @@ Each field's invalid state is controlled separately. The shared `message` is sho
 ## Visually hidden legend
 
 When the surrounding context makes the purpose of the group obvious, you can hide the legend from sighted users while keeping it available to screen readers.
+
+::doc-preview{label="Hidden legend"}
+<AGDSGroupedFields legend="Date range" :visually-hide-legend="true">
+  <template #default="{ field1Props, field2Props }">
+    <AGDSTextInput v-bind="field1Props" label="From" placeholder="DD/MM/YYYY" />
+    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
+  </template>
+</AGDSGroupedFields>
+::
 
 ```vue
 <template>

@@ -1,18 +1,22 @@
 ---
 title: Field
-description: A form field wrapper that renders a label, optional hint, and error message, then exposes the correct accessibility props (id, aria-required, aria-invalid, aria-describedby) to the slotted input via a scoped slot.
+description: The composition primitive for building labelled form controls. Renders a label, optional hint, and error message, then exposes the correct accessibility attributes (id, aria-required, aria-invalid, aria-describedby) to the slotted input via a scoped slot.
 category: Forms
 status: stable
 ---
 
+`AGDSField` is a low-level building block. In most cases you should reach for a higher-level component — `AGDSTextInput`, `AGDSSelect`, `AGDSTextarea`, `AGDSCheckbox`, etc. — which already use `AGDSField` internally.
+
+Use `AGDSField` directly only when composing a **custom input control** that is not covered by an existing component.
+
 ## Usage
 
-Use the scoped slot to receive the accessibility props and pass them directly to your input element.
+Use the scoped slot to receive the accessibility props and bind them directly to your input element. The field renders the label, hint, and error message; the slot renders the actual control.
 
 ::doc-preview
 <AGDSField label="Email address" hint="We will only use this to contact you about your application.">
-  <template #default="{ id, 'aria-required': ariaRequired, 'aria-invalid': ariaInvalid, 'aria-describedby': ariaDescribedby }">
-    <input type="email" :id="id" :aria-required="ariaRequired" :aria-invalid="ariaInvalid" :aria-describedby="ariaDescribedby" />
+  <template #default="slotProps">
+    <input type="email" v-bind="slotProps" style="display:block;box-sizing:border-box;appearance:none;font-size:var(--agds-font-size-md);color:var(--agds-color-text);background-color:var(--agds-color-bg);padding:var(--agds-space-1) var(--agds-space-2);border:3px solid var(--agds-color-border);border-radius:4px;max-width:30ch;" />
   </template>
 </AGDSField>
 ::
@@ -21,7 +25,8 @@ Use the scoped slot to receive the accessibility props and pass them directly to
 <template>
   <AGDSField label="Email address" hint="We will only use this to contact you.">
     <template #default="slotProps">
-      <input type="email" v-bind="slotProps" />
+      <!-- spread slotProps onto your custom input to wire up a11y -->
+      <input type="email" v-bind="slotProps" class="my-custom-input" />
     </template>
   </AGDSField>
 </template>
@@ -34,7 +39,7 @@ Set `required` to mark the field as required and remove the "(optional)" suffix 
 ::doc-preview{label="Required"}
 <AGDSField label="Full name" required>
   <template #default="slotProps">
-    <input type="text" v-bind="slotProps" />
+    <input type="text" v-bind="slotProps" style="display:block;box-sizing:border-box;appearance:none;font-size:var(--agds-font-size-md);color:var(--agds-color-text);background-color:var(--agds-color-bg);padding:var(--agds-space-1) var(--agds-space-2);border:3px solid var(--agds-color-border);border-radius:4px;max-width:30ch;" />
   </template>
 </AGDSField>
 ::
@@ -43,7 +48,7 @@ Set `required` to mark the field as required and remove the "(optional)" suffix 
 <template>
   <AGDSField label="Full name" required>
     <template #default="slotProps">
-      <input type="text" v-bind="slotProps" />
+      <input type="text" v-bind="slotProps" class="my-custom-input" />
     </template>
   </AGDSField>
 </template>
@@ -51,12 +56,12 @@ Set `required` to mark the field as required and remove the "(optional)" suffix 
 
 ## Validation error
 
-Set `invalid` and `message` to show the error state. The field container gains a left border, and the error message is announced by screen readers.
+Set `invalid` and `message` to show the error state. The field container gains a red left border, and the error message is linked via `aria-describedby` so screen readers announce it.
 
 ::doc-preview{label="Invalid"}
 <AGDSField label="Date of birth" invalid message="Enter a valid date of birth">
   <template #default="slotProps">
-    <input type="text" v-bind="slotProps" />
+    <input type="text" v-bind="slotProps" style="display:block;box-sizing:border-box;appearance:none;font-size:var(--agds-font-size-md);color:var(--agds-color-text);background-color:var(--agds-color-error-muted);padding:var(--agds-space-1) var(--agds-space-2);border:3px solid var(--agds-color-error);border-radius:4px;max-width:30ch;" />
   </template>
 </AGDSField>
 ::
@@ -65,7 +70,12 @@ Set `invalid` and `message` to show the error state. The field container gains a
 <template>
   <AGDSField label="Date of birth" :invalid="hasError" :message="errorMessage">
     <template #default="slotProps">
-      <input type="text" v-bind="slotProps" />
+      <input
+        type="text"
+        v-bind="slotProps"
+        class="my-custom-input"
+        :class="{ 'my-custom-input--invalid': hasError }"
+      />
     </template>
   </AGDSField>
 </template>
@@ -73,14 +83,22 @@ Set `invalid` and `message` to show the error state. The field container gains a
 
 ## Max width
 
-Use `maxWidth` to constrain the input to a character-appropriate width.
+Use `maxWidth` to constrain the field to a character-appropriate width. This sets the max-width on the field container, not the input itself — your input should fill 100% of the container width.
+
+::doc-preview{label="Max widths"}
+<AGDSField label="Postcode" max-width="xs" hint="xs — 10ch">
+  <template #default="slotProps">
+    <input type="text" inputmode="numeric" v-bind="slotProps" style="display:block;box-sizing:border-box;appearance:none;width:100%;font-size:var(--agds-font-size-md);color:var(--agds-color-text);background-color:var(--agds-color-bg);padding:var(--agds-space-1) var(--agds-space-2);border:3px solid var(--agds-color-border);border-radius:4px;" />
+  </template>
+</AGDSField>
+::
 
 ```vue
 <template>
   <!-- xs=10ch, sm=20ch, md=30ch, lg=40ch, xl=60ch -->
   <AGDSField label="Postcode" max-width="xs">
     <template #default="slotProps">
-      <input type="text" inputmode="numeric" v-bind="slotProps" />
+      <input type="text" inputmode="numeric" v-bind="slotProps" class="my-custom-input" />
     </template>
   </AGDSField>
 </template>
@@ -88,12 +106,12 @@ Use `maxWidth` to constrain the input to a character-appropriate width.
 
 ## Sub-components
 
-The following sub-components are exported individually for advanced composition:
+The following sub-components are exported individually for advanced composition when you need more control over layout:
 
 - `AGDSFieldLabel` — label with optional/required suffix and `for` linking
 - `AGDSFieldHint` — muted hint text
 - `AGDSFieldMessage` — error message with icon and `role="alert"`
-- `AGDSFieldContainer` — wrapper that adds the invalid left-border treatment
+- `AGDSFieldContainer` — wrapper div that adds the invalid red left-border treatment
 
 ## Props
 

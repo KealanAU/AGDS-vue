@@ -10,7 +10,7 @@ status: stable
 Bind the selected files with `v-model`. The component validates files against your constraints and emits the accepted list.
 
 ::doc-preview
-<AGDSFileUpload label="Attach supporting documents" v-model="[]" />
+<FileUploadDemo />
 ::
 
 ```vue
@@ -89,7 +89,7 @@ Use `maxFiles` together with `multiple` to limit how many files can be selected.
 Use `invalid` and `message` to show a validation error.
 
 ::doc-preview{label="Invalid state"}
-<AGDSFileUpload label="Upload document" v-model="[]" invalid message="You must upload at least one document" />
+<FileUploadDemo variant="invalid" />
 ::
 
 ```vue

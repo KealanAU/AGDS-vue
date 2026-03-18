@@ -65,6 +65,7 @@ const AGDS_COMPONENTS = [
   'AGDSFieldLabel',
   'AGDSFieldMessage',
   'AGDSFieldset',
+  'AGDSFileInput',
   'AGDSFileUpload',
   'AGDSFilterSidebar',
   'AGDSFlex',
