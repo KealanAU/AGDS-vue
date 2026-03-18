@@ -9,6 +9,10 @@ status: stable
 
 Use `v-model` to bind the checked state. The label text is passed via the default slot.
 
+::doc-preview
+<CheckboxDemo />
+::
+
 ```vue
 <script setup>
 import { ref } from 'vue'
@@ -24,6 +28,10 @@ const agreed = ref(false)
 
 ## Disabled
 
+::doc-preview{label="Disabled"}
+<CheckboxDemo variant="disabled" />
+::
+
 ```vue
 <template>
   <AGDSCheckbox :model-value="true" disabled>
@@ -35,6 +43,10 @@ const agreed = ref(false)
 ## Indeterminate
 
 The `indeterminate` prop renders the "mixed" visual state — useful for a "select all" parent checkbox when only some children are checked.
+
+::doc-preview{label="Indeterminate"}
+<CheckboxDemo variant="indeterminate" />
+::
 
 ```vue
 <script setup>
@@ -65,6 +77,10 @@ function toggleAll() {
 
 ## Size
 
+::doc-preview{label="Sizes"}
+<CheckboxDemo variant="size" />
+::
+
 ```vue
 <template>
   <AGDSCheckbox size="sm">Small checkbox</AGDSCheckbox>
@@ -75,6 +91,10 @@ function toggleAll() {
 ## Group
 
 Use `AGDSCheckboxGroup` to wrap related checkboxes with a shared legend, hint, and error message. Props like `name`, `invalid`, `required`, and `disabled` cascade to all child checkboxes via context.
+
+::doc-preview{label="Group"}
+<CheckboxDemo variant="group" />
+::
 
 ```vue
 <script setup>
@@ -89,9 +109,9 @@ const selected = ref({
 
 <template>
   <AGDSCheckboxGroup legend="Select topics" name="topics">
-    <AGDSCheckbox v-model="selected.finance" value="finance">Finance</AGDSCheckbox>
-    <AGDSCheckbox v-model="selected.health" value="health">Health</AGDSCheckbox>
-    <AGDSCheckbox v-model="selected.education" value="education">Education</AGDSCheckbox>
+    <AGDSCheckbox v-model="selected.finance">Finance</AGDSCheckbox>
+    <AGDSCheckbox v-model="selected.health">Health</AGDSCheckbox>
+    <AGDSCheckbox v-model="selected.education">Education</AGDSCheckbox>
   </AGDSCheckboxGroup>
 </template>
 ```
@@ -99,6 +119,10 @@ const selected = ref({
 ## Validation
 
 Set `invalid` on the group to show an error state on all checkboxes and reveal the `message` slot.
+
+::doc-preview{label="Validation"}
+<CheckboxDemo variant="validation" />
+::
 
 ```vue
 <template>

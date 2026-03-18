@@ -9,40 +9,82 @@ status: stable
 
 Provide a `label` and a `fetchOptions` function. The function receives the current query string and should return a promise resolving to an array of `{ label, value }` objects. Use `v-model` to bind to an array of selected options.
 
+::doc-preview
+<ComboboxAsyncMultiDemo />
+::
+
 ```vue
 <script setup>
 import { ref } from 'vue'
 
 const selected = ref([])
 
-async function fetchCountries(query) {
-  const res = await fetch(`/api/countries?q=${encodeURIComponent(query)}`)
-  return res.json() // [{ label: 'Australia', value: 'AU' }, …]
+async function fetchServices(query) {
+  const res = await fetch(`/api/services?q=${encodeURIComponent(query)}`)
+  return res.json() // [{ label: 'Medicare', value: 'medicare' }, …]
 }
 </script>
 
 <template>
   <AGDSComboboxAsyncMulti
     v-model="selected"
-    label="Countries"
-    :fetch-options="fetchCountries"
-    placeholder="Search countries…"
+    label="Services"
+    :fetch-options="fetchServices"
+    placeholder="Search services…"
   />
 </template>
 ```
 
-## With validation
+## Validation
+
+Set `invalid` and `message` to show the error state. The example below triggers validation on submit.
+
+::doc-preview{label="Validation"}
+<ComboboxAsyncMultiDemo variant="validation" />
+::
 
 ```vue
 <template>
   <AGDSComboboxAsyncMulti
     v-model="selected"
-    label="Countries"
-    :fetch-options="fetchCountries"
+    label="Services"
+    :fetch-options="fetchServices"
     :required="true"
     :invalid="selected.length === 0 && submitted"
-    message="Select at least one country"
-    hint="You can select multiple countries"
+    message="Select at least one service"
+    hint="You can select multiple services"
+  />
+</template>
+```
+
+## Disabled
+
+::doc-preview{label="Disabled"}
+<ComboboxAsyncMultiDemo variant="disabled" />
+::
+
+```vue
+<template>
+  <AGDSComboboxAsyncMulti
+    v-model="selected"
+    label="Services"
+    disabled
+    :fetch-options="fetchServices"
+  />
+</template>
+```
+
+## Debounce
+
+By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust with `debounce`.
+
+```vue
+<template>
+  <AGDSComboboxAsyncMulti
+    v-model="selected"
+    label="Search"
+    :debounce="500"
+    :fetch-options="fetchOptions"
   />
 </template>
 ```
@@ -66,21 +108,6 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
 </template>
 ```
 
-## Debounce
-
-By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust with `debounce`.
-
-```vue
-<template>
-  <AGDSComboboxAsyncMulti
-    v-model="selected"
-    label="Search"
-    :debounce="500"
-    :fetch-options="fetchOptions"
-  />
-</template>
-```
-
 ## Custom empty message
 
 ```vue
@@ -90,19 +117,6 @@ By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust 
     label="Services"
     empty-results-message="No services match your search."
     :fetch-options="fetchOptions"
-  />
-</template>
-```
-
-## Disabled
-
-```vue
-<template>
-  <AGDSComboboxAsyncMulti
-    v-model="selected"
-    label="Countries"
-    disabled
-    :fetch-options="fetchCountries"
   />
 </template>
 ```

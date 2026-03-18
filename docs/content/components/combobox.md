@@ -10,32 +10,28 @@ status: stable
 `AGDSCombobox` lets the user type to filter options and select one. The model value is the full option object (`{ label, value }`) or `null`.
 
 ::doc-preview
-<AGDSCombobox
-  label="Country"
-  :options="[{ label: 'Australia', value: 'au' }, { label: 'New Zealand', value: 'nz' }, { label: 'United Kingdom', value: 'uk' }, { label: 'United States', value: 'us' }]"
-  placeholder="Select a country"
-  :required="true"
-/>
+<ComboboxDemo />
 ::
 
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const country = ref(null)
-const countryOptions = [
-  { label: 'Australia', value: 'au' },
-  { label: 'New Zealand', value: 'nz' },
-  { label: 'United Kingdom', value: 'uk' },
+const state = ref(null)
+const stateOptions = [
+  { label: 'Australian Capital Territory', value: 'act' },
+  { label: 'New South Wales', value: 'nsw' },
+  { label: 'Queensland', value: 'qld' },
+  { label: 'Victoria', value: 'vic' },
 ]
 </script>
 
 <template>
   <AGDSCombobox
-    v-model="country"
-    label="Country"
-    :options="countryOptions"
-    placeholder="Select a country"
+    v-model="state"
+    label="State or territory"
+    :options="stateOptions"
+    placeholder="Select a state or territory"
     :required="true"
   />
 </template>
@@ -46,32 +42,29 @@ const countryOptions = [
 `AGDSComboboxMulti` lets the user select multiple options. Selected items appear as removable tag chips inside the control. The model value is an array of option objects.
 
 ::doc-preview
-<AGDSComboboxMulti
-  label="Interests"
-  :options="[{ label: 'Agriculture', value: 'ag' }, { label: 'Education', value: 'ed' }, { label: 'Health', value: 'health' }, { label: 'Transport', value: 'transport' }, { label: 'Environment', value: 'env' }]"
-  placeholder="Search interests…"
-  hint="Select all that apply"
-/>
+<ComboboxDemo variant="multi" />
 ::
 
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const selected = ref([])
-const options = [
-  { label: 'Agriculture', value: 'ag' },
-  { label: 'Education', value: 'ed' },
+const topics = ref([])
+const topicOptions = [
+  { label: 'Education', value: 'education' },
+  { label: 'Employment', value: 'employment' },
   { label: 'Health', value: 'health' },
+  { label: 'Housing', value: 'housing' },
+  { label: 'Transport', value: 'transport' },
 ]
 </script>
 
 <template>
   <AGDSComboboxMulti
-    v-model="selected"
-    label="Interests"
-    :options="options"
-    placeholder="Search interests…"
+    v-model="topics"
+    label="Topics"
+    :options="topicOptions"
+    placeholder="Search topics…"
     hint="Select all that apply"
   />
 </template>
@@ -81,13 +74,17 @@ const options = [
 
 Add `clearable` to show a × button when a selection exists, allowing the user to reset the field.
 
+::doc-preview{label="Clearable"}
+<ComboboxDemo variant="clearable" />
+::
+
 ```vue
 <template>
   <AGDSCombobox
     v-model="state"
-    label="State"
+    label="State or territory"
     :options="stateOptions"
-    :clearable="true"
+    clearable
     :required="true"
   />
 </template>
@@ -98,24 +95,35 @@ Add `clearable` to show a × button when a selection exists, allowing the user t
 Set `invalid` and `message` to show the error state. Both variants wire into `AGDSField` for consistent error display.
 
 ::doc-preview{label="Invalid"}
-<AGDSCombobox
-  label="State"
-  :options="[{ label: 'NSW', value: 'nsw' }, { label: 'VIC', value: 'vic' }]"
-  :invalid="true"
-  message="Select a state to continue"
-  :required="true"
-/>
+<ComboboxDemo variant="invalid" />
 ::
 
 ```vue
 <template>
   <AGDSCombobox
     v-model="state"
-    label="State"
+    label="State or territory"
     :options="stateOptions"
     :invalid="hasError"
-    message="Select a state to continue"
+    message="Select a state or territory to continue"
     :required="true"
+  />
+</template>
+```
+
+## Disabled
+
+::doc-preview{label="Disabled"}
+<ComboboxDemo variant="disabled" />
+::
+
+```vue
+<template>
+  <AGDSCombobox
+    v-model="state"
+    label="State or territory"
+    :options="stateOptions"
+    disabled
   />
 </template>
 ```

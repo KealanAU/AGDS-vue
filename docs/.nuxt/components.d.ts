@@ -15,9 +15,14 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 
 export const AccordionDemo: typeof import("../app/components/content/AccordionDemo.vue")['default']
+export const AutocompleteDemo: typeof import("../app/components/content/AutocompleteDemo.vue")['default']
 export const AvatarDemo: typeof import("../app/components/content/AvatarDemo.vue")['default']
 export const BreadcrumbsDemo: typeof import("../app/components/content/BreadcrumbsDemo.vue")['default']
+export const CheckboxDemo: typeof import("../app/components/content/CheckboxDemo.vue")['default']
+export const ComboboxAsyncMultiDemo: typeof import("../app/components/content/ComboboxAsyncMultiDemo.vue")['default']
+export const ComboboxDemo: typeof import("../app/components/content/ComboboxDemo.vue")['default']
 export const ComponentPreview: typeof import("../app/components/content/ComponentPreview.vue")['default']
+export const DatePickerDemo: typeof import("../app/components/content/DatePickerDemo.vue")['default']
 export const DocPreview: typeof import("../app/components/content/DocPreview.vue")['default']
 export const FeatureLinkListDemo: typeof import("../app/components/content/FeatureLinkListDemo.vue")['default']
 export const FilterSidebarDemo: typeof import("../app/components/content/FilterSidebarDemo.vue")['default']
@@ -30,7 +35,9 @@ export const ProsePre: typeof import("../app/components/content/ProsePre.vue")['
 export const SectionAlertDemo: typeof import("../app/components/content/SectionAlertDemo.vue")['default']
 export const SideNavDemo: typeof import("../app/components/content/SideNavDemo.vue")['default']
 export const SkipLinksDemo: typeof import("../app/components/content/SkipLinksDemo.vue")['default']
+export const StatusBadgeDemo: typeof import("../app/components/content/StatusBadgeDemo.vue")['default']
 export const TagsDemo: typeof import("../app/components/content/TagsDemo.vue")['default']
+export const TaskListDemo: typeof import("../app/components/content/TaskListDemo.vue")['default']
 export const DocsLayout: typeof import("../app/components/DocsLayout.vue")['default']
 export const ProseA: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']
 export const ProseBlockquote: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']
@@ -355,9 +362,14 @@ export const MDCRenderer: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.
 export const MDCSlot: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue")['default']
 export const NuxtIsland: typeof import("../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const LazyAccordionDemo: LazyComponent<typeof import("../app/components/content/AccordionDemo.vue")['default']>
+export const LazyAutocompleteDemo: LazyComponent<typeof import("../app/components/content/AutocompleteDemo.vue")['default']>
 export const LazyAvatarDemo: LazyComponent<typeof import("../app/components/content/AvatarDemo.vue")['default']>
 export const LazyBreadcrumbsDemo: LazyComponent<typeof import("../app/components/content/BreadcrumbsDemo.vue")['default']>
+export const LazyCheckboxDemo: LazyComponent<typeof import("../app/components/content/CheckboxDemo.vue")['default']>
+export const LazyComboboxAsyncMultiDemo: LazyComponent<typeof import("../app/components/content/ComboboxAsyncMultiDemo.vue")['default']>
+export const LazyComboboxDemo: LazyComponent<typeof import("../app/components/content/ComboboxDemo.vue")['default']>
 export const LazyComponentPreview: LazyComponent<typeof import("../app/components/content/ComponentPreview.vue")['default']>
+export const LazyDatePickerDemo: LazyComponent<typeof import("../app/components/content/DatePickerDemo.vue")['default']>
 export const LazyDocPreview: LazyComponent<typeof import("../app/components/content/DocPreview.vue")['default']>
 export const LazyFeatureLinkListDemo: LazyComponent<typeof import("../app/components/content/FeatureLinkListDemo.vue")['default']>
 export const LazyFilterSidebarDemo: LazyComponent<typeof import("../app/components/content/FilterSidebarDemo.vue")['default']>
@@ -370,7 +382,9 @@ export const LazyProsePre: LazyComponent<typeof import("../app/components/conten
 export const LazySectionAlertDemo: LazyComponent<typeof import("../app/components/content/SectionAlertDemo.vue")['default']>
 export const LazySideNavDemo: LazyComponent<typeof import("../app/components/content/SideNavDemo.vue")['default']>
 export const LazySkipLinksDemo: LazyComponent<typeof import("../app/components/content/SkipLinksDemo.vue")['default']>
+export const LazyStatusBadgeDemo: LazyComponent<typeof import("../app/components/content/StatusBadgeDemo.vue")['default']>
 export const LazyTagsDemo: LazyComponent<typeof import("../app/components/content/TagsDemo.vue")['default']>
+export const LazyTaskListDemo: LazyComponent<typeof import("../app/components/content/TaskListDemo.vue")['default']>
 export const LazyDocsLayout: LazyComponent<typeof import("../app/components/DocsLayout.vue")['default']>
 export const LazyProseA: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']>
 export const LazyProseBlockquote: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']>

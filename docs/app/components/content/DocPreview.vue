@@ -20,7 +20,7 @@ defineProps<{
   margin-block: var(--agds-space-4);
   border: 1px solid var(--agds-color-border);
   border-radius: var(--agds-radius-lg);
-  overflow: hidden;
+  /* No overflow:hidden — dropdowns and portals must not be clipped */
 }
 
 .doc-preview__label {
@@ -33,6 +33,7 @@ defineProps<{
   color: var(--agds-color-text-muted);
   background-color: var(--agds-color-bg-subtle);
   border-bottom: 1px solid var(--agds-color-border);
+  border-radius: var(--agds-radius-lg) var(--agds-radius-lg) 0 0;
 }
 
 .doc-preview__canvas {
@@ -45,5 +46,12 @@ defineProps<{
     transparent 2px,
     transparent 12px
   );
+  border-radius: 0 0 var(--agds-radius-lg) var(--agds-radius-lg);
+  /* When there is no label the canvas is the only child — round all corners */
+}
+
+/* When the canvas is the only child (no label), round all corners */
+.doc-preview__canvas:first-child {
+  border-radius: var(--agds-radius-lg);
 }
 </style>

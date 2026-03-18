@@ -9,6 +9,10 @@ status: stable
 
 Provide a `label` and a `fetchOptions` function. The function receives the current query string and should return a promise resolving to an array of `{ label, value }` objects.
 
+::doc-preview
+<AutocompleteDemo />
+::
+
 ```vue
 <script setup>
 import { ref } from 'vue'
@@ -22,7 +26,7 @@ async function fetchOptions(query) {
 </script>
 
 <template>
-  <AGDSAutocomplete
+  <AGDSComboboxAsync
     v-model="selected"
     label="Search countries"
     :fetch-options="fetchOptions"
@@ -32,12 +36,35 @@ async function fetchOptions(query) {
 
 ## Placeholder
 
+::doc-preview{label="With placeholder"}
+<AutocompleteDemo variant="placeholder" />
+::
+
 ```vue
 <template>
-  <AGDSAutocomplete
+  <AGDSComboboxAsync
     v-model="selected"
     label="Search locations"
     placeholder="Start typing…"
+    :fetch-options="fetchOptions"
+  />
+</template>
+```
+
+## Clearable
+
+Add `clearable` to show a × button when a selection exists, allowing the user to reset the field.
+
+::doc-preview{label="Clearable"}
+<AutocompleteDemo variant="clearable" />
+::
+
+```vue
+<template>
+  <AGDSComboboxAsync
+    v-model="selected"
+    label="Search countries"
+    clearable
     :fetch-options="fetchOptions"
   />
 </template>
@@ -49,10 +76,48 @@ By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust 
 
 ```vue
 <template>
-  <AGDSAutocomplete
+  <AGDSComboboxAsync
     v-model="selected"
     label="Search"
     :debounce="500"
+    :fetch-options="fetchOptions"
+  />
+</template>
+```
+
+## Validation
+
+Set `invalid` and `message` to show the error state.
+
+::doc-preview{label="Invalid"}
+<AutocompleteDemo variant="invalid" />
+::
+
+```vue
+<template>
+  <AGDSComboboxAsync
+    v-model="selected"
+    label="Search countries"
+    :invalid="true"
+    message="Please select a country to continue"
+    :required="true"
+    :fetch-options="fetchOptions"
+  />
+</template>
+```
+
+## Disabled
+
+::doc-preview{label="Disabled"}
+<AutocompleteDemo variant="disabled" />
+::
+
+```vue
+<template>
+  <AGDSComboboxAsync
+    v-model="selected"
+    label="Search"
+    disabled
     :fetch-options="fetchOptions"
   />
 </template>
@@ -64,7 +129,7 @@ Override the default "No results found" message shown when the fetch returns an 
 
 ```vue
 <template>
-  <AGDSAutocomplete
+  <AGDSComboboxAsync
     v-model="selected"
     label="Search services"
     empty-results-message="No services match your search."
@@ -79,7 +144,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
 
 ```vue
 <template>
-  <AGDSAutocomplete
+  <AGDSComboboxAsync
     v-model="selected"
     label="Search users"
     :fetch-options="fetchUsers"
@@ -88,20 +153,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
       <strong>{{ option.label }}</strong>
       <span style="color: grey; margin-left: 0.5rem;">{{ option.value }}</span>
     </template>
-  </AGDSAutocomplete>
-</template>
-```
-
-## Disabled
-
-```vue
-<template>
-  <AGDSAutocomplete
-    v-model="selected"
-    label="Search"
-    disabled
-    :fetch-options="fetchOptions"
-  />
+  </AGDSComboboxAsync>
 </template>
 ```
 
@@ -115,10 +167,17 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
 | `id` | `string` | auto-generated | HTML `id` for the input |
 | `placeholder` | `string` | — | Placeholder text |
 | `disabled` | `boolean` | `false` | Disables the input |
+| `clearable` | `boolean` | `false` | Shows a × button to clear the current selection |
 | `loading` | `boolean` | `false` | External loading state — shows a spinner and `aria-busy` |
 | `loadingLabel` | `string` | `'Loading'` | Screen reader announcement while loading |
 | `emptyResultsMessage` | `string` | `'No results found'` | Message shown when fetch returns no results |
 | `debounce` | `number` | `300` | Delay in ms before `fetchOptions` is called |
+| `invalid` | `boolean` | `false` | Renders the error state |
+| `message` | `string` | — | Error message shown when `invalid` is true |
+| `hint` | `string` | — | Hint text below the label |
+| `required` | `boolean` | `false` | Marks the field as required |
+| `block` | `boolean` | `false` | Stretches the field to fill its container |
+| `maxWidth` | `'md' \| 'lg' \| 'xl'` | — | Constrains field width |
 
 ### Option shape
 
@@ -167,4 +226,4 @@ interface DefaultComboboxOption {
 
 ### 0.1.0
 
-- Initial release — async fetch, debounce, loading state, custom option slot, keyboard navigation
+- Initial release — async fetch, debounce, loading state, clearable, custom option slot, keyboard navigation

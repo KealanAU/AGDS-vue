@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and a `tone`. The badge renders inline and can sit inside table cells, list items, or body text.
 
 ::doc-preview
-<AGDSStatusBadge tone="successHigh" label="Approved" />
+<StatusBadgeDemo />
 ::
 
 ```vue
@@ -33,11 +33,7 @@ The `tone` prop controls the icon shape, icon colour, and border colour. Tones f
 `errorLow`, `successLow`, `infoLow`, `warningLow`, `cannotStartLow`, `inProgressLow`, `notStartedLow`, `pausedLow`, `unknownLow`
 
 ::doc-preview{label="Selected tones"}
-<AGDSStatusBadge tone="successHigh" label="Completed" />
-<AGDSStatusBadge tone="errorHigh" label="Failed" />
-<AGDSStatusBadge tone="warningMedium" label="Needs review" />
-<AGDSStatusBadge tone="inProgressLow" label="In progress" />
-<AGDSStatusBadge tone="notStartedLow" label="Not started" />
+<StatusBadgeDemo variant="tones" />
 ::
 
 ```vue
@@ -55,8 +51,7 @@ The `tone` prop controls the icon shape, icon colour, and border colour. Tones f
 Use the `appearance` prop to switch between `regular` (default pill with border) and `subtle` (icon + label, no border or background).
 
 ::doc-preview{label="Appearances"}
-<AGDSStatusBadge tone="infoHigh" label="Regular" appearance="regular" />
-<AGDSStatusBadge tone="infoHigh" label="Subtle" appearance="subtle" />
+<StatusBadgeDemo variant="appearances" />
 ::
 
 ```vue

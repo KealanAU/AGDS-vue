@@ -10,19 +10,10 @@ status: stable
 Pass an array of task `items`, each with a `label`, `status`, and either an `href` or click handler.
 
 ::doc-preview
-<AGDSTaskList :items="[
-  { label: 'Personal details', status: 'done', href: '#' },
-  { label: 'Employment history', status: 'doing', href: '#' },
-  { label: 'References', status: 'todo', href: '#' },
-  { label: 'Upload documents', status: 'blocked', href: '#' },
-]" />
+<TaskListDemo />
 ::
 
 ```vue
-<template>
-  <AGDSTaskList :items="tasks" />
-</template>
-
 <script setup>
 const tasks = [
   { label: 'Personal details', status: 'done', href: '/step-1' },
@@ -31,6 +22,10 @@ const tasks = [
   { label: 'Upload documents', status: 'blocked', href: '/step-4' },
 ]
 </script>
+
+<template>
+  <AGDSTaskList :items="tasks" />
+</template>
 ```
 
 ## Status
@@ -47,14 +42,7 @@ The `status` field on each item controls the icon and label shown alongside the 
 | `notRequired` | Minus circle outline (muted) | No longer required |
 
 ::doc-preview{label="All statuses"}
-<AGDSTaskList :items="[
-  { label: 'Done', status: 'done', href: '#' },
-  { label: 'Done recently', status: 'doneRecently', href: '#' },
-  { label: 'Doing', status: 'doing', href: '#' },
-  { label: 'To do', status: 'todo', href: '#' },
-  { label: 'Blocked', status: 'blocked', href: '#' },
-  { label: 'Not required', status: 'notRequired', href: '#' },
-]" />
+<TaskListDemo variant="statuses" />
 ::
 
 ## Ordered layout
@@ -62,11 +50,7 @@ The `status` field on each item controls the icon and label shown alongside the 
 Use the `ordered` prop to render a numbered `<ol>` with CSS counter prefixes on each item.
 
 ::doc-preview{label="Ordered"}
-<AGDSTaskList ordered :items="[
-  { label: 'Eligibility check', status: 'done', href: '#' },
-  { label: 'Personal information', status: 'doing', href: '#' },
-  { label: 'Supporting documents', status: 'todo', href: '#' },
-]" />
+<TaskListDemo variant="ordered" />
 ::
 
 ```vue
@@ -98,15 +82,12 @@ Omit `href` to render the item trigger as a `<button>` instead of an `<a>`.
 
 ```vue
 <script setup>
-function goToStep(step) { /* navigate programmatically */ }
-
 const tasks = [
   { label: 'Personal details', status: 'todo', type: 'button' },
 ]
 </script>
 
 <template>
-  <!-- Listen for click on AGDSTaskListItem directly, or handle navigation -->
   <AGDSTaskList :items="tasks" />
 </template>
 ```

@@ -15,9 +15,14 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 interface _GlobalComponents {
   AccordionDemo: typeof import("../../app/components/content/AccordionDemo.vue")['default']
+  AutocompleteDemo: typeof import("../../app/components/content/AutocompleteDemo.vue")['default']
   AvatarDemo: typeof import("../../app/components/content/AvatarDemo.vue")['default']
   BreadcrumbsDemo: typeof import("../../app/components/content/BreadcrumbsDemo.vue")['default']
+  CheckboxDemo: typeof import("../../app/components/content/CheckboxDemo.vue")['default']
+  ComboboxAsyncMultiDemo: typeof import("../../app/components/content/ComboboxAsyncMultiDemo.vue")['default']
+  ComboboxDemo: typeof import("../../app/components/content/ComboboxDemo.vue")['default']
   ComponentPreview: typeof import("../../app/components/content/ComponentPreview.vue")['default']
+  DatePickerDemo: typeof import("../../app/components/content/DatePickerDemo.vue")['default']
   DocPreview: typeof import("../../app/components/content/DocPreview.vue")['default']
   FeatureLinkListDemo: typeof import("../../app/components/content/FeatureLinkListDemo.vue")['default']
   FilterSidebarDemo: typeof import("../../app/components/content/FilterSidebarDemo.vue")['default']
@@ -30,7 +35,9 @@ interface _GlobalComponents {
   SectionAlertDemo: typeof import("../../app/components/content/SectionAlertDemo.vue")['default']
   SideNavDemo: typeof import("../../app/components/content/SideNavDemo.vue")['default']
   SkipLinksDemo: typeof import("../../app/components/content/SkipLinksDemo.vue")['default']
+  StatusBadgeDemo: typeof import("../../app/components/content/StatusBadgeDemo.vue")['default']
   TagsDemo: typeof import("../../app/components/content/TagsDemo.vue")['default']
+  TaskListDemo: typeof import("../../app/components/content/TaskListDemo.vue")['default']
   DocsLayout: typeof import("../../app/components/DocsLayout.vue")['default']
   ProseA: typeof import("../../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']
   ProseBlockquote: typeof import("../../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']
@@ -355,9 +362,14 @@ interface _GlobalComponents {
   MDCSlot: typeof import("../../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue")['default']
   NuxtIsland: typeof import("../../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/nuxt-island")['default']
   LazyAccordionDemo: LazyComponent<typeof import("../../app/components/content/AccordionDemo.vue")['default']>
+  LazyAutocompleteDemo: LazyComponent<typeof import("../../app/components/content/AutocompleteDemo.vue")['default']>
   LazyAvatarDemo: LazyComponent<typeof import("../../app/components/content/AvatarDemo.vue")['default']>
   LazyBreadcrumbsDemo: LazyComponent<typeof import("../../app/components/content/BreadcrumbsDemo.vue")['default']>
+  LazyCheckboxDemo: LazyComponent<typeof import("../../app/components/content/CheckboxDemo.vue")['default']>
+  LazyComboboxAsyncMultiDemo: LazyComponent<typeof import("../../app/components/content/ComboboxAsyncMultiDemo.vue")['default']>
+  LazyComboboxDemo: LazyComponent<typeof import("../../app/components/content/ComboboxDemo.vue")['default']>
   LazyComponentPreview: LazyComponent<typeof import("../../app/components/content/ComponentPreview.vue")['default']>
+  LazyDatePickerDemo: LazyComponent<typeof import("../../app/components/content/DatePickerDemo.vue")['default']>
   LazyDocPreview: LazyComponent<typeof import("../../app/components/content/DocPreview.vue")['default']>
   LazyFeatureLinkListDemo: LazyComponent<typeof import("../../app/components/content/FeatureLinkListDemo.vue")['default']>
   LazyFilterSidebarDemo: LazyComponent<typeof import("../../app/components/content/FilterSidebarDemo.vue")['default']>
@@ -370,7 +382,9 @@ interface _GlobalComponents {
   LazySectionAlertDemo: LazyComponent<typeof import("../../app/components/content/SectionAlertDemo.vue")['default']>
   LazySideNavDemo: LazyComponent<typeof import("../../app/components/content/SideNavDemo.vue")['default']>
   LazySkipLinksDemo: LazyComponent<typeof import("../../app/components/content/SkipLinksDemo.vue")['default']>
+  LazyStatusBadgeDemo: LazyComponent<typeof import("../../app/components/content/StatusBadgeDemo.vue")['default']>
   LazyTagsDemo: LazyComponent<typeof import("../../app/components/content/TagsDemo.vue")['default']>
+  LazyTaskListDemo: LazyComponent<typeof import("../../app/components/content/TaskListDemo.vue")['default']>
   LazyDocsLayout: LazyComponent<typeof import("../../app/components/DocsLayout.vue")['default']>
   LazyProseA: LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']>
   LazyProseBlockquote: LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']>

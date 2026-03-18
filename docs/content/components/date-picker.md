@@ -10,7 +10,7 @@ status: stable
 Use `v-model` to bind the selected date. In single mode, the value is `Date | null`.
 
 ::doc-preview
-<AGDSDatePicker label="Date of birth" v-model="null" />
+<DatePickerDemo />
 ::
 
 ```vue
@@ -20,7 +20,7 @@ const date = ref(null)
 </script>
 
 <template>
-  <AGDSDatePicker label="Date of birth" v-model="date" />
+  <AGDSDatePicker label="Date of birth" v-model="date" :required="true" />
 </template>
 ```
 
@@ -29,7 +29,7 @@ const date = ref(null)
 Set `range` to `true` to show two date inputs (start + end). The `v-model` value becomes `{ from: Date | null; to: Date | null }`.
 
 ::doc-preview{label="Date range"}
-<AGDSDatePicker range label="Employment period" v-model="{ from: null, to: null }" />
+<DatePickerDemo variant="range" />
 ::
 
 ```vue
@@ -54,7 +54,7 @@ const range = ref({ from: null, to: null })
 Use `hint` for guidance and `invalid`/`message` to show a validation error.
 
 ::doc-preview{label="With hint and error"}
-<AGDSDatePicker label="Application date" hint="Enter the date you submitted your application" invalid message="Enter a valid date" v-model="null" />
+<DatePickerDemo variant="hint-validation" />
 ::
 
 ```vue
@@ -72,6 +72,10 @@ Use `hint` for guidance and `invalid`/`message` to show a validation error.
 ## Min and max dates
 
 Restrict selectable dates using `minDate` and `maxDate`. Dates outside this range are disabled in the calendar.
+
+::doc-preview{label="Min and max"}
+<DatePickerDemo variant="min-max" />
+::
 
 ```vue
 <script setup>
@@ -92,6 +96,10 @@ const maxDate = new Date()
 ## Year range dropdown
 
 Provide `yearRange` to show a year dropdown in the calendar header, allowing users to jump between years quickly.
+
+::doc-preview{label="Year range"}
+<DatePickerDemo variant="year-range" />
+::
 
 ```vue
 <template>
