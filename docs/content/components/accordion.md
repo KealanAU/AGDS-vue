@@ -10,17 +10,7 @@ status: stable
 Wrap `AgDSAccordionItem` components inside `AgDSAccordion`. Each item needs a unique `value` and a `title`.
 
 ::doc-preview
-<AgDSAccordion>
-  <AgDSAccordionItem value="eligibility" title="Eligibility requirements">
-    <p>You must be an Australian citizen or permanent resident to be eligible.</p>
-  </AgDSAccordionItem>
-  <AgDSAccordionItem value="documents" title="Required documents">
-    <p>Bring two forms of photo identification and proof of address.</p>
-  </AgDSAccordionItem>
-  <AgDSAccordionItem value="timeline" title="Processing timeline">
-    <p>Applications are processed within 10 business days of receipt.</p>
-  </AgDSAccordionItem>
-</AgDSAccordion>
+<AccordionDemo />
 ::
 
 ```vue
@@ -43,18 +33,8 @@ Wrap `AgDSAccordionItem` components inside `AgDSAccordion`. Each item needs a un
 
 Use `type="single"` to allow only one item open at a time. The default is `multiple`.
 
-::doc-preview{label="Single"}
-<AgDSAccordion type="single" :collapsible="true">
-  <AgDSAccordionItem value="a" title="Step 1 — Create account">
-    <p>Register at my.gov.au using your email address.</p>
-  </AgDSAccordionItem>
-  <AgDSAccordionItem value="b" title="Step 2 — Verify identity">
-    <p>Complete the online identity verification with your Medicare or passport details.</p>
-  </AgDSAccordionItem>
-  <AgDSAccordionItem value="c" title="Step 3 — Link services">
-    <p>Link your government services from the dashboard once your identity is verified.</p>
-  </AgDSAccordionItem>
-</AgDSAccordion>
+::doc-preview{label='type="single"'}
+<AccordionDemo variant="single" />
 ::
 
 ```vue
@@ -71,28 +51,13 @@ Use `type="single"` to allow only one item open at a time. The default is `multi
 
 Use `defaultValue` to open items on first render without controlling them. Pass a string for `type="single"` or an array for `type="multiple"`.
 
+::doc-preview{label='defaultValue="eligibility"'}
+<AccordionDemo variant="default-open" />
+::
+
 ```vue
 <template>
-  <!-- Open the first item by default -->
   <AgDSAccordion default-value="eligibility">
-    <AgDSAccordionItem value="eligibility" title="Eligibility">…</AgDSAccordionItem>
-    <AgDSAccordionItem value="documents" title="Documents">…</AgDSAccordionItem>
-  </AgDSAccordion>
-</template>
-```
-
-## Controlled
-
-Use `v-model` to control open items from your component's state.
-
-```vue
-<script setup>
-import { ref } from 'vue'
-const open = ref(['eligibility'])
-</script>
-
-<template>
-  <AgDSAccordion v-model="open">
     <AgDSAccordionItem value="eligibility" title="Eligibility">…</AgDSAccordionItem>
     <AgDSAccordionItem value="documents" title="Documents">…</AgDSAccordionItem>
   </AgDSAccordion>
@@ -103,15 +68,8 @@ const open = ref(['eligibility'])
 
 Use the `disabled` prop on `AgDSAccordionItem` to prevent a specific item from being opened.
 
-::doc-preview{label="Disabled item"}
-<AgDSAccordion>
-  <AgDSAccordionItem value="active" title="Active section">
-    <p>This section can be opened.</p>
-  </AgDSAccordionItem>
-  <AgDSAccordionItem value="locked" title="Temporarily unavailable" disabled>
-    <p>This content is unavailable.</p>
-  </AgDSAccordionItem>
-</AgDSAccordion>
+::doc-preview{label="disabled"}
+<AccordionDemo variant="disabled" />
 ::
 
 ```vue
@@ -125,37 +83,16 @@ Use the `disabled` prop on `AgDSAccordionItem` to prevent a specific item from b
 
 ## Indent
 
-Use `indent` on `AgDSAccordion` to indent both triggers and panel content. Useful when the accordion appears inside a list or nested layout.
+Use `indent` on `AgDSAccordion` to indent both triggers and panel content.
+
+::doc-preview{label="indent"}
+<AccordionDemo variant="indent" />
+::
 
 ```vue
 <template>
   <AgDSAccordion indent>
     <AgDSAccordionItem value="info" title="Additional information">…</AgDSAccordionItem>
-  </AgDSAccordion>
-</template>
-```
-
-## bodyAlt background
-
-Use `background="bodyAlt"` when the accordion sits on an off-white (`bodyAlt`) background to ensure hover states remain visible.
-
-```vue
-<template>
-  <AgDSAccordion background="bodyAlt">
-    <AgDSAccordionItem value="info" title="More information">…</AgDSAccordionItem>
-  </AgDSAccordion>
-</template>
-```
-
-## Heading level
-
-Use `headingLevel` on `AgDSAccordionItem` to set the semantic heading level for the trigger. Defaults to `3`. Adjust to match the surrounding page heading hierarchy.
-
-```vue
-<template>
-  <!-- Inside an <h2> section, use h3 -->
-  <AgDSAccordion>
-    <AgDSAccordionItem value="a" title="Question" :heading-level="3">…</AgDSAccordionItem>
   </AgDSAccordion>
 </template>
 ```

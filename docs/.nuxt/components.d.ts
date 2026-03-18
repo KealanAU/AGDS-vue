@@ -14,6 +14,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const AccordionDemo: typeof import("../app/components/content/AccordionDemo.vue")['default']
 export const BreadcrumbsDemo: typeof import("../app/components/content/BreadcrumbsDemo.vue")['default']
 export const ComponentPreview: typeof import("../app/components/content/ComponentPreview.vue")['default']
 export const DocPreview: typeof import("../app/components/content/DocPreview.vue")['default']
@@ -348,6 +349,7 @@ export const MDCCached: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20
 export const MDCRenderer: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/MDCRenderer.vue")['default']
 export const MDCSlot: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue")['default']
 export const NuxtIsland: typeof import("../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyAccordionDemo: LazyComponent<typeof import("../app/components/content/AccordionDemo.vue")['default']>
 export const LazyBreadcrumbsDemo: LazyComponent<typeof import("../app/components/content/BreadcrumbsDemo.vue")['default']>
 export const LazyComponentPreview: LazyComponent<typeof import("../app/components/content/ComponentPreview.vue")['default']>
 export const LazyDocPreview: LazyComponent<typeof import("../app/components/content/DocPreview.vue")['default']>

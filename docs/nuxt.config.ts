@@ -10,6 +10,12 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  vite: {
+    optimizeDeps: {
+      exclude: ['#app-manifest'],
+    },
+  },
+
   nitro: {
     prerender: {
       failOnError: false,

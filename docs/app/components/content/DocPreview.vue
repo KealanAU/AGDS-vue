@@ -1,6 +1,5 @@
 <script setup lang="ts">
 defineProps<{
-  /** Optional label shown above the preview */
   label?: string
 }>()
 </script>

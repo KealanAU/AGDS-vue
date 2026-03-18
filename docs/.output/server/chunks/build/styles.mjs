@@ -1,0 +1,42 @@
+const interopDefault = r => r.default || r || [];
+const styles = {
+  "app.vue": () => import('./app-styles.ee7YkQe6.mjs').then(interopDefault),
+  "app.vue?vue&type=style&index=0&lang.css": () => import('./app-styles.ee7YkQe6.mjs').then(interopDefault),
+  "../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/error-500.vue": () => import('./error-500-styles.lNf5FF1t.mjs').then(interopDefault),
+  "../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/error-404.vue": () => import('./error-404-styles.CtA30E02.mjs').then(interopDefault),
+  "pages/index.vue": () => import('./index-styles.DpYryBoW.mjs').then(interopDefault),
+  "pages/patterns.vue": () => import('./patterns-styles.CDKCI5RI.mjs').then(interopDefault),
+  "pages/templates.vue": () => import('./templates-styles.BtAco50-.mjs').then(interopDefault),
+  "pages/installation.vue": () => import('./installation-styles.Bgvzw6fI.mjs').then(interopDefault),
+  "pages/foundations/tokens.vue": () => import('./tokens-styles.DLFoAZGd.mjs').then(interopDefault),
+  "pages/components/[slug].vue": () => import('./_slug_-styles.Dm5NdZ4n.mjs').then(interopDefault),
+  "pages/foundations/spacing.vue": () => import('./spacing-styles.BM4LiEaN.mjs').then(interopDefault),
+  "pages/foundations/colours.vue": () => import('./colours-styles.DMlxcShE.mjs').then(interopDefault),
+  "pages/foundations/typography.vue": () => import('./typography-styles.DmcIo6U5.mjs').then(interopDefault),
+  "pages/digital-service-standard.vue": () => import('./digital-service-standard-styles.De65JiJH.mjs').then(interopDefault),
+  "pages/components/index.vue": () => import('./index-styles.DJV6Hgsc.mjs').then(interopDefault),
+  "pages/index.vue?vue&type=style&index=0&scoped=80acb673&lang.css": () => import('./index-styles.DpYryBoW.mjs').then(interopDefault),
+  "pages/components/[slug].vue?vue&type=style&index=0&scoped=5bdabbc5&lang.css": () => import('./_slug_-styles.Dm5NdZ4n.mjs').then(interopDefault),
+  "pages/digital-service-standard.vue?vue&type=style&index=0&scoped=cebee8c2&lang.css": () => import('./digital-service-standard-styles.De65JiJH.mjs').then(interopDefault),
+  "pages/components/index.vue?vue&type=style&index=0&scoped=e809f522&lang.css": () => import('./index-styles.DJV6Hgsc.mjs').then(interopDefault),
+  "../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/error-500.vue?vue&type=style&index=0&scoped=dd7cce5b&lang.css": () => import('./error-500-styles.lNf5FF1t.mjs').then(interopDefault),
+  "../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/components/error-404.vue?vue&type=style&index=0&scoped=90b26791&lang.css": () => import('./error-404-styles.CtA30E02.mjs').then(interopDefault),
+  "pages/patterns.vue?vue&type=style&index=0&scoped=e3d99582&lang.css": () => import('./patterns-styles.CDKCI5RI.mjs').then(interopDefault),
+  "pages/templates.vue?vue&type=style&index=0&scoped=5dc5823f&lang.css": () => import('./templates-styles.BtAco50-.mjs').then(interopDefault),
+  "pages/foundations/tokens.vue?vue&type=style&index=0&scoped=bc2cceeb&lang.css": () => import('./tokens-styles.DLFoAZGd.mjs').then(interopDefault),
+  "pages/foundations/spacing.vue?vue&type=style&index=0&scoped=88fa953e&lang.css": () => import('./spacing-styles.BM4LiEaN.mjs').then(interopDefault),
+  "pages/foundations/typography.vue?vue&type=style&index=0&scoped=dd2ee041&lang.css": () => import('./typography-styles.DmcIo6U5.mjs').then(interopDefault),
+  "pages/foundations/colours.vue?vue&type=style&index=0&scoped=9a11c7f8&lang.css": () => import('./colours-styles.DMlxcShE.mjs').then(interopDefault),
+  "pages/installation.vue?vue&type=style&index=0&scoped=271f3deb&lang.css": () => import('./installation-styles.Bgvzw6fI.mjs').then(interopDefault),
+  "components/DocsLayout.vue": () => import('./DocsLayout-styles.-pWE-x-c.mjs').then(interopDefault),
+  "components/DocsLayout.vue?vue&type=style&index=0&scoped=e67e8be6&lang.css": () => import('./DocsLayout-styles.-pWE-x-c.mjs').then(interopDefault),
+  "components/content/DocPreview.vue": () => import('./DocPreview-styles.B1kudYyh.mjs').then(interopDefault),
+  "components/content/PaginationDemo.vue": () => import('./PaginationDemo-styles.bWaTcUDB.mjs').then(interopDefault),
+  "components/content/ProsePre.vue": () => import('./ProsePre-styles.CcRAm2NR.mjs').then(interopDefault),
+  "components/content/DocPreview.vue?vue&type=style&index=0&scoped=6ec0d90c&lang.css": () => import('./DocPreview-styles.B1kudYyh.mjs').then(interopDefault),
+  "components/content/PaginationDemo.vue?vue&type=style&index=0&scoped=403aacc2&lang.css": () => import('./PaginationDemo-styles.bWaTcUDB.mjs').then(interopDefault),
+  "components/content/ProsePre.vue?vue&type=style&index=0&scoped=29350894&lang.css": () => import('./ProsePre-styles.CcRAm2NR.mjs').then(interopDefault)
+};
+
+export { styles as default };
+//# sourceMappingURL=styles.mjs.map
