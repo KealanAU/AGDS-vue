@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSFileInput from './AGDSFileInput.vue'
+import AGDSFileInput from './AGDSFileInput.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,7 +10,7 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderFileInput(props: Record<string, unknown> = {}) {
-  return render(AgDSFileInput, {
+  return render(AGDSFileInput, {
     props: { label: 'Upload document', ...props },
   })
 }
@@ -27,7 +27,7 @@ function selectFiles(container: HTMLElement, files: File[]) {
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — rendering', () => {
+describe('AGDSFileInput — rendering', () => {
   it('renders a visible trigger button', () => {
     const { getByRole } = renderFileInput()
     expect(getByRole('button')).toBeTruthy()
@@ -72,7 +72,7 @@ describe('AgDSFileInput — rendering', () => {
 
 // ─── Props: hint ──────────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — hint prop', () => {
+describe('AGDSFileInput — hint prop', () => {
   it('renders explicit hint text', () => {
     const { getByText } = renderFileInput({ hint: 'Maximum 10 MB' })
     expect(getByText('Maximum 10 MB')).toBeTruthy()
@@ -91,7 +91,7 @@ describe('AgDSFileInput — hint prop', () => {
 
 // ─── Props: message ───────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — message prop', () => {
+describe('AGDSFileInput — message prop', () => {
   it('renders a validation message', () => {
     const { getByText } = renderFileInput({ message: 'File is required' })
     expect(getByText('File is required')).toBeTruthy()
@@ -115,7 +115,7 @@ describe('AgDSFileInput — message prop', () => {
 
 // ─── Props: required / optional label ────────────────────────────────────────
 
-describe('AgDSFileInput — optional label', () => {
+describe('AGDSFileInput — optional label', () => {
   it('shows "(optional)" when required=false and hideOptionalLabel=false', () => {
     const { getByText } = renderFileInput({ required: false, hideOptionalLabel: false })
     expect(getByText('(optional)')).toBeTruthy()
@@ -134,7 +134,7 @@ describe('AgDSFileInput — optional label', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — disabled prop', () => {
+describe('AGDSFileInput — disabled prop', () => {
   it('disables the trigger button', () => {
     const { getByRole } = renderFileInput({ disabled: true })
     expect((getByRole('button') as HTMLButtonElement).disabled).toBe(true)
@@ -149,7 +149,7 @@ describe('AgDSFileInput — disabled prop', () => {
 
 // ─── Props: accept ────────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — accept prop', () => {
+describe('AGDSFileInput — accept prop', () => {
   it('passes a plain string accept value to the native input', () => {
     const { container } = renderFileInput({ accept: '.pdf,.doc' })
     const input = container.querySelector('input[type="file"]') as HTMLInputElement
@@ -165,7 +165,7 @@ describe('AgDSFileInput — accept prop', () => {
 
 // ─── Props: multiple ──────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — multiple prop', () => {
+describe('AGDSFileInput — multiple prop', () => {
   it('button label says "Select file" by default', () => {
     const { getByRole } = renderFileInput()
     expect(getByRole('button').getAttribute('aria-label')).toContain('Select file')
@@ -185,7 +185,7 @@ describe('AgDSFileInput — multiple prop', () => {
 
 // ─── Props: name ──────────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — name prop', () => {
+describe('AGDSFileInput — name prop', () => {
   it('sets the name attribute on the native input', () => {
     const { container } = renderFileInput({ name: 'document' })
     const input = container.querySelector('input[type="file"]') as HTMLInputElement
@@ -195,7 +195,7 @@ describe('AgDSFileInput — name prop', () => {
 
 // ─── Props: buttonSize ────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — buttonSize prop', () => {
+describe('AGDSFileInput — buttonSize prop', () => {
   it('defaults to sm size', () => {
     const { getByRole } = renderFileInput()
     expect(getByRole('button').className).toContain('agds-button--sm')
@@ -209,7 +209,7 @@ describe('AgDSFileInput — buttonSize prop', () => {
 
 // ─── aria-label composition ───────────────────────────────────────────────────
 
-describe('AgDSFileInput — button aria-label', () => {
+describe('AGDSFileInput — button aria-label', () => {
   it('includes the button action, field label, and file state', () => {
     const { getByRole } = renderFileInput()
     const label = getByRole('button').getAttribute('aria-label') ?? ''
@@ -236,7 +236,7 @@ describe('AgDSFileInput — button aria-label', () => {
 
 // ─── File selection — display and aria-label update ───────────────────────────
 
-describe('AgDSFileInput — file selection', () => {
+describe('AGDSFileInput — file selection', () => {
   it('shows the single selected file name after selection', async () => {
     const { container, getByText } = renderFileInput()
     await selectFiles(container, [new File(['x'], 'report.pdf', { type: 'application/pdf' })])
@@ -267,7 +267,7 @@ describe('AgDSFileInput — file selection', () => {
 
 // ─── Events ───────────────────────────────────────────────────────────────────
 
-describe('AgDSFileInput — events', () => {
+describe('AGDSFileInput — events', () => {
   it('emits change when files are selected', async () => {
     const { container, emitted } = renderFileInput()
     await selectFiles(container, [new File(['x'], 'test.pdf')])
@@ -289,7 +289,7 @@ describe('AgDSFileInput — events', () => {
 
 // ─── Button triggers hidden input ─────────────────────────────────────────────
 
-describe('AgDSFileInput — button click triggers hidden input', () => {
+describe('AGDSFileInput — button click triggers hidden input', () => {
   it('calls click() on the hidden input when the button is clicked', async () => {
     const { container, getByRole } = renderFileInput()
     const input = container.querySelector('input[type="file"]') as HTMLInputElement
@@ -301,7 +301,7 @@ describe('AgDSFileInput — button click triggers hidden input', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSFileInput — axe accessibility', () => {
+describe('AGDSFileInput — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderFileInput()
     await runAxe(container, AXE_OPTS)

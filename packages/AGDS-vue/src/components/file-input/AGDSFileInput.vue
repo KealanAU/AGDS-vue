@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, onMounted, ref } from 'vue'
-import AgDSButton from '../button/AGDSButton.vue'
+import AGDSButton from '../button/AGDSButton.vue'
 import type { ButtonSize } from '../button/AGDSButton.vue'
-import AgDSFormStack from '../form-stack/AGDSFormStack.vue'
-import AgDSFlex from '../flex/AGDSFlex.vue'
+import AGDSFormStack from '../form-stack/AGDSFormStack.vue'
+import AGDSFlex from '../flex/AGDSFlex.vue'
 
 // ── MIME type → display label mapping ───────────────────────────────────────
 
@@ -33,7 +33,7 @@ export type AcceptedFileMimeTypes = keyof typeof FILE_TYPE_MAPPING
 
 // ── Props ────────────────────────────────────────────────────────────────────
 
-export interface AgDSFileInputProps {
+export interface AGDSFileInputProps {
   /** Visible label for the field */
   label: string
   /** HTML id for the button — auto-generated if not provided */
@@ -64,7 +64,7 @@ export interface AgDSFileInputProps {
   buttonSize?: ButtonSize
 }
 
-const props = withDefaults(defineProps<AgDSFileInputProps>(), {
+const props = withDefaults(defineProps<AGDSFileInputProps>(), {
   disabled: false,
   autoFocus: false,
   multiple: false,
@@ -178,7 +178,7 @@ const buttonDescribedBy = computed<string | undefined>(() => {
 // ── Refs ──────────────────────────────────────────────────────────────────────
 
 const hiddenInputRef   = ref<HTMLInputElement | null>(null)
-const visibleButtonRef = ref<InstanceType<typeof AgDSButton> | null>(null)
+const visibleButtonRef = ref<InstanceType<typeof AGDSButton> | null>(null)
 
 defineExpose({ focus: () => visibleButtonRef.value?.focus() })
 
@@ -194,7 +194,7 @@ function handleButtonClick() {
 </script>
 
 <template>
-  <AgDSFormStack>
+  <AGDSFormStack>
     <!-- Label — for= points to the button so clicking it focuses/activates it -->
     <label :for="buttonId" class="agds-file-input__label">
       {{ props.label }}
@@ -213,8 +213,8 @@ function handleButtonClick() {
     </span>
 
     <!-- Control area: button + file name display -->
-    <AgDSFlex flex-direction="column" align-items="flex-start" :gap="1">
-      <AgDSButton
+    <AGDSFlex flex-direction="column" align-items="flex-start" :gap="1">
+      <AGDSButton
         ref="visibleButtonRef"
         :id="buttonId"
         variant="secondary"
@@ -229,7 +229,7 @@ function handleButtonClick() {
         @blur="emit('blur', $event)"
       >
         {{ buttonLabel }}
-      </AgDSButton>
+      </AGDSButton>
 
       <!-- Selected file(s) display text -->
       <span
@@ -239,7 +239,7 @@ function handleButtonClick() {
       >
         {{ displayMessage }}
       </span>
-    </AgDSFlex>
+    </AGDSFlex>
 
     <!-- Validation message -->
     <span
@@ -270,7 +270,7 @@ function handleButtonClick() {
       class="agds-file-input__input"
       @change="handleChange"
     />
-  </AgDSFormStack>
+  </AGDSFormStack>
 </template>
 
 <style scoped>

@@ -17,17 +17,13 @@ function generateHref(page: number) {
 
 <template>
   <div class="pagination-demo">
-    <AgDSPagination
+    <AGDSPagination
       v-if="variant === 'link'"
       :current-page="currentPage"
       :total-pages="totalPages"
       :generate-href="generateHref"
     />
-    <AgDSPaginationButtons
-      v-else
-      :current-page="currentPage"
-      :total-pages="totalPages"
-    />
+    <AGDSPaginationButtons v-else :current-page="currentPage" :total-pages="totalPages" />
   </div>
 </template>
 

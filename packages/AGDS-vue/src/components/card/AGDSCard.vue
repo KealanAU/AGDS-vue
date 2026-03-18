@@ -2,7 +2,7 @@
 import { computed, provide, reactive, useSlots } from 'vue'
 import { CARD_CONTEXT_KEY } from './cardContext'
 
-export interface AgDSCardProps {
+export interface AGDSCardProps {
   /** HTML element to render as. Use 'li' when cards appear in a list. */
   as?: string
   /** Background colour of the card surface. */
@@ -15,7 +15,7 @@ export interface AgDSCardProps {
   shadow?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSCardProps>(), {
+const props = withDefaults(defineProps<AGDSCardProps>(), {
   as: 'div',
   background: 'body',
   clickable: false,

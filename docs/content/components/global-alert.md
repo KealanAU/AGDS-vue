@@ -7,13 +7,13 @@ status: stable
 
 ## Usage
 
-Place `AgDSGlobalAlert` above your main layout content. Provide a message in the default slot.
+Place `AGDSGlobalAlert` above your main layout content. Provide a message in the default slot.
 
 ```vue
 <template>
-  <AgDSGlobalAlert>
+  <AGDSGlobalAlert>
     This site will be unavailable on Saturday 15 March from 6 am to 8 am AEST for scheduled maintenance.
-  </AgDSGlobalAlert>
+  </AGDSGlobalAlert>
 </template>
 ```
 
@@ -23,10 +23,10 @@ Use the `tone` prop to control the colour scheme and icon. The default tone is `
 
 ```vue
 <template>
-  <AgDSGlobalAlert tone="info">
+  <AGDSGlobalAlert tone="info">
     A new version of this service is available.
     <a href="/updates">See what's new</a>.
-  </AgDSGlobalAlert>
+  </AGDSGlobalAlert>
 </template>
 ```
 
@@ -41,9 +41,9 @@ Add a `title` prop to render a bold heading above the body content.
 
 ```vue
 <template>
-  <AgDSGlobalAlert title="Scheduled maintenance" tone="warning">
+  <AGDSGlobalAlert title="Scheduled maintenance" tone="warning">
     This site will be unavailable on Saturday 15 March from 6 am to 8 am AEST.
-  </AgDSGlobalAlert>
+  </AGDSGlobalAlert>
 </template>
 ```
 
@@ -58,14 +58,14 @@ const visible = ref(true)
 </script>
 
 <template>
-  <AgDSGlobalAlert
+  <AGDSGlobalAlert
     v-if="visible"
     title="Cookie notice"
     tone="info"
     :on-close="() => (visible = false)"
   >
     We use cookies to improve your experience.
-  </AgDSGlobalAlert>
+  </AGDSGlobalAlert>
 </template>
 ```
 

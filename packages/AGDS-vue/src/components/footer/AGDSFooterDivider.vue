@@ -1,10 +1,10 @@
 <script setup lang="ts">
-export interface AgDSFooterDividerProps {
+export interface AGDSFooterDividerProps {
   /** Border colour token for the divider line. */
   color?: 'accent' | 'muted'
 }
 
-withDefaults(defineProps<AgDSFooterDividerProps>(), {
+withDefaults(defineProps<AGDSFooterDividerProps>(), {
   color: 'accent',
 })
 </script>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSProseProps {
+export interface AGDSProseProps {
   /**
    * The HTML element or component rendered as the prose container.
    * @default 'div'
@@ -7,7 +7,7 @@ export interface AgDSProseProps {
   as?: string
 }
 
-withDefaults(defineProps<AgDSProseProps>(), {
+withDefaults(defineProps<AGDSProseProps>(), {
   as: 'div',
 })
 </script>

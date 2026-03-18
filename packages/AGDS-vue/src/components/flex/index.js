@@ -1,1 +1,1 @@
-export { default as AgDSFlex } from './AGDSFlex.vue';
+export { default as AGDSFlex } from './AGDSFlex.vue';

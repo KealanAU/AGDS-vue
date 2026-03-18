@@ -6,7 +6,7 @@ import type { ColumnRange } from './AGDSColumns.vue'
 export type ColumnAlignSelf = 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
 export type ColumnJustifySelf = 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch'
 
-export interface AgDSColumnProps {
+export interface AGDSColumnProps {
   /** Element or component to render as */
   as?: string | Component
   /**
@@ -32,7 +32,7 @@ export interface AgDSColumnProps {
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<AgDSColumnProps>()
+const props = defineProps<AGDSColumnProps>()
 const attrs = useAttrs()
 
 const style = computed(() => {

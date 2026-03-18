@@ -7,57 +7,57 @@ status: stable
 
 ## Usage
 
-`AgDSCard` is a composable system. Use `AgDSCardHeader` for the title area, `AgDSCardInner` for body content, and `AgDSCardFooter` for footer actions.
+`AGDSCard` is a composable system. Use `AGDSCardHeader` for the title area, `AGDSCardInner` for body content, and `AGDSCardFooter` for footer actions.
 
 ::doc-preview
-<AgDSCard>
-  <AgDSCardHeader title="Apply for a grant" subtitle="Closes 30 June 2026" />
-  <AgDSCardInner>
+<AGDSCard>
+  <AGDSCardHeader title="Apply for a grant" subtitle="Closes 30 June 2026" />
+  <AGDSCardInner>
     <p>Funding is available for eligible small businesses in regional areas.</p>
-  </AgDSCardInner>
-</AgDSCard>
+  </AGDSCardInner>
+</AGDSCard>
 ::
 
 ```vue
 <template>
-  <AgDSCard>
-    <AgDSCardHeader title="Apply for a grant" subtitle="Closes 30 June 2026" />
-    <AgDSCardInner>
+  <AGDSCard>
+    <AGDSCardHeader title="Apply for a grant" subtitle="Closes 30 June 2026" />
+    <AGDSCardInner>
       <p>Funding is available for eligible small businesses in regional areas.</p>
-    </AgDSCardInner>
-  </AgDSCard>
+    </AGDSCardInner>
+  </AGDSCard>
 </template>
 ```
 
 ## Clickable card
 
-Add `clickable` and include an `AgDSCardLink` inside the header. The link's `::after` pseudo-element stretches to cover the entire card surface, making the whole card interactive while preserving correct semantics for screen readers.
+Add `clickable` and include an `AGDSCardLink` inside the header. The link's `::after` pseudo-element stretches to cover the entire card surface, making the whole card interactive while preserving correct semantics for screen readers.
 
 ::doc-preview{label="Clickable"}
-<AgDSCard clickable>
-  <AgDSCardHeader title="Regional business grants">
+<AGDSCard clickable>
+  <AGDSCardHeader title="Regional business grants">
     <template #link>
-      <AgDSCardLink href="#">Learn more</AgDSCardLink>
+      <AGDSCardLink href="#">Learn more</AGDSCardLink>
     </template>
-  </AgDSCardHeader>
-  <AgDSCardInner>
+  </AGDSCardHeader>
+  <AGDSCardInner>
     <p>Up to $50,000 available for eligible businesses in qualifying regions.</p>
-  </AgDSCardInner>
-</AgDSCard>
+  </AGDSCardInner>
+</AGDSCard>
 ::
 
 ```vue
 <template>
-  <AgDSCard clickable>
-    <AgDSCardHeader title="Regional business grants">
+  <AGDSCard clickable>
+    <AGDSCardHeader title="Regional business grants">
       <template #link>
-        <AgDSCardLink href="/grants/regional">Learn more</AgDSCardLink>
+        <AGDSCardLink href="/grants/regional">Learn more</AGDSCardLink>
       </template>
-    </AgDSCardHeader>
-    <AgDSCardInner>
+    </AGDSCardHeader>
+    <AGDSCardInner>
       <p>Up to $50,000 available for eligible businesses in qualifying regions.</p>
-    </AgDSCardInner>
-  </AgDSCard>
+    </AGDSCardInner>
+  </AGDSCard>
 </template>
 ```
 
@@ -67,8 +67,8 @@ Use the `shadow` prop to add a drop shadow. `sm` is a subtle lift; `md` is more 
 
 ```vue
 <template>
-  <AgDSCard shadow="sm">…</AgDSCard>
-  <AgDSCard shadow="md">…</AgDSCard>
+  <AGDSCard shadow="sm">…</AGDSCard>
+  <AGDSCard shadow="md">…</AGDSCard>
 </template>
 ```
 
@@ -78,40 +78,40 @@ Use `background="bodyAlt"` when the card sits on an off-white surface so its own
 
 ```vue
 <template>
-  <AgDSCard background="bodyAlt">
-    <AgDSCardHeader title="Information" />
-    <AgDSCardInner><p>Card on a bodyAlt surface.</p></AgDSCardInner>
-  </AgDSCard>
+  <AGDSCard background="bodyAlt">
+    <AGDSCardHeader title="Information" />
+    <AGDSCardInner><p>Card on a bodyAlt surface.</p></AGDSCardInner>
+  </AGDSCard>
 </template>
 ```
 
 ## Footer
 
-Use `AgDSCardFooter` for actions or metadata below the body content.
+Use `AGDSCardFooter` for actions or metadata below the body content.
 
 ::doc-preview{label="With footer"}
-<AgDSCard>
-  <AgDSCardHeader title="Environmental grants" />
-  <AgDSCardInner>
+<AGDSCard>
+  <AGDSCardHeader title="Environmental grants" />
+  <AGDSCardInner>
     <p>Grants for sustainability projects in the ACT region.</p>
-  </AgDSCardInner>
-  <AgDSCardFooter>
-    <AgDSButton size="sm">Apply now</AgDSButton>
-  </AgDSCardFooter>
-</AgDSCard>
+  </AGDSCardInner>
+  <AGDSCardFooter>
+    <AGDSButton size="sm">Apply now</AGDSButton>
+  </AGDSCardFooter>
+</AGDSCard>
 ::
 
 ```vue
 <template>
-  <AgDSCard>
-    <AgDSCardHeader title="Environmental grants" />
-    <AgDSCardInner>
+  <AGDSCard>
+    <AGDSCardHeader title="Environmental grants" />
+    <AGDSCardInner>
       <p>Grants for sustainability projects in the ACT region.</p>
-    </AgDSCardInner>
-    <AgDSCardFooter>
-      <AgDSButton size="sm">Apply now</AgDSButton>
-    </AgDSCardFooter>
-  </AgDSCard>
+    </AGDSCardInner>
+    <AGDSCardFooter>
+      <AGDSButton size="sm">Apply now</AGDSButton>
+    </AGDSCardFooter>
+  </AGDSCard>
 </template>
 ```
 
@@ -121,17 +121,17 @@ Use `footerOutside` to render the footer below the card border — useful for me
 
 ```vue
 <template>
-  <AgDSCard footer-outside>
-    <AgDSCardHeader title="Service update" />
-    <AgDSCardInner><p>Scheduled maintenance on 15 March.</p></AgDSCardInner>
-    <AgDSCardFooter>
+  <AGDSCard footer-outside>
+    <AGDSCardHeader title="Service update" />
+    <AGDSCardInner><p>Scheduled maintenance on 15 March.</p></AGDSCardInner>
+    <AGDSCardFooter>
       <span>Last updated: 1 March 2026</span>
-    </AgDSCardFooter>
-  </AgDSCard>
+    </AGDSCardFooter>
+  </AGDSCard>
 </template>
 ```
 
-## Props — AgDSCard
+## Props — AGDSCard
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -141,38 +141,38 @@ Use `footerOutside` to render the footer below the card border — useful for me
 | `shadow` | `'sm' \| 'md' \| false` | `false` | Drop shadow depth |
 | `footerOutside` | `boolean` | `false` | Renders the footer slot below the card border |
 
-## Props — AgDSCardHeader
+## Props — AGDSCardHeader
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | — | **Required.** Card title |
 | `subtitle` | `string` | — | Optional subtitle below the title |
 
-## Props — AgDSCardLink
+## Props — AGDSCardLink
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `href` | `string` | — | **Required.** Link destination |
 
-## Slots — AgDSCard
+## Slots — AGDSCard
 
 | Slot | Description |
 |------|-------------|
-| `default` | Card content — compose with `AgDSCardHeader`, `AgDSCardInner`, `AgDSCardFooter` |
+| `default` | Card content — compose with `AGDSCardHeader`, `AGDSCardInner`, `AGDSCardFooter` |
 
-## Slots — AgDSCardHeader
+## Slots — AGDSCardHeader
 
 | Slot | Description |
 |------|-------------|
-| `link` | Place an `AgDSCardLink` here to make the card clickable |
+| `link` | Place an `AGDSCardLink` here to make the card clickable |
 
-## Slots — AgDSCardFooter
+## Slots — AGDSCardFooter
 
 | Slot | Description |
 |------|-------------|
 | `default` | Footer content — buttons, tags, metadata |
 
-## Slots — AgDSCardInner
+## Slots — AGDSCardInner
 
 | Slot | Description |
 |------|-------------|
@@ -180,9 +180,9 @@ Use `footerOutside` to render the footer below the card border — useful for me
 
 ## Accessibility
 
-- `clickable` cards use a single `<a>` element (via `AgDSCardLink`) with an `::after` stretch — only one interactive element exists in the DOM, which correctly satisfies WCAG 2.4.4 Link Purpose
+- `clickable` cards use a single `<a>` element (via `AGDSCardLink`) with an `::after` stretch — only one interactive element exists in the DOM, which correctly satisfies WCAG 2.4.4 Link Purpose
 - The card wrapper receives the focus ring when `clickable`, not the inner link — focus is always visible and meets WCAG 2.4.7
-- `AgDSCardLink` has `inheritAttrs: false` so `aria-label` can be added to provide a more specific accessible name when multiple cards appear on the same page
+- `AGDSCardLink` has `inheritAttrs: false` so `aria-label` can be added to provide a more specific accessible name when multiple cards appear on the same page
 
 ## Changelog
 

@@ -1,3 +1,3 @@
-export { default as AgDSSearchBox } from './AGDSSearchBox.vue';
-export { default as AgDSSearchBoxInput } from './AGDSSearchBoxInput.vue';
-export { default as AgDSSearchBoxButton } from './AGDSSearchBoxButton.vue';
+export { default as AGDSSearchBox } from './AGDSSearchBox.vue';
+export { default as AGDSSearchBoxInput } from './AGDSSearchBoxInput.vue';
+export { default as AGDSSearchBoxButton } from './AGDSSearchBoxButton.vue';

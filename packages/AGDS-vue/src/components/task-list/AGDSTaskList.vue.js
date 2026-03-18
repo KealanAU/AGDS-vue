@@ -1,7 +1,7 @@
 import { computed } from 'vue';
-import AgDSStack from '../stack/AGDSStack.vue';
-import AgDSHeading from '../heading/AGDSHeading.vue';
-import AgDSText from '../text/AGDSText.vue';
+import AGDSStack from '../stack/AGDSStack.vue';
+import AGDSHeading from '../heading/AGDSHeading.vue';
+import AGDSText from '../text/AGDSText.vue';
 import AGDSTaskListItem from './AGDSTaskListItem.vue';
 const props = withDefaults(defineProps(), {
     ordered: false,
@@ -20,7 +20,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSStack || AgDSStack;
+const __VLS_0 = AGDSStack || AGDSStack;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     gap: (3),
@@ -33,7 +33,7 @@ const __VLS_2 = __VLS_1({
 var __VLS_5 = {};
 /** @type {__VLS_StyleScopedClasses['agds-task-list']} */ ;
 const { default: __VLS_6 } = __VLS_3.slots;
-const __VLS_7 = AgDSStack || AgDSStack;
+const __VLS_7 = AGDSStack || AGDSStack;
 // @ts-ignore
 const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
     gap: (2),
@@ -42,7 +42,7 @@ const __VLS_9 = __VLS_8({
     gap: (2),
 }, ...__VLS_functionalComponentArgsRest(__VLS_8));
 const { default: __VLS_12 } = __VLS_10.slots;
-const __VLS_13 = AgDSHeading || AgDSHeading;
+const __VLS_13 = AGDSHeading || AGDSHeading;
 // @ts-ignore
 const __VLS_14 = __VLS_asFunctionalComponent1(__VLS_13, new __VLS_13({
     type: "h2",
@@ -52,7 +52,7 @@ const __VLS_15 = __VLS_14({
 }, ...__VLS_functionalComponentArgsRest(__VLS_14));
 const { default: __VLS_18 } = __VLS_16.slots;
 var __VLS_16;
-const __VLS_19 = AgDSText || AgDSText;
+const __VLS_19 = AGDSText || AGDSText;
 // @ts-ignore
 const __VLS_20 = __VLS_asFunctionalComponent1(__VLS_19, new __VLS_19({
     as: "p",

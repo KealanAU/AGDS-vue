@@ -1,5 +1,5 @@
-export { default as AgDSColumns } from './AGDSColumns.vue'
-export type { AgDSColumnsProps, ColumnRange, ColumnsAlignItems } from './AGDSColumns.vue'
+export { default as AGDSColumns } from './AGDSColumns.vue'
+export type { AGDSColumnsProps, ColumnRange, ColumnsAlignItems } from './AGDSColumns.vue'
 
-export { default as AgDSColumn } from './AGDSColumn.vue'
-export type { AgDSColumnProps, ColumnAlignSelf, ColumnJustifySelf } from './AGDSColumn.vue'
+export { default as AGDSColumn } from './AGDSColumn.vue'
+export type { AGDSColumnProps, ColumnAlignSelf, ColumnJustifySelf } from './AGDSColumn.vue'

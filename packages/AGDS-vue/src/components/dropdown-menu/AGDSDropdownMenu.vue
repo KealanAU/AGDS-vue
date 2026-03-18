@@ -3,7 +3,7 @@ import { ref, computed, provide, nextTick, getCurrentInstance } from 'vue'
 import { DROPDOWN_MENU_KEY } from './dropdownMenuContext'
 import type { DropdownMenuPopoverPlacement } from './dropdownMenuContext'
 
-export interface AgDSDropdownMenuProps {
+export interface AGDSDropdownMenuProps {
   /** Placement of the dropdown panel relative to the trigger */
   popoverPlacement?: DropdownMenuPopoverPlacement
   /** Maximum height of the panel in pixels */
@@ -12,7 +12,7 @@ export interface AgDSDropdownMenuProps {
   popoverOffset?: number
 }
 
-const props = withDefaults(defineProps<AgDSDropdownMenuProps>(), {
+const props = withDefaults(defineProps<AGDSDropdownMenuProps>(), {
   popoverPlacement: 'bottom-start',
   popoverOffset: 8,
 })

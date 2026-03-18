@@ -1,2 +1,2 @@
-export { default as AgDSHeader } from './AGDSHeader.vue'
-export type { AgDSHeaderProps, HeaderBackground, HeaderMaxWidth, HeaderSize, HeaderDividerPosition } from './AGDSHeader.vue'
+export { default as AGDSHeader } from './AGDSHeader.vue'
+export type { AGDSHeaderProps, HeaderBackground, HeaderMaxWidth, HeaderSize, HeaderDividerPosition } from './AGDSHeader.vue'

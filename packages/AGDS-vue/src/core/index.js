@@ -1,5 +1,5 @@
-export { default as AgDSCore } from './AusGovCore.vue';
-export { default as AgDSCoreProvider } from './CoreProvider.vue';
+export { default as AGDSCore } from './AusGovCore.vue';
+export { default as AGDSCoreProvider } from './CoreProvider.vue';
 export { boxPalette, boxPalettes, useBoxPalette, } from './boxPalette';
 export { CORE_CONTEXT_KEY } from './coreContext';
 export { goldTheme } from './goldTheme';

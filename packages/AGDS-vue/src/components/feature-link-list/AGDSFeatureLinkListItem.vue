@@ -3,7 +3,7 @@ import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as FeatureLinkListBackground }
 
-export interface AgDSFeatureLinkListItemProps {
+export interface AGDSFeatureLinkListItemProps {
   /** URL the item navigates to */
   href: string
   /** Visible label text (bold) */
@@ -16,7 +16,7 @@ export interface AgDSFeatureLinkListItemProps {
   background?: BackgroundVariant
 }
 
-withDefaults(defineProps<AgDSFeatureLinkListItemProps>(), {
+withDefaults(defineProps<AGDSFeatureLinkListItemProps>(), {
   external: false,
   background: 'body',
 })

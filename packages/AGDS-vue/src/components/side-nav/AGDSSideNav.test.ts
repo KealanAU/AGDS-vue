@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSideNav from './AGDSSideNav.vue'
+import AGDSSideNav from './AGDSSideNav.vue'
 import { findBestMatch, hasSubLevelActiveItem } from './utils'
 import type { SideNavItem } from './utils'
 
@@ -41,13 +41,13 @@ const NESTED_ITEMS: SideNavItem[] = [
 ]
 
 function renderNav(
-  props: Partial<InstanceType<typeof AgDSSideNav>['$props']> & {
+  props: Partial<InstanceType<typeof AGDSSideNav>['$props']> & {
     activePath: string
     items: SideNavItem[]
     title: string
   },
 ) {
-  return render(AgDSSideNav, { props })
+  return render(AGDSSideNav, { props })
 }
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
@@ -94,7 +94,7 @@ describe('hasSubLevelActiveItem', () => {
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSSideNav — rendering', () => {
+describe('AGDSSideNav — rendering', () => {
   it('renders a <nav> landmark', () => {
     const { getByRole } = renderNav({ activePath: '/foo', items: FLAT_ITEMS, title: 'Navigation' })
     expect(getByRole('navigation')).toBeTruthy()
@@ -166,7 +166,7 @@ describe('AgDSSideNav — rendering', () => {
 
 // ─── Active path ──────────────────────────────────────────────────────────────
 
-describe('AgDSSideNav — active path', () => {
+describe('AGDSSideNav — active path', () => {
   it('sets aria-current="page" on the matching link', () => {
     const { getAllByRole } = renderNav({ activePath: '/bar', items: FLAT_ITEMS, title: 'Nav' })
     const links = getAllByRole('link')
@@ -196,7 +196,7 @@ describe('AgDSSideNav — active path', () => {
 
 // ─── Sub-level visibility ─────────────────────────────────────────────────────
 
-describe('AgDSSideNav — subLevelVisible', () => {
+describe('AGDSSideNav — subLevelVisible', () => {
   it('shows sub-items of the active parent when subLevelVisible="whenActive"', () => {
     const { getByText } = renderNav({
       activePath: '/services/health',
@@ -275,7 +275,7 @@ describe('AgDSSideNav — subLevelVisible', () => {
 
 // ─── Background ───────────────────────────────────────────────────────────────
 
-describe('AgDSSideNav — background', () => {
+describe('AGDSSideNav — background', () => {
   it('applies body background class by default', () => {
     const { container } = renderNav({ activePath: '/foo', items: FLAT_ITEMS, title: 'Nav' })
     expect(container.querySelector('.agds-side-nav--bg-body')).toBeTruthy()
@@ -294,7 +294,7 @@ describe('AgDSSideNav — background', () => {
 
 // ─── Mobile toggle ────────────────────────────────────────────────────────────
 
-describe('AgDSSideNav — mobile toggle', () => {
+describe('AGDSSideNav — mobile toggle', () => {
   it('renders a toggle button with aria-expanded="false" initially', () => {
     const { getByRole } = renderNav({ activePath: '/foo', items: FLAT_ITEMS, title: 'My Nav' })
     const button = getByRole('button')
@@ -326,7 +326,7 @@ describe('AgDSSideNav — mobile toggle', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSideNav — axe accessibility', () => {
+describe('AGDSSideNav — axe accessibility', () => {
   it('has no violations with flat items', async () => {
     const { container } = renderNav({ activePath: '/foo', items: FLAT_ITEMS, title: 'Navigation' })
     await runAxe(container, AXE_OPTS)

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-export interface AgDSLoadingBlanketProps {
+export interface AGDSLoadingBlanketProps {
   /** If true, the blanket covers the entire viewport with a semi-transparent overlay. */
   fullScreen?: boolean
   /** Text displayed below the loading dots; announced to assistive technologies. */
   label: string
 }
 
-const props = withDefaults(defineProps<AgDSLoadingBlanketProps>(), {
+const props = withDefaults(defineProps<AGDSLoadingBlanketProps>(), {
   fullScreen: false,
 })
 

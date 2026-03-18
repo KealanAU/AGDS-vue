@@ -3,12 +3,12 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/vue'
 import { nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
 
-import AgDSAppLayout from './AGDSAppLayout.vue'
-import AgDSAppLayoutHeader from './AGDSAppLayoutHeader.vue'
-import AgDSAppLayoutSidebar from './AGDSAppLayoutSidebar.vue'
-import AgDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue'
-import AgDSAppLayoutFooter from './AGDSAppLayoutFooter.vue'
-import AgDSAppLayoutFooterDivider from './AGDSAppLayoutFooterDivider.vue'
+import AGDSAppLayout from './AGDSAppLayout.vue'
+import AGDSAppLayoutHeader from './AGDSAppLayoutHeader.vue'
+import AGDSAppLayoutSidebar from './AGDSAppLayoutSidebar.vue'
+import AGDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue'
+import AGDSAppLayoutFooter from './AGDSAppLayoutFooter.vue'
+import AGDSAppLayoutFooterDivider from './AGDSAppLayoutFooterDivider.vue'
 
 import type { AppLayoutNavGroup } from './appLayoutTypes'
 
@@ -43,18 +43,18 @@ afterEach(() => {
   document.body.style.overflow = ''
 })
 
-// ── AgDSAppLayout ───────────────────────────────────────────────────────────
+// ── AGDSAppLayout ───────────────────────────────────────────────────────────
 
-describe('AgDSAppLayout', () => {
+describe('AGDSAppLayout', () => {
   it('renders default slot content', () => {
-    const { getByText } = render(AgDSAppLayout, {
+    const { getByText } = render(AGDSAppLayout, {
       slots: { default: '<main>Main content</main>' },
     })
     expect(getByText('Main content')).toBeTruthy()
   })
 
   it('renders header, sidebar, and footer slots', () => {
-    const { getByText } = render(AgDSAppLayout, {
+    const { getByText } = render(AGDSAppLayout, {
       slots: {
         header: '<div>Header</div>',
         sidebar: '<div>Sidebar</div>',
@@ -67,41 +67,41 @@ describe('AgDSAppLayout', () => {
   })
 
   it('adds focus-mode class when focusMode is true', () => {
-    const { container } = render(AgDSAppLayout, {
+    const { container } = render(AGDSAppLayout, {
       props: { focusMode: true },
     })
     expect(container.querySelector('.agds-app-layout--focus-mode')).toBeTruthy()
   })
 
   it('does not add focus-mode class by default', () => {
-    const { container } = render(AgDSAppLayout)
+    const { container } = render(AGDSAppLayout)
     expect(container.querySelector('.agds-app-layout--focus-mode')).toBeFalsy()
   })
 
   it('passes axe with default slot', async () => {
-    const { container } = render(AgDSAppLayout, {
+    const { container } = render(AGDSAppLayout, {
       slots: { default: '<main aria-label="Content">Body</main>' },
     })
     await runAxe(container, AXE_OPTS)
   })
 })
 
-// ── AgDSAppLayoutHeader ─────────────────────────────────────────────────────
+// ── AGDSAppLayoutHeader ─────────────────────────────────────────────────────
 
-describe('AgDSAppLayoutHeader', () => {
+describe('AGDSAppLayoutHeader', () => {
   function renderHeader(props = {}, slots = {}) {
     return render(
       {
-        components: { AgDSAppLayout, AgDSAppLayoutHeader },
+        components: { AGDSAppLayout, AGDSAppLayoutHeader },
         template: `
-          <AgDSAppLayout>
+          <AGDSAppLayout>
             <template #header>
-              <AgDSAppLayoutHeader heading="My Service" href="/" v-bind="headerProps">
+              <AGDSAppLayoutHeader heading="My Service" href="/" v-bind="headerProps">
                 <template v-if="hasLogo" #logo><img src="/logo.svg" alt="Logo" /></template>
                 <template v-if="hasAccount" #account><a href="/account">Account</a></template>
-              </AgDSAppLayoutHeader>
+              </AGDSAppLayoutHeader>
             </template>
-          </AgDSAppLayout>
+          </AGDSAppLayout>
         `,
         data() {
           return { headerProps: props, hasLogo: !!slots.logo, hasAccount: !!slots.account }
@@ -123,13 +123,13 @@ describe('AgDSAppLayoutHeader', () => {
   it('does not render hamburger in focus mode', () => {
     const { queryByLabelText } = render(
       {
-        components: { AgDSAppLayout, AgDSAppLayoutHeader },
+        components: { AGDSAppLayout, AGDSAppLayoutHeader },
         template: `
-          <AgDSAppLayout :focus-mode="true">
+          <AGDSAppLayout :focus-mode="true">
             <template #header>
-              <AgDSAppLayoutHeader heading="My Service" />
+              <AGDSAppLayoutHeader heading="My Service" />
             </template>
-          </AgDSAppLayout>
+          </AGDSAppLayout>
         `,
       },
     )
@@ -154,15 +154,15 @@ describe('AgDSAppLayoutHeader', () => {
   it('renders account slot', () => {
     const { getByText } = render(
       {
-        components: { AgDSAppLayout, AgDSAppLayoutHeader },
+        components: { AGDSAppLayout, AGDSAppLayoutHeader },
         template: `
-          <AgDSAppLayout>
+          <AGDSAppLayout>
             <template #header>
-              <AgDSAppLayoutHeader heading="My Service">
+              <AGDSAppLayoutHeader heading="My Service">
                 <template #account><a href="/account">Account</a></template>
-              </AgDSAppLayoutHeader>
+              </AGDSAppLayoutHeader>
             </template>
-          </AgDSAppLayout>
+          </AGDSAppLayout>
         `,
       },
     )
@@ -172,13 +172,13 @@ describe('AgDSAppLayoutHeader', () => {
   it('passes axe', async () => {
     const { container } = render(
       {
-        components: { AgDSAppLayout, AgDSAppLayoutHeader },
+        components: { AGDSAppLayout, AGDSAppLayoutHeader },
         template: `
-          <AgDSAppLayout>
+          <AGDSAppLayout>
             <template #header>
-              <AgDSAppLayoutHeader heading="My Service" />
+              <AGDSAppLayoutHeader heading="My Service" />
             </template>
-          </AgDSAppLayout>
+          </AGDSAppLayout>
         `,
       },
     )
@@ -186,11 +186,11 @@ describe('AgDSAppLayoutHeader', () => {
   })
 })
 
-// ── AgDSAppLayoutSidebarNav ─────────────────────────────────────────────────
+// ── AGDSAppLayoutSidebarNav ─────────────────────────────────────────────────
 
-describe('AgDSAppLayoutSidebarNav', () => {
+describe('AGDSAppLayoutSidebarNav', () => {
   function renderNav(activePath = '/') {
-    return render(AgDSAppLayoutSidebarNav, {
+    return render(AGDSAppLayoutSidebarNav, {
       props: { items: navItems, activePath },
     })
   }
@@ -232,7 +232,7 @@ describe('AgDSAppLayoutSidebarNav', () => {
   })
 
   it('shows all sub-items when subLevelVisible is "always"', () => {
-    const { getByRole } = render(AgDSAppLayoutSidebarNav, {
+    const { getByRole } = render(AGDSAppLayoutSidebarNav, {
       props: { items: navItems, activePath: '/', subLevelVisible: 'always' },
     })
     expect(getByRole('link', { name: 'Audit' })).toBeTruthy()
@@ -245,22 +245,22 @@ describe('AgDSAppLayoutSidebarNav', () => {
   })
 })
 
-// ── AgDSAppLayoutSidebar (mobile dialog) ────────────────────────────────────
+// ── AGDSAppLayoutSidebar (mobile dialog) ────────────────────────────────────
 
-describe('AgDSAppLayoutSidebar mobile dialog', () => {
+describe('AGDSAppLayoutSidebar mobile dialog', () => {
   function renderWithLayout(focusMode = false) {
     return render(
       {
-        components: { AgDSAppLayout, AgDSAppLayoutHeader, AgDSAppLayoutSidebar },
+        components: { AGDSAppLayout, AGDSAppLayoutHeader, AGDSAppLayoutSidebar },
         template: `
-          <AgDSAppLayout :focus-mode="focusMode">
+          <AGDSAppLayout :focus-mode="focusMode">
             <template #header>
-              <AgDSAppLayoutHeader heading="My Service" />
+              <AGDSAppLayoutHeader heading="My Service" />
             </template>
             <template #sidebar>
-              <AgDSAppLayoutSidebar :items="items" active-path="/" />
+              <AGDSAppLayoutSidebar :items="items" active-path="/" />
             </template>
-          </AgDSAppLayout>
+          </AGDSAppLayout>
         `,
         data() {
           return { items: navItems, focusMode }
@@ -337,83 +337,83 @@ describe('AgDSAppLayoutSidebar mobile dialog', () => {
   })
 })
 
-// ── AgDSAppLayoutFooter ─────────────────────────────────────────────────────
+// ── AGDSAppLayoutFooter ─────────────────────────────────────────────────────
 
-describe('AgDSAppLayoutFooter', () => {
+describe('AGDSAppLayoutFooter', () => {
   it('renders slot content', () => {
-    const { getByText } = render(AgDSAppLayoutFooter, {
+    const { getByText } = render(AGDSAppLayoutFooter, {
       slots: { default: '<p>Footer content</p>' },
     })
     expect(getByText('Footer content')).toBeTruthy()
   })
 
   it('applies body background class by default', () => {
-    const { container } = render(AgDSAppLayoutFooter)
+    const { container } = render(AGDSAppLayoutFooter)
     expect(container.querySelector('.agds-app-layout-footer--body')).toBeTruthy()
   })
 
   it('applies bodyAlt background class', () => {
-    const { container } = render(AgDSAppLayoutFooter, {
+    const { container } = render(AGDSAppLayoutFooter, {
       props: { background: 'bodyAlt' },
     })
     expect(container.querySelector('.agds-app-layout-footer--bodyAlt')).toBeTruthy()
   })
 
   it('renders as <footer> element', () => {
-    const { container } = render(AgDSAppLayoutFooter)
+    const { container } = render(AGDSAppLayoutFooter)
     expect(container.querySelector('footer')).toBeTruthy()
   })
 
   it('passes axe', async () => {
-    const { container } = render(AgDSAppLayoutFooter, {
+    const { container } = render(AGDSAppLayoutFooter, {
       slots: { default: '<p>Footer</p>' },
     })
     await runAxe(container, AXE_OPTS)
   })
 })
 
-// ── AgDSAppLayoutFooterDivider ──────────────────────────────────────────────
+// ── AGDSAppLayoutFooterDivider ──────────────────────────────────────────────
 
-describe('AgDSAppLayoutFooterDivider', () => {
+describe('AGDSAppLayoutFooterDivider', () => {
   it('renders an hr element', () => {
-    const { container } = render(AgDSAppLayoutFooterDivider)
+    const { container } = render(AGDSAppLayoutFooterDivider)
     expect(container.querySelector('hr')).toBeTruthy()
   })
 
   it('hr is aria-hidden', () => {
-    const { container } = render(AgDSAppLayoutFooterDivider)
+    const { container } = render(AGDSAppLayoutFooterDivider)
     expect(container.querySelector('hr')?.getAttribute('aria-hidden')).toBe('true')
   })
 })
 
 // ── Full layout integration ───────────────────────────────────────────────────
 
-describe('AgDSAppLayout full integration', () => {
+describe('AGDSAppLayout full integration', () => {
   it('renders a complete accessible page layout', async () => {
     const { container } = render(
       {
         components: {
-          AgDSAppLayout,
-          AgDSAppLayoutHeader,
-          AgDSAppLayoutSidebar,
-          AgDSAppLayoutFooter,
+          AGDSAppLayout,
+          AGDSAppLayoutHeader,
+          AGDSAppLayoutSidebar,
+          AGDSAppLayoutFooter,
         },
         template: `
-          <AgDSAppLayout>
+          <AGDSAppLayout>
             <template #header>
-              <AgDSAppLayoutHeader heading="My Government Service" href="/" />
+              <AGDSAppLayoutHeader heading="My Government Service" href="/" />
             </template>
             <template #sidebar>
-              <AgDSAppLayoutSidebar :items="items" active-path="/dashboard" />
+              <AGDSAppLayoutSidebar :items="items" active-path="/dashboard" />
             </template>
             <main id="main-content" aria-label="Main content">
               <h1>Dashboard</h1>
               <p>Welcome to the service.</p>
             </main>
-            <AgDSAppLayoutFooter>
+            <AGDSAppLayoutFooter>
               <p>© Commonwealth of Australia</p>
-            </AgDSAppLayoutFooter>
-          </AgDSAppLayout>
+            </AGDSAppLayoutFooter>
+          </AGDSAppLayout>
         `,
         data() {
           return {

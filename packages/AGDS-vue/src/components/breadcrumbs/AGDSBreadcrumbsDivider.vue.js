@@ -1,9 +1,9 @@
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const __VLS_ctx = {};
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSIcon;
+const __VLS_0 = AGDSIcon;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     name: "mdi:chevron-right",

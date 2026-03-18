@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSHeader from './AGDSHeader.vue'
+import AGDSHeader from './AGDSHeader.vue'
 
 // jsdom has no computed styles — disable colour-contrast rule for all tests.
 const AXE_OPTS = {
@@ -11,12 +11,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderHeader(props: Record<string, unknown> = {}, slots: Record<string, string> = {}) {
-  return render(AgDSHeader, { props, slots })
+  return render(AGDSHeader, { props, slots })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSHeader — rendering', () => {
+describe('AGDSHeader — rendering', () => {
   it('renders a <header> landmark element', () => {
     const { getByRole } = renderHeader({ heading: 'Department of Example' })
     expect(getByRole('banner')).toBeTruthy()
@@ -48,7 +48,7 @@ describe('AgDSHeader — rendering', () => {
 
 // ─── Props: background ────────────────────────────────────────────────────────
 
-describe('AgDSHeader — background prop', () => {
+describe('AGDSHeader — background prop', () => {
   it('defaults to body background', () => {
     const { getByRole } = renderHeader({ heading: 'Test' })
     expect(getByRole('banner').className).toContain('agds-header--body')
@@ -65,7 +65,7 @@ describe('AgDSHeader — background prop', () => {
 
 // ─── Props: size ──────────────────────────────────────────────────────────────
 
-describe('AgDSHeader — size prop', () => {
+describe('AGDSHeader — size prop', () => {
   it('defaults to md size', () => {
     const { getByRole } = renderHeader({ heading: 'Test' })
     expect(getByRole('banner').className).toContain('agds-header--md')
@@ -82,7 +82,7 @@ describe('AgDSHeader — size prop', () => {
 
 // ─── Props: maxWidth ──────────────────────────────────────────────────────────
 
-describe('AgDSHeader — maxWidth prop', () => {
+describe('AGDSHeader — maxWidth prop', () => {
   it('defaults to container', () => {
     const { container } = renderHeader({ heading: 'Test' })
     const inner = container.querySelector('.agds-header__inner')
@@ -101,7 +101,7 @@ describe('AgDSHeader — maxWidth prop', () => {
 
 // ─── Props: subline ───────────────────────────────────────────────────────────
 
-describe('AgDSHeader — subline prop', () => {
+describe('AGDSHeader — subline prop', () => {
   it('renders subline text when provided', () => {
     const { getByText } = renderHeader({ heading: 'My Service', subline: 'Helping Australians' })
     expect(getByText('Helping Australians')).toBeTruthy()
@@ -115,7 +115,7 @@ describe('AgDSHeader — subline prop', () => {
 
 // ─── Props: badgeLabel ────────────────────────────────────────────────────────
 
-describe('AgDSHeader — badgeLabel prop', () => {
+describe('AGDSHeader — badgeLabel prop', () => {
   it('renders badge text when provided', () => {
     const { getByText } = renderHeader({ heading: 'My Service', badgeLabel: 'Beta' })
     expect(getByText('Beta')).toBeTruthy()
@@ -134,7 +134,7 @@ describe('AgDSHeader — badgeLabel prop', () => {
 
 // ─── Single-logo layout ───────────────────────────────────────────────────────
 
-describe('AgDSHeader — single logo slot', () => {
+describe('AGDSHeader — single logo slot', () => {
   it('renders logo slot content', () => {
     const { getByAltText } = renderHeader(
       { heading: 'ATO' },
@@ -173,7 +173,7 @@ describe('AgDSHeader — single logo slot', () => {
 
 // ─── Dual-logo layout ─────────────────────────────────────────────────────────
 
-describe('AgDSHeader — dual logo slots', () => {
+describe('AGDSHeader — dual logo slots', () => {
   const dualSlots = {
     logo: '<img src="primary.svg" alt="Department of Home Affairs">',
     secondLogo: '<img src="secondary.svg" alt="Australian Border Force">',
@@ -238,7 +238,7 @@ describe('AgDSHeader — dual logo slots', () => {
 
 // ─── Right content slot ───────────────────────────────────────────────────────
 
-describe('AgDSHeader — rightContent slot', () => {
+describe('AGDSHeader — rightContent slot', () => {
   it('renders right content slot when provided', () => {
     const { getByRole } = renderHeader(
       { heading: 'My Service' },
@@ -264,7 +264,7 @@ describe('AgDSHeader — rightContent slot', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSHeader — axe accessibility', () => {
+describe('AGDSHeader — axe accessibility', () => {
   it('has no violations in minimal state (heading only)', async () => {
     const { container } = renderHeader({ heading: 'Department of Agriculture, Fisheries and Forestry' })
     await runAxe(container, AXE_OPTS)
@@ -290,7 +290,7 @@ describe('AgDSHeader — axe accessibility', () => {
   })
 
   it('has no violations with single logo slot', async () => {
-    const { container } = render(AgDSHeader, {
+    const { container } = render(AGDSHeader, {
       props: { heading: 'ATO', href: '/' },
       slots: { logo: '<img src="ato.svg" alt="Australian Taxation Office logo">' },
     })
@@ -298,7 +298,7 @@ describe('AgDSHeader — axe accessibility', () => {
   })
 
   it('has no violations with dual logo slots', async () => {
-    const { container } = render(AgDSHeader, {
+    const { container } = render(AGDSHeader, {
       props: { heading: 'Home Affairs', href: '/' },
       slots: {
         logo: '<img src="primary.svg" alt="Department of Home Affairs">',
@@ -309,7 +309,7 @@ describe('AgDSHeader — axe accessibility', () => {
   })
 
   it('has no violations with right content slot', async () => {
-    const { container } = render(AgDSHeader, {
+    const { container } = render(AGDSHeader, {
       props: { heading: 'My Service' },
       slots: {
         rightContent: '<nav aria-label="Main navigation"><ul><li><a href="/about">About</a></li></ul></nav>',
@@ -326,7 +326,7 @@ describe('AgDSHeader — axe accessibility', () => {
   it('has a violation when the header landmark has no accessible heading', async () => {
     // Verify the axe helper catches real violations — render an empty banner
     // with no heading inside it (the heading is empty, so no accessible name).
-    const { container } = render(AgDSHeader, {
+    const { container } = render(AGDSHeader, {
       props: { heading: '' },
     })
     // The header link will have an empty name, triggering a violation.

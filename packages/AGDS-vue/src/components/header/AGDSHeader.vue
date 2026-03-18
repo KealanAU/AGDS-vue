@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AgDSHeaderBrand from './AGDSHeaderBrand.vue'
+import AGDSHeaderBrand from './AGDSHeaderBrand.vue'
 import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as HeaderBackground }
@@ -7,7 +7,7 @@ export type HeaderMaxWidth = 'container' | 'containerLg'
 export type HeaderSize = 'sm' | 'md'
 export type HeaderDividerPosition = 'after' | 'between'
 
-export interface AgDSHeaderProps {
+export interface AGDSHeaderProps {
   /** Background colour of the header surface. */
   background?: BackgroundVariant
   /** Label shown in a badge to indicate a pre-release / beta state. */
@@ -31,7 +31,7 @@ export interface AgDSHeaderProps {
   subline?: string
 }
 
-withDefaults(defineProps<AgDSHeaderProps>(), {
+withDefaults(defineProps<AGDSHeaderProps>(), {
   background: 'body',
   dividerPosition: 'after',
   href: '/',
@@ -63,7 +63,7 @@ withDefaults(defineProps<AgDSHeaderProps>(), {
         class="agds-header__brand-col"
         :class="{ 'agds-header__brand-col--with-right': !!$slots.rightContent }"
       >
-        <AgDSHeaderBrand
+        <AGDSHeaderBrand
           :badge-label="badgeLabel"
           :divider-position="dividerPosition"
           :has-right-content="!!$slots.rightContent"
@@ -79,7 +79,7 @@ withDefaults(defineProps<AgDSHeaderProps>(), {
           <template v-if="$slots.secondLogo" #secondLogo>
             <slot name="secondLogo" />
           </template>
-        </AgDSHeaderBrand>
+        </AGDSHeaderBrand>
       </div>
 
       <div

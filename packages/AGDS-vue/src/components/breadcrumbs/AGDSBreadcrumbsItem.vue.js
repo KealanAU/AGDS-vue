@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue';
+import AGDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue';
 const __VLS_props = withDefaults(defineProps(), {
     current: false,
 });
@@ -24,7 +24,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.li, __VLS_intrinsics.li)({
     ...{ class: "agds-breadcrumbs__item" },
 });
 /** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__item']} */ ;
-const __VLS_0 = AgDSBreadcrumbsDivider;
+const __VLS_0 = AGDSBreadcrumbsDivider;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({}));
 const __VLS_2 = __VLS_1({}, ...__VLS_functionalComponentArgsRest(__VLS_1));

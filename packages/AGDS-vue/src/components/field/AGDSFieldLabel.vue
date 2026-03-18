@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSFieldLabelProps {
+export interface AGDSFieldLabelProps {
   /** The id of the form element this label points to */
   htmlFor?: string
   /** An id for the label element itself (for aria-labelledby) */
@@ -14,7 +14,7 @@ export interface AgDSFieldLabelProps {
   as?: string
 }
 
-const props = withDefaults(defineProps<AgDSFieldLabelProps>(), {
+const props = withDefaults(defineProps<AGDSFieldLabelProps>(), {
   as: 'label',
   required: false,
   hideOptionalLabel: false,

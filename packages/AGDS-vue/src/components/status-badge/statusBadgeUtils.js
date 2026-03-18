@@ -138,7 +138,7 @@ export function getTone(tone) {
         if (import.meta.env.DEV) {
             const mapped = statusBadgeLegacyToneMap[tone];
             const suggestion = tone === 'neutral' ? 'unknownLow' : mapped;
-            console.warn(`[AgDSStatusBadge] tone="${tone}" is deprecated. Use "${suggestion}" instead.`);
+            console.warn(`[AGDSStatusBadge] tone="${tone}" is deprecated. Use "${suggestion}" instead.`);
         }
         return statusBadgeLegacyToneMap[tone];
     }

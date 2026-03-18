@@ -5,7 +5,7 @@ import AGDSFieldLabel from '../field/AGDSFieldLabel.vue'
 import AGDSFieldHint from '../field/AGDSFieldHint.vue'
 import AGDSFieldMessage from '../field/AGDSFieldMessage.vue'
 
-export interface AgDSGroupedFieldsProps {
+export interface AGDSGroupedFieldsProps {
   /** Describes the purpose of the group of fields. */
   legend: string
   /** If true, the invalid state will be rendered for field 1. */
@@ -24,7 +24,7 @@ export interface AgDSGroupedFieldsProps {
   visuallyHideLegend?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSGroupedFieldsProps>(), {
+const props = withDefaults(defineProps<AGDSGroupedFieldsProps>(), {
   field1Invalid: false,
   field2Invalid: false,
   hideOptionalLabel: false,

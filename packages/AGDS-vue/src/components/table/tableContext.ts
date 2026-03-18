@@ -4,4 +4,4 @@ export interface TableContext {
   tableLayout: 'auto' | 'fixed'
 }
 
-export const TABLE_CONTEXT_KEY: InjectionKey<TableContext> = Symbol('AgDSTable')
+export const TABLE_CONTEXT_KEY: InjectionKey<TableContext> = Symbol('AGDSTable')

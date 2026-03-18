@@ -1,1 +1,1 @@
-export { default as AgDSModal } from './AGDSModal.vue';
+export { default as AGDSModal } from './AGDSModal.vue';

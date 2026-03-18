@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent, screen } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSProgressIndicator from './AGDSProgressIndicator.vue'
+import AGDSProgressIndicator from './AGDSProgressIndicator.vue'
 import type { ProgressIndicatorItem } from './AGDSProgressIndicator.vue'
 
 const AXE_OPTS = {
@@ -23,14 +23,14 @@ const LINK_ITEMS: ProgressIndicatorItem[] = [
 ]
 
 function renderPI(props: Record<string, unknown> = {}) {
-  return render(AgDSProgressIndicator, {
+  return render(AGDSProgressIndicator, {
     props: { items: BASIC_ITEMS, ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — rendering', () => {
+describe('AGDSProgressIndicator — rendering', () => {
   it('renders a <nav> landmark with aria-label="Progress"', () => {
     renderPI()
     const nav = screen.getByRole('navigation', { name: 'Progress' })
@@ -75,7 +75,7 @@ describe('AgDSProgressIndicator — rendering', () => {
 
 // ─── Item rendering ───────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — item rendering', () => {
+describe('AGDSProgressIndicator — item rendering', () => {
   it('renders a link item as <a>', () => {
     const { container } = renderPI()
     const links = container.querySelectorAll('a')
@@ -113,7 +113,7 @@ describe('AgDSProgressIndicator — item rendering', () => {
 
 // ─── activePath ───────────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — activePath', () => {
+describe('AGDSProgressIndicator — activePath', () => {
   it('marks the matching link item as active via aria-current="step"', () => {
     const { container } = renderPI({ activePath: '/personal' })
     const activeContent = container.querySelector('[aria-current="step"]')
@@ -138,7 +138,7 @@ describe('AgDSProgressIndicator — activePath', () => {
       { label: 'Step A', status: 'done'    },
       { label: 'Step B', status: 'started' },
     ]
-    const { container } = render(AgDSProgressIndicator, {
+    const { container } = render(AGDSProgressIndicator, {
       props: { items: buttonItems, activePath: 'Step B' },
     })
     const activeItem = container.querySelector('.agds-progress-indicator__item--active')
@@ -154,7 +154,7 @@ describe('AgDSProgressIndicator — activePath', () => {
 
 // ─── Level-2 sub-items ────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — level-2 sub-items', () => {
+describe('AGDSProgressIndicator — level-2 sub-items', () => {
   const itemsWithSub: ProgressIndicatorItem[] = [
     {
       label: 'Personal info',
@@ -169,21 +169,21 @@ describe('AgDSProgressIndicator — level-2 sub-items', () => {
   ]
 
   it('shows the active sub-item when activePath matches a level-2 href', () => {
-    render(AgDSProgressIndicator, {
+    render(AGDSProgressIndicator, {
       props: { items: itemsWithSub, activePath: '/personal/contact' },
     })
     expect(screen.getByText('Contact details')).toBeTruthy()
   })
 
   it('does not show non-active sub-items', () => {
-    render(AgDSProgressIndicator, {
+    render(AGDSProgressIndicator, {
       props: { items: itemsWithSub, activePath: '/personal/contact' },
     })
     expect(screen.queryByText('Address')).toBeNull()
   })
 
   it('renders the sub-item as a link with aria-current="step"', () => {
-    const { container } = render(AgDSProgressIndicator, {
+    const { container } = render(AGDSProgressIndicator, {
       props: { items: itemsWithSub, activePath: '/personal/contact' },
     })
     const subLink = container.querySelector('.agds-progress-indicator__sub-link')
@@ -194,7 +194,7 @@ describe('AgDSProgressIndicator — level-2 sub-items', () => {
 
 // ─── Mobile toggle ────────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — mobile toggle', () => {
+describe('AGDSProgressIndicator — mobile toggle', () => {
   it('collapses the list when the toggle is clicked', async () => {
     const { container } = renderPI()
     const toggle = container.querySelector<HTMLButtonElement>('.agds-progress-indicator__toggle')!
@@ -218,13 +218,13 @@ describe('AgDSProgressIndicator — mobile toggle', () => {
 
 // ─── Button item onClick ──────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — button item onClick', () => {
+describe('AGDSProgressIndicator — button item onClick', () => {
   it('calls onClick when a button item is clicked', async () => {
     const handler = vi.fn()
     const items: ProgressIndicatorItem[] = [
       { label: 'Step A', status: 'started', onClick: handler },
     ]
-    render(AgDSProgressIndicator, { props: { items } })
+    render(AGDSProgressIndicator, { props: { items } })
 
     const btn = screen.getByRole('button', { name: /Step A/i })
     await fireEvent.click(btn)
@@ -234,7 +234,7 @@ describe('AgDSProgressIndicator — button item onClick', () => {
 
 // ─── Status labels ────────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — all statuses render', () => {
+describe('AGDSProgressIndicator — all statuses render', () => {
   const allStatuses: ProgressIndicatorItem['status'][] = [
     'blocked', 'doing', 'started', 'todo', 'done', 'saved', 'error',
   ]
@@ -242,14 +242,14 @@ describe('AgDSProgressIndicator — all statuses render', () => {
   it.each(allStatuses)('renders status "%s" without errors', (status) => {
     const items: ProgressIndicatorItem[] = [{ label: 'Step', status }]
     expect(() => {
-      render(AgDSProgressIndicator, { props: { items } })
+      render(AGDSProgressIndicator, { props: { items } })
     }).not.toThrow()
   })
 })
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSProgressIndicator — axe', () => {
+describe('AGDSProgressIndicator — axe', () => {
   it('passes axe on basic items', async () => {
     const { container } = renderPI()
     await runAxe(container, AXE_OPTS)
@@ -275,7 +275,7 @@ describe('AgDSProgressIndicator — axe', () => {
       { label: 'Saved',    status: 'saved'   },
       { label: 'Error',    status: 'error'   },
     ]
-    const { container } = render(AgDSProgressIndicator, { props: { items } })
+    const { container } = render(AGDSProgressIndicator, { props: { items } })
     await runAxe(container, AXE_OPTS)
   })
 

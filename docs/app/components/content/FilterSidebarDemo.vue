@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { AgDSFilterSidebar } from 'agds-vue'
+import { AGDSFilterSidebar } from 'agds-vue'
 
 const props = defineProps<{
   /** 'default' | 'active' | 'clear' | 'bodyAlt' */
@@ -17,7 +17,7 @@ function onClearFilters() {
 
 <template>
   <div style="max-width: 320px">
-    <AgDSFilterSidebar
+    <AGDSFilterSidebar
       :active-filters-count="activeCount"
       :show-clear-filters="showClear"
       :background="variant === 'bodyAlt' ? 'bodyAlt' : 'body'"
@@ -29,6 +29,6 @@ function onClearFilters() {
         <label style="display: block; margin-bottom: 4px"> <input type="checkbox" /> Grants </label>
         <label style="display: block"> <input type="checkbox" /> Publications </label>
       </fieldset>
-    </AgDSFilterSidebar>
+    </AGDSFilterSidebar>
   </div>
 </template>

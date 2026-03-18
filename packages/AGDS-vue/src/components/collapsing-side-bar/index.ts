@@ -1,6 +1,6 @@
-export { default as AgDSCollapsingSideBar } from './AGDSCollapsingSideBar.vue'
+export { default as AGDSCollapsingSideBar } from './AGDSCollapsingSideBar.vue'
 export type {
-  AgDSCollapsingSideBarProps,
+  AGDSCollapsingSideBarProps,
   CollapsingSideBarBackground,
   CollapsingSideBarAs,
 } from './AGDSCollapsingSideBar.vue'

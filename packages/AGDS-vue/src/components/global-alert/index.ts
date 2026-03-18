@@ -1,2 +1,2 @@
-export { default as AgDSGlobalAlert } from './AGDSGlobalAlert.vue'
-export type { AgDSGlobalAlertProps, GlobalAlertTone } from './AGDSGlobalAlert.vue'
+export { default as AGDSGlobalAlert } from './AGDSGlobalAlert.vue'
+export type { AGDSGlobalAlertProps, GlobalAlertTone } from './AGDSGlobalAlert.vue'

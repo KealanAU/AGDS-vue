@@ -1,1 +1,1 @@
-export { default as AgDSIcon } from './AGDSIcon.vue';
+export { default as AGDSIcon } from './AGDSIcon.vue';

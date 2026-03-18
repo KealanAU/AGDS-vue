@@ -3,7 +3,7 @@ import { CORE_CONTEXT_KEY } from './coreContext';
 const props = defineProps();
 /** Default link — a plain native anchor that passes all props through. */
 const DefaultLink = defineComponent({
-    name: 'AgDSDefaultLink',
+    name: 'AGDSDefaultLink',
     inheritAttrs: false,
     props: {
         href: { type: String, default: undefined },

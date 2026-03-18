@@ -5,7 +5,7 @@ import type { FieldMaxWidth } from '../field/AGDSField.vue'
 
 export type SearchInputMaxWidth = Extract<FieldMaxWidth, 'md' | 'lg' | 'xl'>
 
-export interface AgDSSearchInputProps {
+export interface AGDSSearchInputProps {
   /** Describes the purpose of the field */
   label: string
   /** If true, "(optional)" will never be appended to the label */
@@ -33,7 +33,7 @@ export interface AgDSSearchInputProps {
   modelValue?: string
 }
 
-const props = withDefaults(defineProps<AgDSSearchInputProps>(), {
+const props = withDefaults(defineProps<AGDSSearchInputProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,

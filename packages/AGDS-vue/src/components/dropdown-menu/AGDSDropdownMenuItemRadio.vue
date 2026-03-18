@@ -2,13 +2,13 @@
 import { computed, ref, watch, getCurrentInstance } from 'vue'
 import { useDropdownMenuContext } from './dropdownMenuContext'
 
-export interface AgDSDropdownMenuItemRadioProps {
+export interface AGDSDropdownMenuItemRadioProps {
   checked: boolean
   id?: string
   secondaryText?: string
 }
 
-const props = defineProps<AgDSDropdownMenuItemRadioProps>()
+const props = defineProps<AGDSDropdownMenuItemRadioProps>()
 
 const emit = defineEmits<{
   click: []

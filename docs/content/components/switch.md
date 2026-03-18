@@ -10,7 +10,7 @@ status: stable
 Use `v-model` to bind the on/off state. Pass the visible label via the default slot.
 
 ::doc-preview
-<AgDSSwitch>Enable notifications</AgDSSwitch>
+<AGDSSwitch>Enable notifications</AGDSSwitch>
 ::
 
 ```vue
@@ -20,26 +20,26 @@ const enabled = ref(false)
 </script>
 
 <template>
-  <AgDSSwitch v-model="enabled">Enable notifications</AgDSSwitch>
+  <AGDSSwitch v-model="enabled">Enable notifications</AGDSSwitch>
 </template>
 ```
 
 ## Checked state
 
 ::doc-preview{label="Checked"}
-<AgDSSwitch :model-value="true">Dark mode</AgDSSwitch>
+<AGDSSwitch :model-value="true">Dark mode</AGDSSwitch>
 ::
 
 ## Disabled
 
 ::doc-preview{label="Disabled states"}
-<AgDSSwitch disabled>Disabled off</AgDSSwitch>
-<AgDSSwitch :model-value="true" disabled>Disabled on</AgDSSwitch>
+<AGDSSwitch disabled>Disabled off</AGDSSwitch>
+<AGDSSwitch :model-value="true" disabled>Disabled on</AGDSSwitch>
 ::
 
 ```vue
 <template>
-  <AgDSSwitch v-model="enabled" disabled>Feature flag</AgDSSwitch>
+  <AGDSSwitch v-model="enabled" disabled>Feature flag</AGDSSwitch>
 </template>
 ```
 
@@ -48,27 +48,27 @@ const enabled = ref(false)
 Use `invalid` to indicate a validation error — for example, when a required setting has not been acknowledged.
 
 ::doc-preview{label="Invalid"}
-<AgDSSwitch :invalid="true">I accept the terms and conditions</AgDSSwitch>
+<AGDSSwitch :invalid="true">I accept the terms and conditions</AGDSSwitch>
 ::
 
 ```vue
 <template>
-  <AgDSSwitch v-model="accepted" :invalid="!accepted">
+  <AGDSSwitch v-model="accepted" :invalid="!accepted">
     I accept the terms and conditions
-  </AgDSSwitch>
+  </AGDSSwitch>
 </template>
 ```
 
 ## Size
 
 ::doc-preview{label="Sizes"}
-<AgDSSwitch size="sm">Small</AgDSSwitch>
-<AgDSSwitch size="md">Medium (default)</AgDSSwitch>
+<AGDSSwitch size="sm">Small</AGDSSwitch>
+<AGDSSwitch size="md">Medium (default)</AGDSSwitch>
 ::
 
 ```vue
 <template>
-  <AgDSSwitch v-model="enabled" size="sm">Compact setting</AgDSSwitch>
+  <AGDSSwitch v-model="enabled" size="sm">Compact setting</AGDSSwitch>
 </template>
 ```
 
@@ -78,7 +78,7 @@ When the context makes the purpose clear, the label slot can be omitted. Always 
 
 ```vue
 <template>
-  <AgDSSwitch v-model="enabled" aria-label="Enable dark mode" />
+  <AGDSSwitch v-model="enabled" aria-label="Enable dark mode" />
 </template>
 ```
 

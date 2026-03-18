@@ -1,12 +1,12 @@
 <script setup lang="ts">
-export interface AgDSFooterProps {
+export interface AGDSFooterProps {
   /** Background colour of the footer surface. */
   background?: 'body' | 'bodyAlt'
   /** Maximum width of the inner content container. */
   maxWidth?: 'container' | 'containerLg'
 }
 
-withDefaults(defineProps<AgDSFooterProps>(), {
+withDefaults(defineProps<AGDSFooterProps>(), {
   background: 'body',
   maxWidth: 'container',
 })

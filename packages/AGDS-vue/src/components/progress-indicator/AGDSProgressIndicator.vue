@@ -25,7 +25,7 @@ export interface ProgressIndicatorItem {
   /** Click handler used when the item is rendered as a `<button>`. */
   onClick?: (event: MouseEvent) => void
   /**
-   * @deprecated Pass `activePath` to the parent `<AgDSProgressIndicator>`
+   * @deprecated Pass `activePath` to the parent `<AGDSProgressIndicator>`
    * instead. Legacy support only.
    */
   isActive?: boolean
@@ -33,7 +33,7 @@ export interface ProgressIndicatorItem {
   items?: ProgressIndicatorLevelTwoItem[]
 }
 
-export interface AgDSProgressIndicatorProps {
+export interface AGDSProgressIndicatorProps {
   /**
    * Highlights the matching item. Should match the active item's `href`
    * (or `label` when no `href` is present).
@@ -50,12 +50,12 @@ export interface AgDSProgressIndicatorProps {
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import AgDSProgressIndicatorItem from './AGDSProgressIndicatorItem.vue'
+import AGDSProgressIndicatorItem from './AGDSProgressIndicatorItem.vue'
 import type { ProcessedProgressIndicatorItem } from './AGDSProgressIndicatorItem.vue'
 
-defineOptions({ name: 'AgDSProgressIndicator' })
+defineOptions({ name: 'AGDSProgressIndicator' })
 
-const props = withDefaults(defineProps<AgDSProgressIndicatorProps>(), {
+const props = withDefaults(defineProps<AGDSProgressIndicatorProps>(), {
   background: 'body',
   hideSubtitle: false,
 })
@@ -142,7 +142,7 @@ const processedItems = computed((): ProcessedProgressIndicatorItem[] => {
     <!-- Step list -->
     <div class="agds-progress-indicator__body">
       <ul class="agds-progress-indicator__list">
-        <AgDSProgressIndicatorItem
+        <AGDSProgressIndicatorItem
           v-for="(item, index) in processedItems"
           :key="item.label"
           :item="item"

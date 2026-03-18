@@ -1,2 +1,2 @@
-export { default as AgDSSearchInput } from './AGDSSearchInput.vue'
-export type { AgDSSearchInputProps, SearchInputMaxWidth } from './AGDSSearchInput.vue'
+export { default as AGDSSearchInput } from './AGDSSearchInput.vue'
+export type { AGDSSearchInputProps, SearchInputMaxWidth } from './AGDSSearchInput.vue'

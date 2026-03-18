@@ -7,7 +7,7 @@ status: stable
 
 ## Usage
 
-Use `AgDSGroupedFields` when two related inputs should appear on the same row — for example a date range (from/to) or a name split across first/last fields. Spread the `field1Props` and `field2Props` from the scoped slot onto each input.
+Use `AGDSGroupedFields` when two related inputs should appear on the same row — for example a date range (from/to) or a name split across first/last fields. Spread the `field1Props` and `field2Props` from the scoped slot onto each input.
 
 ```vue
 <script setup lang="ts">
@@ -17,12 +17,12 @@ const to = ref('')
 </script>
 
 <template>
-  <AgDSGroupedFields legend="Date range">
+  <AGDSGroupedFields legend="Date range">
     <template #default="{ field1Props, field2Props }">
-      <AgDSTextInput v-bind="field1Props" v-model="from" label="From" />
-      <AgDSTextInput v-bind="field2Props" v-model="to" label="To" />
+      <AGDSTextInput v-bind="field1Props" v-model="from" label="From" />
+      <AGDSTextInput v-bind="field2Props" v-model="to" label="To" />
     </template>
-  </AgDSGroupedFields>
+  </AGDSGroupedFields>
 </template>
 ```
 
@@ -32,15 +32,15 @@ Use `hint` to add supplementary text that applies to both fields.
 
 ```vue
 <template>
-  <AgDSGroupedFields
+  <AGDSGroupedFields
     legend="Date range"
     hint="Enter dates in DD/MM/YYYY format"
   >
     <template #default="{ field1Props, field2Props }">
-      <AgDSTextInput v-bind="field1Props" v-model="from" label="From" />
-      <AgDSTextInput v-bind="field2Props" v-model="to" label="To" />
+      <AGDSTextInput v-bind="field1Props" v-model="from" label="From" />
+      <AGDSTextInput v-bind="field2Props" v-model="to" label="To" />
     </template>
-  </AgDSGroupedFields>
+  </AGDSGroupedFields>
 </template>
 ```
 
@@ -50,17 +50,17 @@ Each field's invalid state is controlled separately. The shared `message` is sho
 
 ```vue
 <template>
-  <AgDSGroupedFields
+  <AGDSGroupedFields
     legend="Date range"
     :field1-invalid="fromError"
     :field2-invalid="toError"
     message="Enter a valid date range"
   >
     <template #default="{ field1Props, field2Props }">
-      <AgDSTextInput v-bind="field1Props" v-model="from" label="From" />
-      <AgDSTextInput v-bind="field2Props" v-model="to" label="To" />
+      <AGDSTextInput v-bind="field1Props" v-model="from" label="From" />
+      <AGDSTextInput v-bind="field2Props" v-model="to" label="To" />
     </template>
-  </AgDSGroupedFields>
+  </AGDSGroupedFields>
 </template>
 ```
 
@@ -70,12 +70,12 @@ When the surrounding context makes the purpose of the group obvious, you can hid
 
 ```vue
 <template>
-  <AgDSGroupedFields legend="Date range" :visually-hide-legend="true">
+  <AGDSGroupedFields legend="Date range" :visually-hide-legend="true">
     <template #default="{ field1Props, field2Props }">
-      <AgDSTextInput v-bind="field1Props" v-model="from" label="From" />
-      <AgDSTextInput v-bind="field2Props" v-model="to" label="To" />
+      <AGDSTextInput v-bind="field1Props" v-model="from" label="From" />
+      <AGDSTextInput v-bind="field2Props" v-model="to" label="To" />
     </template>
-  </AgDSGroupedFields>
+  </AGDSGroupedFields>
 </template>
 ```
 

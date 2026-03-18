@@ -11,7 +11,7 @@ Provide a `label` — this text is shown below the dots and announced to assisti
 
 ```vue
 <template>
-  <AgDSLoadingBlanket label="Loading results" />
+  <AGDSLoadingBlanket label="Loading results" />
 </template>
 ```
 
@@ -32,7 +32,7 @@ async function submit() {
 </script>
 
 <template>
-  <AgDSLoadingBlanket
+  <AGDSLoadingBlanket
     v-if="isSubmitting"
     full-screen
     label="Saving your application"
@@ -59,7 +59,7 @@ async function load() {
 
 <template>
   <div style="position: relative; min-height: 10rem;">
-    <AgDSLoadingBlanket v-if="loading" label="Loading content" />
+    <AGDSLoadingBlanket v-if="loading" label="Loading content" />
     <div v-else>{{ data }}</div>
   </div>
 </template>

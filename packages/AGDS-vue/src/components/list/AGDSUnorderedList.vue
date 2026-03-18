@@ -2,7 +2,7 @@
 import { computed, inject, provide } from 'vue'
 import { LIST_DEPTH_KEY } from './listContext'
 
-export interface AgDSUnorderedListProps {}
+export interface AGDSUnorderedListProps {}
 
 const currentDepth = inject(LIST_DEPTH_KEY, 0)
 const depth = currentDepth + 1

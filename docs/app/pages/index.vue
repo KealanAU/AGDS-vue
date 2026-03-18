@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'AgDS-vue — Agriculture Design System',
-  description: 'Accessible Vue 3 components for the Agriculture Design System (AgDS) — Department of Agriculture, Fisheries and Forestry.',
+  title: 'AGDS-vue — Agriculture Design System',
+  description: 'Accessible Vue 3 components for the Agriculture Design System (AGDS) — Department of Agriculture, Fisheries and Forestry.',
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TabsList } from 'reka-ui'
 
-export interface AgDSTabListProps {
+export interface AGDSTabListProps {
   /**
    * Accessible label for the tab list.
    * Required when there is no visible heading that labels the tab group.
@@ -9,7 +9,7 @@ export interface AgDSTabListProps {
   ariaLabel?: string
 }
 
-const props = withDefaults(defineProps<AgDSTabListProps>(), {
+const props = withDefaults(defineProps<AGDSTabListProps>(), {
   ariaLabel: undefined,
 })
 </script>

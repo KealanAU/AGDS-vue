@@ -10,16 +10,14 @@ status: stable
 Provide a `tone` and an optional `title`. Use the default slot for body content.
 
 ::doc-preview
-<AgDSPageAlert tone="info" title="Application received">
-  <p>Your application has been submitted. We will be in touch within 5 business days.</p>
-</AgDSPageAlert>
+<PageAlertDemo />
 ::
 
 ```vue
 <template>
-  <AgDSPageAlert tone="info" title="Application received">
+  <AGDSPageAlert tone="info" title="Application received">
     <p>Your application has been submitted. We will be in touch within 5 business days.</p>
-  </AgDSPageAlert>
+  </AGDSPageAlert>
 </template>
 ```
 
@@ -33,18 +31,15 @@ Use the `tone` prop to communicate the nature of the alert.
 - `error` — reports a problem that must be resolved
 
 ::doc-preview{label="All tones"}
-<AgDSPageAlert tone="info" title="Information" />
-<AgDSPageAlert tone="success" title="Success" />
-<AgDSPageAlert tone="warning" title="Warning" />
-<AgDSPageAlert tone="error" title="Error" />
+<PageAlertDemo variant="tones" />
 ::
 
 ```vue
 <template>
-  <AgDSPageAlert tone="info" title="Information" />
-  <AgDSPageAlert tone="success" title="Success" />
-  <AgDSPageAlert tone="warning" title="Warning" />
-  <AgDSPageAlert tone="error" title="Error" />
+  <AGDSPageAlert tone="info" title="Information" />
+  <AGDSPageAlert tone="success" title="Success" />
+  <AGDSPageAlert tone="warning" title="Warning" />
+  <AGDSPageAlert tone="error" title="Error" />
 </template>
 ```
 
@@ -53,9 +48,7 @@ Use the `tone` prop to communicate the nature of the alert.
 Pass an `onClose` handler to render a close button.
 
 ::doc-preview{label="Dismissible"}
-<AgDSPageAlert tone="info" title="Session expiring" :on-close="() => {}">
-  <p>Your session will expire in 5 minutes. Save your work to avoid losing progress.</p>
-</AgDSPageAlert>
+<PageAlertDemo variant="dismissible" />
 ::
 
 ```vue
@@ -65,14 +58,14 @@ const show = ref(true)
 </script>
 
 <template>
-  <AgDSPageAlert
+  <AGDSPageAlert
     v-if="show"
     tone="info"
     title="Session expiring"
     :on-close="() => show = false"
   >
     <p>Your session will expire in 5 minutes.</p>
-  </AgDSPageAlert>
+  </AGDSPageAlert>
 </template>
 ```
 
@@ -82,14 +75,14 @@ Use `focusOnMount` when the alert is injected into the page after a user action 
 
 ```vue
 <template>
-  <AgDSPageAlert
+  <AGDSPageAlert
     v-if="submitted"
     tone="success"
     title="Form submitted"
     focus-on-mount
   >
     <p>Your response has been recorded.</p>
-  </AgDSPageAlert>
+  </AGDSPageAlert>
 </template>
 ```
 
@@ -97,7 +90,7 @@ Use `focusOnUpdate` to re-focus (and re-announce) the alert whenever its content
 
 ```vue
 <template>
-  <AgDSPageAlert
+  <AGDSPageAlert
     tone="error"
     title="Validation failed"
     :focus-on-update="errors"
@@ -105,7 +98,7 @@ Use `focusOnUpdate` to re-focus (and re-announce) the alert whenever its content
     <ul>
       <li v-for="err in errors" :key="err">{{ err }}</li>
     </ul>
-  </AgDSPageAlert>
+  </AGDSPageAlert>
 </template>
 ```
 
@@ -115,12 +108,12 @@ Replace the default `<h2>` title with arbitrary content using the `#title` slot.
 
 ```vue
 <template>
-  <AgDSPageAlert tone="warning">
+  <AGDSPageAlert tone="warning">
     <template #title>
       <h3>Important deadline</h3>
     </template>
     <p>Applications close on Friday.</p>
-  </AgDSPageAlert>
+  </AGDSPageAlert>
 </template>
 ```
 

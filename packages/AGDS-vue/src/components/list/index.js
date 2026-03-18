@@ -1,3 +1,3 @@
-export { default as AgDSUnorderedList } from './AGDSUnorderedList.vue';
-export { default as AgDSOrderedList } from './AGDSOrderedList.vue';
-export { default as AgDSListItem } from './AGDSListItem.vue';
+export { default as AGDSUnorderedList } from './AGDSUnorderedList.vue';
+export { default as AGDSOrderedList } from './AGDSOrderedList.vue';
+export { default as AGDSListItem } from './AGDSListItem.vue';

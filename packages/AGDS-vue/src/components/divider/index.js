@@ -1,1 +1,1 @@
-export { default as AgDSDivider } from './AGDSDivider.vue';
+export { default as AGDSDivider } from './AGDSDivider.vue';

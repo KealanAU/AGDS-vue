@@ -1,8 +1,8 @@
-export { default as AgDSSearchBox } from './AGDSSearchBox.vue'
-export type { AgDSSearchBoxProps } from './AGDSSearchBox.vue'
+export { default as AGDSSearchBox } from './AGDSSearchBox.vue'
+export type { AGDSSearchBoxProps } from './AGDSSearchBox.vue'
 
-export { default as AgDSSearchBoxInput } from './AGDSSearchBoxInput.vue'
-export type { AgDSSearchBoxInputProps } from './AGDSSearchBoxInput.vue'
+export { default as AGDSSearchBoxInput } from './AGDSSearchBoxInput.vue'
+export type { AGDSSearchBoxInputProps } from './AGDSSearchBoxInput.vue'
 
-export { default as AgDSSearchBoxButton } from './AGDSSearchBoxButton.vue'
-export type { AgDSSearchBoxButtonProps } from './AGDSSearchBoxButton.vue'
+export { default as AGDSSearchBoxButton } from './AGDSSearchBoxButton.vue'
+export type { AGDSSearchBoxButtonProps } from './AGDSSearchBoxButton.vue'

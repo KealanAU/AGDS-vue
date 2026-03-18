@@ -7,21 +7,21 @@ status: stable
 
 ## Usage
 
-`AgDSBox` renders a `<div>` by default. Use its props to apply display, flex, gap, and padding values without writing inline styles.
+`AGDSBox` renders a `<div>` by default. Use its props to apply display, flex, gap, and padding values without writing inline styles.
 
 ::doc-preview
-<AgDSBox padding="4" display="flex" gap="2">
-  <AgDSBox padding="2">Item A</AgDSBox>
-  <AgDSBox padding="2">Item B</AgDSBox>
-</AgDSBox>
+<AGDSBox padding="4" display="flex" gap="2">
+  <AGDSBox padding="2">Item A</AGDSBox>
+  <AGDSBox padding="2">Item B</AGDSBox>
+</AGDSBox>
 ::
 
 ```vue
 <template>
-  <AgDSBox padding="4" display="flex" gap="2">
-    <AgDSBox padding="2">Item A</AgDSBox>
-    <AgDSBox padding="2">Item B</AgDSBox>
-  </AgDSBox>
+  <AGDSBox padding="4" display="flex" gap="2">
+    <AGDSBox padding="2">Item A</AGDSBox>
+    <AGDSBox padding="2">Item B</AGDSBox>
+  </AGDSBox>
 </template>
 ```
 
@@ -31,10 +31,10 @@ Use the `as` prop to change the rendered HTML element or pass a Vue component.
 
 ```vue
 <template>
-  <AgDSBox as="section" padding="6">
-    <AgDSBox as="h2">Heading</AgDSBox>
-    <AgDSBox as="p">Body text.</AgDSBox>
-  </AgDSBox>
+  <AGDSBox as="section" padding="6">
+    <AGDSBox as="h2">Heading</AGDSBox>
+    <AGDSBox as="p">Body text.</AGDSBox>
+  </AGDSBox>
 </template>
 ```
 
@@ -43,41 +43,41 @@ Use the `as` prop to change the rendered HTML element or pass a Vue component.
 Numeric values for `gap`, `padding`, and related props map to `var(--agds-space-{n})`. Pass a string to use any valid CSS value verbatim.
 
 ::doc-preview{label="Spacing tokens"}
-<AgDSBox display="flex" gap="4" padding="4">
-  <AgDSBox paddingX="3" paddingY="2">Horizontal + vertical</AgDSBox>
-  <AgDSBox padding="2">Shorthand</AgDSBox>
-</AgDSBox>
+<AGDSBox display="flex" gap="4" padding="4">
+  <AGDSBox paddingX="3" paddingY="2">Horizontal + vertical</AGDSBox>
+  <AGDSBox padding="2">Shorthand</AGDSBox>
+</AGDSBox>
 ::
 
 ```vue
 <template>
   <!-- :gap="4" → var(--agds-space-4) -->
-  <AgDSBox display="flex" gap="4" padding="4">
-    <AgDSBox paddingX="3" paddingY="2">Horizontal + vertical</AgDSBox>
-    <AgDSBox padding="2">Shorthand</AgDSBox>
-  </AgDSBox>
+  <AGDSBox display="flex" gap="4" padding="4">
+    <AGDSBox paddingX="3" paddingY="2">Horizontal + vertical</AGDSBox>
+    <AGDSBox padding="2">Shorthand</AGDSBox>
+  </AGDSBox>
 </template>
 ```
 
 ## Flex layout
 
-Set `display="flex"` and use `flexDirection`, `alignItems`, and `justifyContent` to build flex containers. For a dedicated flex component see `AgDSFlex`.
+Set `display="flex"` and use `flexDirection`, `alignItems`, and `justifyContent` to build flex containers. For a dedicated flex component see `AGDSFlex`.
 
 ::doc-preview{label="Flex row"}
-<AgDSBox display="flex" flexDirection="row" alignItems="center" gap="3">
-  <AgDSBox>Left</AgDSBox>
-  <AgDSBox>Centre</AgDSBox>
-  <AgDSBox>Right</AgDSBox>
-</AgDSBox>
+<AGDSBox display="flex" flexDirection="row" alignItems="center" gap="3">
+  <AGDSBox>Left</AGDSBox>
+  <AGDSBox>Centre</AGDSBox>
+  <AGDSBox>Right</AGDSBox>
+</AGDSBox>
 ::
 
 ```vue
 <template>
-  <AgDSBox display="flex" flexDirection="row" alignItems="center" gap="3">
-    <AgDSBox>Left</AgDSBox>
-    <AgDSBox>Centre</AgDSBox>
-    <AgDSBox>Right</AgDSBox>
-  </AgDSBox>
+  <AGDSBox display="flex" flexDirection="row" alignItems="center" gap="3">
+    <AGDSBox>Left</AGDSBox>
+    <AGDSBox>Centre</AGDSBox>
+    <AGDSBox>Right</AGDSBox>
+  </AGDSBox>
 </template>
 ```
 
@@ -87,9 +87,9 @@ Control width and height with `width`, `height`, `minWidth`, `maxWidth`, `minHei
 
 ```vue
 <template>
-  <AgDSBox maxWidth="40rem" minHeight="10rem">
+  <AGDSBox maxWidth="40rem" minHeight="10rem">
     Constrained box
-  </AgDSBox>
+  </AGDSBox>
 </template>
 ```
 
@@ -132,7 +132,7 @@ Control width and height with `width`, `height`, `minWidth`, `maxWidth`, `minHei
 
 ## Accessibility
 
-`AgDSBox` is a transparent layout primitive with no implicit ARIA role. The rendered element and any accessible attributes are entirely under the caller's control via the `as` prop and fall-through attributes.
+`AGDSBox` is a transparent layout primitive with no implicit ARIA role. The rendered element and any accessible attributes are entirely under the caller's control via the `as` prop and fall-through attributes.
 
 - Use a semantically appropriate `as` value (e.g. `section`, `nav`, `main`) when the box represents a landmark region
 - All attributes not listed as props pass through to the root element via `v-bind="$attrs"`

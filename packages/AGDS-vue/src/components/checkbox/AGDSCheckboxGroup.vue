@@ -2,7 +2,7 @@
 import { provide } from 'vue'
 import { CHECKBOX_GROUP_KEY } from './checkboxGroupContext'
 
-export interface AgDSCheckboxGroupProps {
+export interface AGDSCheckboxGroupProps {
   /** Shared `name` attribute applied to every checkbox in the group */
   name?: string
   /** Marks every checkbox in the group as invalid */
@@ -20,7 +20,7 @@ export interface AgDSCheckboxGroupProps {
   legend?: string
 }
 
-const props = withDefaults(defineProps<AgDSCheckboxGroupProps>(), {
+const props = withDefaults(defineProps<AGDSCheckboxGroupProps>(), {
   invalid: false,
   required: false,
   disabled: false,

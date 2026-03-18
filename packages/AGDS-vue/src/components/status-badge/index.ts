@@ -1,6 +1,6 @@
-export { default as AgDSStatusBadge } from './AGDSStatusBadge.vue'
+export { default as AGDSStatusBadge } from './AGDSStatusBadge.vue'
 export type {
-  AgDSStatusBadgeProps,
+  AGDSStatusBadgeProps,
   StatusBadgeTone,
   StatusBadgeTones,
   StatusBadgeAppearance,

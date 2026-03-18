@@ -7,7 +7,7 @@ export type PageAlertTone = 'info' | 'success' | 'warning' | 'error'
 
 // ── Props ──────────────────────────────────────────────────────────────────────
 
-export interface AgDSPageAlertProps {
+export interface AGDSPageAlertProps {
   /** Controls background colour, icon strip colour, and icon. */
   tone: PageAlertTone
   /** The title of the alert. Use the `#title` slot for rich content. */
@@ -39,7 +39,7 @@ export interface AgDSPageAlertProps {
   onDismiss?: () => void
 }
 
-const props = withDefaults(defineProps<AgDSPageAlertProps>(), {
+const props = withDefaults(defineProps<AGDSPageAlertProps>(), {
   role: 'region',
 })
 

@@ -1,2 +1,2 @@
-export { default as AgDSColumns } from './AGDSColumns.vue';
-export { default as AgDSColumn } from './AGDSColumn.vue';
+export { default as AGDSColumns } from './AGDSColumns.vue';
+export { default as AGDSColumn } from './AGDSColumn.vue';

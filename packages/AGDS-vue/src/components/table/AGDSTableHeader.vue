@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSTableHeaderProps {
+export interface AGDSTableHeaderProps {
   /** The HTML element to render — swap to 'td' for a row-group header cell. */
   as?: 'th' | 'td'
   /** Number of columns this header spans. */
@@ -18,7 +18,7 @@ export interface AgDSTableHeaderProps {
   width?: string
 }
 
-const props = withDefaults(defineProps<AgDSTableHeaderProps>(), {
+const props = withDefaults(defineProps<AGDSTableHeaderProps>(), {
   as: 'th',
   scope: 'col',
   textAlign: 'left',

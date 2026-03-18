@@ -1,5 +1,5 @@
-export { default as AgDSBreadcrumbs } from './AGDSBreadcrumbs.vue'
-export type { AgDSBreadcrumbsProps, BreadcrumbLink } from './AGDSBreadcrumbs.vue'
+export { default as AGDSBreadcrumbs } from './AGDSBreadcrumbs.vue'
+export type { AGDSBreadcrumbsProps, BreadcrumbLink } from './AGDSBreadcrumbs.vue'
 
-export { default as AgDSBreadcrumbsItem } from './AGDSBreadcrumbsItem.vue'
-export type { AgDSBreadcrumbsItemProps } from './AGDSBreadcrumbsItem.vue'
+export { default as AGDSBreadcrumbsItem } from './AGDSBreadcrumbsItem.vue'
+export type { AGDSBreadcrumbsItemProps } from './AGDSBreadcrumbsItem.vue'

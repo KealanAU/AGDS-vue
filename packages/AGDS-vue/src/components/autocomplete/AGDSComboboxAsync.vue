@@ -10,12 +10,12 @@ import {
   ComboboxRoot,
   ComboboxViewport,
 } from 'reka-ui'
-import AgDSField from '../field/AGDSField.vue'
+import AGDSField from '../field/AGDSField.vue'
 import type { DefaultComboboxOption, ComboboxMaxWidth } from './comboboxUtils'
 
 export type { DefaultComboboxOption, ComboboxMaxWidth }
 
-export interface AgDSComboboxAsyncProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
+export interface AGDSComboboxAsyncProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
   /** Async function called on each debounced keystroke to load matching options */
   fetchOptions: (query: string) => Promise<O[]>
   /** Visible label text for the input */
@@ -60,7 +60,7 @@ export interface AgDSComboboxAsyncProps<O extends DefaultComboboxOption = Defaul
   maxWidth?: ComboboxMaxWidth
 }
 
-const props = withDefaults(defineProps<AgDSComboboxAsyncProps<Option>>(), {
+const props = withDefaults(defineProps<AGDSComboboxAsyncProps<Option>>(), {
   invalid: false,
   required: false,
   disabled: false,
@@ -219,7 +219,7 @@ defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
 </script>
 
 <template>
-  <AgDSField
+  <AGDSField
     :label="label"
     :id="inputId"
     :label-id="labelId"
@@ -407,7 +407,7 @@ defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
         {{ statusMessage }}
       </div>
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 
 <style scoped>

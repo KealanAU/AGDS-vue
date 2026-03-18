@@ -1,5 +1,5 @@
 import { hasSubLevelActiveItem } from './utils';
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const props = withDefaults(defineProps(), { depth: 1 });
 function isCurrentPage(item) {
     return item.href === props.activePath;
@@ -88,7 +88,7 @@ for (const [item] of __VLS_vFor((__VLS_ctx.items))) {
     /** @type {__VLS_StyleScopedClasses['agds-side-nav__link-label']} */ ;
     (item.label);
     if (__VLS_ctx.hasSubIndicator(item)) {
-        const __VLS_0 = AgDSIcon;
+        const __VLS_0 = AGDSIcon;
         // @ts-ignore
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             name: "mdi:chevron-right",

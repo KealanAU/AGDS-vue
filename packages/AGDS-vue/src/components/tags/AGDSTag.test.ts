@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent, screen } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTag from './AGDSTag.vue'
-import AgDSTags from './AGDSTags.vue'
+import AGDSTag from './AGDSTag.vue'
+import AGDSTags from './AGDSTags.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -11,16 +11,16 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderTag(props: Record<string, unknown> = {}) {
-  return render(AgDSTag, { props })
+  return render(AGDSTag, { props })
 }
 
 function renderTags(props: Record<string, unknown> = {}, slots: Record<string, string> = {}) {
-  return render(AgDSTags, { props, slots })
+  return render(AGDSTags, { props, slots })
 }
 
-// ─── AgDSTag — rendering ────────────────────────────────────────────────────
+// ─── AGDSTag — rendering ────────────────────────────────────────────────────
 
-describe('AgDSTag — rendering', () => {
+describe('AGDSTag — rendering', () => {
   it('renders the label text', () => {
     renderTag({ label: 'Finance' })
     expect(screen.getByText('Finance')).toBeTruthy()
@@ -50,9 +50,9 @@ describe('AgDSTag — rendering', () => {
   })
 })
 
-// ─── AgDSTag — removable prop ───────────────────────────────────────────────
+// ─── AGDSTag — removable prop ───────────────────────────────────────────────
 
-describe('AgDSTag — removable prop', () => {
+describe('AGDSTag — removable prop', () => {
   it('hides the remove button by default', () => {
     const { container } = renderTag({ label: 'Finance' })
     expect(container.querySelector('.agds-tag__remove')).toBeNull()
@@ -76,9 +76,9 @@ describe('AgDSTag — removable prop', () => {
   })
 })
 
-// ─── AgDSTag — remove event ─────────────────────────────────────────────────
+// ─── AGDSTag — remove event ─────────────────────────────────────────────────
 
-describe('AgDSTag — remove event', () => {
+describe('AGDSTag — remove event', () => {
   it('emits remove when the remove button is clicked', async () => {
     const { container, emitted } = renderTag({ label: 'Finance', removable: true })
     const btn = container.querySelector<HTMLButtonElement>('.agds-tag__remove')!
@@ -102,17 +102,17 @@ describe('AgDSTag — remove event', () => {
   })
 })
 
-// ─── AgDSTag — expose ───────────────────────────────────────────────────────
+// ─── AGDSTag — expose ───────────────────────────────────────────────────────
 
-describe('AgDSTag — defineExpose', () => {
+describe('AGDSTag — defineExpose', () => {
   it('focusRemoveButton moves focus to the remove button', async () => {
     // Test via a parent component that calls focusRemoveButton via a template ref.
     const { container } = render({
       template: `
-        <AgDSTag ref="tagRef" label="Finance" :removable="true" />
+        <AGDSTag ref="tagRef" label="Finance" :removable="true" />
         <button id="trigger" @click="tagRef.focusRemoveButton()">Focus remove</button>
       `,
-      components: { AgDSTag },
+      components: { AGDSTag },
       setup() {
         const tagRef = { focusRemoveButton: () => {} }
         return { tagRef }
@@ -126,9 +126,9 @@ describe('AgDSTag — defineExpose', () => {
   })
 })
 
-// ─── AgDSTag — accessibility ────────────────────────────────────────────────
+// ─── AGDSTag — accessibility ────────────────────────────────────────────────
 
-describe('AgDSTag — axe', () => {
+describe('AGDSTag — axe', () => {
   it('plain tag has no violations', async () => {
     const { container } = renderTag({ label: 'Finance' })
     await runAxe(container, AXE_OPTS)
@@ -157,9 +157,9 @@ describe('AgDSTag — axe', () => {
   })
 })
 
-// ─── AgDSTags — rendering ───────────────────────────────────────────────────
+// ─── AGDSTags — rendering ───────────────────────────────────────────────────
 
-describe('AgDSTags — rendering', () => {
+describe('AGDSTags — rendering', () => {
   it('renders all items', () => {
     renderTags({
       items: [
@@ -199,9 +199,9 @@ describe('AgDSTags — rendering', () => {
   })
 })
 
-// ─── AgDSTags — remove event ────────────────────────────────────────────────
+// ─── AGDSTags — remove event ────────────────────────────────────────────────
 
-describe('AgDSTags — remove event', () => {
+describe('AGDSTags — remove event', () => {
   it('emits remove with the correct index', async () => {
     const { container, emitted } = renderTags({
       items: [
@@ -228,9 +228,9 @@ describe('AgDSTags — remove event', () => {
   })
 })
 
-// ─── AgDSTags — accessibility ───────────────────────────────────────────────
+// ─── AGDSTags — accessibility ───────────────────────────────────────────────
 
-describe('AgDSTags — axe', () => {
+describe('AGDSTags — axe', () => {
   it('plain tags list has no violations', async () => {
     const { container } = renderTags({
       items: [{ label: 'Finance' }, { label: 'Health' }],

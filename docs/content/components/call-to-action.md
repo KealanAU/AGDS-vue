@@ -7,29 +7,29 @@ status: stable
 
 ## Usage
 
-Use `AgDSCallToActionLink` when the destination is a URL. Use `AgDSCallToActionButton` when the action is triggered by JavaScript.
+Use `AGDSCallToActionLink` when the destination is a URL. Use `AGDSCallToActionButton` when the action is triggered by JavaScript.
 
 ::doc-preview
-<AgDSCallToActionLink href="#">Get started</AgDSCallToActionLink>
+<AGDSCallToActionLink href="#">Get started</AGDSCallToActionLink>
 ::
 
 ```vue
 <template>
-  <AgDSCallToActionLink href="/start">Get started</AgDSCallToActionLink>
+  <AGDSCallToActionLink href="/start">Get started</AGDSCallToActionLink>
 </template>
 ```
 
 ## Button variant
 
-Use `AgDSCallToActionButton` when there is no URL — for example, advancing a multi-step form or triggering a modal.
+Use `AGDSCallToActionButton` when there is no URL — for example, advancing a multi-step form or triggering a modal.
 
 ::doc-preview{label="Button variant"}
-<AgDSCallToActionButton>Apply now</AgDSCallToActionButton>
+<AGDSCallToActionButton>Apply now</AGDSCallToActionButton>
 ::
 
 ```vue
 <template>
-  <AgDSCallToActionButton @click="next">Apply now</AgDSCallToActionButton>
+  <AGDSCallToActionButton @click="next">Apply now</AGDSCallToActionButton>
 </template>
 ```
 
@@ -38,44 +38,44 @@ Use `AgDSCallToActionButton` when there is no URL — for example, advancing a m
 Set `external` to open the link in a new tab. Screen reader users hear ", opens in a new tab" appended automatically.
 
 ::doc-preview{label="External link"}
-<AgDSCallToActionLink href="https://www.australia.gov.au" external>australia.gov.au</AgDSCallToActionLink>
+<AGDSCallToActionLink href="https://www.australia.gov.au" external>australia.gov.au</AGDSCallToActionLink>
 ::
 
 ```vue
 <template>
-  <AgDSCallToActionLink href="https://www.australia.gov.au" external>
+  <AGDSCallToActionLink href="https://www.australia.gov.au" external>
     australia.gov.au
-  </AgDSCallToActionLink>
+  </AGDSCallToActionLink>
 </template>
 ```
 
 ## Disabled
 
 ::doc-preview{label="Disabled button"}
-<AgDSCallToActionButton disabled>Apply now</AgDSCallToActionButton>
+<AGDSCallToActionButton disabled>Apply now</AGDSCallToActionButton>
 ::
 
 ```vue
 <template>
-  <AgDSCallToActionButton disabled>Apply now</AgDSCallToActionButton>
+  <AGDSCallToActionButton disabled>Apply now</AGDSCallToActionButton>
 </template>
 ```
 
 ## Loading
 
 ::doc-preview{label="Loading button"}
-<AgDSCallToActionButton loading>Submitting…</AgDSCallToActionButton>
+<AGDSCallToActionButton loading>Submitting…</AGDSCallToActionButton>
 ::
 
 ```vue
 <template>
-  <AgDSCallToActionButton :loading="submitting" loading-label="Submitting form" @click="submit">
+  <AGDSCallToActionButton :loading="submitting" loading-label="Submitting form" @click="submit">
     Submit application
-  </AgDSCallToActionButton>
+  </AGDSCallToActionButton>
 </template>
 ```
 
-## Props — AgDSCallToActionLink
+## Props — AGDSCallToActionLink
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -83,7 +83,7 @@ Set `external` to open the link in a new tab. Screen reader users hear ", opens 
 | `external` | `boolean` | `false` | Opens in a new tab and appends accessible off-screen text |
 | `focusRingFor` | `'keyboard' \| 'all'` | `'keyboard'` | When to show the focus ring |
 
-## Props — AgDSCallToActionButton
+## Props — AGDSCallToActionButton
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -120,4 +120,4 @@ Set `external` to open the link in a new tab. Screen reader users hear ", opens 
 
 ### 0.1.0
 
-- Initial release — `AgDSCallToActionLink` and `AgDSCallToActionButton` with `external`, `disabled`, `loading`, `focusRingFor` props
+- Initial release — `AGDSCallToActionLink` and `AGDSCallToActionButton` with `external`, `disabled`, `loading`, `focusRingFor` props

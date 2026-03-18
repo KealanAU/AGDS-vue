@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTable from './AGDSTable.vue'
-import AgDSTableHead from './AGDSTableHead.vue'
-import AgDSTableBody from './AGDSTableBody.vue'
-import AgDSTableRow from './AGDSTableRow.vue'
-import AgDSTableHeader from './AGDSTableHeader.vue'
-import AgDSTableHeaderSortable from './AGDSTableHeaderSortable.vue'
-import AgDSTableCell from './AGDSTableCell.vue'
-import AgDSTableCaption from './AGDSTableCaption.vue'
+import AGDSTable from './AGDSTable.vue'
+import AGDSTableHead from './AGDSTableHead.vue'
+import AGDSTableBody from './AGDSTableBody.vue'
+import AGDSTableRow from './AGDSTableRow.vue'
+import AGDSTableHeader from './AGDSTableHeader.vue'
+import AGDSTableHeaderSortable from './AGDSTableHeaderSortable.vue'
+import AGDSTableCell from './AGDSTableCell.vue'
+import AGDSTableCaption from './AGDSTableCaption.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -23,30 +23,30 @@ function renderBasicTable(
 ) {
   return render({
     components: {
-      AgDSTable,
-      AgDSTableHead,
-      AgDSTableBody,
-      AgDSTableRow,
-      AgDSTableHeader,
-      AgDSTableCell,
-      AgDSTableCaption,
+      AGDSTable,
+      AGDSTableHead,
+      AGDSTableBody,
+      AGDSTableRow,
+      AGDSTableHeader,
+      AGDSTableCell,
+      AGDSTableCaption,
     },
     template: `
-      <AgDSTable v-bind="tableProps">
-        <AgDSTableCaption v-if="captionText">{{ captionText }}</AgDSTableCaption>
-        <AgDSTableHead>
-          <AgDSTableRow>
-            <AgDSTableHeader>Name</AgDSTableHeader>
-            <AgDSTableHeader>Age</AgDSTableHeader>
-          </AgDSTableRow>
-        </AgDSTableHead>
-        <AgDSTableBody>
-          <AgDSTableRow>
-            <AgDSTableCell>Alice</AgDSTableCell>
-            <AgDSTableCell>30</AgDSTableCell>
-          </AgDSTableRow>
-        </AgDSTableBody>
-      </AgDSTable>
+      <AGDSTable v-bind="tableProps">
+        <AGDSTableCaption v-if="captionText">{{ captionText }}</AGDSTableCaption>
+        <AGDSTableHead>
+          <AGDSTableRow>
+            <AGDSTableHeader>Name</AGDSTableHeader>
+            <AGDSTableHeader>Age</AGDSTableHeader>
+          </AGDSTableRow>
+        </AGDSTableHead>
+        <AGDSTableBody>
+          <AGDSTableRow>
+            <AGDSTableCell>Alice</AGDSTableCell>
+            <AGDSTableCell>30</AGDSTableCell>
+          </AGDSTableRow>
+        </AGDSTableBody>
+      </AGDSTable>
     `,
     data() {
       return { tableProps, captionText }
@@ -54,9 +54,9 @@ function renderBasicTable(
   })
 }
 
-// ─── AgDSTable — rendering ──────────────────────────────────────────────────
+// ─── AGDSTable — rendering ──────────────────────────────────────────────────
 
-describe('AgDSTable — rendering', () => {
+describe('AGDSTable — rendering', () => {
   it('renders a <table> element', () => {
     const { getByRole } = renderBasicTable()
     expect(getByRole('table')).toBeTruthy()
@@ -68,9 +68,9 @@ describe('AgDSTable — rendering', () => {
   })
 })
 
-// ─── AgDSTable — striped prop ───────────────────────────────────────────────
+// ─── AGDSTable — striped prop ───────────────────────────────────────────────
 
-describe('AgDSTable — striped prop', () => {
+describe('AGDSTable — striped prop', () => {
   it('does not add striped class by default', () => {
     const { getByRole } = renderBasicTable()
     expect(getByRole('table').classList.contains('agds-table--striped')).toBe(false)
@@ -82,9 +82,9 @@ describe('AgDSTable — striped prop', () => {
   })
 })
 
-// ─── AgDSTable — tableLayout prop ──────────────────────────────────────────
+// ─── AGDSTable — tableLayout prop ──────────────────────────────────────────
 
-describe('AgDSTable — tableLayout prop', () => {
+describe('AGDSTable — tableLayout prop', () => {
   it('does not add layout-fixed class with default (auto) layout', () => {
     const { getByRole } = renderBasicTable()
     expect(getByRole('table').classList.contains('agds-table--layout-fixed')).toBe(false)
@@ -96,23 +96,23 @@ describe('AgDSTable — tableLayout prop', () => {
   })
 })
 
-// ─── AgDSTable — ARIA attributes ───────────────────────────────────────────
+// ─── AGDSTable — ARIA attributes ───────────────────────────────────────────
 // aria-labelledby, aria-describedby, aria-rowcount etc. are not declared as
 // props — they flow through $attrs to the <table> element via inheritAttrs.
 
-describe('AgDSTable — ARIA attributes', () => {
+describe('AGDSTable — ARIA attributes', () => {
   it('forwards aria-labelledby to the table element', () => {
     const { container } = render({
-      components: { AgDSTable, AgDSTableHead, AgDSTableBody, AgDSTableRow, AgDSTableHeader, AgDSTableCell },
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
       template: `
-        <AgDSTable aria-labelledby="heading-1">
-          <AgDSTableHead>
-            <AgDSTableRow><AgDSTableHeader>Name</AgDSTableHeader></AgDSTableRow>
-          </AgDSTableHead>
-          <AgDSTableBody>
-            <AgDSTableRow><AgDSTableCell>Alice</AgDSTableCell></AgDSTableRow>
-          </AgDSTableBody>
-        </AgDSTable>
+        <AGDSTable aria-labelledby="heading-1">
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader>Name</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
       `,
     })
     expect(container.querySelector('table')!.getAttribute('aria-labelledby')).toBe('heading-1')
@@ -120,16 +120,16 @@ describe('AgDSTable — ARIA attributes', () => {
 
   it('forwards aria-rowcount to the table element', () => {
     const { container } = render({
-      components: { AgDSTable, AgDSTableHead, AgDSTableBody, AgDSTableRow, AgDSTableHeader, AgDSTableCell },
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
       template: `
-        <AgDSTable :aria-rowcount="100">
-          <AgDSTableHead>
-            <AgDSTableRow><AgDSTableHeader>Name</AgDSTableHeader></AgDSTableRow>
-          </AgDSTableHead>
-          <AgDSTableBody>
-            <AgDSTableRow><AgDSTableCell>Alice</AgDSTableCell></AgDSTableRow>
-          </AgDSTableBody>
-        </AgDSTable>
+        <AGDSTable :aria-rowcount="100">
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader>Name</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
       `,
     })
     expect(container.querySelector('table')!.getAttribute('aria-rowcount')).toBe('100')
@@ -146,18 +146,18 @@ describe('AgDSTable — ARIA attributes', () => {
   })
 })
 
-// ─── AgDSTableCaption ───────────────────────────────────────────────────────
+// ─── AGDSTableCaption ───────────────────────────────────────────────────────
 
-describe('AgDSTableCaption — rendering', () => {
+describe('AGDSTableCaption — rendering', () => {
   it('renders caption text', () => {
     const { getByText } = renderBasicTable({}, 'User data')
     expect(getByText('User data')).toBeTruthy()
   })
 })
 
-// ─── AgDSTableHeader ────────────────────────────────────────────────────────
+// ─── AGDSTableHeader ────────────────────────────────────────────────────────
 
-describe('AgDSTableHeader — rendering', () => {
+describe('AGDSTableHeader — rendering', () => {
   it('renders as <th> by default with scope="col"', () => {
     const { container } = renderBasicTable()
     const ths = container.querySelectorAll('th')
@@ -166,23 +166,23 @@ describe('AgDSTableHeader — rendering', () => {
   })
 })
 
-// ─── AgDSTableHeaderSortable — rendering & interaction ─────────────────────
+// ─── AGDSTableHeaderSortable — rendering & interaction ─────────────────────
 
-describe('AgDSTableHeaderSortable — rendering', () => {
+describe('AGDSTableHeaderSortable — rendering', () => {
   function renderSortableHeader(props: Record<string, unknown> = {}) {
     return render({
-      components: { AgDSTable, AgDSTableHead, AgDSTableBody, AgDSTableRow, AgDSTableHeaderSortable, AgDSTableCell },
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeaderSortable, AGDSTableCell },
       template: `
-        <AgDSTable>
-          <AgDSTableHead>
-            <AgDSTableRow>
-              <AgDSTableHeaderSortable v-bind="sortProps" @click="onClick">Name</AgDSTableHeaderSortable>
-            </AgDSTableRow>
-          </AgDSTableHead>
-          <AgDSTableBody>
-            <AgDSTableRow><AgDSTableCell>Alice</AgDSTableCell></AgDSTableRow>
-          </AgDSTableBody>
-        </AgDSTable>
+        <AGDSTable>
+          <AGDSTableHead>
+            <AGDSTableRow>
+              <AGDSTableHeaderSortable v-bind="sortProps" @click="onClick">Name</AGDSTableHeaderSortable>
+            </AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
       `,
       data() { return { sortProps: props } },
       methods: { onClick() {} },
@@ -214,7 +214,7 @@ describe('AgDSTableHeaderSortable — rendering', () => {
 
   it('emits click when the sort button is clicked', async () => {
     // Test the sortable header directly — it renders a button that emits 'click'.
-    const { container, emitted } = render(AgDSTableHeaderSortable, {
+    const { container, emitted } = render(AGDSTableHeaderSortable, {
       slots: { default: 'Name' },
     })
     const btn = container.querySelector('button')!
@@ -226,7 +226,7 @@ describe('AgDSTableHeaderSortable — rendering', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSTable — axe accessibility', () => {
+describe('AGDSTable — axe accessibility', () => {
   it('has no violations in basic state', async () => {
     const { container } = renderBasicTable({}, 'User data')
     await runAxe(container, AXE_OPTS)
@@ -239,23 +239,23 @@ describe('AgDSTable — axe accessibility', () => {
 
   it('has no violations with sortable headers', async () => {
     const { container } = render({
-      components: { AgDSTable, AgDSTableHead, AgDSTableBody, AgDSTableRow, AgDSTableHeaderSortable, AgDSTableCell, AgDSTableCaption },
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeaderSortable, AGDSTableCell, AGDSTableCaption },
       template: `
-        <AgDSTable>
-          <AgDSTableCaption>Sortable user data</AgDSTableCaption>
-          <AgDSTableHead>
-            <AgDSTableRow>
-              <AgDSTableHeaderSortable sort="ASC">Name</AgDSTableHeaderSortable>
-              <AgDSTableHeaderSortable>Age</AgDSTableHeaderSortable>
-            </AgDSTableRow>
-          </AgDSTableHead>
-          <AgDSTableBody>
-            <AgDSTableRow>
-              <AgDSTableCell>Alice</AgDSTableCell>
-              <AgDSTableCell>30</AgDSTableCell>
-            </AgDSTableRow>
-          </AgDSTableBody>
-        </AgDSTable>
+        <AGDSTable>
+          <AGDSTableCaption>Sortable user data</AGDSTableCaption>
+          <AGDSTableHead>
+            <AGDSTableRow>
+              <AGDSTableHeaderSortable sort="ASC">Name</AGDSTableHeaderSortable>
+              <AGDSTableHeaderSortable>Age</AGDSTableHeaderSortable>
+            </AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow>
+              <AGDSTableCell>Alice</AGDSTableCell>
+              <AGDSTableCell>30</AGDSTableCell>
+            </AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
       `,
     })
     await runAxe(container, AXE_OPTS)

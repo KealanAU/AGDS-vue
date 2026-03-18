@@ -1,10 +1,10 @@
 <script setup lang="ts">
-export interface AgDSFieldContainerProps {
+export interface AGDSFieldContainerProps {
   /** When true, renders the invalid (error) visual treatment */
   invalid?: boolean
 }
 
-withDefaults(defineProps<AgDSFieldContainerProps>(), {
+withDefaults(defineProps<AGDSFieldContainerProps>(), {
   invalid: false,
 })
 </script>

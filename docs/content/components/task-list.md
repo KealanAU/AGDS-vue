@@ -10,7 +10,7 @@ status: stable
 Pass an array of task `items`, each with a `label`, `status`, and either an `href` or click handler.
 
 ::doc-preview
-<AgDSTaskList :items="[
+<AGDSTaskList :items="[
   { label: 'Personal details', status: 'done', href: '#' },
   { label: 'Employment history', status: 'doing', href: '#' },
   { label: 'References', status: 'todo', href: '#' },
@@ -20,7 +20,7 @@ Pass an array of task `items`, each with a `label`, `status`, and either an `hre
 
 ```vue
 <template>
-  <AgDSTaskList :items="tasks" />
+  <AGDSTaskList :items="tasks" />
 </template>
 
 <script setup>
@@ -47,7 +47,7 @@ The `status` field on each item controls the icon and label shown alongside the 
 | `notRequired` | Minus circle outline (muted) | No longer required |
 
 ::doc-preview{label="All statuses"}
-<AgDSTaskList :items="[
+<AGDSTaskList :items="[
   { label: 'Done', status: 'done', href: '#' },
   { label: 'Done recently', status: 'doneRecently', href: '#' },
   { label: 'Doing', status: 'doing', href: '#' },
@@ -62,7 +62,7 @@ The `status` field on each item controls the icon and label shown alongside the 
 Use the `ordered` prop to render a numbered `<ol>` with CSS counter prefixes on each item.
 
 ::doc-preview{label="Ordered"}
-<AgDSTaskList ordered :items="[
+<AGDSTaskList ordered :items="[
   { label: 'Eligibility check', status: 'done', href: '#' },
   { label: 'Personal information', status: 'doing', href: '#' },
   { label: 'Supporting documents', status: 'todo', href: '#' },
@@ -71,7 +71,7 @@ Use the `ordered` prop to render a numbered `<ol>` with CSS counter prefixes on 
 
 ```vue
 <template>
-  <AgDSTaskList ordered :items="tasks" />
+  <AGDSTaskList ordered :items="tasks" />
 </template>
 ```
 
@@ -106,12 +106,12 @@ const tasks = [
 </script>
 
 <template>
-  <!-- Listen for click on AgDSTaskListItem directly, or handle navigation -->
-  <AgDSTaskList :items="tasks" />
+  <!-- Listen for click on AGDSTaskListItem directly, or handle navigation -->
+  <AGDSTaskList :items="tasks" />
 </template>
 ```
 
-## Props — AgDSTaskList
+## Props — AGDSTaskList
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|

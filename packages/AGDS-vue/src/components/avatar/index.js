@@ -1,1 +1,1 @@
-export { default as AgDSAvatar } from './AGDSAvatar.vue';
+export { default as AGDSAvatar } from './AGDSAvatar.vue';

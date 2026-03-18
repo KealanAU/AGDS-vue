@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSLinkList from './AGDSLinkList.vue'
-import AgDSLinkListItem from './AGDSLinkListItem.vue'
+import AGDSLinkList from './AGDSLinkList.vue'
+import AGDSLinkListItem from './AGDSLinkListItem.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -16,28 +16,28 @@ const baseLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
-// ─── AgDSLinkList ───────────────────────────────────────────────────────────
+// ─── AGDSLinkList ───────────────────────────────────────────────────────────
 
-describe('AgDSLinkList — rendering', () => {
+describe('AGDSLinkList — rendering', () => {
   it('renders a <ul> with the list class', () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks } })
     expect(container.querySelector('ul.agds-link-list')).toBeTruthy()
   })
 
   it('renders one <li> per link', () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks } })
     expect(container.querySelectorAll('li')).toHaveLength(3)
   })
 
   it('renders the label text for each link', () => {
-    const { getByText } = render(AgDSLinkList, { props: { links: baseLinks } })
+    const { getByText } = render(AGDSLinkList, { props: { links: baseLinks } })
     expect(getByText('Services')).toBeTruthy()
     expect(getByText('About us')).toBeTruthy()
     expect(getByText('Contact')).toBeTruthy()
   })
 
   it('renders the correct href for each link', () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks } })
     const anchors = container.querySelectorAll('a')
     expect(anchors[0].getAttribute('href')).toBe('/services')
     expect(anchors[1].getAttribute('href')).toBe('/about')
@@ -45,25 +45,25 @@ describe('AgDSLinkList — rendering', () => {
   })
 })
 
-describe('AgDSLinkList — horizontal prop', () => {
+describe('AGDSLinkList — horizontal prop', () => {
   it('applies vertical class by default', () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks } })
     expect(container.querySelector('.agds-link-list--vertical')).toBeTruthy()
     expect(container.querySelector('.agds-link-list--horizontal')).toBeNull()
   })
 
   it('applies horizontal class when horizontal=true', () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks, horizontal: true } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks, horizontal: true } })
     expect(container.querySelector('.agds-link-list--horizontal')).toBeTruthy()
     expect(container.querySelector('.agds-link-list--vertical')).toBeNull()
   })
 })
 
-// ─── AgDSLinkListItem — standalone ─────────────────────────────────────────
+// ─── AGDSLinkListItem — standalone ─────────────────────────────────────────
 
-describe('AgDSLinkListItem — rendering', () => {
+describe('AGDSLinkListItem — rendering', () => {
   it('renders a <li> with an <a> inside', () => {
-    const { container } = render(AgDSLinkListItem, {
+    const { container } = render(AGDSLinkListItem, {
       props: { href: '/foo', label: 'Foo' },
     })
     expect(container.querySelector('li')).toBeTruthy()
@@ -71,16 +71,16 @@ describe('AgDSLinkListItem — rendering', () => {
   })
 
   it('renders the label text', () => {
-    const { getByText } = render(AgDSLinkListItem, {
+    const { getByText } = render(AGDSLinkListItem, {
       props: { href: '/foo', label: 'Foo bar' },
     })
     expect(getByText('Foo bar', { exact: false })).toBeTruthy()
   })
 })
 
-describe('AgDSLinkListItem — external links', () => {
+describe('AGDSLinkListItem — external links', () => {
   it('sets target and rel when target="_blank"', () => {
-    const { container } = render(AgDSLinkListItem, {
+    const { container } = render(AGDSLinkListItem, {
       props: { href: 'https://example.com', label: 'External', target: '_blank' },
     })
     const a = container.querySelector('a')!
@@ -89,7 +89,7 @@ describe('AgDSLinkListItem — external links', () => {
   })
 
   it('renders offscreen "opens in a new tab" text when target="_blank"', () => {
-    const { container } = render(AgDSLinkListItem, {
+    const { container } = render(AGDSLinkListItem, {
       props: { href: 'https://example.com', label: 'External', target: '_blank' },
     })
     const sr = container.querySelector('.sr-only')
@@ -97,7 +97,7 @@ describe('AgDSLinkListItem — external links', () => {
   })
 
   it('does not set rel or sr-only text for internal links', () => {
-    const { container } = render(AgDSLinkListItem, {
+    const { container } = render(AGDSLinkListItem, {
       props: { href: '/internal', label: 'Internal' },
     })
     const a = container.querySelector('a')!
@@ -108,19 +108,19 @@ describe('AgDSLinkListItem — external links', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSLinkList — axe accessibility', () => {
+describe('AGDSLinkList — axe accessibility', () => {
   it('has no violations: vertical (default)', async () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks } })
     await runAxe(container, AXE_OPTS)
   })
 
   it('has no violations: horizontal', async () => {
-    const { container } = render(AgDSLinkList, { props: { links: baseLinks, horizontal: true } })
+    const { container } = render(AGDSLinkList, { props: { links: baseLinks, horizontal: true } })
     await runAxe(container, AXE_OPTS)
   })
 
   it('has no violations: single external link', async () => {
-    const { container } = render(AgDSLinkList, {
+    const { container } = render(AGDSLinkList, {
       props: {
         links: [{ href: 'https://example.com', label: 'External site', target: '_blank' }],
       },
@@ -129,7 +129,7 @@ describe('AgDSLinkList — axe accessibility', () => {
   })
 
   it('catches a real violation: link with empty accessible name', async () => {
-    const { container } = render(AgDSLinkListItem, {
+    const { container } = render(AGDSLinkListItem, {
       props: { href: '/bad', label: '' },
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')

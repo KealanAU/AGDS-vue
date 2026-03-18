@@ -1,8 +1,8 @@
-export { default as AgDSUnorderedList } from './AGDSUnorderedList.vue'
-export type { AgDSUnorderedListProps } from './AGDSUnorderedList.vue'
+export { default as AGDSUnorderedList } from './AGDSUnorderedList.vue'
+export type { AGDSUnorderedListProps } from './AGDSUnorderedList.vue'
 
-export { default as AgDSOrderedList } from './AGDSOrderedList.vue'
-export type { AgDSOrderedListProps } from './AGDSOrderedList.vue'
+export { default as AGDSOrderedList } from './AGDSOrderedList.vue'
+export type { AGDSOrderedListProps } from './AGDSOrderedList.vue'
 
-export { default as AgDSListItem } from './AGDSListItem.vue'
-export type { AgDSListItemProps } from './AGDSListItem.vue'
+export { default as AGDSListItem } from './AGDSListItem.vue'
+export type { AGDSListItemProps } from './AGDSListItem.vue'

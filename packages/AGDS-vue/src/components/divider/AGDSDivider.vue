@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSlots, computed } from 'vue'
 
-export interface AgDSDividerProps {
+export interface AGDSDividerProps {
   /**
    * Hides the <hr> element(s) from assistive technologies.
    * Default true — dividers are decorative separators.
@@ -15,7 +15,7 @@ export interface AgDSDividerProps {
   textAlign?: 'left' | 'center'
 }
 
-const props = withDefaults(defineProps<AgDSDividerProps>(), {
+const props = withDefaults(defineProps<AGDSDividerProps>(), {
   ariaHidden: true,
   textAlign: 'center',
 })

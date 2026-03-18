@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSButton from '../button/AGDSButton.vue';
+import AGDSButton from '../button/AGDSButton.vue';
 const props = withDefaults(defineProps(), {
     iconOnly: false,
 });
@@ -21,7 +21,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
     ...{ class: "agds-search-box__button-wrapper" },
 });
 /** @type {__VLS_StyleScopedClasses['agds-search-box__button-wrapper']} */ ;
-const __VLS_0 = AgDSButton || AgDSButton;
+const __VLS_0 = AGDSButton || AGDSButton;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     ref: "buttonRef",

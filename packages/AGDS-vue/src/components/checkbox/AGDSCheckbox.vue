@@ -4,7 +4,7 @@ import { CHECKBOX_GROUP_KEY } from './checkboxGroupContext'
 
 export type CheckboxSize = 'sm' | 'md'
 
-export interface AgDSCheckboxProps {
+export interface AGDSCheckboxProps {
   /** The id of the input — auto-generated if not provided */
   id?: string
   /** The name of the input — can be provided by a parent CheckboxGroup */
@@ -25,7 +25,7 @@ export interface AgDSCheckboxProps {
   size?: CheckboxSize
 }
 
-const props = withDefaults(defineProps<AgDSCheckboxProps>(), {
+const props = withDefaults(defineProps<AGDSCheckboxProps>(), {
   size: 'md',
   disabled: false,
   indeterminate: false,
@@ -47,7 +47,7 @@ let _idCounter = 0
 const autoId = `agds-checkbox-${++_idCounter}`
 const inputId = computed(() => props.id ?? autoId)
 
-// ── Group context (provided by AgDSCheckboxGroup) ──────────────────────────
+// ── Group context (provided by AGDSCheckboxGroup) ──────────────────────────
 
 const group = inject(CHECKBOX_GROUP_KEY, null)
 

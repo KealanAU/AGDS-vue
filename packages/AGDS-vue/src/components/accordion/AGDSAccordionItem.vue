@@ -8,7 +8,7 @@ import {
 } from 'reka-ui'
 import type { AccordionBackground } from './AGDSAccordion.vue'
 
-export interface AgDSAccordionItemProps {
+export interface AGDSAccordionItemProps {
   /** Unique identifier used by AccordionRoot to track open state. */
   value: string
   /** Visible heading text for the trigger button. */
@@ -17,7 +17,7 @@ export interface AgDSAccordionItemProps {
    * Hover background colour.
    * 'body'    → subtle shade (use on white/body backgrounds).
    * 'bodyAlt' → muted shade (use on off-white/alt backgrounds).
-   * Falls back to the value provided by the parent AgDSAccordion.
+   * Falls back to the value provided by the parent AGDSAccordion.
    */
   background?: AccordionBackground
   /** Heading level for the AccordionHeader. Defaults to 3. */
@@ -26,7 +26,7 @@ export interface AgDSAccordionItemProps {
   disabled?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSAccordionItemProps>(), {
+const props = withDefaults(defineProps<AGDSAccordionItemProps>(), {
   background: undefined,
   headingLevel: 3,
   disabled: false,

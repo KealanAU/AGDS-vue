@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
-import AgDSBreadcrumbsItem from './AGDSBreadcrumbsItem.vue'
-import AgDSBreadcrumbsToggle from './AGDSBreadcrumbsToggle.vue'
+import AGDSBreadcrumbsItem from './AGDSBreadcrumbsItem.vue'
+import AGDSBreadcrumbsToggle from './AGDSBreadcrumbsToggle.vue'
 
 export interface BreadcrumbLink {
   /** URL the breadcrumb navigates to */
@@ -10,14 +10,14 @@ export interface BreadcrumbLink {
   label: string
 }
 
-export interface AgDSBreadcrumbsProps {
+export interface AGDSBreadcrumbsProps {
   /** Describes the navigation landmark to assistive technologies */
   ariaLabel?: string
   /** The list of breadcrumb links. Minimum of 2 required. */
   links: BreadcrumbLink[]
 }
 
-const props = withDefaults(defineProps<AgDSBreadcrumbsProps>(), {
+const props = withDefaults(defineProps<AGDSBreadcrumbsProps>(), {
   ariaLabel: 'Breadcrumbs',
 })
 
@@ -33,7 +33,7 @@ const hasMiddle = computed(() => middleLinks.value.length > 0)
 // On desktop the toggle is always CSS-hidden so this only matters for small viewports.
 const isExpanded = ref(false)
 
-const firstItemRef = ref<InstanceType<typeof AgDSBreadcrumbsItem> | null>(null)
+const firstItemRef = ref<InstanceType<typeof AGDSBreadcrumbsItem> | null>(null)
 
 async function expand() {
   isExpanded.value = true
@@ -49,21 +49,21 @@ async function expand() {
     :class="{ 'agds-breadcrumbs--collapsed': hasMiddle && !isExpanded }"
   >
     <ol class="agds-breadcrumbs__list">
-      <AgDSBreadcrumbsItem
+      <AGDSBreadcrumbsItem
         ref="firstItemRef"
         :href="firstLink.href"
         :label="firstLink.label"
       />
 
       <!-- Toggle — always in the DOM when there are middle links so CSS can show/hide per breakpoint -->
-      <AgDSBreadcrumbsToggle
+      <AGDSBreadcrumbsToggle
         v-if="hasMiddle"
         class="agds-breadcrumbs__toggle-item"
         @click="expand"
       />
 
       <!-- Middle items — always in DOM, CSS hides them on small screens when collapsed -->
-      <AgDSBreadcrumbsItem
+      <AGDSBreadcrumbsItem
         v-for="(link, idx) in middleLinks"
         :key="idx"
         :href="link.href"
@@ -71,7 +71,7 @@ async function expand() {
         class="agds-breadcrumbs__middle-item"
       />
 
-      <AgDSBreadcrumbsItem
+      <AGDSBreadcrumbsItem
         v-if="props.links.length > 1"
         :href="lastLink.href"
         :label="lastLink.label"

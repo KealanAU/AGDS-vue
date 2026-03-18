@@ -1,5 +1,5 @@
-export { default as AgDSTaskList } from './AGDSTaskList.vue'
-export type { AgDSTaskListProps, TaskListItem } from './AGDSTaskList.vue'
+export { default as AGDSTaskList } from './AGDSTaskList.vue'
+export type { AGDSTaskListProps, TaskListItem } from './AGDSTaskList.vue'
 
-export { default as AgDSTaskListItem } from './AGDSTaskListItem.vue'
-export type { AgDSTaskListItemProps, TaskListItemStatus } from './AGDSTaskListItem.vue'
+export { default as AGDSTaskListItem } from './AGDSTaskListItem.vue'
+export type { AGDSTaskListItemProps, TaskListItemStatus } from './AGDSTaskListItem.vue'

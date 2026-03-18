@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSTableCellProps {
+export interface AGDSTableCellProps {
   /** The HTML element to render. Use 'th' with scope='row' for a row header cell. */
   as?: 'td' | 'th'
   /** Number of columns this cell spans. */
@@ -18,7 +18,7 @@ export interface AgDSTableCellProps {
   verticalAlign?: 'top' | 'middle' | 'bottom'
 }
 
-const props = withDefaults(defineProps<AgDSTableCellProps>(), {
+const props = withDefaults(defineProps<AGDSTableCellProps>(), {
   as: 'td',
   fontWeight: 'normal',
   textAlign: 'left',

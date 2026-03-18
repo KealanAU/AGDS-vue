@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTextarea from './AGDSTextarea.vue'
+import AGDSTextarea from './AGDSTextarea.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,14 +10,14 @@ const AXE_OPTS = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function renderTextarea(props: Record<string, unknown> = {}) {
-  return render(AgDSTextarea, {
+  return render(AGDSTextarea, {
     props: { label: 'Message', ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSTextarea — rendering', () => {
+describe('AGDSTextarea — rendering', () => {
   it('renders a textarea', () => {
     const { container } = renderTextarea()
     expect(container.querySelector('textarea')).toBeTruthy()
@@ -61,7 +61,7 @@ describe('AgDSTextarea — rendering', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSTextarea — disabled prop', () => {
+describe('AGDSTextarea — disabled prop', () => {
   it('sets the native disabled attribute', () => {
     const { container } = renderTextarea({ disabled: true })
     expect((container.querySelector('textarea') as HTMLTextAreaElement).disabled).toBe(true)
@@ -75,7 +75,7 @@ describe('AgDSTextarea — disabled prop', () => {
 
 // ─── Props: invalid ───────────────────────────────────────────────────────────
 
-describe('AgDSTextarea — invalid prop', () => {
+describe('AGDSTextarea — invalid prop', () => {
   it('sets aria-invalid when invalid', () => {
     const { container } = renderTextarea({ invalid: true })
     expect(container.querySelector('textarea')?.getAttribute('aria-invalid')).toBe('true')
@@ -89,7 +89,7 @@ describe('AgDSTextarea — invalid prop', () => {
 
 // ─── v-model ──────────────────────────────────────────────────────────────────
 
-describe('AgDSTextarea — v-model', () => {
+describe('AGDSTextarea — v-model', () => {
   it('reflects modelValue in the textarea', () => {
     const { container } = renderTextarea({ modelValue: 'Hello world' })
     expect((container.querySelector('textarea') as HTMLTextAreaElement).value).toBe('Hello world')
@@ -104,7 +104,7 @@ describe('AgDSTextarea — v-model', () => {
 
 // ─── Events ───────────────────────────────────────────────────────────────────
 
-describe('AgDSTextarea — events', () => {
+describe('AGDSTextarea — events', () => {
   it('emits change on native change', async () => {
     const { container, emitted } = renderTextarea()
     await fireEvent.change(container.querySelector('textarea')!)
@@ -126,7 +126,7 @@ describe('AgDSTextarea — events', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSTextarea — axe accessibility', () => {
+describe('AGDSTextarea — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderTextarea()
     await runAxe(container, AXE_OPTS)

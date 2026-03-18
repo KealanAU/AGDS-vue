@@ -1,4 +1,4 @@
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const __VLS_props = withDefaults(defineProps(), {
     external: false,
     focusRingFor: 'keyboard',
@@ -49,7 +49,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.a, __VLS_intrinsics.a)({
 /** @type {__VLS_StyleScopedClasses['agds-cta']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-cta--focus-all']} */ ;
 var __VLS_0 = {};
-const __VLS_2 = AgDSIcon;
+const __VLS_2 = AGDSIcon;
 // @ts-ignore
 const __VLS_3 = __VLS_asFunctionalComponent1(__VLS_2, new __VLS_2({
     name: "mdi:chevron-right",

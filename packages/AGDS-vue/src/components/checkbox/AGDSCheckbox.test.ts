@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSCheckbox from './AGDSCheckbox.vue'
-import AgDSCheckboxGroup from './AGDSCheckboxGroup.vue'
+import AGDSCheckbox from './AGDSCheckbox.vue'
+import AGDSCheckboxGroup from './AGDSCheckboxGroup.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -11,12 +11,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderCheckbox(props: Record<string, unknown> = {}, slot = 'Accept terms') {
-  return render(AgDSCheckbox, { props, slots: { default: slot } })
+  return render(AGDSCheckbox, { props, slots: { default: slot } })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — rendering', () => {
+describe('AGDSCheckbox — rendering', () => {
   it('renders a checkbox input', () => {
     const { getByRole } = renderCheckbox()
     expect(getByRole('checkbox')).toBeTruthy()
@@ -47,7 +47,7 @@ describe('AgDSCheckbox — rendering', () => {
 
 // ─── Props: size ─────────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — size prop', () => {
+describe('AGDSCheckbox — size prop', () => {
   it.each(['sm', 'md'] as const)('applies agds-checkbox--%s class', (size) => {
     const { container } = renderCheckbox({ size })
     expect(container.querySelector(`.agds-checkbox--${size}`)).toBeTruthy()
@@ -56,7 +56,7 @@ describe('AgDSCheckbox — size prop', () => {
 
 // ─── Props: modelValue (v-model) ─────────────────────────────────────────────
 
-describe('AgDSCheckbox — modelValue prop', () => {
+describe('AGDSCheckbox — modelValue prop', () => {
   it('is unchecked by default', () => {
     const { getByRole } = renderCheckbox()
     expect((getByRole('checkbox') as HTMLInputElement).checked).toBe(false)
@@ -70,7 +70,7 @@ describe('AgDSCheckbox — modelValue prop', () => {
 
 // ─── Props: disabled ─────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — disabled prop', () => {
+describe('AGDSCheckbox — disabled prop', () => {
   it('is not disabled by default', () => {
     const { getByRole } = renderCheckbox()
     expect((getByRole('checkbox') as HTMLInputElement).disabled).toBe(false)
@@ -100,7 +100,7 @@ describe('AgDSCheckbox — disabled prop', () => {
 
 // ─── Props: indeterminate ────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — indeterminate prop', () => {
+describe('AGDSCheckbox — indeterminate prop', () => {
   it('sets aria-checked="mixed" when indeterminate', () => {
     const { getByRole } = renderCheckbox({ indeterminate: true })
     expect(getByRole('checkbox').getAttribute('aria-checked')).toBe('mixed')
@@ -126,7 +126,7 @@ describe('AgDSCheckbox — indeterminate prop', () => {
 
 // ─── Props: invalid ──────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — invalid prop', () => {
+describe('AGDSCheckbox — invalid prop', () => {
   it('sets aria-invalid when invalid=true', () => {
     const { getByRole } = renderCheckbox({ invalid: true })
     expect(getByRole('checkbox').getAttribute('aria-invalid')).toBe('true')
@@ -145,7 +145,7 @@ describe('AgDSCheckbox — invalid prop', () => {
 
 // ─── Props: required ─────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — required prop', () => {
+describe('AGDSCheckbox — required prop', () => {
   it('sets aria-required when required=true', () => {
     const { getByRole } = renderCheckbox({ required: true })
     expect(getByRole('checkbox').getAttribute('aria-required')).toBe('true')
@@ -159,7 +159,7 @@ describe('AgDSCheckbox — required prop', () => {
 
 // ─── Events ──────────────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — events', () => {
+describe('AGDSCheckbox — events', () => {
   it('emits update:modelValue with true when checked', async () => {
     const { getByRole, emitted } = renderCheckbox({ modelValue: false })
     await fireEvent.click(getByRole('checkbox'))
@@ -194,15 +194,15 @@ describe('AgDSCheckbox — events', () => {
 
 // ─── Group context ───────────────────────────────────────────────────────────
 
-describe('AgDSCheckbox — inside AgDSCheckboxGroup', () => {
+describe('AGDSCheckbox — inside AGDSCheckboxGroup', () => {
   function renderGroup(groupProps: Record<string, unknown> = {}) {
     return render({
-      components: { AgDSCheckboxGroup, AgDSCheckbox },
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
       template: `
-        <AgDSCheckboxGroup v-bind="groupProps" legend="Options">
-          <AgDSCheckbox id="opt-a">Option A</AgDSCheckbox>
-          <AgDSCheckbox id="opt-b">Option B</AgDSCheckbox>
-        </AgDSCheckboxGroup>
+        <AGDSCheckboxGroup v-bind="groupProps" legend="Options">
+          <AGDSCheckbox id="opt-a">Option A</AGDSCheckbox>
+          <AGDSCheckbox id="opt-b">Option B</AGDSCheckbox>
+        </AGDSCheckboxGroup>
       `,
       data() { return { groupProps } },
     })
@@ -243,12 +243,12 @@ describe('AgDSCheckbox — inside AgDSCheckboxGroup', () => {
 
   it('shows the error message slot when invalid', () => {
     const { getByText } = render({
-      components: { AgDSCheckboxGroup, AgDSCheckbox },
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
       template: `
-        <AgDSCheckboxGroup :invalid="true" legend="Options" messageId="err">
+        <AGDSCheckboxGroup :invalid="true" legend="Options" messageId="err">
           <template #message>Please select at least one option</template>
-          <AgDSCheckbox>Option A</AgDSCheckbox>
-        </AgDSCheckboxGroup>
+          <AGDSCheckbox>Option A</AGDSCheckbox>
+        </AGDSCheckboxGroup>
       `,
     })
     expect(getByText('Please select at least one option')).toBeTruthy()
@@ -257,7 +257,7 @@ describe('AgDSCheckbox — inside AgDSCheckboxGroup', () => {
 
 // ─── Accessibility: axe-core ─────────────────────────────────────────────────
 
-describe('AgDSCheckbox — axe accessibility', () => {
+describe('AGDSCheckbox — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderCheckbox()
     await runAxe(container, AXE_OPTS)
@@ -290,12 +290,12 @@ describe('AgDSCheckbox — axe accessibility', () => {
 
   it('has no violations in a group', async () => {
     const { container } = render({
-      components: { AgDSCheckboxGroup, AgDSCheckbox },
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
       template: `
-        <AgDSCheckboxGroup legend="Options">
-          <AgDSCheckbox id="c1">Option A</AgDSCheckbox>
-          <AgDSCheckbox id="c2">Option B</AgDSCheckbox>
-        </AgDSCheckboxGroup>
+        <AGDSCheckboxGroup legend="Options">
+          <AGDSCheckbox id="c1">Option A</AGDSCheckbox>
+          <AGDSCheckbox id="c2">Option B</AGDSCheckbox>
+        </AGDSCheckboxGroup>
       `,
     })
     await runAxe(container, AXE_OPTS)
@@ -303,7 +303,7 @@ describe('AgDSCheckbox — axe accessibility', () => {
 
   it('detects a violation when checkbox has no accessible name', async () => {
     // Verifies the a11y helper catches real failures.
-    const { container } = render(AgDSCheckbox, { slots: { default: '' } })
+    const { container } = render(AGDSCheckbox, { slots: { default: '' } })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })
 })

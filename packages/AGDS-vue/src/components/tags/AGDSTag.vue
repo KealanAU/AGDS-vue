@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
-export interface AgDSTagProps {
+export interface AGDSTagProps {
   /** The text label displayed inside the tag. */
   label: string
   /** When provided the tag label renders as an anchor. */
@@ -11,7 +11,7 @@ export interface AgDSTagProps {
   removable?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSTagProps>(), {
+const props = withDefaults(defineProps<AGDSTagProps>(), {
   removable: false,
 })
 
@@ -52,7 +52,7 @@ defineExpose({ focusRemoveButton: () => removeButtonRef.value?.focus() })
       @click="emit('remove', $event)"
     >
       <!-- Decorative icon — the button's aria-label conveys the action. -->
-      <AgDSIcon name="mdi:close" size="sm" aria-hidden="true" />
+      <AGDSIcon name="mdi:close" size="sm" aria-hidden="true" />
     </button>
   </span>
 </template>

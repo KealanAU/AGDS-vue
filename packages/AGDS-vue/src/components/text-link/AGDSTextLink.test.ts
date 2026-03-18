@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTextLink from './AGDSTextLink.vue'
-import AgDSTextLinkExternal from './AGDSTextLinkExternal.vue'
+import AGDSTextLink from './AGDSTextLink.vue'
+import AGDSTextLinkExternal from './AGDSTextLinkExternal.vue'
 
-describe('AgDSTextLink', () => {
+describe('AGDSTextLink', () => {
   it('renders a link with the correct href', () => {
-    render(AgDSTextLink, {
+    render(AGDSTextLink, {
       props: { href: '/about' },
       slots: { default: 'About us' },
     })
@@ -15,7 +15,7 @@ describe('AgDSTextLink', () => {
   })
 
   it('has no axe violations', async () => {
-    const { container } = render(AgDSTextLink, {
+    const { container } = render(AGDSTextLink, {
       props: { href: '/about' },
       slots: { default: 'About us' },
     })
@@ -29,9 +29,9 @@ describe('AgDSTextLink', () => {
   })
 })
 
-describe('AgDSTextLinkExternal', () => {
+describe('AGDSTextLinkExternal', () => {
   it('renders with target="_blank" and rel="noopener noreferrer"', () => {
-    render(AgDSTextLinkExternal, {
+    render(AGDSTextLinkExternal, {
       props: { href: 'https://example.com' },
       slots: { default: 'Example' },
     })
@@ -41,7 +41,7 @@ describe('AgDSTextLinkExternal', () => {
   })
 
   it('includes offscreen "opens in a new tab" text', () => {
-    render(AgDSTextLinkExternal, {
+    render(AGDSTextLinkExternal, {
       props: { href: 'https://example.com' },
       slots: { default: 'Example' },
     })
@@ -49,7 +49,7 @@ describe('AgDSTextLinkExternal', () => {
   })
 
   it('has no axe violations', async () => {
-    const { container } = render(AgDSTextLinkExternal, {
+    const { container } = render(AGDSTextLinkExternal, {
       props: { href: 'https://example.com' },
       slots: { default: 'Example' },
     })

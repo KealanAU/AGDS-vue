@@ -1,10 +1,10 @@
 <script setup lang="ts">
-export interface AgDSFieldHintProps {
+export interface AGDSFieldHintProps {
   /** Unique id so inputs can reference this via aria-describedby */
   id: string
 }
 
-defineProps<AgDSFieldHintProps>()
+defineProps<AGDSFieldHintProps>()
 </script>
 
 <template>

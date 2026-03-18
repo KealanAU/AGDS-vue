@@ -2,10 +2,10 @@ import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTabs from './AGDSTabs.vue'
-import AgDSTabList from './AGDSTabList.vue'
-import AgDSTab from './AGDSTab.vue'
-import AgDSTabPanel from './AGDSTabPanel.vue'
+import AGDSTabs from './AGDSTabs.vue'
+import AGDSTabList from './AGDSTabList.vue'
+import AGDSTab from './AGDSTab.vue'
+import AGDSTabPanel from './AGDSTabPanel.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -18,18 +18,18 @@ function renderTabs(
   tabProps: Record<string, unknown> = {},
 ) {
   return render({
-    components: { AgDSTabs, AgDSTabList, AgDSTab, AgDSTabPanel },
+    components: { AGDSTabs, AGDSTabList, AGDSTab, AGDSTabPanel },
     template: `
-      <AgDSTabs default-value="tab1" v-bind="tabsProps">
-        <AgDSTabList aria-label="Test tabs">
-          <AgDSTab value="tab1" v-bind="tabProps">Tab one</AgDSTab>
-          <AgDSTab value="tab2">Tab two</AgDSTab>
-          <AgDSTab value="tab3" disabled>Tab three</AgDSTab>
-        </AgDSTabList>
-        <AgDSTabPanel value="tab1">Panel one content</AgDSTabPanel>
-        <AgDSTabPanel value="tab2">Panel two content</AgDSTabPanel>
-        <AgDSTabPanel value="tab3">Panel three content</AgDSTabPanel>
-      </AgDSTabs>
+      <AGDSTabs default-value="tab1" v-bind="tabsProps">
+        <AGDSTabList aria-label="Test tabs">
+          <AGDSTab value="tab1" v-bind="tabProps">Tab one</AGDSTab>
+          <AGDSTab value="tab2">Tab two</AGDSTab>
+          <AGDSTab value="tab3" disabled>Tab three</AGDSTab>
+        </AGDSTabList>
+        <AGDSTabPanel value="tab1">Panel one content</AGDSTabPanel>
+        <AGDSTabPanel value="tab2">Panel two content</AGDSTabPanel>
+        <AGDSTabPanel value="tab3">Panel three content</AGDSTabPanel>
+      </AGDSTabs>
     `,
     setup: () => ({ tabsProps, tabProps }),
   })
@@ -43,7 +43,7 @@ async function activateTab(tab: HTMLElement) {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSTabs — rendering', () => {
+describe('AGDSTabs — rendering', () => {
   it('renders the root element', () => {
     const { container } = renderTabs()
     expect(container.querySelector('.agds-tabs')).toBeTruthy()
@@ -80,7 +80,7 @@ describe('AgDSTabs — rendering', () => {
 
 // ─── Active state ─────────────────────────────────────────────────────────────
 
-describe('AgDSTabs — active state', () => {
+describe('AGDSTabs — active state', () => {
   it('defaultValue makes the matching tab active on mount', () => {
     const { getAllByRole } = renderTabs()
     const [tab1] = getAllByRole('tab')
@@ -152,7 +152,7 @@ describe('AgDSTabs — active state', () => {
 // (via nextTick → focusFirst). When a tab receives focus, TabsTrigger's onFocus
 // handler activates it (automatic activation mode). We need two ticks to flush.
 
-describe('AgDSTabs — keyboard navigation', () => {
+describe('AGDSTabs — keyboard navigation', () => {
   async function pressKey(el: HTMLElement, key: string) {
     await fireEvent.keyDown(el, { key, code: key })
     await nextTick() // RovingFocusItem's nextTick callback fires + focus event fires
@@ -201,7 +201,7 @@ describe('AgDSTabs — keyboard navigation', () => {
 
 // ─── Disabled tab ─────────────────────────────────────────────────────────────
 
-describe('AgDSTab — disabled prop', () => {
+describe('AGDSTab — disabled prop', () => {
   it('sets data-disabled on the disabled tab', () => {
     const { getAllByRole } = renderTabs()
     const [, , tab3] = getAllByRole('tab')
@@ -218,7 +218,7 @@ describe('AgDSTab — disabled prop', () => {
 
 // ─── Props: contained ─────────────────────────────────────────────────────────
 
-describe('AgDSTabPanel — contained prop', () => {
+describe('AGDSTabPanel — contained prop', () => {
   it('panel has contained class by default', () => {
     const { container } = renderTabs()
     expect(container.querySelector('.agds-tab-panel--contained')).toBeTruthy()
@@ -232,7 +232,7 @@ describe('AgDSTabPanel — contained prop', () => {
 
 // ─── Props: background ────────────────────────────────────────────────────────
 
-describe('AgDSTabs — background prop', () => {
+describe('AGDSTabs — background prop', () => {
   it('applies no modifier class for default body background', () => {
     const { container } = renderTabs()
     expect(container.querySelector('.agds-tabs--body-alt')).toBeNull()
@@ -246,20 +246,20 @@ describe('AgDSTabs — background prop', () => {
 
 // ─── Slots ────────────────────────────────────────────────────────────────────
 
-describe('AgDSTab — end-element slot', () => {
+describe('AGDSTab — end-element slot', () => {
   it('renders end-element slot content alongside the label', () => {
     const { getByText } = render({
-      components: { AgDSTabs, AgDSTabList, AgDSTab, AgDSTabPanel },
+      components: { AGDSTabs, AGDSTabList, AGDSTab, AGDSTabPanel },
       template: `
-        <AgDSTabs default-value="tab1">
-          <AgDSTabList aria-label="Slotted tabs">
-            <AgDSTab value="tab1">
+        <AGDSTabs default-value="tab1">
+          <AGDSTabList aria-label="Slotted tabs">
+            <AGDSTab value="tab1">
               Tab one
               <template #end-element><span>99</span></template>
-            </AgDSTab>
-          </AgDSTabList>
-          <AgDSTabPanel value="tab1">Content</AgDSTabPanel>
-        </AgDSTabs>
+            </AGDSTab>
+          </AGDSTabList>
+          <AGDSTabPanel value="tab1">Content</AGDSTabPanel>
+        </AGDSTabs>
       `,
     })
     expect(getByText('99')).toBeTruthy()
@@ -268,7 +268,7 @@ describe('AgDSTab — end-element slot', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSTabs — axe accessibility', () => {
+describe('AGDSTabs — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderTabs()
     await runAxe(container, AXE_OPTS)
@@ -299,14 +299,14 @@ describe('AgDSTabs — axe accessibility', () => {
     // A tab button with no text content and no aria-label violates
     // WCAG 4.1.2 Name, Role, Value (axe: button-name rule).
     const { container } = render({
-      components: { AgDSTabs, AgDSTabList, AgDSTab, AgDSTabPanel },
+      components: { AGDSTabs, AGDSTabList, AGDSTab, AGDSTabPanel },
       template: `
-        <AgDSTabs default-value="t1">
-          <AgDSTabList aria-label="Violation tabs">
-            <AgDSTab value="t1"><!-- intentionally empty --></AgDSTab>
-          </AgDSTabList>
-          <AgDSTabPanel value="t1">Content</AgDSTabPanel>
-        </AgDSTabs>
+        <AGDSTabs default-value="t1">
+          <AGDSTabList aria-label="Violation tabs">
+            <AGDSTab value="t1"><!-- intentionally empty --></AGDSTab>
+          </AGDSTabList>
+          <AGDSTabPanel value="t1">Content</AGDSTabPanel>
+        </AGDSTabs>
       `,
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')

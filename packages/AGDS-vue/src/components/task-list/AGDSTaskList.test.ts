@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTaskList from './AGDSTaskList.vue'
-import AgDSTaskListItem from './AGDSTaskListItem.vue'
+import AGDSTaskList from './AGDSTaskList.vue'
+import AGDSTaskListItem from './AGDSTaskListItem.vue'
 import type { TaskListItem } from './AGDSTaskList.vue'
 
 const AXE_OPTS = {
@@ -21,14 +21,14 @@ const ITEMS: TaskListItem[] = [
 ]
 
 function renderList(props: Record<string, unknown> = {}) {
-  return render(AgDSTaskList, {
+  return render(AGDSTaskList, {
     props: { items: ITEMS, ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSTaskList — rendering', () => {
+describe('AGDSTaskList — rendering', () => {
   it('renders the heading "Complete these tasks"', () => {
     const { getByRole } = renderList()
     expect(getByRole('heading', { name: 'Complete these tasks' })).toBeTruthy()
@@ -75,7 +75,7 @@ describe('AgDSTaskList — rendering', () => {
 
 // ─── Status rendering ─────────────────────────────────────────────────────────
 
-describe('AgDSTaskList — status classes', () => {
+describe('AGDSTaskList — status classes', () => {
   it.each([
     'notRequired',
     'blocked',
@@ -84,7 +84,7 @@ describe('AgDSTaskList — status classes', () => {
     'done',
     'doneRecently',
   ] as const)('applies status modifier class for status="%s"', (status) => {
-    const { container } = render(AgDSTaskList, {
+    const { container } = render(AGDSTaskList, {
       props: { items: [{ label: 'Task', status }] },
     })
     expect(container.querySelector(`.agds-task-list-item--${status}`)).toBeTruthy()
@@ -93,9 +93,9 @@ describe('AgDSTaskList — status classes', () => {
 
 // ─── Message prop ────────────────────────────────────────────────────────────
 
-describe('AgDSTaskList — message prop', () => {
+describe('AGDSTaskList — message prop', () => {
   it('renders the message when provided', () => {
-    const { getByText } = render(AgDSTaskList, {
+    const { getByText } = render(AGDSTaskList, {
       props: {
         items: [{ label: 'Task', status: 'todo', message: 'Awaiting approval' }],
       },
@@ -104,7 +104,7 @@ describe('AgDSTaskList — message prop', () => {
   })
 
   it('does not render a message element when omitted', () => {
-    const { container } = render(AgDSTaskList, {
+    const { container } = render(AGDSTaskList, {
       props: { items: [{ label: 'Task', status: 'todo' }] },
     })
     expect(container.querySelector('.agds-task-list-item__message')).toBeNull()
@@ -113,7 +113,7 @@ describe('AgDSTaskList — message prop', () => {
 
 // ─── Ordered prop ─────────────────────────────────────────────────────────────
 
-describe('AgDSTaskList — ordered prop', () => {
+describe('AGDSTaskList — ordered prop', () => {
   it('adds the counter span when ordered=true', () => {
     const { container } = renderList({ ordered: true })
     expect(container.querySelector('.agds-task-list-item__counter')).toBeTruthy()
@@ -125,11 +125,11 @@ describe('AgDSTaskList — ordered prop', () => {
   })
 })
 
-// ─── AgDSTaskListItem — standalone ─────────────────────────────────────────
+// ─── AGDSTaskListItem — standalone ─────────────────────────────────────────
 
-describe('AgDSTaskListItem — standalone', () => {
+describe('AGDSTaskListItem — standalone', () => {
   it('renders a link when href is provided', () => {
-    const { container } = render(AgDSTaskListItem, {
+    const { container } = render(AGDSTaskListItem, {
       props: { status: 'todo', href: '/apply' },
       slots: { default: 'Submit application' },
     })
@@ -139,7 +139,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('renders a button when no href is provided', () => {
-    const { container } = render(AgDSTaskListItem, {
+    const { container } = render(AGDSTaskListItem, {
       props: { status: 'todo' },
       slots: { default: 'Submit application' },
     })
@@ -147,7 +147,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('sets disabled on button when disabled=true', () => {
-    const { container } = render(AgDSTaskListItem, {
+    const { container } = render(AGDSTaskListItem, {
       props: { status: 'todo', disabled: true },
       slots: { default: 'Task' },
     })
@@ -156,7 +156,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('sets aria-disabled when disabled=true', () => {
-    const { container } = render(AgDSTaskListItem, {
+    const { container } = render(AGDSTaskListItem, {
       props: { status: 'todo', disabled: true },
       slots: { default: 'Task' },
     })
@@ -164,7 +164,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('emits click on click', async () => {
-    const { container, emitted } = render(AgDSTaskListItem, {
+    const { container, emitted } = render(AGDSTaskListItem, {
       props: { status: 'todo' },
       slots: { default: 'Task' },
     })
@@ -173,7 +173,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('emits focus on focus', async () => {
-    const { container, emitted } = render(AgDSTaskListItem, {
+    const { container, emitted } = render(AGDSTaskListItem, {
       props: { status: 'todo' },
       slots: { default: 'Task' },
     })
@@ -182,7 +182,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('emits blur on blur', async () => {
-    const { container, emitted } = render(AgDSTaskListItem, {
+    const { container, emitted } = render(AGDSTaskListItem, {
       props: { status: 'todo' },
       slots: { default: 'Task' },
     })
@@ -191,7 +191,7 @@ describe('AgDSTaskListItem — standalone', () => {
   })
 
   it('renders status label text', () => {
-    const { getByText } = render(AgDSTaskListItem, {
+    const { getByText } = render(AGDSTaskListItem, {
       props: { status: 'doing' },
       slots: { default: 'Task' },
     })
@@ -201,9 +201,9 @@ describe('AgDSTaskListItem — standalone', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSTaskList — accessibility', () => {
+describe('AGDSTaskList — accessibility', () => {
   it('has no axe violations with link items', async () => {
-    const { container } = render(AgDSTaskList, {
+    const { container } = render(AGDSTaskList, {
       props: {
         items: [
           { label: 'Account setup', status: 'done', href: '/account' },
@@ -215,7 +215,7 @@ describe('AgDSTaskList — accessibility', () => {
   })
 
   it('has no axe violations with button items', async () => {
-    const { container } = render(AgDSTaskList, {
+    const { container } = render(AGDSTaskList, {
       props: {
         items: [
           { label: 'Account setup', status: 'todo' },
@@ -227,7 +227,7 @@ describe('AgDSTaskList — accessibility', () => {
   })
 
   it('has no axe violations when ordered=true', async () => {
-    const { container } = render(AgDSTaskList, {
+    const { container } = render(AGDSTaskList, {
       props: {
         items: [
           { label: 'First task', status: 'done', href: '/first' },
@@ -240,7 +240,7 @@ describe('AgDSTaskList — accessibility', () => {
   })
 
   it('has no axe violations with all statuses', async () => {
-    const { container } = render(AgDSTaskList, {
+    const { container } = render(AGDSTaskList, {
       props: {
         items: [
           { label: 'Not required task', status: 'notRequired' },
@@ -256,7 +256,7 @@ describe('AgDSTaskList — accessibility', () => {
   })
 
   it('detects axe violations (intentional: empty link label)', async () => {
-    const { container } = render(AgDSTaskListItem, {
+    const { container } = render(AGDSTaskListItem, {
       props: { status: 'todo', href: '/apply' },
       slots: { default: '' },
     })

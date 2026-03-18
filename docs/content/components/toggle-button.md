@@ -10,7 +10,7 @@ status: stable
 Provide `label`, `pressed-label`, and bind the state with `v-model:pressed`.
 
 ::doc-preview
-<AgDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" />
+<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" />
 ::
 
 ```vue
@@ -20,7 +20,7 @@ const flagged = ref(false)
 </script>
 
 <template>
-  <AgDSToggleButton
+  <AGDSToggleButton
     v-model:pressed="flagged"
     label="Flag"
     pressed-label="Flagged"
@@ -31,7 +31,7 @@ const flagged = ref(false)
 ## Pressed state
 
 ::doc-preview{label="Pressed"}
-<AgDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" />
+<AGDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" />
 ::
 
 ## Star icon
@@ -39,13 +39,13 @@ const flagged = ref(false)
 Use `icon-type="star"` to switch to a star icon pair.
 
 ::doc-preview{label="Star — unpressed and pressed"}
-<AgDSToggleButton :pressed="false" label="Save" pressed-label="Saved" icon-type="star" />
-<AgDSToggleButton :pressed="true" label="Save" pressed-label="Saved" icon-type="star" />
+<AGDSToggleButton :pressed="false" label="Save" pressed-label="Saved" icon-type="star" />
+<AGDSToggleButton :pressed="true" label="Save" pressed-label="Saved" icon-type="star" />
 ::
 
 ```vue
 <template>
-  <AgDSToggleButton
+  <AGDSToggleButton
     v-model:pressed="saved"
     label="Save"
     pressed-label="Saved"
@@ -59,15 +59,15 @@ Use `icon-type="star"` to switch to a star icon pair.
 Set `hidden-label` to show only the icon. The `label` and `pressed-label` are still announced by screen readers via `aria-label`.
 
 ::doc-preview{label="Icon only"}
-<AgDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" hidden-label />
-<AgDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" hidden-label />
-<AgDSToggleButton :pressed="false" label="Save" pressed-label="Saved" icon-type="star" hidden-label />
-<AgDSToggleButton :pressed="true" label="Save" pressed-label="Saved" icon-type="star" hidden-label />
+<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" hidden-label />
+<AGDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" hidden-label />
+<AGDSToggleButton :pressed="false" label="Save" pressed-label="Saved" icon-type="star" hidden-label />
+<AGDSToggleButton :pressed="true" label="Save" pressed-label="Saved" icon-type="star" hidden-label />
 ::
 
 ```vue
 <template>
-  <AgDSToggleButton
+  <AGDSToggleButton
     v-model:pressed="flagged"
     label="Flag"
     pressed-label="Flagged"
@@ -78,17 +78,17 @@ Set `hidden-label` to show only the icon. The `label` and `pressed-label` are st
 
 ## Variant and size
 
-Accepts the same `variant` and `size` props as `AgDSButton`. Defaults to `variant="text"`.
+Accepts the same `variant` and `size` props as `AGDSButton`. Defaults to `variant="text"`.
 
 ::doc-preview{label="Variants"}
-<AgDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="text" />
-<AgDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="tertiary" />
-<AgDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="secondary" />
+<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="text" />
+<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="tertiary" />
+<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="secondary" />
 ::
 
 ```vue
 <template>
-  <AgDSToggleButton
+  <AGDSToggleButton
     v-model:pressed="flagged"
     label="Flag"
     pressed-label="Flagged"
@@ -101,13 +101,13 @@ Accepts the same `variant` and `size` props as `AgDSButton`. Defaults to `varian
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AgDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" disabled />
-<AgDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" disabled />
+<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" disabled />
+<AGDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" disabled />
 ::
 
 ```vue
 <template>
-  <AgDSToggleButton
+  <AGDSToggleButton
     v-model:pressed="flagged"
     label="Flag"
     pressed-label="Flagged"
@@ -127,8 +127,8 @@ Accepts the same `variant` and `size` props as `AgDSButton`. Defaults to `varian
 | `pressedLabel` | `string` | — | **Required.** Label shown in the pressed state |
 | `iconType` | `'flag' \| 'star'` | `'flag'` | Icon pair used for the unpressed and pressed states |
 | `hiddenLabel` | `boolean` | `false` | Visually hides the label; still announced via `aria-label` |
-| `variant` | `'primary' \| 'secondary' \| 'tertiary' \| 'text'` | `'text'` | Visual style — inherits from `AgDSButton` |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Size — inherits from `AgDSButton` |
+| `variant` | `'primary' \| 'secondary' \| 'tertiary' \| 'text'` | `'text'` | Visual style — inherits from `AGDSButton` |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Size — inherits from `AGDSButton` |
 | `disabled` | `boolean` | `false` | Disables the button |
 
 ## Events
@@ -142,7 +142,7 @@ Accepts the same `variant` and `size` props as `AgDSButton`. Defaults to `varian
 - `aria-pressed` is set on the underlying `<button>` — screen readers announce the toggled state as "pressed" or "not pressed" (WCAG 4.1.2)
 - When `hiddenLabel` is `true`, `aria-label` is set to `label` or `pressedLabel` depending on current state — the accessible name always reflects what the button will do next (WCAG 2.5.3)
 - The icon is `aria-hidden="true"` — the visible or sr-only label carries the accessible name
-- Built on `AgDSButton` — inherits all focus, keyboard, and disabled behaviour
+- Built on `AGDSButton` — inherits all focus, keyboard, and disabled behaviour
 
 ## Changelog
 

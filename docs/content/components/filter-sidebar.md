@@ -15,13 +15,13 @@ Place filter controls in the default slot. The sidebar collapses to a toggle on 
 
 ```vue
 <template>
-  <AgDSFilterSidebar>
+  <AGDSFilterSidebar>
     <fieldset>
       <legend>Category</legend>
       <label><input type="checkbox" /> News</label>
       <label><input type="checkbox" /> Grants</label>
     </fieldset>
-  </AgDSFilterSidebar>
+  </AGDSFilterSidebar>
 </template>
 ```
 
@@ -35,9 +35,9 @@ Set `activeFiltersCount` to reflect how many filters are currently applied. The 
 
 ```vue
 <template>
-  <AgDSFilterSidebar :active-filters-count="3">
+  <AGDSFilterSidebar :active-filters-count="3">
     <!-- filter controls -->
-  </AgDSFilterSidebar>
+  </AGDSFilterSidebar>
 </template>
 ```
 
@@ -60,13 +60,13 @@ function onClearFilters() {
 </script>
 
 <template>
-  <AgDSFilterSidebar
+  <AGDSFilterSidebar
     :active-filters-count="activeFiltersCount"
     show-clear-filters
     @clear-filters="onClearFilters"
   >
     <!-- filter controls -->
-  </AgDSFilterSidebar>
+  </AGDSFilterSidebar>
 </template>
 ```
 
@@ -76,9 +76,9 @@ Use `background="bodyAlt"` when the sidebar sits on a `--agds-color-bg-subtle` s
 
 ```vue
 <template>
-  <AgDSFilterSidebar background="bodyAlt">
+  <AGDSFilterSidebar background="bodyAlt">
     <!-- filter controls -->
-  </AgDSFilterSidebar>
+  </AGDSFilterSidebar>
 </template>
 ```
 

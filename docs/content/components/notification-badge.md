@@ -11,7 +11,7 @@ Provide a `value` and a `tone`. The badge renders the number inside a coloured p
 
 ```vue
 <template>
-  <AgDSNotificationBadge :value="4" tone="action" />
+  <AGDSNotificationBadge :value="4" tone="action" />
 </template>
 ```
 
@@ -22,8 +22,8 @@ Provide a `value` and a `tone`. The badge renders the number inside a coloured p
 
 ```vue
 <template>
-  <AgDSNotificationBadge :value="12" tone="action" />
-  <AgDSNotificationBadge :value="99" tone="neutral" />
+  <AGDSNotificationBadge :value="12" tone="action" />
+  <AGDSNotificationBadge :value="99" tone="neutral" />
 </template>
 ```
 
@@ -34,7 +34,7 @@ Use `max` to cap the displayed number. When `value` exceeds `max`, the badge sho
 ```vue
 <template>
   <!-- Shows "99+" when value is 150 -->
-  <AgDSNotificationBadge :value="150" :max="99" tone="action" />
+  <AGDSNotificationBadge :value="150" :max="99" tone="action" />
 </template>
 ```
 
@@ -46,7 +46,7 @@ Typically placed inline alongside a label inside a nav button or link.
 <template>
   <button type="button" style="display: inline-flex; align-items: center; gap: 0.5rem;">
     Messages
-    <AgDSNotificationBadge :value="3" tone="action" aria-label="3 unread messages" />
+    <AGDSNotificationBadge :value="3" tone="action" aria-label="3 unread messages" />
   </button>
 </template>
 ```

@@ -4,7 +4,7 @@ import type { BackgroundVariant } from '../../core'
 export type { BackgroundVariant as CollapsingSideBarBackground }
 export type CollapsingSideBarAs = 'section' | 'aside' | 'nav'
 
-export interface AgDSCollapsingSideBarProps {
+export interface AGDSCollapsingSideBarProps {
   /** The visible title. Required even when using the title slot. */
   title: string
   /** Optional subtitle displayed below the title. */
@@ -20,7 +20,7 @@ export interface AgDSCollapsingSideBarProps {
   ariaLabel?: string
 }
 
-const props = withDefaults(defineProps<AgDSCollapsingSideBarProps>(), {
+const props = withDefaults(defineProps<AGDSCollapsingSideBarProps>(), {
   as: 'section',
   background: 'body',
 })

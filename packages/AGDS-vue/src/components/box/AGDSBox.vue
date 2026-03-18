@@ -25,7 +25,7 @@ export type BoxJustifyContent =
   | 'space-evenly'
 export type BoxJustifySelf = 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch'
 
-export interface AgDSBoxProps {
+export interface AGDSBoxProps {
   /** Element or component to render as */
   as?: string | Component
   /** CSS display */
@@ -75,7 +75,7 @@ export interface AgDSBoxProps {
 
 defineOptions({ inheritAttrs: false })
 
-const props = defineProps<AgDSBoxProps>()
+const props = defineProps<AGDSBoxProps>()
 const attrs = useAttrs()
 
 /** Maps a numeric space value to a CSS token, or returns the string as-is. */

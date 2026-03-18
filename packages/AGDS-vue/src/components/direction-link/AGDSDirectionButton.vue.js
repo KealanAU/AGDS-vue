@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const props = withDefaults(defineProps(), {
     disabled: false,
     loading: false,
@@ -82,7 +82,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
 /** @type {__VLS_StyleScopedClasses['agds-direction-link--disabled']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-direction-link--loading']} */ ;
 if (props.direction === 'left') {
-    const __VLS_0 = AgDSIcon;
+    const __VLS_0 = AGDSIcon;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         name: (__VLS_ctx.ICON_MAP[props.direction]),
@@ -106,7 +106,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
 /** @type {__VLS_StyleScopedClasses['agds-direction-link__label--hidden']} */ ;
 var __VLS_5 = {};
 if (props.direction !== 'left') {
-    const __VLS_7 = AgDSIcon;
+    const __VLS_7 = AGDSIcon;
     // @ts-ignore
     const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
         name: (__VLS_ctx.ICON_MAP[props.direction]),

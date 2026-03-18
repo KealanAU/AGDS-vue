@@ -7,7 +7,7 @@ export type { StatusBadgeTone, StatusBadgeTones, StatusBadgeAppearance, StatusBa
 
 // ── Props ─────────────────────────────────────────────────────────────────────
 
-export interface AgDSStatusBadgeProps {
+export interface AGDSStatusBadgeProps {
   /** The text label displayed in the badge. */
   label: string
   /**
@@ -27,7 +27,7 @@ export interface AgDSStatusBadgeProps {
   weight?: StatusBadgeAppearance
 }
 
-const props = withDefaults(defineProps<AgDSStatusBadgeProps>(), {
+const props = withDefaults(defineProps<AGDSStatusBadgeProps>(), {
   tone: 'infoHigh',
   weight: 'regular',
 })

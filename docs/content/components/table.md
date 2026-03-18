@@ -7,63 +7,63 @@ status: stable
 
 ## Usage
 
-Compose `AgDSTable` with the standard sub-components to build a data table.
+Compose `AGDSTable` with the standard sub-components to build a data table.
 
 ::doc-preview
-<AgDSTable>
-  <AgDSTableHead>
-    <AgDSTableRow>
-      <AgDSTableHeader>Name</AgDSTableHeader>
-      <AgDSTableHeader>Department</AgDSTableHeader>
-      <AgDSTableHeader>Status</AgDSTableHeader>
-    </AgDSTableRow>
-  </AgDSTableHead>
-  <AgDSTableBody>
-    <AgDSTableRow>
-      <AgDSTableCell>Alice Smith</AgDSTableCell>
-      <AgDSTableCell>Finance</AgDSTableCell>
-      <AgDSTableCell>Active</AgDSTableCell>
-    </AgDSTableRow>
-    <AgDSTableRow>
-      <AgDSTableCell>Bob Jones</AgDSTableCell>
-      <AgDSTableCell>HR</AgDSTableCell>
-      <AgDSTableCell>Inactive</AgDSTableCell>
-    </AgDSTableRow>
-  </AgDSTableBody>
-</AgDSTable>
+<AGDSTable>
+  <AGDSTableHead>
+    <AGDSTableRow>
+      <AGDSTableHeader>Name</AGDSTableHeader>
+      <AGDSTableHeader>Department</AGDSTableHeader>
+      <AGDSTableHeader>Status</AGDSTableHeader>
+    </AGDSTableRow>
+  </AGDSTableHead>
+  <AGDSTableBody>
+    <AGDSTableRow>
+      <AGDSTableCell>Alice Smith</AGDSTableCell>
+      <AGDSTableCell>Finance</AGDSTableCell>
+      <AGDSTableCell>Active</AGDSTableCell>
+    </AGDSTableRow>
+    <AGDSTableRow>
+      <AGDSTableCell>Bob Jones</AGDSTableCell>
+      <AGDSTableCell>HR</AGDSTableCell>
+      <AGDSTableCell>Inactive</AGDSTableCell>
+    </AGDSTableRow>
+  </AGDSTableBody>
+</AGDSTable>
 ::
 
 ```vue
 <template>
-  <AgDSTable>
-    <AgDSTableHead>
-      <AgDSTableRow>
-        <AgDSTableHeader>Name</AgDSTableHeader>
-        <AgDSTableHeader>Department</AgDSTableHeader>
-        <AgDSTableHeader>Status</AgDSTableHeader>
-      </AgDSTableRow>
-    </AgDSTableHead>
-    <AgDSTableBody>
-      <AgDSTableRow v-for="row in rows" :key="row.id">
-        <AgDSTableCell>{{ row.name }}</AgDSTableCell>
-        <AgDSTableCell>{{ row.department }}</AgDSTableCell>
-        <AgDSTableCell>{{ row.status }}</AgDSTableCell>
-      </AgDSTableRow>
-    </AgDSTableBody>
-  </AgDSTable>
+  <AGDSTable>
+    <AGDSTableHead>
+      <AGDSTableRow>
+        <AGDSTableHeader>Name</AGDSTableHeader>
+        <AGDSTableHeader>Department</AGDSTableHeader>
+        <AGDSTableHeader>Status</AGDSTableHeader>
+      </AGDSTableRow>
+    </AGDSTableHead>
+    <AGDSTableBody>
+      <AGDSTableRow v-for="row in rows" :key="row.id">
+        <AGDSTableCell>{{ row.name }}</AGDSTableCell>
+        <AGDSTableCell>{{ row.department }}</AGDSTableCell>
+        <AGDSTableCell>{{ row.status }}</AGDSTableCell>
+      </AGDSTableRow>
+    </AGDSTableBody>
+  </AGDSTable>
 </template>
 ```
 
 ## Caption
 
-Use `AgDSTableCaption` to provide an accessible table title. Place it as the first child of `AgDSTable`.
+Use `AGDSTableCaption` to provide an accessible table title. Place it as the first child of `AGDSTable`.
 
 ```vue
 <template>
-  <AgDSTable>
-    <AgDSTableCaption>Active staff members by department</AgDSTableCaption>
+  <AGDSTable>
+    <AGDSTableCaption>Active staff members by department</AGDSTableCaption>
     <!-- ... -->
-  </AgDSTable>
+  </AGDSTable>
 </template>
 ```
 
@@ -72,32 +72,32 @@ Use `AgDSTableCaption` to provide an accessible table title. Place it as the fir
 Use the `striped` prop to apply alternating row backgrounds.
 
 ::doc-preview{label="Striped"}
-<AgDSTable striped>
-  <AgDSTableHead>
-    <AgDSTableRow>
-      <AgDSTableHeader>Name</AgDSTableHeader>
-      <AgDSTableHeader>Role</AgDSTableHeader>
-    </AgDSTableRow>
-  </AgDSTableHead>
-  <AgDSTableBody>
-    <AgDSTableRow><AgDSTableCell>Alice</AgDSTableCell><AgDSTableCell>Admin</AgDSTableCell></AgDSTableRow>
-    <AgDSTableRow><AgDSTableCell>Bob</AgDSTableCell><AgDSTableCell>Editor</AgDSTableCell></AgDSTableRow>
-    <AgDSTableRow><AgDSTableCell>Carol</AgDSTableCell><AgDSTableCell>Viewer</AgDSTableCell></AgDSTableRow>
-  </AgDSTableBody>
-</AgDSTable>
+<AGDSTable striped>
+  <AGDSTableHead>
+    <AGDSTableRow>
+      <AGDSTableHeader>Name</AGDSTableHeader>
+      <AGDSTableHeader>Role</AGDSTableHeader>
+    </AGDSTableRow>
+  </AGDSTableHead>
+  <AGDSTableBody>
+    <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell><AGDSTableCell>Admin</AGDSTableCell></AGDSTableRow>
+    <AGDSTableRow><AGDSTableCell>Bob</AGDSTableCell><AGDSTableCell>Editor</AGDSTableCell></AGDSTableRow>
+    <AGDSTableRow><AGDSTableCell>Carol</AGDSTableCell><AGDSTableCell>Viewer</AGDSTableCell></AGDSTableRow>
+  </AGDSTableBody>
+</AGDSTable>
 ::
 
 ```vue
 <template>
-  <AgDSTable striped>
+  <AGDSTable striped>
     <!-- ... -->
-  </AgDSTable>
+  </AGDSTable>
 </template>
 ```
 
 ## Sortable headers
 
-Replace `AgDSTableHeader` with `AgDSTableHeaderSortable` to add sort buttons. Pass `sort="ASC"` or `sort="DESC"` for the active column; omit `sort` for unsorted columns.
+Replace `AGDSTableHeader` with `AGDSTableHeaderSortable` to add sort buttons. Pass `sort="ASC"` or `sort="DESC"` for the active column; omit `sort` for unsorted columns.
 
 ```vue
 <script setup>
@@ -116,50 +116,50 @@ function toggleSort(col) {
 </script>
 
 <template>
-  <AgDSTable>
-    <AgDSTableHead>
-      <AgDSTableRow>
-        <AgDSTableHeaderSortable
+  <AGDSTable>
+    <AGDSTableHead>
+      <AGDSTableRow>
+        <AGDSTableHeaderSortable
           :sort="sortCol === 'name' ? sortDir : undefined"
           @click="toggleSort('name')"
         >
           Name
-        </AgDSTableHeaderSortable>
-        <AgDSTableHeaderSortable
+        </AGDSTableHeaderSortable>
+        <AGDSTableHeaderSortable
           :sort="sortCol === 'date' ? sortDir : undefined"
           @click="toggleSort('date')"
         >
           Date
-        </AgDSTableHeaderSortable>
-      </AgDSTableRow>
-    </AgDSTableHead>
+        </AGDSTableHeaderSortable>
+      </AGDSTableRow>
+    </AGDSTableHead>
     <!-- ... -->
-  </AgDSTable>
+  </AGDSTable>
 </template>
 ```
 
 ## Clickable rows
 
-Add `clickable` to a `AgDSTableRow` and attach a `@click` listener to make the entire row interactive. Clicks on interactive elements inside cells (links, buttons) do not bubble to the row handler.
+Add `clickable` to a `AGDSTableRow` and attach a `@click` listener to make the entire row interactive. Clicks on interactive elements inside cells (links, buttons) do not bubble to the row handler.
 
 ```vue
 <template>
-  <AgDSTableRow clickable @click="handleRowClick">
-    <AgDSTableCell>Alice Smith</AgDSTableCell>
-    <AgDSTableCell>Finance</AgDSTableCell>
-  </AgDSTableRow>
+  <AGDSTableRow clickable @click="handleRowClick">
+    <AGDSTableCell>Alice Smith</AGDSTableCell>
+    <AGDSTableCell>Finance</AGDSTableCell>
+  </AGDSTableRow>
 </template>
 ```
 
 ## Selected rows
 
-Use `selected` on `AgDSTableRow` to highlight a row as selected. `aria-selected="true"` is set automatically.
+Use `selected` on `AGDSTableRow` to highlight a row as selected. `aria-selected="true"` is set automatically.
 
 ```vue
 <template>
-  <AgDSTableRow :selected="selectedRowId === row.id" @click="selectedRowId = row.id">
+  <AGDSTableRow :selected="selectedRowId === row.id" @click="selectedRowId = row.id">
     <!-- ... -->
-  </AgDSTableRow>
+  </AGDSTableRow>
 </template>
 ```
 
@@ -169,27 +169,27 @@ Use `invalid` to highlight a row that contains an error.
 
 ```vue
 <template>
-  <AgDSTableRow :invalid="row.hasError">
+  <AGDSTableRow :invalid="row.hasError">
     <!-- ... -->
-  </AgDSTableRow>
+  </AGDSTableRow>
 </template>
 ```
 
 ## Scrollable tables
 
-Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal scrollbar with arrow buttons, a draggable thumb, and left/right shadow indicators.
+Wrap a wide table in `AGDSTableScroller` to add an accessible custom horizontal scrollbar with arrow buttons, a draggable thumb, and left/right shadow indicators.
 
 ```vue
 <template>
-  <AgDSTableScroller>
-    <AgDSTable>
+  <AGDSTableScroller>
+    <AGDSTable>
       <!-- wide content ... -->
-    </AgDSTable>
-  </AgDSTableScroller>
+    </AGDSTable>
+  </AGDSTableScroller>
 </template>
 ```
 
-## Props — AgDSTable
+## Props — AGDSTable
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -200,7 +200,7 @@ Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal 
 | `aria-describedby` | `string` | — | ID of an external description element |
 | `aria-rowcount` | `number` | — | Total row count for paginated/virtual tables |
 
-## Props — AgDSTableHeader
+## Props — AGDSTableHeader
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -211,7 +211,7 @@ Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal 
 | `rowSpan` | `number` | — | Row span |
 | `width` | `string` | — | Fixed column width (e.g. `'10rem'`) |
 
-## Props — AgDSTableHeaderSortable
+## Props — AGDSTableHeaderSortable
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -220,7 +220,7 @@ Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal 
 | `colSpan` | `number` | — | Column span |
 | `width` | `string` | — | Fixed column width |
 
-## Props — AgDSTableCell
+## Props — AGDSTableCell
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -233,7 +233,7 @@ Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal 
 | `rowSpan` | `number` | — | Row span |
 | `id` | `string` | — | For `aria-labelledby` associations |
 
-## Props — AgDSTableRow
+## Props — AGDSTableRow
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -244,13 +244,13 @@ Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal 
 | `invalid` | `boolean` | `false` | Highlights row as containing an error |
 | `aria-rowindex` | `number` | — | Row index in a virtual/paginated table |
 
-## Events — AgDSTableRow
+## Events — AGDSTableRow
 
 | Event | Payload | Description |
 |-------|---------|-------------|
 | `click` | `MouseEvent` | Fired when a `clickable` row is clicked (excluding interactive child elements) |
 
-## Events — AgDSTableHeaderSortable
+## Events — AGDSTableHeaderSortable
 
 | Event | Payload | Description |
 |-------|---------|-------------|
@@ -259,9 +259,9 @@ Wrap a wide table in `AgDSTableScroller` to add an accessible custom horizontal 
 ## Accessibility
 
 - Renders native `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` elements
-- `AgDSTableHeader` sets `scope="col"` by default; override for row or spanning headers
-- `AgDSTableHeaderSortable` sets `aria-sort="ascending"` or `"descending"` on the `<th>` and uses a button for keyboard activation
-- `AgDSTableScroller` wraps the table in a `<section>` with an auto-derived `aria-label` from the table caption — keyboard users can Tab to the scrollable region
+- `AGDSTableHeader` sets `scope="col"` by default; override for row or spanning headers
+- `AGDSTableHeaderSortable` sets `aria-sort="ascending"` or `"descending"` on the `<th>` and uses a button for keyboard activation
+- `AGDSTableScroller` wraps the table in a `<section>` with an auto-derived `aria-label` from the table caption — keyboard users can Tab to the scrollable region
 - Selected rows set `aria-selected="true"`
 
 ## Changelog

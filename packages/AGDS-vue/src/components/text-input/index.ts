@@ -1,2 +1,2 @@
-export { default as AgDSTextInput } from './AGDSTextInput.vue'
-export type { AgDSTextInputProps } from './AGDSTextInput.vue'
+export { default as AGDSTextInput } from './AGDSTextInput.vue'
+export type { AGDSTextInputProps } from './AGDSTextInput.vue'

@@ -11,13 +11,13 @@ Place any content in the default slot. On mobile the body is hidden behind a tog
 
 ```vue
 <template>
-  <AgDSCollapsingSideBar title="Filters">
+  <AGDSCollapsingSideBar title="Filters">
     <fieldset>
       <legend>Category</legend>
       <label><input type="checkbox" /> News</label>
       <label><input type="checkbox" /> Grants</label>
     </fieldset>
-  </AgDSCollapsingSideBar>
+  </AGDSCollapsingSideBar>
 </template>
 ```
 
@@ -27,9 +27,9 @@ Use `subTitle` to add a supplementary line below the heading (visible in both th
 
 ```vue
 <template>
-  <AgDSCollapsingSideBar title="Filters" sub-title="3 active">
+  <AGDSCollapsingSideBar title="Filters" sub-title="3 active">
     <!-- filter controls -->
-  </AgDSCollapsingSideBar>
+  </AGDSCollapsingSideBar>
 </template>
 ```
 
@@ -39,12 +39,12 @@ The `title` slot lets you replace the default `<h2>` with any element — useful
 
 ```vue
 <template>
-  <AgDSCollapsingSideBar title="Filters">
+  <AGDSCollapsingSideBar title="Filters">
     <template #title>
       <h3 class="my-custom-heading">Filters</h3>
     </template>
     <!-- filter controls -->
-  </AgDSCollapsingSideBar>
+  </AGDSCollapsingSideBar>
 </template>
 ```
 
@@ -54,9 +54,9 @@ By default the root renders as a `<section>`. Use `as` to change it to `<aside>`
 
 ```vue
 <template>
-  <AgDSCollapsingSideBar title="Related links" as="aside">
+  <AGDSCollapsingSideBar title="Related links" as="aside">
     <!-- links -->
-  </AgDSCollapsingSideBar>
+  </AGDSCollapsingSideBar>
 </template>
 ```
 
@@ -66,9 +66,9 @@ Use `background="bodyAlt"` when the sidebar sits on a `--agds-color-bg-subtle` s
 
 ```vue
 <template>
-  <AgDSCollapsingSideBar title="Filters" background="bodyAlt">
+  <AGDSCollapsingSideBar title="Filters" background="bodyAlt">
     <!-- filter controls -->
-  </AgDSCollapsingSideBar>
+  </AGDSCollapsingSideBar>
 </template>
 ```
 

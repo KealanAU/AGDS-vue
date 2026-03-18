@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import AgDSHeading from './AGDSHeading.vue'
+import AGDSHeading from './AGDSHeading.vue'
 </script>
 
 <template>
-  <AgDSHeading type="h6" v-bind="$attrs">
+  <AGDSHeading type="h6" v-bind="$attrs">
     <slot />
-  </AgDSHeading>
+  </AGDSHeading>
 </template>

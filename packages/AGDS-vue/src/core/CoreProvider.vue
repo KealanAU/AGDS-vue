@@ -3,7 +3,7 @@ import { provide, h, defineComponent } from 'vue'
 import type { Component } from 'vue'
 import { CORE_CONTEXT_KEY } from './coreContext'
 
-export interface AgDSCoreProviderProps {
+export interface AGDSCoreProviderProps {
   /**
    * The global link component used wherever the library renders an anchor.
    * Defaults to a plain `<a>` element. Pass a router-aware wrapper
@@ -12,11 +12,11 @@ export interface AgDSCoreProviderProps {
   linkComponent?: Component
 }
 
-const props = defineProps<AgDSCoreProviderProps>()
+const props = defineProps<AGDSCoreProviderProps>()
 
 /** Default link — a plain native anchor that passes all props through. */
 const DefaultLink = defineComponent({
-  name: 'AgDSDefaultLink',
+  name: 'AGDSDefaultLink',
   inheritAttrs: false,
   props: {
     href: { type: String, default: undefined },

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AgDSVisuallyHidden from './AGDSVisuallyHidden.vue'
+import AGDSVisuallyHidden from './AGDSVisuallyHidden.vue'
 </script>
 
 <template>
-  <AgDSVisuallyHidden>, opens in a new tab</AgDSVisuallyHidden>
+  <AGDSVisuallyHidden>, opens in a new tab</AGDSVisuallyHidden>
 </template>

@@ -1,4 +1,4 @@
-import AgDSBaseContent from './AGDSBaseContent.vue';
+import AGDSBaseContent from './AGDSBaseContent.vue';
 const props = withDefaults(defineProps(), {
     as: 'section',
     maxWidth: 'container',
@@ -15,7 +15,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSBaseContent || AgDSBaseContent;
+const __VLS_0 = AGDSBaseContent || AGDSBaseContent;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     as: (props.as),

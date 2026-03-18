@@ -18,7 +18,7 @@ export type TimeValue =
     }
   | undefined
 
-export interface AgDSTimeInputProps {
+export interface AGDSTimeInputProps {
   /** Describes the purpose of the field */
   label: string
   /** Defines an identifier (ID) which must be unique. Auto-generated when omitted. */
@@ -49,7 +49,7 @@ export interface AgDSTimeInputProps {
   modelValue?: TimeValue
 }
 
-const props = withDefaults(defineProps<AgDSTimeInputProps>(), {
+const props = withDefaults(defineProps<AGDSTimeInputProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,

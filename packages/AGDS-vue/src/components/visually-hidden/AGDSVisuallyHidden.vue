@@ -1,10 +1,10 @@
 <script setup lang="ts">
-export interface AgDSVisuallyHiddenProps {
+export interface AGDSVisuallyHiddenProps {
   /** HTML element to render. Defaults to 'span' for inline use. */
   as?: string
 }
 
-withDefaults(defineProps<AgDSVisuallyHiddenProps>(), {
+withDefaults(defineProps<AGDSVisuallyHiddenProps>(), {
   as: 'span',
 })
 </script>

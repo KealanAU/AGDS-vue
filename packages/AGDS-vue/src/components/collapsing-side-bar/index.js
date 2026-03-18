@@ -1,1 +1,1 @@
-export { default as AgDSCollapsingSideBar } from './AGDSCollapsingSideBar.vue';
+export { default as AGDSCollapsingSideBar } from './AGDSCollapsingSideBar.vue';

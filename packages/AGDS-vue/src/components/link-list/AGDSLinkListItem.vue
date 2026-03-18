@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSLinkListItemProps {
+export interface AGDSLinkListItemProps {
   /** URL the link navigates to */
   href: string
   /** Visible label text */
@@ -8,7 +8,7 @@ export interface AgDSLinkListItemProps {
   target?: string
 }
 
-defineProps<AgDSLinkListItemProps>()
+defineProps<AGDSLinkListItemProps>()
 </script>
 
 <template>

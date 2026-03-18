@@ -1,2 +1,2 @@
-export { default as AgDSCallout } from './AGDSCallout.vue'
-export type { AgDSCalloutProps, CalloutTone, CalloutVariant } from './AGDSCallout.vue'
+export { default as AGDSCallout } from './AGDSCallout.vue'
+export type { AGDSCalloutProps, CalloutTone, CalloutVariant } from './AGDSCallout.vue'

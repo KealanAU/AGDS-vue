@@ -8,7 +8,7 @@ import type { BackgroundVariant } from '../../core'
 export type { BackgroundVariant as SideNavBackground }
 export type SideNavSubLevelVisible = 'always' | 'whenActive'
 
-export interface AgDSSideNavProps {
+export interface AGDSSideNavProps {
   /** The path of the currently active page, used to highlight the matching link. */
   activePath: string
   /** Set to 'bodyAlt' when the nav sits on a bodyAlt background. */
@@ -23,7 +23,7 @@ export interface AgDSSideNavProps {
   titleLink?: string
 }
 
-const props = withDefaults(defineProps<AgDSSideNavProps>(), {
+const props = withDefaults(defineProps<AGDSSideNavProps>(), {
   background: 'body',
   subLevelVisible: 'whenActive',
 })

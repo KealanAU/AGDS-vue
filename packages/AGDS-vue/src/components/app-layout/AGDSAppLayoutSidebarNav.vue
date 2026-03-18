@@ -9,7 +9,7 @@ import {
   type AppLayoutBackground,
 } from './appLayoutTypes'
 
-export interface AgDSAppLayoutSidebarNavProps {
+export interface AGDSAppLayoutSidebarNavProps {
   /** Navigation groups — arrays of items, or objects with items + options. */
   items: AppLayoutNavGroup[]
   /** Currently active path for highlighting. */
@@ -20,7 +20,7 @@ export interface AgDSAppLayoutSidebarNavProps {
   background?: AppLayoutBackground
 }
 
-const props = withDefaults(defineProps<AgDSAppLayoutSidebarNavProps>(), {
+const props = withDefaults(defineProps<AGDSAppLayoutSidebarNavProps>(), {
   subLevelVisible: 'whenActive',
   background: 'bodyAlt',
 })

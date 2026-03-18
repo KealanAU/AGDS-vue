@@ -7,23 +7,23 @@ status: stable
 
 ## Usage
 
-Pass an array of `links`, each with a `href` and `label`.
+Compose `AGDSLinkList` with `AGDSLinkListItem` children.
 
 ::doc-preview
-<AgDSLinkList :links="[
-  { label: 'Home', href: '/' },
-  { label: 'About us', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-]" />
+<AGDSLinkList>
+  <AGDSLinkListItem href="/" label="Home" />
+  <AGDSLinkListItem href="/about" label="About us" />
+  <AGDSLinkListItem href="/contact" label="Contact" />
+</AGDSLinkList>
 ::
 
 ```vue
 <template>
-  <AgDSLinkList :links="[
-    { label: 'Home', href: '/' },
-    { label: 'About us', href: '/about' },
-    { label: 'Contact', href: '/contact' },
-  ]" />
+  <AGDSLinkList>
+    <AGDSLinkListItem href="/" label="Home" />
+    <AGDSLinkListItem href="/about" label="About us" />
+    <AGDSLinkListItem href="/contact" label="Contact" />
+  </AGDSLinkList>
 </template>
 ```
 
@@ -32,44 +32,66 @@ Pass an array of `links`, each with a `href` and `label`.
 Use the `horizontal` prop to lay links out in a row.
 
 ::doc-preview{label="Horizontal"}
-<AgDSLinkList horizontal :links="[
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Accessibility', href: '/accessibility' },
-  { label: 'Sitemap', href: '/sitemap' },
-]" />
+<AGDSLinkList horizontal>
+  <AGDSLinkListItem href="/privacy" label="Privacy" />
+  <AGDSLinkListItem href="/accessibility" label="Accessibility" />
+  <AGDSLinkListItem href="/sitemap" label="Sitemap" />
+</AGDSLinkList>
 ::
 
 ```vue
 <template>
-  <AgDSLinkList
-    horizontal
-    :links="[
-      { label: 'Privacy', href: '/privacy' },
-      { label: 'Accessibility', href: '/accessibility' },
-      { label: 'Sitemap', href: '/sitemap' },
-    ]"
-  />
+  <AGDSLinkList horizontal>
+    <AGDSLinkListItem href="/privacy" label="Privacy" />
+    <AGDSLinkListItem href="/accessibility" label="Accessibility" />
+    <AGDSLinkListItem href="/sitemap" label="Sitemap" />
+  </AGDSLinkList>
 </template>
 ```
 
 ## New-tab links
 
-Set `target="_blank"` on a link. The component automatically adds `rel="noopener noreferrer"` and a visually-hidden ", opens in a new tab" announcement for screen readers.
+Set `target="_blank"` on an item. The component automatically adds `rel="noopener noreferrer"` and a visually-hidden ", opens in a new tab" announcement for screen readers.
+
+::doc-preview{label="New tab"}
+<AGDSLinkList>
+  <AGDSLinkListItem href="https://www.apsjobs.gov.au" label="APS Jobs" target="_blank" />
+  <AGDSLinkListItem href="https://my.gov.au" label="My Gov" target="_blank" />
+</AGDSLinkList>
+::
 
 ```vue
 <template>
-  <AgDSLinkList :links="[
-    { label: 'APS Jobs', href: 'https://www.apsjobs.gov.au', target: '_blank' },
-    { label: 'My Gov', href: 'https://my.gov.au', target: '_blank' },
-  ]" />
+  <AGDSLinkList>
+    <AGDSLinkListItem href="https://www.apsjobs.gov.au" label="APS Jobs" target="_blank" />
+    <AGDSLinkListItem href="https://my.gov.au" label="My Gov" target="_blank" />
+  </AGDSLinkList>
 </template>
 ```
 
-## Props — AgDSLinkList
+## Props array shorthand
+
+For purely data-driven usage, pass a `links` array instead of composing items manually.
+
+```vue
+<script setup>
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'About us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+]
+</script>
+
+<template>
+  <AGDSLinkList :links="links" />
+</template>
+```
+
+## Props — AGDSLinkList
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `links` | `LinkListLink[]` | — | **Required.** Array of link objects |
+| `links` | `LinkListLink[]` | — | Array of link objects. Use instead of the default slot for data-driven lists. |
 | `horizontal` | `boolean` | `false` | Lay links out horizontally |
 
 ### LinkListLink shape
@@ -79,6 +101,14 @@ Set `target="_blank"` on a link. The component automatically adds `rel="noopener
 | `label` | `string` | Visible link text |
 | `href` | `string` | Link destination URL |
 | `target` | `string` | e.g. `'_blank'` to open in a new tab |
+
+## Props — AGDSLinkListItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `href` | `string` | — | **Required.** Link destination URL |
+| `label` | `string` | — | **Required.** Visible link text |
+| `target` | `string` | — | e.g. `'_blank'` to open in a new tab |
 
 ## Accessibility
 

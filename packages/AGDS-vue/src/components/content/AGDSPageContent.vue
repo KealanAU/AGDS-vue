@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AgDSBaseContent from './AGDSBaseContent.vue'
+import AGDSBaseContent from './AGDSBaseContent.vue'
 
-export interface AgDSPageContentProps {
+export interface AGDSPageContentProps {
   /** HTML element to render as. Defaults to `'div'`. */
   as?: string
   /** Background colour of the page content band. */
@@ -12,14 +12,14 @@ export interface AgDSPageContentProps {
   id?: string
 }
 
-const props = withDefaults(defineProps<AgDSPageContentProps>(), {
+const props = withDefaults(defineProps<AGDSPageContentProps>(), {
   as: 'div',
   maxWidth: 'container',
 })
 </script>
 
 <template>
-  <AgDSBaseContent
+  <AGDSBaseContent
     :as="props.as"
     :background="props.background"
     :max-width="props.maxWidth"
@@ -27,5 +27,5 @@ const props = withDefaults(defineProps<AgDSPageContentProps>(), {
     padding-y="page"
   >
     <slot />
-  </AgDSBaseContent>
+  </AGDSBaseContent>
 </template>

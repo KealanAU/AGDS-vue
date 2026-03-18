@@ -1,2 +1,2 @@
-export { default as AgDSFilterSidebar } from './AGDSFilterSidebar.vue'
-export type { AgDSFilterSidebarProps } from './AGDSFilterSidebar.vue'
+export { default as AGDSFilterSidebar } from './AGDSFilterSidebar.vue'
+export type { AGDSFilterSidebarProps } from './AGDSFilterSidebar.vue'

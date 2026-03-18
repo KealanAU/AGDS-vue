@@ -12,12 +12,12 @@ import {
   ComboboxTrigger,
   ComboboxViewport,
 } from 'reka-ui'
-import AgDSField from '../field/AGDSField.vue'
+import AGDSField from '../field/AGDSField.vue'
 import type { DefaultComboboxOption, ComboboxMaxWidth } from '../autocomplete/comboboxUtils'
 import { filterOptions, generateOptions } from './timePickerUtils'
 import type { TimeFormat } from '../time-input/timeInputUtils'
 
-export interface AgDSTimePickerProps {
+export interface AGDSTimePickerProps {
   /** Describes the purpose of the field */
   label: string
   /** Defines an identifier (ID) which must be unique. Auto-generated when omitted. */
@@ -60,7 +60,7 @@ export interface AgDSTimePickerProps {
   emptyResultsMessage?: string
 }
 
-const props = withDefaults(defineProps<AgDSTimePickerProps>(), {
+const props = withDefaults(defineProps<AGDSTimePickerProps>(), {
   invalid: false,
   required: false,
   disabled: false,
@@ -122,7 +122,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
 </script>
 
 <template>
-  <AgDSField
+  <AGDSField
     :label="label"
     :id="inputId"
     :label-id="labelId"
@@ -232,7 +232,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
         </ComboboxPortal>
       </ComboboxRoot>
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 
 <style scoped>

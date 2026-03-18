@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSelect from './AGDSSelect.vue'
+import AGDSSelect from './AGDSSelect.vue'
 import type { Options } from './AGDSSelect.vue'
 
 const AXE_OPTS = {
@@ -31,14 +31,14 @@ const GROUP_OPTIONS: Options = [
 ]
 
 function renderSelect(props: Record<string, unknown> = {}) {
-  return render(AgDSSelect, {
+  return render(AGDSSelect, {
     props: { label: 'Fruit', options: OPTIONS, required: true, ...props },
   })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSSelect — rendering', () => {
+describe('AGDSSelect — rendering', () => {
   it('renders a combobox', () => {
     const { getByRole } = renderSelect()
     expect(getByRole('combobox')).toBeTruthy()
@@ -69,7 +69,7 @@ describe('AgDSSelect — rendering', () => {
   })
 
   it('renders optgroups', () => {
-    const { container } = render(AgDSSelect, {
+    const { container } = render(AGDSSelect, {
       props: { label: 'Produce', options: GROUP_OPTIONS, required: true },
     })
     const groups = container.querySelectorAll('optgroup')
@@ -91,7 +91,7 @@ describe('AgDSSelect — rendering', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSSelect — disabled prop', () => {
+describe('AGDSSelect — disabled prop', () => {
   it('sets the native disabled attribute', () => {
     const { getByRole } = renderSelect({ disabled: true })
     expect((getByRole('combobox') as HTMLSelectElement).disabled).toBe(true)
@@ -113,7 +113,7 @@ describe('AgDSSelect — disabled prop', () => {
 
 // ─── Props: invalid ───────────────────────────────────────────────────────────
 
-describe('AgDSSelect — invalid prop', () => {
+describe('AGDSSelect — invalid prop', () => {
   it('sets aria-invalid on the select', () => {
     const { getByRole } = renderSelect({ invalid: true, message: 'Error' })
     expect(getByRole('combobox').getAttribute('aria-invalid')).toBe('true')
@@ -127,7 +127,7 @@ describe('AgDSSelect — invalid prop', () => {
 
 // ─── v-model ──────────────────────────────────────────────────────────────────
 
-describe('AgDSSelect — v-model', () => {
+describe('AGDSSelect — v-model', () => {
   it('reflects modelValue in the select', () => {
     const { getByRole } = renderSelect({ modelValue: 'banana' })
     expect((getByRole('combobox') as HTMLSelectElement).value).toBe('banana')
@@ -142,7 +142,7 @@ describe('AgDSSelect — v-model', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSelect — axe accessibility', () => {
+describe('AGDSSelect — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderSelect()
     await runAxe(container, AXE_OPTS)
@@ -164,7 +164,7 @@ describe('AgDSSelect — axe accessibility', () => {
   })
 
   it('has no violations with option groups', async () => {
-    const { container } = render(AgDSSelect, {
+    const { container } = render(AGDSSelect, {
       props: { label: 'Produce', options: GROUP_OPTIONS, required: true },
     })
     await runAxe(container, AXE_OPTS)

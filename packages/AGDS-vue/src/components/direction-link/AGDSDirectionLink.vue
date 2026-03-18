@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
 export type Direction = 'up' | 'right' | 'down' | 'left'
 
-export interface AgDSDirectionLinkProps {
+export interface AGDSDirectionLinkProps {
   /** URL the link navigates to */
   href: string
   /** Arrow direction displayed alongside the link text */
@@ -18,7 +18,7 @@ export interface AgDSDirectionLinkProps {
   focusRingFor?: 'keyboard' | 'all'
 }
 
-withDefaults(defineProps<AgDSDirectionLinkProps>(), {
+withDefaults(defineProps<AGDSDirectionLinkProps>(), {
   external: false,
   focusRingFor: 'keyboard',
 })
@@ -50,7 +50,7 @@ const ICON_MAP: Record<Direction, string> = {
     @focus="$emit('focus', $event)"
     @blur="$emit('blur', $event)"
   >
-    <AgDSIcon
+    <AGDSIcon
       v-if="direction === 'left'"
       :name="ICON_MAP[direction]"
       size="sm"
@@ -60,7 +60,7 @@ const ICON_MAP: Record<Direction, string> = {
 
     <slot />
 
-    <AgDSIcon
+    <AGDSIcon
       v-if="direction !== 'left'"
       :name="ICON_MAP[direction]"
       size="sm"

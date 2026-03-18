@@ -182,7 +182,7 @@ export function getTone(tone: StatusBadgeTone): keyof typeof statusBadgeToneMap 
       const mapped = statusBadgeLegacyToneMap[tone as StatusBadgeLegacyTone]
       const suggestion = tone === 'neutral' ? 'unknownLow' : mapped
       console.warn(
-        `[AgDSStatusBadge] tone="${tone}" is deprecated. Use "${suggestion}" instead.`,
+        `[AGDSStatusBadge] tone="${tone}" is deprecated. Use "${suggestion}" instead.`,
       )
     }
     return statusBadgeLegacyToneMap[tone as StatusBadgeLegacyTone]

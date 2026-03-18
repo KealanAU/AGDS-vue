@@ -4,7 +4,7 @@
  * Must be the first child of SummaryListItem.
  * Renders a `<dt>` (description term).
  */
-export interface AgDSSummaryListItemTermProps {}
+export interface AGDSSummaryListItemTermProps {}
 </script>
 
 <template>

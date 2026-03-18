@@ -1,5 +1,5 @@
-export { default as AgDSTextLink } from './AGDSTextLink.vue'
-export type { AgDSTextLinkProps } from './AGDSTextLink.vue'
+export { default as AGDSTextLink } from './AGDSTextLink.vue'
+export type { AGDSTextLinkProps } from './AGDSTextLink.vue'
 
-export { default as AgDSTextLinkExternal } from './AGDSTextLinkExternal.vue'
-export type { AgDSTextLinkExternalProps } from './AGDSTextLinkExternal.vue'
+export { default as AGDSTextLinkExternal } from './AGDSTextLinkExternal.vue'
+export type { AGDSTextLinkExternalProps } from './AGDSTextLinkExternal.vue'

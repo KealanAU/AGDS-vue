@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSTextInput from './AGDSTextInput.vue'
+import AGDSTextInput from './AGDSTextInput.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,14 +10,14 @@ const AXE_OPTS = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function renderInput(props: Record<string, unknown> = {}) {
-  return render(AgDSTextInput, {
+  return render(AGDSTextInput, {
     props: { label: 'Full name', ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSTextInput — rendering', () => {
+describe('AGDSTextInput — rendering', () => {
   it('renders a text input', () => {
     const { getByRole } = renderInput()
     expect(getByRole('textbox')).toBeTruthy()
@@ -66,7 +66,7 @@ describe('AgDSTextInput — rendering', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSTextInput — disabled prop', () => {
+describe('AGDSTextInput — disabled prop', () => {
   it('sets the native disabled attribute', () => {
     const { getByRole } = renderInput({ disabled: true })
     expect((getByRole('textbox') as HTMLInputElement).disabled).toBe(true)
@@ -80,7 +80,7 @@ describe('AgDSTextInput — disabled prop', () => {
 
 // ─── Props: invalid ───────────────────────────────────────────────────────────
 
-describe('AgDSTextInput — invalid prop', () => {
+describe('AGDSTextInput — invalid prop', () => {
   it('sets aria-invalid when invalid', () => {
     const { getByRole } = renderInput({ invalid: true })
     expect(getByRole('textbox').getAttribute('aria-invalid')).toBe('true')
@@ -94,7 +94,7 @@ describe('AgDSTextInput — invalid prop', () => {
 
 // ─── v-model ──────────────────────────────────────────────────────────────────
 
-describe('AgDSTextInput — v-model', () => {
+describe('AGDSTextInput — v-model', () => {
   it('reflects modelValue in the input', () => {
     const { getByRole } = renderInput({ modelValue: 'Alice' })
     expect((getByRole('textbox') as HTMLInputElement).value).toBe('Alice')
@@ -109,7 +109,7 @@ describe('AgDSTextInput — v-model', () => {
 
 // ─── Events ───────────────────────────────────────────────────────────────────
 
-describe('AgDSTextInput — events', () => {
+describe('AGDSTextInput — events', () => {
   it('emits change on native change', async () => {
     const { getByRole, emitted } = renderInput()
     await fireEvent.change(getByRole('textbox'))
@@ -131,7 +131,7 @@ describe('AgDSTextInput — events', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSTextInput — axe accessibility', () => {
+describe('AGDSTextInput — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderInput()
     await runAxe(container, AXE_OPTS)

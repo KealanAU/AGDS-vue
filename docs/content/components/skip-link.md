@@ -7,16 +7,16 @@ status: stable
 
 ## Usage
 
-Place `AgDSSkipLinks` as the very first element inside `<body>` (or the app root), before any navigation. Each link targets an anchor on the page.
+Place `AGDSSkipLinks` as the very first element inside `<body>` (or the app root), before any navigation. Each link targets an anchor on the page.
 
 ::doc-preview
-<AgDSSkipLinks :links="[{ label: 'Skip to main content', href: '#main-content' }]" />
+<AGDSSkipLinks :links="[{ label: 'Skip to main content', href: '#main-content' }]" />
 ::
 
 ```vue
 <template>
   <!-- Must be the first focusable element on the page -->
-  <AgDSSkipLinks :links="[
+  <AGDSSkipLinks :links="[
     { label: 'Skip to main content', href: '#main-content' },
     { label: 'Skip to navigation', href: '#main-nav' },
   ]" />
@@ -33,7 +33,7 @@ Provide multiple entries to let users skip to different landmarks.
 
 ```vue
 <template>
-  <AgDSSkipLinks :links="[
+  <AGDSSkipLinks :links="[
     { label: 'Skip to main content', href: '#main-content' },
     { label: 'Skip to footer', href: '#footer' },
   ]" />
@@ -46,7 +46,7 @@ Override the accessible label on the wrapping `<nav>` landmark with `ariaLabel`.
 
 ```vue
 <template>
-  <AgDSSkipLinks
+  <AGDSSkipLinks
     :links="[{ label: 'Skip to content', href: '#content' }]"
     aria-label="Page navigation shortcuts"
   />

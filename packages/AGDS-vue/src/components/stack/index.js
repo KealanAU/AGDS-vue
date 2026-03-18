@@ -1,1 +1,1 @@
-export { default as AgDSStack } from './AGDSStack.vue';
+export { default as AGDSStack } from './AGDSStack.vue';

@@ -1,1 +1,1 @@
-export { default as AgDSHeader } from './AGDSHeader.vue';
+export { default as AGDSHeader } from './AGDSHeader.vue';

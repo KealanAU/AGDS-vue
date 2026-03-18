@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
-export interface AgDSTableScrollerProps {}
+export interface AGDSTableScrollerProps {}
 
 // ── Refs ────────────────────────────────────────────────────
 

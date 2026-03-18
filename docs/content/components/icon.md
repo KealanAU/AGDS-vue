@@ -10,12 +10,12 @@ status: stable
 Pass an Iconify icon name to the `name` prop. The icon is decorative by default (`aria-hidden="true"`).
 
 ::doc-preview
-<AgDSIcon name="heroicons:home" />
+<AGDSIcon name="heroicons:home" />
 ::
 
 ```vue
 <template>
-  <AgDSIcon name="heroicons:home" />
+  <AGDSIcon name="heroicons:home" />
 </template>
 ```
 
@@ -24,26 +24,26 @@ Pass an Iconify icon name to the `name` prop. The icon is decorative by default 
 Use the `size` prop with a named token (`sm`, `md`, `lg`, `xl`) or any CSS length value.
 
 ::doc-preview{label="Named sizes"}
-<AgDSIcon name="heroicons:star" size="sm" />
-<AgDSIcon name="heroicons:star" size="md" />
-<AgDSIcon name="heroicons:star" size="lg" />
-<AgDSIcon name="heroicons:star" size="xl" />
+<AGDSIcon name="heroicons:star" size="sm" />
+<AGDSIcon name="heroicons:star" size="md" />
+<AGDSIcon name="heroicons:star" size="lg" />
+<AGDSIcon name="heroicons:star" size="xl" />
 ::
 
 ```vue
 <template>
-  <AgDSIcon name="heroicons:star" size="sm" />
-  <AgDSIcon name="heroicons:star" size="md" />
-  <AgDSIcon name="heroicons:star" size="lg" />
-  <AgDSIcon name="heroicons:star" size="xl" />
+  <AGDSIcon name="heroicons:star" size="sm" />
+  <AGDSIcon name="heroicons:star" size="md" />
+  <AGDSIcon name="heroicons:star" size="lg" />
+  <AGDSIcon name="heroicons:star" size="xl" />
 </template>
 ```
 
 ```vue
 <template>
   <!-- Arbitrary CSS length -->
-  <AgDSIcon name="heroicons:star" size="2rem" />
-  <AgDSIcon name="heroicons:star" :size="32" />
+  <AGDSIcon name="heroicons:star" size="2rem" />
+  <AGDSIcon name="heroicons:star" :size="32" />
 </template>
 ```
 
@@ -52,14 +52,14 @@ Use the `size` prop with a named token (`sm`, `md`, `lg`, `xl`) or any CSS lengt
 Use the `color` prop to set a CSS color. Without it the icon inherits `currentColor` from the parent.
 
 ::doc-preview{label="Custom color"}
-<AgDSIcon name="heroicons:check-circle" color="#00698f" size="lg" />
-<AgDSIcon name="heroicons:exclamation-circle" color="#d60000" size="lg" />
+<AGDSIcon name="heroicons:check-circle" color="#00698f" size="lg" />
+<AGDSIcon name="heroicons:exclamation-circle" color="#d60000" size="lg" />
 ::
 
 ```vue
 <template>
-  <AgDSIcon name="heroicons:check-circle" color="#00698f" size="lg" />
-  <AgDSIcon name="heroicons:exclamation-circle" color="#d60000" size="lg" />
+  <AGDSIcon name="heroicons:check-circle" color="#00698f" size="lg" />
+  <AGDSIcon name="heroicons:exclamation-circle" color="#d60000" size="lg" />
 </template>
 ```
 
@@ -69,7 +69,7 @@ Pass `aria-label` to make the icon meaningful to screen readers. The `aria-hidde
 
 ```vue
 <template>
-  <AgDSIcon name="heroicons:magnifying-glass" aria-label="Search" />
+  <AGDSIcon name="heroicons:magnifying-glass" aria-label="Search" />
 </template>
 ```
 

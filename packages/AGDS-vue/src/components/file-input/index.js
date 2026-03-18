@@ -1,1 +1,1 @@
-export { default as AgDSFileInput } from './AGDSFileInput.vue';
+export { default as AGDSFileInput } from './AGDSFileInput.vue';

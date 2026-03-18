@@ -1,2 +1,2 @@
-export { default as AgDSTextarea } from './AGDSTextarea.vue'
-export type { AgDSTextareaProps, TextareaMaxWidth } from './AGDSTextarea.vue'
+export { default as AGDSTextarea } from './AGDSTextarea.vue'
+export type { AGDSTextareaProps, TextareaMaxWidth } from './AGDSTextarea.vue'

@@ -22,11 +22,11 @@ useSeoMeta({
       <h2>Register globally (recommended)</h2>
       <p>Register all components and import the stylesheet once in <code>main.ts</code>:</p>
       <pre><code>import { createApp } from 'vue'
-import AgDSVue from 'AGDS-vue'
+import AGDSVue from 'AGDS-vue'
 import 'AGDS-vue/styles'
 import App from './App.vue'
 
-createApp(App).use(AgDSVue).mount('#app')</code></pre>
+createApp(App).use(AGDSVue).mount('#app')</code></pre>
 
       <h2>Import individually</h2>
       <p>
@@ -37,15 +37,15 @@ createApp(App).use(AgDSVue).mount('#app')</code></pre>
 import 'AGDS-vue/styles'</code></pre>
       <pre><code>&lt;!-- MyComponent.vue --&gt;
 &lt;script setup&gt;
-import { AgDSButton } from 'AGDS-vue'
+import { AGDSButton } from 'AGDS-vue'
 &lt;/script&gt;</code></pre>
 
       <h2>Nuxt 3</h2>
       <p>Create a plugin at <code>plugins/AGDS-vue.ts</code>:</p>
-      <pre><code>import AgDSVue from 'AGDS-vue'
+      <pre><code>import AGDSVue from 'AGDS-vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(AgDSVue)
+  nuxtApp.vueApp.use(AGDSVue)
 })</code></pre>
       <p>Add the stylesheet in <code>nuxt.config.ts</code>:</p>
       <pre><code>export default defineNuxtConfig({

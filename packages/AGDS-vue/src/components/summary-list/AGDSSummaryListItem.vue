@@ -7,7 +7,7 @@
  * Renders as a <div> — wrapping dt/dd pairs in a <div> inside a <dl> is
  * valid HTML and the recommended pattern for grouped description list rows.
  */
-export interface AgDSSummaryListItemProps {}
+export interface AGDSSummaryListItemProps {}
 </script>
 
 <template>

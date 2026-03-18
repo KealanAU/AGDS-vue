@@ -154,7 +154,7 @@ export function getTone(tone) {
     if (tone in sectionAlertLegacyToneMap) {
         if (import.meta.env.DEV) {
             const mapped = sectionAlertLegacyToneMap[tone];
-            console.warn(`[AgDSSectionAlert] tone "${tone}" is deprecated. Use "${mapped}" instead.`);
+            console.warn(`[AGDSSectionAlert] tone "${tone}" is deprecated. Use "${mapped}" instead.`);
         }
         return sectionAlertLegacyToneMap[tone];
     }

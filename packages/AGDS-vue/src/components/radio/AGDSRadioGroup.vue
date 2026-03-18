@@ -2,7 +2,7 @@
 import { provide } from 'vue'
 import { RADIO_GROUP_KEY } from './radioGroupContext'
 
-export interface AgDSRadioGroupProps {
+export interface AGDSRadioGroupProps {
   /** Shared `name` attribute applied to every radio in the group */
   name?: string
   /** Marks every radio in the group as invalid */
@@ -20,7 +20,7 @@ export interface AgDSRadioGroupProps {
   legend?: string
 }
 
-const props = withDefaults(defineProps<AgDSRadioGroupProps>(), {
+const props = withDefaults(defineProps<AGDSRadioGroupProps>(), {
   invalid: false,
   required: false,
   disabled: false,

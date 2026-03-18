@@ -2,14 +2,14 @@ import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { defineComponent, h, nextTick, ref } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSDropdownMenu from './AGDSDropdownMenu.vue'
-import AgDSDropdownMenuButton from './AGDSDropdownMenuButton.vue'
-import AgDSDropdownMenuPanel from './AGDSDropdownMenuPanel.vue'
-import AgDSDropdownMenuItem from './AGDSDropdownMenuItem.vue'
-import AgDSDropdownMenuItemLink from './AGDSDropdownMenuItemLink.vue'
-import AgDSDropdownMenuItemRadio from './AGDSDropdownMenuItemRadio.vue'
-import AgDSDropdownMenuGroup from './AGDSDropdownMenuGroup.vue'
-import AgDSDropdownMenuDivider from './AGDSDropdownMenuDivider.vue'
+import AGDSDropdownMenu from './AGDSDropdownMenu.vue'
+import AGDSDropdownMenuButton from './AGDSDropdownMenuButton.vue'
+import AGDSDropdownMenuPanel from './AGDSDropdownMenuPanel.vue'
+import AGDSDropdownMenuItem from './AGDSDropdownMenuItem.vue'
+import AGDSDropdownMenuItemLink from './AGDSDropdownMenuItemLink.vue'
+import AGDSDropdownMenuItemRadio from './AGDSDropdownMenuItemRadio.vue'
+import AGDSDropdownMenuGroup from './AGDSDropdownMenuGroup.vue'
+import AGDSDropdownMenuDivider from './AGDSDropdownMenuDivider.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -20,20 +20,20 @@ const AXE_OPTS = {
 function renderDropdown(itemIds = ['item-1', 'item-2', 'item-3']) {
   const comp = defineComponent({
     components: {
-      AgDSDropdownMenu,
-      AgDSDropdownMenuButton,
-      AgDSDropdownMenuPanel,
-      AgDSDropdownMenuItem,
+      AGDSDropdownMenu,
+      AGDSDropdownMenuButton,
+      AGDSDropdownMenuPanel,
+      AGDSDropdownMenuItem,
     },
     setup() {
       return () =>
-        h(AgDSDropdownMenu, null, {
+        h(AGDSDropdownMenu, null, {
           default: () => [
-            h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-            h(AgDSDropdownMenuPanel, null, {
+            h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+            h(AGDSDropdownMenuPanel, null, {
               default: () =>
                 itemIds.map((id, i) =>
-                  h(AgDSDropdownMenuItem, { id }, { default: () => `Item ${i + 1}` }),
+                  h(AGDSDropdownMenuItem, { id }, { default: () => `Item ${i + 1}` }),
                 ),
             }),
           ],
@@ -45,7 +45,7 @@ function renderDropdown(itemIds = ['item-1', 'item-2', 'item-3']) {
 
 // ─── Button aria attributes ───────────────────────────────────────────────────
 
-describe('AgDSDropdownMenuButton — aria attributes', () => {
+describe('AGDSDropdownMenuButton — aria attributes', () => {
   it('has aria-haspopup="true"', () => {
     const { getByRole } = renderDropdown()
     const btn = getByRole('button', { name: 'Options' })
@@ -77,7 +77,7 @@ describe('AgDSDropdownMenuButton — aria attributes', () => {
 
 // ─── Open/close ──────────────────────────────────────────────────────────────
 
-describe('AgDSDropdownMenu — open/close', () => {
+describe('AGDSDropdownMenu — open/close', () => {
   it('opens panel on button click', async () => {
     const { getByRole, queryByRole } = renderDropdown()
     expect(queryByRole('menu')).toBeNull()
@@ -100,7 +100,7 @@ describe('AgDSDropdownMenu — open/close', () => {
 
 // ─── Panel attributes ─────────────────────────────────────────────────────────
 
-describe('AgDSDropdownMenuPanel — attributes', () => {
+describe('AGDSDropdownMenuPanel — attributes', () => {
   it('has role="menu"', async () => {
     const { getByRole, queryByRole } = renderDropdown()
     await fireEvent.click(getByRole('button', { name: 'Options' }))
@@ -120,7 +120,7 @@ describe('AgDSDropdownMenuPanel — attributes', () => {
 
 // ─── Keyboard: ArrowDown opens + first item active ────────────────────────────
 
-describe('AgDSDropdownMenu — keyboard navigation', () => {
+describe('AGDSDropdownMenu — keyboard navigation', () => {
   it('ArrowDown on button opens menu with first item active', async () => {
     const { getByRole, queryByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
     const btn = getByRole('button', { name: 'Options' })
@@ -185,7 +185,7 @@ describe('AgDSDropdownMenu — keyboard navigation', () => {
 
 // ─── Click item closes menu ───────────────────────────────────────────────────
 
-describe('AgDSDropdownMenuItem — click', () => {
+describe('AGDSDropdownMenuItem — click', () => {
   it('clicking an item closes the menu', async () => {
     const { getByRole, getByText, queryByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
     await fireEvent.click(getByRole('button', { name: 'Options' }))
@@ -201,20 +201,20 @@ describe('AgDSDropdownMenuItem — click', () => {
     const clicks: MouseEvent[] = []
     const comp = defineComponent({
       components: {
-        AgDSDropdownMenu,
-        AgDSDropdownMenuButton,
-        AgDSDropdownMenuPanel,
-        AgDSDropdownMenuItem,
+        AGDSDropdownMenu,
+        AGDSDropdownMenuButton,
+        AGDSDropdownMenuPanel,
+        AGDSDropdownMenuItem,
       },
       setup() {
         return () =>
-          h(AgDSDropdownMenu, null, {
+          h(AGDSDropdownMenu, null, {
             default: () => [
-              h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-              h(AgDSDropdownMenuPanel, null, {
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
                 default: () => [
                   h(
-                    AgDSDropdownMenuItem,
+                    AGDSDropdownMenuItem,
                     { id: 'click-item', onClick: (e: MouseEvent) => clicks.push(e) },
                     { default: () => 'Click Me' },
                   ),
@@ -235,29 +235,29 @@ describe('AgDSDropdownMenuItem — click', () => {
 
 // ─── DropdownMenuItemRadio ────────────────────────────────────────────────────
 
-describe('AgDSDropdownMenuItemRadio', () => {
+describe('AGDSDropdownMenuItemRadio', () => {
   it('renders aria-checked="true" when checked=true', async () => {
     const comp = defineComponent({
       components: {
-        AgDSDropdownMenu,
-        AgDSDropdownMenuButton,
-        AgDSDropdownMenuPanel,
-        AgDSDropdownMenuItemRadio,
+        AGDSDropdownMenu,
+        AGDSDropdownMenuButton,
+        AGDSDropdownMenuPanel,
+        AGDSDropdownMenuItemRadio,
       },
       setup() {
         return () =>
-          h(AgDSDropdownMenu, null, {
+          h(AGDSDropdownMenu, null, {
             default: () => [
-              h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-              h(AgDSDropdownMenuPanel, null, {
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
                 default: () => [
                   h(
-                    AgDSDropdownMenuItemRadio,
+                    AGDSDropdownMenuItemRadio,
                     { id: 'radio-1', checked: true },
                     { default: () => 'Option A' },
                   ),
                   h(
-                    AgDSDropdownMenuItemRadio,
+                    AGDSDropdownMenuItemRadio,
                     { id: 'radio-2', checked: false },
                     { default: () => 'Option B' },
                   ),
@@ -279,29 +279,29 @@ describe('AgDSDropdownMenuItemRadio', () => {
 
 // ─── DropdownMenuGroup ────────────────────────────────────────────────────────
 
-describe('AgDSDropdownMenuGroup', () => {
+describe('AGDSDropdownMenuGroup', () => {
   it('renders role="group" with aria-labelledby', async () => {
     const comp = defineComponent({
       components: {
-        AgDSDropdownMenu,
-        AgDSDropdownMenuButton,
-        AgDSDropdownMenuPanel,
-        AgDSDropdownMenuGroup,
-        AgDSDropdownMenuItem,
+        AGDSDropdownMenu,
+        AGDSDropdownMenuButton,
+        AGDSDropdownMenuPanel,
+        AGDSDropdownMenuGroup,
+        AGDSDropdownMenuItem,
       },
       setup() {
         return () =>
-          h(AgDSDropdownMenu, null, {
+          h(AGDSDropdownMenu, null, {
             default: () => [
-              h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-              h(AgDSDropdownMenuPanel, null, {
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
                 default: () => [
                   h(
-                    AgDSDropdownMenuGroup,
+                    AGDSDropdownMenuGroup,
                     { label: 'Section A' },
                     {
                       default: () => [
-                        h(AgDSDropdownMenuItem, { id: 'g-item-1' }, { default: () => 'Item 1' }),
+                        h(AGDSDropdownMenuItem, { id: 'g-item-1' }, { default: () => 'Item 1' }),
                       ],
                     },
                   ),
@@ -325,26 +325,26 @@ describe('AgDSDropdownMenuGroup', () => {
 
 // ─── DropdownMenuDivider ──────────────────────────────────────────────────────
 
-describe('AgDSDropdownMenuDivider', () => {
+describe('AGDSDropdownMenuDivider', () => {
   it('renders role="separator"', async () => {
     const comp = defineComponent({
       components: {
-        AgDSDropdownMenu,
-        AgDSDropdownMenuButton,
-        AgDSDropdownMenuPanel,
-        AgDSDropdownMenuItem,
-        AgDSDropdownMenuDivider,
+        AGDSDropdownMenu,
+        AGDSDropdownMenuButton,
+        AGDSDropdownMenuPanel,
+        AGDSDropdownMenuItem,
+        AGDSDropdownMenuDivider,
       },
       setup() {
         return () =>
-          h(AgDSDropdownMenu, null, {
+          h(AGDSDropdownMenu, null, {
             default: () => [
-              h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-              h(AgDSDropdownMenuPanel, null, {
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
                 default: () => [
-                  h(AgDSDropdownMenuItem, { id: 'd-item-1' }, { default: () => 'Item 1' }),
-                  h(AgDSDropdownMenuDivider),
-                  h(AgDSDropdownMenuItem, { id: 'd-item-2' }, { default: () => 'Item 2' }),
+                  h(AGDSDropdownMenuItem, { id: 'd-item-1' }, { default: () => 'Item 1' }),
+                  h(AGDSDropdownMenuDivider),
+                  h(AGDSDropdownMenuItem, { id: 'd-item-2' }, { default: () => 'Item 2' }),
                 ],
               }),
             ],
@@ -361,24 +361,24 @@ describe('AgDSDropdownMenuDivider', () => {
 
 // ─── DropdownMenuItemLink — external ─────────────────────────────────────────
 
-describe('AgDSDropdownMenuItemLink', () => {
+describe('AGDSDropdownMenuItemLink', () => {
   it('external link has rel="noopener noreferrer" and sr-only new tab text', async () => {
     const comp = defineComponent({
       components: {
-        AgDSDropdownMenu,
-        AgDSDropdownMenuButton,
-        AgDSDropdownMenuPanel,
-        AgDSDropdownMenuItemLink,
+        AGDSDropdownMenu,
+        AGDSDropdownMenuButton,
+        AGDSDropdownMenuPanel,
+        AGDSDropdownMenuItemLink,
       },
       setup() {
         return () =>
-          h(AgDSDropdownMenu, null, {
+          h(AGDSDropdownMenu, null, {
             default: () => [
-              h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-              h(AgDSDropdownMenuPanel, null, {
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
                 default: () => [
                   h(
-                    AgDSDropdownMenuItemLink,
+                    AGDSDropdownMenuItemLink,
                     { id: 'ext-link', href: 'https://example.com', target: '_blank' },
                     { default: () => 'External' },
                   ),
@@ -400,20 +400,20 @@ describe('AgDSDropdownMenuItemLink', () => {
   it('internal link does not have rel attribute', async () => {
     const comp = defineComponent({
       components: {
-        AgDSDropdownMenu,
-        AgDSDropdownMenuButton,
-        AgDSDropdownMenuPanel,
-        AgDSDropdownMenuItemLink,
+        AGDSDropdownMenu,
+        AGDSDropdownMenuButton,
+        AGDSDropdownMenuPanel,
+        AGDSDropdownMenuItemLink,
       },
       setup() {
         return () =>
-          h(AgDSDropdownMenu, null, {
+          h(AGDSDropdownMenu, null, {
             default: () => [
-              h(AgDSDropdownMenuButton, null, { default: () => 'Options' }),
-              h(AgDSDropdownMenuPanel, null, {
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
                 default: () => [
                   h(
-                    AgDSDropdownMenuItemLink,
+                    AGDSDropdownMenuItemLink,
                     { id: 'int-link', href: '/about' },
                     { default: () => 'About' },
                   ),
@@ -433,7 +433,7 @@ describe('AgDSDropdownMenuItemLink', () => {
 
 // ─── Accessibility (axe) ──────────────────────────────────────────────────────
 
-describe('AgDSDropdownMenu — axe', () => {
+describe('AGDSDropdownMenu — axe', () => {
   it('passes axe in closed state', async () => {
     const { container } = renderDropdown()
     await runAxe(container, AXE_OPTS)

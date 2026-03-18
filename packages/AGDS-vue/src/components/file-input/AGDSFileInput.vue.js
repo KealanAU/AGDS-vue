@@ -1,7 +1,7 @@
 import { computed, getCurrentInstance, onMounted, ref } from 'vue';
-import AgDSButton from '../button/AGDSButton.vue';
-import AgDSFormStack from '../form-stack/AGDSFormStack.vue';
-import AgDSFlex from '../flex/AGDSFlex.vue';
+import AGDSButton from '../button/AGDSButton.vue';
+import AGDSFormStack from '../form-stack/AGDSFormStack.vue';
+import AGDSFlex from '../flex/AGDSFlex.vue';
 // ── MIME type → display label mapping ───────────────────────────────────────
 const FILE_TYPE_MAPPING = {
     'image/jpeg': { extensions: ['.jpg', '.jpeg'], label: 'JPEG' },
@@ -149,7 +149,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSFormStack || AgDSFormStack;
+const __VLS_0 = AGDSFormStack || AGDSFormStack;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({}));
 const __VLS_2 = __VLS_1({}, ...__VLS_functionalComponentArgsRest(__VLS_1));
@@ -176,7 +176,7 @@ if (__VLS_ctx.resolvedHint) {
     /** @type {__VLS_StyleScopedClasses['agds-file-input__hint']} */ ;
     (__VLS_ctx.resolvedHint);
 }
-const __VLS_7 = AgDSFlex || AgDSFlex;
+const __VLS_7 = AGDSFlex || AGDSFlex;
 // @ts-ignore
 const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
     flexDirection: "column",
@@ -189,7 +189,7 @@ const __VLS_9 = __VLS_8({
     gap: (1),
 }, ...__VLS_functionalComponentArgsRest(__VLS_8));
 const { default: __VLS_12 } = __VLS_10.slots;
-const __VLS_13 = AgDSButton || AgDSButton;
+const __VLS_13 = AGDSButton || AGDSButton;
 // @ts-ignore
 const __VLS_14 = __VLS_asFunctionalComponent1(__VLS_13, new __VLS_13({
     ...{ 'onClick': {} },

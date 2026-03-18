@@ -1,5 +1,5 @@
-export { default as AgDSFileUpload } from './AGDSFileUpload.vue'
-export type { AgDSFileUploadProps } from './AGDSFileUpload.vue'
+export { default as AGDSFileUpload } from './AGDSFileUpload.vue'
+export type { AGDSFileUploadProps } from './AGDSFileUpload.vue'
 
 export { formatFileSize } from './utils'
 export type {

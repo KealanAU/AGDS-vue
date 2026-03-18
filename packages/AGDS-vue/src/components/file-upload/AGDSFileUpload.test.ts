@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSFileUpload from './AGDSFileUpload.vue'
+import AGDSFileUpload from './AGDSFileUpload.vue'
 import type { FileWithStatus, ExistingFile } from './utils'
 
 const AXE_OPTS = {
@@ -11,7 +11,7 @@ const AXE_OPTS = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function renderUpload(props: Record<string, unknown> = {}) {
-  return render(AgDSFileUpload, {
+  return render(AGDSFileUpload, {
     props: { label: 'Upload documents', modelValue: [], ...props },
   })
 }
@@ -36,7 +36,7 @@ async function selectFiles(container: HTMLElement, files: File[]) {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — rendering', () => {
+describe('AGDSFileUpload — rendering', () => {
   it('renders a trigger button', () => {
     const { getByRole } = renderUpload()
     expect(getByRole('button', { name: /Select file/ })).toBeTruthy()
@@ -88,7 +88,7 @@ describe('AgDSFileUpload — rendering', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — disabled prop', () => {
+describe('AGDSFileUpload — disabled prop', () => {
   it('disables the trigger button', () => {
     const { getByRole } = renderUpload({ disabled: true })
     expect((getByRole('button', { name: /Select file/ }) as HTMLButtonElement).disabled).toBe(true)
@@ -102,7 +102,7 @@ describe('AgDSFileUpload — disabled prop', () => {
 
 // ─── File selection via hidden input ──────────────────────────────────────────
 
-describe('AgDSFileUpload — file selection', () => {
+describe('AGDSFileUpload — file selection', () => {
   it('emits update:modelValue with the selected file', async () => {
     const { container, emitted } = renderUpload()
     await selectFiles(container, [makeFile('report.pdf')])
@@ -111,14 +111,14 @@ describe('AgDSFileUpload — file selection', () => {
   })
 
   it('shows selected file in the file list after selection', async () => {
-    const { container, getByText } = render(AgDSFileUpload, {
+    const { container, getByText } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [makeFile('report.pdf')] },
     })
     expect(getByText('report.pdf')).toBeTruthy()
   })
 
   it('shows file count summary when files are selected', () => {
-    const { getByText } = render(AgDSFileUpload, {
+    const { getByText } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [makeFile('a.pdf'), makeFile('b.pdf')] },
     })
     expect(getByText('2 files selected')).toBeTruthy()
@@ -126,7 +126,7 @@ describe('AgDSFileUpload — file selection', () => {
 
   it('replaces the file in single mode', async () => {
     const existing = makeFile('old.pdf')
-    const { container, emitted } = render(AgDSFileUpload, {
+    const { container, emitted } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [existing] },
     })
     await selectFiles(container, [makeFile('new.pdf')])
@@ -138,10 +138,10 @@ describe('AgDSFileUpload — file selection', () => {
 
 // ─── File removal ─────────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — file removal', () => {
+describe('AGDSFileUpload — file removal', () => {
   it('emits update:modelValue with file removed when Remove is clicked', async () => {
     const file = makeFile('report.pdf')
-    const { getByRole, emitted } = render(AgDSFileUpload, {
+    const { getByRole, emitted } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [file] },
     })
     await fireEvent.click(getByRole('button', { name: /Remove file: report.pdf/ }))
@@ -151,7 +151,7 @@ describe('AgDSFileUpload — file removal', () => {
 
   it('emits remove-existing-file when an existing file Remove button is clicked', async () => {
     const existingFile: ExistingFile = { name: 'existing.pdf' }
-    const { getByRole, emitted } = render(AgDSFileUpload, {
+    const { getByRole, emitted } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [], existingFiles: [existingFile] },
     })
     await fireEvent.click(getByRole('button', { name: /Remove file: existing.pdf/ }))
@@ -162,7 +162,7 @@ describe('AgDSFileUpload — file removal', () => {
 
 // ─── Rejection errors ─────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — rejection errors', () => {
+describe('AGDSFileUpload — rejection errors', () => {
   it('shows an error panel when a file exceeds maxSize', async () => {
     const { container, findByRole } = renderUpload({ maxSize: 1 }) // 1 KB limit
     await selectFiles(container, [makeFile('big.pdf', 'application/pdf', 5000)])
@@ -189,7 +189,7 @@ describe('AgDSFileUpload — rejection errors', () => {
 
 // ─── Drag and drop ────────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — drag and drop', () => {
+describe('AGDSFileUpload — drag and drop', () => {
   it('emits update:modelValue when files are dropped', async () => {
     const { container, emitted } = renderUpload()
     const dropzone = container.querySelector('.agds-file-upload__dropzone')!
@@ -216,7 +216,7 @@ describe('AgDSFileUpload — drag and drop', () => {
 
 // ─── maxFiles ─────────────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — maxFiles', () => {
+describe('AGDSFileUpload — maxFiles', () => {
   it('rejects files beyond maxFiles and emits an error panel', async () => {
     const { container, findByRole } = renderUpload({ multiple: true, maxFiles: 2 })
     await selectFiles(container, [
@@ -229,9 +229,9 @@ describe('AgDSFileUpload — maxFiles', () => {
 
 // ─── Existing files ───────────────────────────────────────────────────────────
 
-describe('AgDSFileUpload — existing files', () => {
+describe('AGDSFileUpload — existing files', () => {
   it('renders existing file names', () => {
-    const { getByText } = render(AgDSFileUpload, {
+    const { getByText } = render(AGDSFileUpload, {
       props: {
         label: 'Upload',
         modelValue: [],
@@ -242,7 +242,7 @@ describe('AgDSFileUpload — existing files', () => {
   })
 
   it('renders existing files list with accessible label', () => {
-    const { getByRole } = render(AgDSFileUpload, {
+    const { getByRole } = render(AGDSFileUpload, {
       props: {
         label: 'Upload',
         modelValue: [],
@@ -255,7 +255,7 @@ describe('AgDSFileUpload — existing files', () => {
 
 // ─── Button click triggers file picker ───────────────────────────────────────
 
-describe('AgDSFileUpload — button click triggers file picker', () => {
+describe('AGDSFileUpload — button click triggers file picker', () => {
   it('calls click() on the hidden input when the button is clicked', async () => {
     const { container, getByRole } = renderUpload()
     const input = container.querySelector('input[type="file"]') as HTMLInputElement
@@ -267,7 +267,7 @@ describe('AgDSFileUpload — button click triggers file picker', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSFileUpload — axe accessibility', () => {
+describe('AGDSFileUpload — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderUpload()
     await runAxe(container, AXE_OPTS)
@@ -294,14 +294,14 @@ describe('AgDSFileUpload — axe accessibility', () => {
   })
 
   it('has no violations with selected files', async () => {
-    const { container } = render(AgDSFileUpload, {
+    const { container } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [makeFile('report.pdf')] },
     })
     await runAxe(container, AXE_OPTS)
   })
 
   it('has no violations with existing files', async () => {
-    const { container } = render(AgDSFileUpload, {
+    const { container } = render(AGDSFileUpload, {
       props: { label: 'Upload', modelValue: [], existingFiles: [{ name: 'server.pdf' }] },
     })
     await runAxe(container, AXE_OPTS)

@@ -1,19 +1,19 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSDatePicker from './AGDSDatePicker.vue'
+import AGDSDatePicker from './AGDSDatePicker.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
 } as const
 
 function renderDatePicker(props: Record<string, unknown> = {}) {
-  return render(AgDSDatePicker, { props })
+  return render(AGDSDatePicker, { props })
 }
 
 // ─── Single mode — rendering ───────────────────────────────────────────────────
 
-describe('AgDSDatePicker — single mode rendering', () => {
+describe('AGDSDatePicker — single mode rendering', () => {
   it('renders a text input', () => {
     const { getByRole } = renderDatePicker({ label: 'Date of birth' })
     expect(getByRole('textbox')).toBeTruthy()
@@ -57,7 +57,7 @@ describe('AgDSDatePicker — single mode rendering', () => {
 
 // ─── Single mode — optional label ─────────────────────────────────────────────
 
-describe('AgDSDatePicker — optional label', () => {
+describe('AGDSDatePicker — optional label', () => {
   it('appends "(optional)" when required=false (default)', () => {
     const { getByLabelText } = renderDatePicker({ label: 'Date of birth' })
     expect(getByLabelText(/Date of birth \(optional\)/)).toBeTruthy()
@@ -78,7 +78,7 @@ describe('AgDSDatePicker — optional label', () => {
 
 // ─── Single mode — hint & message ─────────────────────────────────────────────
 
-describe('AgDSDatePicker — hint and message', () => {
+describe('AGDSDatePicker — hint and message', () => {
   it('renders hint text when provided', () => {
     const { getByText } = renderDatePicker({ label: 'Date', hint: 'Use format DD/MM/YYYY' })
     expect(getByText('Use format DD/MM/YYYY')).toBeTruthy()
@@ -106,7 +106,7 @@ describe('AgDSDatePicker — hint and message', () => {
 
 // ─── Single mode — disabled ───────────────────────────────────────────────────
 
-describe('AgDSDatePicker — disabled prop', () => {
+describe('AGDSDatePicker — disabled prop', () => {
   it('disables the text input when disabled=true', () => {
     const { getByRole } = renderDatePicker({ label: 'Date', disabled: true })
     expect((getByRole('textbox') as HTMLInputElement).disabled).toBe(true)
@@ -123,7 +123,7 @@ describe('AgDSDatePicker — disabled prop', () => {
 
 // ─── Single mode — aria attributes on input ───────────────────────────────────
 
-describe('AgDSDatePicker — input ARIA attributes', () => {
+describe('AGDSDatePicker — input ARIA attributes', () => {
   it('sets aria-invalid on the input when invalid=true', () => {
     const { getByRole } = renderDatePicker({ label: 'Date', invalid: true })
     expect(getByRole('textbox').getAttribute('aria-invalid')).toBe('true')
@@ -154,7 +154,7 @@ describe('AgDSDatePicker — input ARIA attributes', () => {
 
 // ─── Single mode — trigger toggles calendar ───────────────────────────────────
 
-describe('AgDSDatePicker — trigger opens calendar', () => {
+describe('AGDSDatePicker — trigger opens calendar', () => {
   it('aria-expanded changes to true after clicking trigger', async () => {
     const { getAllByRole } = renderDatePicker({ label: 'Date of birth' })
     const triggerBtn = getAllByRole('button').find(
@@ -167,7 +167,7 @@ describe('AgDSDatePicker — trigger opens calendar', () => {
 
 // ─── Range mode — rendering ───────────────────────────────────────────────────
 
-describe('AgDSDatePicker — range mode rendering', () => {
+describe('AGDSDatePicker — range mode rendering', () => {
   it('renders a <fieldset> in range mode', () => {
     const { container } = renderDatePicker({ range: true, label: 'Date range' })
     expect(container.querySelector('fieldset')).toBeTruthy()
@@ -213,7 +213,7 @@ describe('AgDSDatePicker — range mode rendering', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSDatePicker — axe accessibility', () => {
+describe('AGDSDatePicker — axe accessibility', () => {
   it('has no violations in single mode with a label', async () => {
     const { container } = renderDatePicker({ label: 'Date of birth' })
     await runAxe(container, AXE_OPTS)

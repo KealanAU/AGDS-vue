@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
-export interface AgDSFieldMessageProps {
+export interface AGDSFieldMessageProps {
   /** Unique id so inputs can reference this via aria-describedby */
   id: string
 }
 
-defineProps<AgDSFieldMessageProps>()
+defineProps<AGDSFieldMessageProps>()
 </script>
 
 <template>
   <span :id="id" class="agds-field-message" role="alert">
-    <AgDSIcon
+    <AGDSIcon
       name="mdi:alert-circle"
       size="md"
       aria-label="Error"

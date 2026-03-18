@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSAccordion from './AGDSAccordion.vue'
-import AgDSAccordionItem from './AGDSAccordionItem.vue'
+import AGDSAccordion from './AGDSAccordion.vue'
+import AGDSAccordionItem from './AGDSAccordionItem.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -16,16 +16,16 @@ function renderAccordion(
   slot = 'Panel content',
 ) {
   return render({
-    components: { AgDSAccordion, AgDSAccordionItem },
+    components: { AGDSAccordion, AGDSAccordionItem },
     template: `
-      <AgDSAccordion v-bind="accordionProps">
-        <AgDSAccordionItem value="item-1" title="Item one" v-bind="itemProps">
+      <AGDSAccordion v-bind="accordionProps">
+        <AGDSAccordionItem value="item-1" title="Item one" v-bind="itemProps">
           ${slot}
-        </AgDSAccordionItem>
-        <AgDSAccordionItem value="item-2" title="Item two">
+        </AGDSAccordionItem>
+        <AGDSAccordionItem value="item-2" title="Item two">
           Second panel
-        </AgDSAccordionItem>
-      </AgDSAccordion>
+        </AGDSAccordionItem>
+      </AGDSAccordion>
     `,
     setup: () => ({ accordionProps, itemProps }),
   })
@@ -33,7 +33,7 @@ function renderAccordion(
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSAccordion — rendering', () => {
+describe('AGDSAccordion — rendering', () => {
   it('renders a top-level container with the accordion class', () => {
     const { container } = renderAccordion()
     expect(container.querySelector('.agds-accordion')).toBeTruthy()
@@ -55,7 +55,7 @@ describe('AgDSAccordion — rendering', () => {
 
 // ─── Trigger ─────────────────────────────────────────────────────────────────
 
-describe('AgDSAccordion — trigger', () => {
+describe('AGDSAccordion — trigger', () => {
   it('renders trigger buttons for each item', () => {
     const { getAllByRole } = renderAccordion()
     const buttons = getAllByRole('button')
@@ -87,7 +87,7 @@ describe('AgDSAccordion — trigger', () => {
 
 // ─── Open / close ─────────────────────────────────────────────────────────────
 
-describe('AgDSAccordion — open/close behaviour', () => {
+describe('AGDSAccordion — open/close behaviour', () => {
   it('panel has data-state="open" after trigger click', async () => {
     // Reka removes the hidden attribute and sets data-state="open" on the panel
     // when expanded. Testing data-state is more reliable than finding visible
@@ -125,7 +125,7 @@ describe('AgDSAccordion — open/close behaviour', () => {
 
 // ─── Props: heading level ──────────────────────────────────────────────────────
 
-describe('AgDSAccordionItem — headingLevel prop', () => {
+describe('AGDSAccordionItem — headingLevel prop', () => {
   it('defaults to h3', () => {
     const { container } = renderAccordion()
     expect(container.querySelector('h3')).toBeTruthy()
@@ -139,7 +139,7 @@ describe('AgDSAccordionItem — headingLevel prop', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSAccordionItem — disabled prop', () => {
+describe('AGDSAccordionItem — disabled prop', () => {
   it('sets data-disabled on the trigger when disabled=true', () => {
     const { getAllByRole } = renderAccordion({}, { disabled: true })
     const [trigger] = getAllByRole('button')
@@ -156,7 +156,7 @@ describe('AgDSAccordionItem — disabled prop', () => {
 
 // ─── Props: indent ────────────────────────────────────────────────────────────
 
-describe('AgDSAccordion — indent prop', () => {
+describe('AGDSAccordion — indent prop', () => {
   it('applies indented class to trigger when indent=true', () => {
     const { container } = renderAccordion({ indent: true })
     expect(
@@ -174,7 +174,7 @@ describe('AgDSAccordion — indent prop', () => {
 
 // ─── Props: background ────────────────────────────────────────────────────────
 
-describe('AgDSAccordionItem — background prop', () => {
+describe('AGDSAccordionItem — background prop', () => {
   it('applies body background class by default', () => {
     const { container } = renderAccordion()
     expect(
@@ -201,7 +201,7 @@ describe('AgDSAccordionItem — background prop', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSAccordion — axe accessibility', () => {
+describe('AGDSAccordion — axe accessibility', () => {
   it('has no violations in default (multiple, closed) state', async () => {
     const { container } = renderAccordion()
     await runAxe(container, AXE_OPTS)
@@ -237,11 +237,11 @@ describe('AgDSAccordion — axe accessibility', () => {
     // Verify the helper catches real axe failures — title prop omitted so the
     // button has no accessible name (WCAG 4.1.2).
     const { container } = render({
-      components: { AgDSAccordion, AgDSAccordionItem },
+      components: { AGDSAccordion, AGDSAccordionItem },
       template: `
-        <AgDSAccordion>
-          <AgDSAccordionItem value="bad" title="">Content</AgDSAccordionItem>
-        </AgDSAccordion>
+        <AGDSAccordion>
+          <AGDSAccordionItem value="bad" title="">Content</AGDSAccordionItem>
+        </AGDSAccordion>
       `,
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')

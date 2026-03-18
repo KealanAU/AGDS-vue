@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSGroupedFields from './AGDSGroupedFields.vue'
+import AGDSGroupedFields from './AGDSGroupedFields.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,7 +10,7 @@ const AXE_OPTS = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function renderGroupedFields(props: Record<string, unknown> = {}) {
-  return render(AgDSGroupedFields, {
+  return render(AGDSGroupedFields, {
     props: { legend: 'Date range', ...props },
     slots: {
       default: `
@@ -25,7 +25,7 @@ function renderGroupedFields(props: Record<string, unknown> = {}) {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSGroupedFields — rendering', () => {
+describe('AGDSGroupedFields — rendering', () => {
   it('renders the legend', () => {
     const { getByText } = renderGroupedFields()
     expect(getByText('Date range')).toBeTruthy()
@@ -79,7 +79,7 @@ describe('AgDSGroupedFields — rendering', () => {
 
 // ─── Legend visibility ────────────────────────────────────────────────────────
 
-describe('AgDSGroupedFields — legend visibility', () => {
+describe('AGDSGroupedFields — legend visibility', () => {
   it('visually hides the legend when visuallyHideLegend is true', () => {
     const { container } = renderGroupedFields({ visuallyHideLegend: true })
     const legend = container.querySelector('legend')
@@ -95,7 +95,7 @@ describe('AgDSGroupedFields — legend visibility', () => {
 
 // ─── ARIA — field1Props ───────────────────────────────────────────────────────
 
-describe('AgDSGroupedFields — field1Props a11y', () => {
+describe('AGDSGroupedFields — field1Props a11y', () => {
   it('sets aria-invalid=true on field 1 when field1Invalid is true', () => {
     const { container } = renderGroupedFields({ field1Invalid: true })
     const inputs = container.querySelectorAll('input')
@@ -129,7 +129,7 @@ describe('AgDSGroupedFields — field1Props a11y', () => {
 
 // ─── ARIA — field2Props ───────────────────────────────────────────────────────
 
-describe('AgDSGroupedFields — field2Props a11y', () => {
+describe('AGDSGroupedFields — field2Props a11y', () => {
   it('sets aria-invalid=true on field 2 when field2Invalid is true', () => {
     const { container } = renderGroupedFields({ field2Invalid: true })
     const inputs = container.querySelectorAll('input')
@@ -146,7 +146,7 @@ describe('AgDSGroupedFields — field2Props a11y', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSGroupedFields — axe accessibility', () => {
+describe('AGDSGroupedFields — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderGroupedFields()
     await runAxe(container, AXE_OPTS)

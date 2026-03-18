@@ -1,2 +1,2 @@
-export { default as AgDSLoadingBlanket } from './AGDSLoadingBlanket.vue'
-export type { AgDSLoadingBlanketProps } from './AGDSLoadingBlanket.vue'
+export { default as AGDSLoadingBlanket } from './AGDSLoadingBlanket.vue'
+export type { AGDSLoadingBlanketProps } from './AGDSLoadingBlanket.vue'

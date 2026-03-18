@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSDetailsProps {
+export interface AGDSDetailsProps {
   /** The label shown in the summary trigger. */
   label: string
   /** Shows an info icon before the label. */
@@ -8,7 +8,7 @@ export interface AgDSDetailsProps {
   onBodyAlt?: boolean
 }
 
-withDefaults(defineProps<AgDSDetailsProps>(), {
+withDefaults(defineProps<AGDSDetailsProps>(), {
   iconBefore: false,
   onBodyAlt: false,
 })

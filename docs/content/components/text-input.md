@@ -1,6 +1,6 @@
 ---
 title: Text Input
-description: A single-line text field wired to AgDSField. Supports all common HTML input types, v-model binding, hint text, validation messages, and width constraints.
+description: A single-line text field wired to AGDSField. Supports all common HTML input types, v-model binding, hint text, validation messages, and width constraints.
 category: Forms
 status: stable
 ---
@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`.
 
 ::doc-preview
-<AgDSTextInput label="Full name" required />
+<AGDSTextInput label="Full name" required />
 ::
 
 ```vue
@@ -21,7 +21,7 @@ const name = ref('')
 </script>
 
 <template>
-  <AgDSTextInput v-model="name" label="Full name" required />
+  <AGDSTextInput v-model="name" label="Full name" required />
 </template>
 ```
 
@@ -30,12 +30,12 @@ const name = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AgDSTextInput label="Email address" type="email" hint="We'll only use this to send your confirmation" required />
+<AGDSTextInput label="Email address" type="email" hint="We'll only use this to send your confirmation" required />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput
+  <AGDSTextInput
     v-model="email"
     label="Email address"
     type="email"
@@ -50,12 +50,12 @@ Use the `hint` prop to provide additional guidance beneath the label.
 When `required` is `false` (the default), `"(optional)"` is appended to the label. Suppress it with `hideOptionalLabel`.
 
 ::doc-preview{label="Optional field"}
-<AgDSTextInput label="Middle name" />
+<AGDSTextInput label="Middle name" />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput v-model="middle" label="Middle name" />
+  <AGDSTextInput v-model="middle" label="Middle name" />
 </template>
 ```
 
@@ -64,12 +64,12 @@ When `required` is `false` (the default), `"(optional)"` is appended to the labe
 Set `invalid` and `message` together to render the error treatment. The message is linked via `aria-describedby`.
 
 ::doc-preview{label="Invalid"}
-<AgDSTextInput label="Email address" type="email" :invalid="true" message="Enter a valid email address" required />
+<AGDSTextInput label="Email address" type="email" :invalid="true" message="Enter a valid email address" required />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput
+  <AGDSTextInput
     v-model="email"
     label="Email address"
     type="email"
@@ -83,12 +83,12 @@ Set `invalid` and `message` together to render the error treatment. The message 
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AgDSTextInput label="Full name" model-value="Jane Smith" disabled required />
+<AGDSTextInput label="Full name" model-value="Jane Smith" disabled required />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput v-model="name" label="Full name" disabled required />
+  <AGDSTextInput v-model="name" label="Full name" disabled required />
 </template>
 ```
 
@@ -97,16 +97,16 @@ Set `invalid` and `message` together to render the error treatment. The message 
 Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to `md`.
 
 ::doc-preview{label="Max widths"}
-<AgDSTextInput label="Extra small" max-width="xs" required />
-<AgDSTextInput label="Small" max-width="sm" required />
-<AgDSTextInput label="Medium (default)" max-width="md" required />
-<AgDSTextInput label="Large" max-width="lg" required />
-<AgDSTextInput label="Extra large" max-width="xl" required />
+<AGDSTextInput label="Extra small" max-width="xs" required />
+<AGDSTextInput label="Small" max-width="sm" required />
+<AGDSTextInput label="Medium (default)" max-width="md" required />
+<AGDSTextInput label="Large" max-width="lg" required />
+<AGDSTextInput label="Extra large" max-width="xl" required />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput v-model="value" label="Phone number" max-width="sm" required />
+  <AGDSTextInput v-model="value" label="Phone number" max-width="sm" required />
 </template>
 ```
 
@@ -115,12 +115,12 @@ Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to
 Set `block` to stretch the input to the full width of its container. Overrides `maxWidth`.
 
 ::doc-preview{label="Block"}
-<AgDSTextInput label="Full name" block required />
+<AGDSTextInput label="Full name" block required />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput v-model="name" label="Full name" block required />
+  <AGDSTextInput v-model="name" label="Full name" block required />
 </template>
 ```
 
@@ -129,16 +129,16 @@ Set `block` to stretch the input to the full width of its container. Overrides `
 Pass any valid `<input>` type via the `type` prop.
 
 ::doc-preview{label="Input types"}
-<AgDSTextInput label="Email" type="email" required />
-<AgDSTextInput label="Phone number" type="tel" required />
-<AgDSTextInput label="Website" type="url" required />
-<AgDSTextInput label="Age" type="number" required />
+<AGDSTextInput label="Email" type="email" required />
+<AGDSTextInput label="Phone number" type="tel" required />
+<AGDSTextInput label="Website" type="url" required />
+<AGDSTextInput label="Age" type="number" required />
 ::
 
 ```vue
 <template>
-  <AgDSTextInput v-model="email" label="Email" type="email" required />
-  <AgDSTextInput v-model="phone" label="Phone number" type="tel" required />
+  <AGDSTextInput v-model="email" label="Email" type="email" required />
+  <AGDSTextInput v-model="phone" label="Phone number" type="tel" required />
 </template>
 ```
 

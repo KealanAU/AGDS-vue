@@ -7,34 +7,34 @@ status: stable
 
 ## Usage
 
-Use `AgDSHeading` to render a heading with the correct font size for its level. The default level is `h2`.
+Use `AGDSHeading` to render a heading with the correct font size for its level. The default level is `h2`.
 
 ::doc-preview
-<AgDSHeading type="h1">Page title</AgDSHeading>
-<AgDSHeading type="h2">Section heading</AgDSHeading>
-<AgDSHeading type="h3">Subsection heading</AgDSHeading>
+<AGDSHeading type="h1">Page title</AGDSHeading>
+<AGDSHeading type="h2">Section heading</AGDSHeading>
+<AGDSHeading type="h3">Subsection heading</AGDSHeading>
 ::
 
 ```vue
 <template>
-  <AgDSHeading type="h1">Page title</AgDSHeading>
-  <AgDSHeading type="h2">Section heading</AgDSHeading>
-  <AgDSHeading type="h3">Subsection heading</AgDSHeading>
+  <AGDSHeading type="h1">Page title</AGDSHeading>
+  <AGDSHeading type="h2">Section heading</AGDSHeading>
+  <AGDSHeading type="h3">Subsection heading</AGDSHeading>
 </template>
 ```
 
 ## Convenience components
 
-Shorthand components are available for each heading level. They are equivalent to `<AgDSHeading type="h1" />` etc.
+Shorthand components are available for each heading level. They are equivalent to `<AGDSHeading type="h1" />` etc.
 
 ```vue
 <template>
-  <AgDSH1>Page title</AgDSH1>
-  <AgDSH2>Section heading</AgDSH2>
-  <AgDSH3>Subsection</AgDSH3>
-  <AgDSH4>Sub-subsection</AgDSH4>
-  <AgDSH5>Minor heading</AgDSH5>
-  <AgDSH6>Caption-level heading</AgDSH6>
+  <AGDSH1>Page title</AGDSH1>
+  <AGDSH2>Section heading</AGDSH2>
+  <AGDSH3>Subsection</AGDSH3>
+  <AGDSH4>Sub-subsection</AGDSH4>
+  <AGDSH5>Minor heading</AGDSH5>
+  <AGDSH6>Caption-level heading</AGDSH6>
 </template>
 ```
 
@@ -45,9 +45,9 @@ Use the `as` prop to render a different HTML element while keeping the font size
 ```vue
 <template>
   <!-- Visually looks like an h2 but renders as h3 in the DOM -->
-  <AgDSHeading type="h2" as="h3">
+  <AGDSHeading type="h2" as="h3">
     Visually large, semantically h3
-  </AgDSHeading>
+  </AGDSHeading>
 </template>
 ```
 
@@ -74,4 +74,4 @@ Use the `as` prop to render a different HTML element while keeping the font size
 
 ### 0.1.0
 
-- Initial release — `type`, `as` props; `AgDSH1`–`AgDSH6` convenience components
+- Initial release — `type`, `as` props; `AGDSH1`–`AGDSH6` convenience components

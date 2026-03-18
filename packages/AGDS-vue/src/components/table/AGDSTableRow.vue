@@ -5,7 +5,7 @@ import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as TableRowBackground }
 
-export interface AgDSTableRowProps {
+export interface AGDSTableRowProps {
   /** The row index in the full dataset (for virtualised/paginated tables). */
   'aria-rowindex'?: number
   /** Explicit background colour. Overridden by invalid or selected. */
@@ -21,7 +21,7 @@ export interface AgDSTableRowProps {
   selected?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSTableRowProps>(), {
+const props = withDefaults(defineProps<AGDSTableRowProps>(), {
   clickable: false,
   invalid: false,
   selected: false,

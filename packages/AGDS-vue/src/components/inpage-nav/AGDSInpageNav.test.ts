@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSInpageNav from './AGDSInpageNav.vue'
+import AGDSInpageNav from './AGDSInpageNav.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -14,12 +14,12 @@ const LINKS = [
 ]
 
 function renderNav(props: Record<string, unknown> = {}) {
-  return render(AgDSInpageNav, { props: { links: LINKS, ...props } })
+  return render(AGDSInpageNav, { props: { links: LINKS, ...props } })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSInpageNav — rendering', () => {
+describe('AGDSInpageNav — rendering', () => {
   it('renders a <nav> landmark', () => {
     renderNav()
     expect(screen.getByRole('navigation')).toBeTruthy()
@@ -61,7 +61,7 @@ describe('AgDSInpageNav — rendering', () => {
 
 // ─── Title prop ───────────────────────────────────────────────────────────────
 
-describe('AgDSInpageNav — title prop', () => {
+describe('AGDSInpageNav — title prop', () => {
   it('renders an <h2> when title is provided', () => {
     const { container } = renderNav({ title: 'Contents' })
     const heading = container.querySelector('h2.agds-inpage-nav__title')
@@ -77,7 +77,7 @@ describe('AgDSInpageNav — title prop', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSInpageNav — axe', () => {
+describe('AGDSInpageNav — axe', () => {
   it('has no violations without a title', async () => {
     const { container } = renderNav()
     await runAxe(container, AXE_OPTS)

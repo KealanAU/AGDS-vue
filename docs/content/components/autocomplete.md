@@ -22,7 +22,7 @@ async function fetchOptions(query) {
 </script>
 
 <template>
-  <AgDSAutocomplete
+  <AGDSAutocomplete
     v-model="selected"
     label="Search countries"
     :fetch-options="fetchOptions"
@@ -34,7 +34,7 @@ async function fetchOptions(query) {
 
 ```vue
 <template>
-  <AgDSAutocomplete
+  <AGDSAutocomplete
     v-model="selected"
     label="Search locations"
     placeholder="Start typing…"
@@ -49,7 +49,7 @@ By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust 
 
 ```vue
 <template>
-  <AgDSAutocomplete
+  <AGDSAutocomplete
     v-model="selected"
     label="Search"
     :debounce="500"
@@ -64,7 +64,7 @@ Override the default "No results found" message shown when the fetch returns an 
 
 ```vue
 <template>
-  <AgDSAutocomplete
+  <AGDSAutocomplete
     v-model="selected"
     label="Search services"
     empty-results-message="No services match your search."
@@ -79,7 +79,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
 
 ```vue
 <template>
-  <AgDSAutocomplete
+  <AGDSAutocomplete
     v-model="selected"
     label="Search users"
     :fetch-options="fetchUsers"
@@ -88,7 +88,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
       <strong>{{ option.label }}</strong>
       <span style="color: grey; margin-left: 0.5rem;">{{ option.value }}</span>
     </template>
-  </AgDSAutocomplete>
+  </AGDSAutocomplete>
 </template>
 ```
 
@@ -96,7 +96,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
 
 ```vue
 <template>
-  <AgDSAutocomplete
+  <AGDSAutocomplete
     v-model="selected"
     label="Search"
     disabled

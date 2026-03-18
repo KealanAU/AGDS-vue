@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AgDSDropdownMenu from '../dropdown-menu/AGDSDropdownMenu.vue'
-import AgDSDropdownMenuButton from '../dropdown-menu/AGDSDropdownMenuButton.vue'
-import AgDSDropdownMenuPanel from '../dropdown-menu/AGDSDropdownMenuPanel.vue'
-import AgDSDropdownMenuItemLink from '../dropdown-menu/AGDSDropdownMenuItemLink.vue'
+import AGDSDropdownMenu from '../dropdown-menu/AGDSDropdownMenu.vue'
+import AGDSDropdownMenuButton from '../dropdown-menu/AGDSDropdownMenuButton.vue'
+import AGDSDropdownMenuPanel from '../dropdown-menu/AGDSDropdownMenuPanel.vue'
+import AGDSDropdownMenuItemLink from '../dropdown-menu/AGDSDropdownMenuItemLink.vue'
 import { type MainNavItem, isLinkItem, isDropdownItem } from './mainNavTypes'
 
 interface Props {
@@ -45,23 +45,23 @@ const props = withDefaults(defineProps<Props>(), {
         </a>
 
         <!-- Dropdown -->
-        <AgDSDropdownMenu
+        <AGDSDropdownMenu
           v-else-if="isDropdownItem(item)"
           popover-placement="bottom-end"
           :popover-offset="-8"
         >
-          <AgDSDropdownMenuButton>{{ item.label }}</AgDSDropdownMenuButton>
-          <AgDSDropdownMenuPanel>
+          <AGDSDropdownMenuButton>{{ item.label }}</AGDSDropdownMenuButton>
+          <AGDSDropdownMenuPanel>
             <template v-for="(sub, si) in item.items" :key="si">
-              <AgDSDropdownMenuItemLink
+              <AGDSDropdownMenuItemLink
                 v-if="isLinkItem(sub)"
                 :href="sub.href"
               >
                 {{ sub.label }}
-              </AgDSDropdownMenuItemLink>
+              </AGDSDropdownMenuItemLink>
             </template>
-          </AgDSDropdownMenuPanel>
-        </AgDSDropdownMenu>
+          </AGDSDropdownMenuPanel>
+        </AGDSDropdownMenu>
 
         <!-- Button -->
         <button

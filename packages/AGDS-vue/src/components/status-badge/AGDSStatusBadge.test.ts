@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSStatusBadge from './AGDSStatusBadge.vue'
+import AGDSStatusBadge from './AGDSStatusBadge.vue'
 import { statusBadgeToneMap } from './statusBadgeUtils'
 import type { StatusBadgeTones } from './statusBadgeUtils'
 
@@ -17,14 +17,14 @@ const modernTones = Object.keys(statusBadgeToneMap).filter(
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderBadge(props: Record<string, unknown> = {}) {
-  return render(AgDSStatusBadge, {
+  return render(AGDSStatusBadge, {
     props: { label: 'Pending', tone: 'infoHigh', ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSStatusBadge — rendering', () => {
+describe('AGDSStatusBadge — rendering', () => {
   it('renders a <span> root element', () => {
     const { container } = renderBadge()
     expect(container.querySelector('span.agds-status-badge')).toBeTruthy()
@@ -53,7 +53,7 @@ describe('AgDSStatusBadge — rendering', () => {
 
 // ─── Props: tone (modern) ─────────────────────────────────────────────────────
 
-describe('AgDSStatusBadge — tone prop (modern tones)', () => {
+describe('AGDSStatusBadge — tone prop (modern tones)', () => {
   it.each(modernTones)(
     'applies agds-status-badge--regular class with tone="%s"',
     (tone) => {
@@ -65,7 +65,7 @@ describe('AgDSStatusBadge — tone prop (modern tones)', () => {
 
 // ─── Props: appearance ────────────────────────────────────────────────────────
 
-describe('AgDSStatusBadge — appearance prop', () => {
+describe('AGDSStatusBadge — appearance prop', () => {
   it('defaults to regular appearance', () => {
     const { container } = renderBadge()
     expect(container.querySelector('.agds-status-badge--regular')).toBeTruthy()
@@ -86,7 +86,7 @@ describe('AgDSStatusBadge — appearance prop', () => {
 
 // ─── Props: weight (deprecated) ──────────────────────────────────────────────
 
-describe('AgDSStatusBadge — weight prop (deprecated)', () => {
+describe('AGDSStatusBadge — weight prop (deprecated)', () => {
   it('weight="subtle" applies --subtle class when appearance is not set', () => {
     const { container } = renderBadge({ weight: 'subtle' })
     expect(container.querySelector('.agds-status-badge--subtle')).toBeTruthy()
@@ -101,7 +101,7 @@ describe('AgDSStatusBadge — weight prop (deprecated)', () => {
 
 // ─── Props: legacy tone aliases ───────────────────────────────────────────────
 
-describe('AgDSStatusBadge — legacy tone aliases', () => {
+describe('AGDSStatusBadge — legacy tone aliases', () => {
   const legacyMap = [
     ['success', 'successMedium'],
     ['error',   'errorMedium'],
@@ -139,7 +139,7 @@ describe('AgDSStatusBadge — legacy tone aliases', () => {
 
 // ─── ARIA ─────────────────────────────────────────────────────────────────────
 
-describe('AgDSStatusBadge — ARIA', () => {
+describe('AGDSStatusBadge — ARIA', () => {
   it('icon has aria-hidden="false"', () => {
     const { container } = renderBadge()
     expect(
@@ -173,7 +173,7 @@ describe('AgDSStatusBadge — ARIA', () => {
 
 // ─── Icon variant ─────────────────────────────────────────────────────────────
 
-describe('AgDSStatusBadge — icon variant', () => {
+describe('AGDSStatusBadge — icon variant', () => {
   it('High tones render a filled SVG (fill="currentColor")', () => {
     for (const tone of ['errorHigh', 'infoHigh', 'successHigh', 'warningHigh'] as const) {
       const { container } = renderBadge({ tone })
@@ -196,7 +196,7 @@ describe('AgDSStatusBadge — icon variant', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSStatusBadge — axe accessibility', () => {
+describe('AGDSStatusBadge — axe accessibility', () => {
   it.each(modernTones)(
     'has no violations: tone=%s, appearance=regular',
     async (tone) => {

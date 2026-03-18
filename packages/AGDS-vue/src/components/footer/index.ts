@@ -1,5 +1,5 @@
-export { default as AgDSFooter } from './AGDSFooter.vue'
-export type { AgDSFooterProps } from './AGDSFooter.vue'
+export { default as AGDSFooter } from './AGDSFooter.vue'
+export type { AGDSFooterProps } from './AGDSFooter.vue'
 
-export { default as AgDSFooterDivider } from './AGDSFooterDivider.vue'
-export type { AgDSFooterDividerProps } from './AGDSFooterDivider.vue'
+export { default as AGDSFooterDivider } from './AGDSFooterDivider.vue'
+export type { AGDSFooterDividerProps } from './AGDSFooterDivider.vue'

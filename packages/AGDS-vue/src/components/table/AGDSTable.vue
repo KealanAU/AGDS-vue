@@ -4,7 +4,7 @@ import { TABLE_CONTEXT_KEY } from './tableContext'
 
 export type TableLayout = 'auto' | 'fixed'
 
-export interface AgDSTableProps {
+export interface AGDSTableProps {
   /** Alternating rows get a subtle background. */
   striped?: boolean
   /** Setting this to -1 makes the table programmatically focusable. */
@@ -16,7 +16,7 @@ export interface AgDSTableProps {
   // pass through automatically via inheritAttrs to the <table> element.
 }
 
-const props = withDefaults(defineProps<AgDSTableProps>(), {
+const props = withDefaults(defineProps<AGDSTableProps>(), {
   tableLayout: 'auto',
 })
 

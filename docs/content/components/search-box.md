@@ -7,13 +7,13 @@ status: stable
 
 ## Usage
 
-Compose `AgDSSearchBox`, `AgDSSearchBoxInput`, and `AgDSSearchBoxButton` together. The form wraps its children in a flex row and carries `role="search"` so screen readers can navigate directly to the search landmark.
+Compose `AGDSSearchBox`, `AGDSSearchBoxInput`, and `AGDSSearchBoxButton` together. The form wraps its children in a flex row and carries `role="search"` so screen readers can navigate directly to the search landmark.
 
 ::doc-preview
-<AgDSSearchBox>
-  <AgDSSearchBoxInput />
-  <AgDSSearchBoxButton label="Search" />
-</AgDSSearchBox>
+<AGDSSearchBox>
+  <AGDSSearchBoxInput />
+  <AGDSSearchBoxButton label="Search" />
+</AGDSSearchBox>
 ::
 
 ```vue
@@ -29,10 +29,10 @@ function onSubmit(event) {
 </script>
 
 <template>
-  <AgDSSearchBox @submit="onSubmit">
-    <AgDSSearchBoxInput v-model="query" />
-    <AgDSSearchBoxButton label="Search" />
-  </AgDSSearchBox>
+  <AGDSSearchBox @submit="onSubmit">
+    <AGDSSearchBoxInput v-model="query" />
+    <AGDSSearchBoxButton label="Search" />
+  </AGDSSearchBox>
 </template>
 ```
 
@@ -41,97 +41,97 @@ function onSubmit(event) {
 By default the input label is visually hidden but announced by screen readers. Set `label-visible` to display it above the input — useful when the search box appears outside of a header context.
 
 ::doc-preview{label="Visible label"}
-<AgDSSearchBox>
-  <AgDSSearchBoxInput label="Search the site" label-visible />
-  <AgDSSearchBoxButton label="Search" />
-</AgDSSearchBox>
+<AGDSSearchBox>
+  <AGDSSearchBoxInput label="Search the site" label-visible />
+  <AGDSSearchBoxButton label="Search" />
+</AGDSSearchBox>
 ::
 
 ```vue
 <template>
-  <AgDSSearchBox>
-    <AgDSSearchBoxInput v-model="query" label="Search the site" label-visible />
-    <AgDSSearchBoxButton label="Search" />
-  </AgDSSearchBox>
+  <AGDSSearchBox>
+    <AGDSSearchBoxInput v-model="query" label="Search the site" label-visible />
+    <AGDSSearchBoxButton label="Search" />
+  </AGDSSearchBox>
 </template>
 ```
 
 ## Icon-only button
 
-Set `icon-only` on `AgDSSearchBoxButton` to show only the search icon. The `label` prop still provides the accessible name via `aria-label`.
+Set `icon-only` on `AGDSSearchBoxButton` to show only the search icon. The `label` prop still provides the accessible name via `aria-label`.
 
 ::doc-preview{label="Icon-only button"}
-<AgDSSearchBox>
-  <AgDSSearchBoxInput />
-  <AgDSSearchBoxButton label="Search" icon-only />
-</AgDSSearchBox>
+<AGDSSearchBox>
+  <AGDSSearchBoxInput />
+  <AGDSSearchBoxButton label="Search" icon-only />
+</AGDSSearchBox>
 ::
 
 ```vue
 <template>
-  <AgDSSearchBox>
-    <AgDSSearchBoxInput v-model="query" />
-    <AgDSSearchBoxButton label="Search" icon-only />
-  </AgDSSearchBox>
+  <AGDSSearchBox>
+    <AGDSSearchBoxInput v-model="query" />
+    <AGDSSearchBoxButton label="Search" icon-only />
+  </AGDSSearchBox>
 </template>
 ```
 
 ## Clear button
 
-A clear button appears automatically inside `AgDSSearchBoxInput` when the input has a value. It is a native `<button>` so keyboard users can Tab to it and activate it with `Space` or `Enter`.
+A clear button appears automatically inside `AGDSSearchBoxInput` when the input has a value. It is a native `<button>` so keyboard users can Tab to it and activate it with `Space` or `Enter`.
 
 ::doc-preview{label="Clear button visible"}
-<AgDSSearchBox>
-  <AgDSSearchBoxInput :model-value="'climate change'" />
-  <AgDSSearchBoxButton label="Search" />
-</AgDSSearchBox>
+<AGDSSearchBox>
+  <AGDSSearchBoxInput :model-value="'climate change'" />
+  <AGDSSearchBoxButton label="Search" />
+</AGDSSearchBox>
 ::
 
 ```vue
 <template>
-  <AgDSSearchBox @submit.prevent="onSubmit">
-    <AgDSSearchBoxInput v-model="query" />
-    <AgDSSearchBoxButton label="Search" />
-  </AgDSSearchBox>
+  <AGDSSearchBox @submit.prevent="onSubmit">
+    <AGDSSearchBoxInput v-model="query" />
+    <AGDSSearchBoxButton label="Search" />
+  </AGDSSearchBox>
 </template>
 ```
 
 ## Custom aria-label
 
-When multiple search forms exist on the page, use `aria-label` on `AgDSSearchBox` to distinguish the landmarks.
+When multiple search forms exist on the page, use `aria-label` on `AGDSSearchBox` to distinguish the landmarks.
 
 ```vue
 <template>
-  <AgDSSearchBox aria-label="Search products">
-    <AgDSSearchBoxInput v-model="query" label="Search products" />
-    <AgDSSearchBoxButton label="Search" />
-  </AgDSSearchBox>
+  <AGDSSearchBox aria-label="Search products">
+    <AGDSSearchBoxInput v-model="query" label="Search products" />
+    <AGDSSearchBoxButton label="Search" />
+  </AGDSSearchBox>
 </template>
 ```
 
 ---
 
-## AgDSSearchBox props
+## AGDSSearchBox props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `ariaLabel` | `string` | `'Sitewide'` | Accessible label for the `role="search"` landmark |
 
-## AgDSSearchBox events
+## AGDSSearchBox events
 
 | Event | Payload | Description |
 |-------|---------|-------------|
 | `submit` | `SubmitEvent` | Fired when the form is submitted |
 
-## AgDSSearchBox slots
+## AGDSSearchBox slots
 
 | Slot | Description |
 |------|-------------|
-| `default` | Accepts `AgDSSearchBoxInput` and `AgDSSearchBoxButton` |
+| `default` | Accepts `AGDSSearchBoxInput` and `AGDSSearchBoxButton` |
 
 ---
 
-## AgDSSearchBoxInput props
+## AGDSSearchBoxInput props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -143,7 +143,7 @@ When multiple search forms exist on the page, use `aria-label` on `AgDSSearchBox
 | `name` | `string` | — | Native `name` attribute |
 | `placeholder` | `string` | — | Native `placeholder` attribute |
 
-## AgDSSearchBoxInput events
+## AGDSSearchBoxInput events
 
 | Event | Payload | Description |
 |-------|---------|-------------|
@@ -153,7 +153,7 @@ When multiple search forms exist on the page, use `aria-label` on `AgDSSearchBox
 
 ---
 
-## AgDSSearchBoxButton props
+## AGDSSearchBoxButton props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -172,10 +172,10 @@ When multiple search forms exist on the page, use `aria-label` on `AgDSSearchBox
 
 ## Accessibility
 
-- `AgDSSearchBox` renders `<form role="search">` — a native search landmark navigable via screen reader shortcuts
+- `AGDSSearchBox` renders `<form role="search">` — a native search landmark navigable via screen reader shortcuts
 - `aria-label` on the form distinguishes the region when multiple search forms exist on the page (WCAG 3.2.4)
 - The input label is always present in the DOM (visible or `sr-only`) and associated via `for`/`id` (WCAG 1.3.1)
-- `AgDSSearchBoxButton` always carries an `aria-label` matching the visible text, satisfying WCAG 2.5.3
+- `AGDSSearchBoxButton` always carries an `aria-label` matching the visible text, satisfying WCAG 2.5.3
 - Search and close icon SVGs are `aria-hidden="true"` — decorative; the label carries the accessible name
 - The clear button is a native `<button type="button">` — keyboard-focusable and activatable with `Space`/`Enter`
 - The browser's native webkit search cancel button is suppressed to avoid a duplicate control

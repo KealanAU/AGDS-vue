@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSComboboxAsync from './AGDSComboboxAsync.vue';
+import AGDSComboboxAsync from './AGDSComboboxAsync.vue';
 const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (async () => {
     const props = withDefaults(defineProps(), {
         emptyResultsMessage: 'No results found',
@@ -27,7 +27,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     let __VLS_components;
     let __VLS_intrinsics;
     let __VLS_directives;
-    const __VLS_0 = AgDSComboboxAsync || AgDSComboboxAsync;
+    const __VLS_0 = AGDSComboboxAsync || AGDSComboboxAsync;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         ...{ 'onFocus': {} },

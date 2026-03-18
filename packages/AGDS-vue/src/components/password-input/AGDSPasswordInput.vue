@@ -3,9 +3,9 @@ import { computed, getCurrentInstance, ref } from 'vue'
 import AGDSField from '../field/AGDSField.vue'
 import type { FieldMaxWidth } from '../field/AGDSField.vue'
 import AGDSCheckbox from '../checkbox/AGDSCheckbox.vue'
-import AgDSStack from '../stack/AGDSStack.vue'
+import AGDSStack from '../stack/AGDSStack.vue'
 
-export interface AgDSPasswordInputProps {
+export interface AGDSPasswordInputProps {
   /** Describes the purpose of the field */
   label: string
   /** If true, "(optional)" will never be appended to the label */
@@ -34,7 +34,7 @@ export interface AgDSPasswordInputProps {
   modelValue?: string
 }
 
-const props = withDefaults(defineProps<AgDSPasswordInputProps>(), {
+const props = withDefaults(defineProps<AGDSPasswordInputProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,
@@ -69,7 +69,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 </script>
 
 <template>
-  <AgDSStack :gap="1">
+  <AGDSStack :gap="1">
     <AGDSField
       :label="props.label"
       :id="inputId"
@@ -112,7 +112,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
     >
       Show password
     </AGDSCheckbox>
-  </AgDSStack>
+  </AGDSStack>
 </template>
 
 <style scoped>

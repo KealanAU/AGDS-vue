@@ -1,6 +1,6 @@
-export { default as AgDSDatePicker } from './AGDSDatePicker.vue'
+export { default as AGDSDatePicker } from './AGDSDatePicker.vue'
 export type {
-  AgDSDatePickerProps,
+  AGDSDatePickerProps,
   DatePickerSingleValue,
   DatePickerRangeValue,
 } from './AGDSDatePicker.vue'

@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 export type GlobalAlertTone = 'info' | 'warning'
 
-export interface AgDSGlobalAlertProps {
+export interface AGDSGlobalAlertProps {
   /** Title displayed as a heading above the alert body. */
   title?: string
   /** Controls background colour and icon. Defaults to 'warning'. */
@@ -12,7 +12,7 @@ export interface AgDSGlobalAlertProps {
   onClose?: () => void
 }
 
-const props = withDefaults(defineProps<AgDSGlobalAlertProps>(), {
+const props = withDefaults(defineProps<AGDSGlobalAlertProps>(), {
   tone: 'warning',
 })
 

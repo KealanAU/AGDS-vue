@@ -10,16 +10,16 @@ status: stable
 Use the default slot for body content. A `title` can be added to provide a heading.
 
 ::doc-preview
-<AgDSCallout title="Important notice">
+<AGDSCallout title="Important notice">
   <p>Your application must be submitted before 5pm AEST on the closing date.</p>
-</AgDSCallout>
+</AGDSCallout>
 ::
 
 ```vue
 <template>
-  <AgDSCallout title="Important notice">
+  <AGDSCallout title="Important notice">
     <p>Your application must be submitted before 5pm AEST on the closing date.</p>
-  </AgDSCallout>
+  </AGDSCallout>
 </template>
 ```
 
@@ -28,22 +28,22 @@ Use the default slot for body content. A `title` can be added to provide a headi
 Use the `tone` prop to change the visual meaning. `neutral` (default) is for general callouts; `info` is for informational messages and includes an info icon automatically.
 
 ::doc-preview{label="Tones"}
-<AgDSCallout tone="neutral" title="Neutral">
+<AGDSCallout tone="neutral" title="Neutral">
   <p>This is a neutral callout for general supplementary information.</p>
-</AgDSCallout>
-<AgDSCallout tone="info" title="Information">
+</AGDSCallout>
+<AGDSCallout tone="info" title="Information">
   <p>This is an informational callout. An info icon is shown automatically.</p>
-</AgDSCallout>
+</AGDSCallout>
 ::
 
 ```vue
 <template>
-  <AgDSCallout tone="neutral" title="Neutral">
+  <AGDSCallout tone="neutral" title="Neutral">
     <p>This is a neutral callout.</p>
-  </AgDSCallout>
-  <AgDSCallout tone="info" title="Information">
+  </AGDSCallout>
+  <AGDSCallout tone="info" title="Information">
     <p>This is an informational callout.</p>
-  </AgDSCallout>
+  </AGDSCallout>
 </template>
 ```
 
@@ -52,22 +52,22 @@ Use the `tone` prop to change the visual meaning. `neutral` (default) is for gen
 Use the `variant` prop to change padding and layout. `compact` suits dense UIs; `regular` (default) is for standard page content; `feature` is for prominent promotional callouts.
 
 ::doc-preview{label="Variants"}
-<AgDSCallout variant="compact" title="Compact">
+<AGDSCallout variant="compact" title="Compact">
   <p>Compact variant for inline or dense contexts.</p>
-</AgDSCallout>
-<AgDSCallout variant="regular" title="Regular">
+</AGDSCallout>
+<AGDSCallout variant="regular" title="Regular">
   <p>Regular variant — the standard choice for page content.</p>
-</AgDSCallout>
-<AgDSCallout variant="feature" title="Feature">
+</AGDSCallout>
+<AGDSCallout variant="feature" title="Feature">
   <p>Feature variant for high-visibility callouts.</p>
-</AgDSCallout>
+</AGDSCallout>
 ::
 
 ```vue
 <template>
-  <AgDSCallout variant="compact" title="Compact">…</AgDSCallout>
-  <AgDSCallout variant="regular" title="Regular">…</AgDSCallout>
-  <AgDSCallout variant="feature" title="Feature">…</AgDSCallout>
+  <AGDSCallout variant="compact" title="Compact">…</AGDSCallout>
+  <AGDSCallout variant="regular" title="Regular">…</AGDSCallout>
+  <AGDSCallout variant="feature" title="Feature">…</AGDSCallout>
 </template>
 ```
 
@@ -77,12 +77,12 @@ Replace the default info icon with a custom one using the `icon` slot.
 
 ```vue
 <template>
-  <AgDSCallout tone="info" title="Did you know?">
+  <AGDSCallout tone="info" title="Did you know?">
     <template #icon>
       <svg aria-hidden="true" …>…</svg>
     </template>
     <p>Custom icon callout content.</p>
-  </AgDSCallout>
+  </AGDSCallout>
 </template>
 ```
 
@@ -93,9 +93,9 @@ Use `onBodyAlt` when the callout sits on an off-white (`bodyAlt`) background so 
 ```vue
 <template>
   <!-- Parent section has a bodyAlt (off-white) background -->
-  <AgDSCallout on-body-alt title="Note">
+  <AGDSCallout on-body-alt title="Note">
     <p>This callout is on a bodyAlt surface.</p>
-  </AgDSCallout>
+  </AGDSCallout>
 </template>
 ```
 
@@ -105,9 +105,9 @@ Render as `<aside>` with `aria-label` to create a complementary landmark region 
 
 ```vue
 <template>
-  <AgDSCallout as="aside" aria-label="Eligibility note" title="Check your eligibility">
+  <AGDSCallout as="aside" aria-label="Eligibility note" title="Check your eligibility">
     <p>You must be 18 or older to apply.</p>
-  </AgDSCallout>
+  </AGDSCallout>
 </template>
 ```
 

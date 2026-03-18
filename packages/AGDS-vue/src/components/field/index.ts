@@ -1,16 +1,16 @@
-export { default as AgDSField } from './AGDSField.vue'
-export type { AgDSFieldProps } from './AGDSField.vue'
+export { default as AGDSField } from './AGDSField.vue'
+export type { AGDSFieldProps } from './AGDSField.vue'
 
-export { default as AgDSFieldContainer } from './AGDSFieldContainer.vue'
-export type { AgDSFieldContainerProps } from './AGDSFieldContainer.vue'
+export { default as AGDSFieldContainer } from './AGDSFieldContainer.vue'
+export type { AGDSFieldContainerProps } from './AGDSFieldContainer.vue'
 
-export { default as AgDSFieldLabel } from './AGDSFieldLabel.vue'
-export type { AgDSFieldLabelProps } from './AGDSFieldLabel.vue'
+export { default as AGDSFieldLabel } from './AGDSFieldLabel.vue'
+export type { AGDSFieldLabelProps } from './AGDSFieldLabel.vue'
 
-export { default as AgDSFieldHint } from './AGDSFieldHint.vue'
-export type { AgDSFieldHintProps } from './AGDSFieldHint.vue'
+export { default as AGDSFieldHint } from './AGDSFieldHint.vue'
+export type { AGDSFieldHintProps } from './AGDSFieldHint.vue'
 
-export { default as AgDSFieldMessage } from './AGDSFieldMessage.vue'
-export type { AgDSFieldMessageProps } from './AGDSFieldMessage.vue'
+export { default as AGDSFieldMessage } from './AGDSFieldMessage.vue'
+export type { AGDSFieldMessageProps } from './AGDSFieldMessage.vue'
 
 export { useScrollToField } from './useScrollToField'

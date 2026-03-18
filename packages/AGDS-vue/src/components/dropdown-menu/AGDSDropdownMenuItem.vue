@@ -3,12 +3,12 @@ import { computed, ref, watch, getCurrentInstance } from 'vue'
 import { useDropdownMenuContext } from './dropdownMenuContext'
 import type { Component } from 'vue'
 
-export interface AgDSDropdownMenuItemProps {
+export interface AGDSDropdownMenuItemProps {
   id?: string
   icon?: Component
 }
 
-const props = defineProps<AgDSDropdownMenuItemProps>()
+const props = defineProps<AGDSDropdownMenuItemProps>()
 
 const emit = defineEmits<{
   click: [event: MouseEvent]

@@ -7,43 +7,43 @@ status: stable
 
 ## Usage
 
-`AgDSDropdownMenu` composes a button and a panel. The panel opens below the button and closes when an item is selected, Escape is pressed, or the user clicks outside.
+`AGDSDropdownMenu` composes a button and a panel. The panel opens below the button and closes when an item is selected, Escape is pressed, or the user clicks outside.
 
 ```vue
 <template>
-  <AgDSDropdownMenu>
-    <AgDSDropdownMenuButton>Options</AgDSDropdownMenuButton>
-    <AgDSDropdownMenuPanel>
-      <AgDSDropdownMenuItem @select="() => {}">Edit</AgDSDropdownMenuItem>
-      <AgDSDropdownMenuItem @select="() => {}">Duplicate</AgDSDropdownMenuItem>
-      <AgDSDropdownMenuDivider />
-      <AgDSDropdownMenuItem @select="() => {}">Delete</AgDSDropdownMenuItem>
-    </AgDSDropdownMenuPanel>
-  </AgDSDropdownMenu>
+  <AGDSDropdownMenu>
+    <AGDSDropdownMenuButton>Options</AGDSDropdownMenuButton>
+    <AGDSDropdownMenuPanel>
+      <AGDSDropdownMenuItem @select="() => {}">Edit</AGDSDropdownMenuItem>
+      <AGDSDropdownMenuItem @select="() => {}">Duplicate</AGDSDropdownMenuItem>
+      <AGDSDropdownMenuDivider />
+      <AGDSDropdownMenuItem @select="() => {}">Delete</AGDSDropdownMenuItem>
+    </AGDSDropdownMenuPanel>
+  </AGDSDropdownMenu>
 </template>
 ```
 
 ## Link items
 
-Use `AgDSDropdownMenuItemLink` for items that navigate rather than trigger an action.
+Use `AGDSDropdownMenuItemLink` for items that navigate rather than trigger an action.
 
 ```vue
 <template>
-  <AgDSDropdownMenu>
-    <AgDSDropdownMenuButton>My account</AgDSDropdownMenuButton>
-    <AgDSDropdownMenuPanel>
-      <AgDSDropdownMenuItemLink href="/profile">Profile</AgDSDropdownMenuItemLink>
-      <AgDSDropdownMenuItemLink href="/settings">Settings</AgDSDropdownMenuItemLink>
-      <AgDSDropdownMenuDivider />
-      <AgDSDropdownMenuItemLink href="/logout">Sign out</AgDSDropdownMenuItemLink>
-    </AgDSDropdownMenuPanel>
-  </AgDSDropdownMenu>
+  <AGDSDropdownMenu>
+    <AGDSDropdownMenuButton>My account</AGDSDropdownMenuButton>
+    <AGDSDropdownMenuPanel>
+      <AGDSDropdownMenuItemLink href="/profile">Profile</AGDSDropdownMenuItemLink>
+      <AGDSDropdownMenuItemLink href="/settings">Settings</AGDSDropdownMenuItemLink>
+      <AGDSDropdownMenuDivider />
+      <AGDSDropdownMenuItemLink href="/logout">Sign out</AGDSDropdownMenuItemLink>
+    </AGDSDropdownMenuPanel>
+  </AGDSDropdownMenu>
 </template>
 ```
 
 ## Radio items
 
-Use `AgDSDropdownMenuItemRadio` inside `AgDSDropdownMenuGroup` to build a single-select list. The group requires a `label` for screen readers.
+Use `AGDSDropdownMenuItemRadio` inside `AGDSDropdownMenuGroup` to build a single-select list. The group requires a `label` for screen readers.
 
 ```vue
 <script setup>
@@ -52,43 +52,43 @@ const sort = ref('newest')
 </script>
 
 <template>
-  <AgDSDropdownMenu>
-    <AgDSDropdownMenuButton>Sort by</AgDSDropdownMenuButton>
-    <AgDSDropdownMenuPanel>
-      <AgDSDropdownMenuGroup label="Sort order">
-        <AgDSDropdownMenuItemRadio value="newest" v-model="sort">Newest first</AgDSDropdownMenuItemRadio>
-        <AgDSDropdownMenuItemRadio value="oldest" v-model="sort">Oldest first</AgDSDropdownMenuItemRadio>
-        <AgDSDropdownMenuItemRadio value="alpha" v-model="sort">Alphabetical</AgDSDropdownMenuItemRadio>
-      </AgDSDropdownMenuGroup>
-    </AgDSDropdownMenuPanel>
-  </AgDSDropdownMenu>
+  <AGDSDropdownMenu>
+    <AGDSDropdownMenuButton>Sort by</AGDSDropdownMenuButton>
+    <AGDSDropdownMenuPanel>
+      <AGDSDropdownMenuGroup label="Sort order">
+        <AGDSDropdownMenuItemRadio value="newest" v-model="sort">Newest first</AGDSDropdownMenuItemRadio>
+        <AGDSDropdownMenuItemRadio value="oldest" v-model="sort">Oldest first</AGDSDropdownMenuItemRadio>
+        <AGDSDropdownMenuItemRadio value="alpha" v-model="sort">Alphabetical</AGDSDropdownMenuItemRadio>
+      </AGDSDropdownMenuGroup>
+    </AGDSDropdownMenuPanel>
+  </AGDSDropdownMenu>
 </template>
 ```
 
 ## Groups and dividers
 
-Use `AgDSDropdownMenuGroup` with a `label` to visually and semantically group related items. Use `AgDSDropdownMenuDivider` to separate groups.
+Use `AGDSDropdownMenuGroup` with a `label` to visually and semantically group related items. Use `AGDSDropdownMenuDivider` to separate groups.
 
 ```vue
 <template>
-  <AgDSDropdownMenu>
-    <AgDSDropdownMenuButton>Actions</AgDSDropdownMenuButton>
-    <AgDSDropdownMenuPanel>
-      <AgDSDropdownMenuGroup label="Manage">
-        <AgDSDropdownMenuItem @select="() => {}">Edit</AgDSDropdownMenuItem>
-        <AgDSDropdownMenuItem @select="() => {}">Duplicate</AgDSDropdownMenuItem>
-      </AgDSDropdownMenuGroup>
-      <AgDSDropdownMenuDivider />
-      <AgDSDropdownMenuGroup label="Danger zone">
-        <AgDSDropdownMenuItem @select="() => {}">Archive</AgDSDropdownMenuItem>
-        <AgDSDropdownMenuItem @select="() => {}">Delete</AgDSDropdownMenuItem>
-      </AgDSDropdownMenuGroup>
-    </AgDSDropdownMenuPanel>
-  </AgDSDropdownMenu>
+  <AGDSDropdownMenu>
+    <AGDSDropdownMenuButton>Actions</AGDSDropdownMenuButton>
+    <AGDSDropdownMenuPanel>
+      <AGDSDropdownMenuGroup label="Manage">
+        <AGDSDropdownMenuItem @select="() => {}">Edit</AGDSDropdownMenuItem>
+        <AGDSDropdownMenuItem @select="() => {}">Duplicate</AGDSDropdownMenuItem>
+      </AGDSDropdownMenuGroup>
+      <AGDSDropdownMenuDivider />
+      <AGDSDropdownMenuGroup label="Danger zone">
+        <AGDSDropdownMenuItem @select="() => {}">Archive</AGDSDropdownMenuItem>
+        <AGDSDropdownMenuItem @select="() => {}">Delete</AGDSDropdownMenuItem>
+      </AGDSDropdownMenuGroup>
+    </AGDSDropdownMenuPanel>
+  </AGDSDropdownMenu>
 </template>
 ```
 
-## Props — AgDSDropdownMenuButton
+## Props — AGDSDropdownMenuButton
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -96,14 +96,14 @@ Use `AgDSDropdownMenuGroup` with a `label` to visually and semantically group re
 | `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Button size |
 | `disabled` | `boolean` | `false` | Prevents the menu from opening |
 
-## Props — AgDSDropdownMenuItem / AgDSDropdownMenuItemLink
+## Props — AGDSDropdownMenuItem / AGDSDropdownMenuItemLink
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `disabled` | `boolean` | `false` | Prevents selection |
 | `href` | `string` | — | _(Link only)_ Navigation target |
 
-## Props — AgDSDropdownMenuItemRadio
+## Props — AGDSDropdownMenuItemRadio
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -111,19 +111,19 @@ Use `AgDSDropdownMenuGroup` with a `label` to visually and semantically group re
 | `modelValue` | `string` | — | Currently selected value. Use with `v-model` |
 | `disabled` | `boolean` | `false` | Prevents selection |
 
-## Props — AgDSDropdownMenuGroup
+## Props — AGDSDropdownMenuGroup
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `label` | `string` | — | **Required.** Accessible label for the group |
 
-## Events — AgDSDropdownMenuItem
+## Events — AGDSDropdownMenuItem
 
 | Event | Payload | Description |
 |-------|---------|-------------|
 | `select` | `void` | Emitted when the item is activated |
 
-## Events — AgDSDropdownMenuItemRadio
+## Events — AGDSDropdownMenuItemRadio
 
 | Event | Payload | Description |
 |-------|---------|-------------|

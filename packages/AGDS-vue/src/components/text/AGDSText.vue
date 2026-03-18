@@ -7,7 +7,7 @@ export type TextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 export type TextWeight = 'normal' | 'medium' | 'semibold' | 'bold'
 export type TextLeading = 'tight' | 'snug' | 'normal' | 'relaxed'
 
-export interface AgDSTextProps {
+export interface AGDSTextProps {
   /** HTML element to render as. */
   as?: string
   /** Text colour. */
@@ -22,7 +22,7 @@ export interface AgDSTextProps {
   lineHeight?: TextLeading
 }
 
-const props = withDefaults(defineProps<AgDSTextProps>(), {
+const props = withDefaults(defineProps<AGDSTextProps>(), {
   as: 'span',
   color: 'text',
   fontFamily: 'body',

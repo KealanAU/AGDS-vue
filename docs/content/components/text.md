@@ -7,15 +7,15 @@ status: stable
 
 ## Usage
 
-Wrap text in `AgDSText` to apply typographic styles. The default renders a `<span>` with `sm` size and `body` font family.
+Wrap text in `AGDSText` to apply typographic styles. The default renders a `<span>` with `sm` size and `body` font family.
 
 ::doc-preview
-<AgDSText>Default text</AgDSText>
+<AGDSText>Default text</AGDSText>
 ::
 
 ```vue
 <template>
-  <AgDSText>Default text</AgDSText>
+  <AGDSText>Default text</AGDSText>
 </template>
 ```
 
@@ -24,20 +24,20 @@ Wrap text in `AgDSText` to apply typographic styles. The default renders a `<spa
 Use `fontSize` to set a size from the type scale.
 
 ::doc-preview{label="All sizes"}
-<AgDSText as="p" font-size="xs">xs — Extra small</AgDSText>
-<AgDSText as="p" font-size="sm">sm — Small (default)</AgDSText>
-<AgDSText as="p" font-size="md">md — Medium</AgDSText>
-<AgDSText as="p" font-size="lg">lg — Large</AgDSText>
-<AgDSText as="p" font-size="xl">xl — Extra large</AgDSText>
+<AGDSText as="p" font-size="xs">xs — Extra small</AGDSText>
+<AGDSText as="p" font-size="sm">sm — Small (default)</AGDSText>
+<AGDSText as="p" font-size="md">md — Medium</AGDSText>
+<AGDSText as="p" font-size="lg">lg — Large</AGDSText>
+<AGDSText as="p" font-size="xl">xl — Extra large</AGDSText>
 ::
 
 ```vue
 <template>
-  <AgDSText as="p" font-size="xs">xs — Extra small</AgDSText>
-  <AgDSText as="p" font-size="sm">sm — Small (default)</AgDSText>
-  <AgDSText as="p" font-size="md">md — Medium</AgDSText>
-  <AgDSText as="p" font-size="lg">lg — Large</AgDSText>
-  <AgDSText as="p" font-size="xl">xl — Extra large</AgDSText>
+  <AGDSText as="p" font-size="xs">xs — Extra small</AGDSText>
+  <AGDSText as="p" font-size="sm">sm — Small (default)</AGDSText>
+  <AGDSText as="p" font-size="md">md — Medium</AGDSText>
+  <AGDSText as="p" font-size="lg">lg — Large</AGDSText>
+  <AGDSText as="p" font-size="xl">xl — Extra large</AGDSText>
 </template>
 ```
 
@@ -46,16 +46,16 @@ Use `fontSize` to set a size from the type scale.
 Use `color` to apply a semantic text colour token.
 
 ::doc-preview{label="Colors"}
-<AgDSText as="p" color="text">text — Primary text</AgDSText>
-<AgDSText as="p" color="muted">muted — Secondary / helper text</AgDSText>
-<AgDSText as="p" color="disabled">disabled — Disabled state</AgDSText>
+<AGDSText as="p" color="text">text — Primary text</AGDSText>
+<AGDSText as="p" color="muted">muted — Secondary / helper text</AGDSText>
+<AGDSText as="p" color="disabled">disabled — Disabled state</AGDSText>
 ::
 
 ```vue
 <template>
-  <AgDSText as="p" color="text">Primary text</AgDSText>
-  <AgDSText as="p" color="muted">Secondary / helper text</AgDSText>
-  <AgDSText as="p" color="disabled">Disabled state</AgDSText>
+  <AGDSText as="p" color="text">Primary text</AGDSText>
+  <AGDSText as="p" color="muted">Secondary / helper text</AGDSText>
+  <AGDSText as="p" color="disabled">Disabled state</AGDSText>
 </template>
 ```
 
@@ -63,10 +63,10 @@ Use `color` to apply a semantic text colour token.
 
 ```vue
 <template>
-  <AgDSText font-weight="normal">Normal weight</AgDSText>
-  <AgDSText font-weight="medium">Medium weight</AgDSText>
-  <AgDSText font-weight="semibold">Semibold weight</AgDSText>
-  <AgDSText font-weight="bold">Bold weight</AgDSText>
+  <AGDSText font-weight="normal">Normal weight</AGDSText>
+  <AGDSText font-weight="medium">Medium weight</AGDSText>
+  <AGDSText font-weight="semibold">Semibold weight</AGDSText>
+  <AGDSText font-weight="bold">Bold weight</AGDSText>
 </template>
 ```
 
@@ -76,9 +76,9 @@ Use `as` to change the rendered HTML element. This is useful for semantic paragr
 
 ```vue
 <template>
-  <AgDSText as="p" font-size="md">A paragraph</AgDSText>
-  <AgDSText as="label" font-weight="bold">A bold label</AgDSText>
-  <AgDSText as="caption" color="muted" font-size="xs">A caption</AgDSText>
+  <AGDSText as="p" font-size="md">A paragraph</AGDSText>
+  <AGDSText as="label" font-weight="bold">A bold label</AGDSText>
+  <AGDSText as="caption" color="muted" font-size="xs">A caption</AGDSText>
 </template>
 ```
 

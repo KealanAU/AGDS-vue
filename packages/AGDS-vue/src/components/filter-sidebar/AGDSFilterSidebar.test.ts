@@ -1,22 +1,22 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSFilterSidebar from './AGDSFilterSidebar.vue'
+import AGDSFilterSidebar from './AGDSFilterSidebar.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
 } as const
 
 function renderFilter(
-  props: Partial<InstanceType<typeof AgDSFilterSidebar>['$props']> = {},
+  props: Partial<InstanceType<typeof AGDSFilterSidebar>['$props']> = {},
   slots: Record<string, string> = {},
 ) {
-  return render(AgDSFilterSidebar, { props, slots })
+  return render(AGDSFilterSidebar, { props, slots })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSFilterSidebar — rendering', () => {
+describe('AGDSFilterSidebar — rendering', () => {
   it('renders a <section> landmark', () => {
     const { container } = renderFilter()
     expect(container.querySelector('section')).toBeTruthy()
@@ -70,10 +70,10 @@ describe('AgDSFilterSidebar — rendering', () => {
 
 // ─── Events ───────────────────────────────────────────────────────────────────
 
-describe('AgDSFilterSidebar — events', () => {
+describe('AGDSFilterSidebar — events', () => {
   it('emits clearFilters when "Clear filters" button is clicked', async () => {
     const onClearFilters = vi.fn()
-    const { getByRole } = render(AgDSFilterSidebar, {
+    const { getByRole } = render(AGDSFilterSidebar, {
       props: { showClearFilters: true },
       attrs: { onClearFilters },
     })
@@ -84,7 +84,7 @@ describe('AgDSFilterSidebar — events', () => {
 
 // ─── Background ───────────────────────────────────────────────────────────────
 
-describe('AgDSFilterSidebar — background', () => {
+describe('AGDSFilterSidebar — background', () => {
   it('applies body background by default', () => {
     const { container } = renderFilter()
     expect(container.querySelector('.agds-csb--bg-body')).toBeTruthy()
@@ -98,7 +98,7 @@ describe('AgDSFilterSidebar — background', () => {
 
 // ─── Toggle ───────────────────────────────────────────────────────────────────
 
-describe('AgDSFilterSidebar — toggle', () => {
+describe('AGDSFilterSidebar — toggle', () => {
   it('toggle button is collapsed by default', () => {
     const { container } = renderFilter()
     const btn = container.querySelector('.agds-csb__toggle')
@@ -114,7 +114,7 @@ describe('AgDSFilterSidebar — toggle', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSFilterSidebar — axe accessibility', () => {
+describe('AGDSFilterSidebar — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderFilter()
     await runAxe(container, AXE_OPTS)

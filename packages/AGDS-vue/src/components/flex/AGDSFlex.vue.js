@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import AgDSBox from '../box/AGDSBox.vue';
+import AGDSBox from '../box/AGDSBox.vue';
 const props = withDefaults(defineProps(), {
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -33,7 +33,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSBox || AgDSBox;
+const __VLS_0 = AGDSBox || AGDSBox;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     ...(__VLS_ctx.boxProps),

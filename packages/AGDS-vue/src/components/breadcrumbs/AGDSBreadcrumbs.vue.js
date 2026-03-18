@@ -1,6 +1,6 @@
 import { ref, computed, nextTick } from 'vue';
-import AgDSBreadcrumbsItem from './AGDSBreadcrumbsItem.vue';
-import AgDSBreadcrumbsToggle from './AGDSBreadcrumbsToggle.vue';
+import AGDSBreadcrumbsItem from './AGDSBreadcrumbsItem.vue';
+import AGDSBreadcrumbsToggle from './AGDSBreadcrumbsToggle.vue';
 const props = withDefaults(defineProps(), {
     ariaLabel: 'Breadcrumbs',
 });
@@ -42,7 +42,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.ol, __VLS_intrinsics.ol)({
     ...{ class: "agds-breadcrumbs__list" },
 });
 /** @type {__VLS_StyleScopedClasses['agds-breadcrumbs__list']} */ ;
-const __VLS_0 = AgDSBreadcrumbsItem;
+const __VLS_0 = AGDSBreadcrumbsItem;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     ref: "firstItemRef",
@@ -57,7 +57,7 @@ const __VLS_2 = __VLS_1({
 var __VLS_5 = {};
 var __VLS_3;
 if (__VLS_ctx.hasMiddle) {
-    const __VLS_7 = AgDSBreadcrumbsToggle;
+    const __VLS_7 = AGDSBreadcrumbsToggle;
     // @ts-ignore
     const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
         ...{ 'onClick': {} },
@@ -75,7 +75,7 @@ if (__VLS_ctx.hasMiddle) {
     var __VLS_11;
 }
 for (const [link, idx] of __VLS_vFor((__VLS_ctx.middleLinks))) {
-    const __VLS_14 = AgDSBreadcrumbsItem;
+    const __VLS_14 = AGDSBreadcrumbsItem;
     // @ts-ignore
     const __VLS_15 = __VLS_asFunctionalComponent1(__VLS_14, new __VLS_14({
         key: (idx),
@@ -94,7 +94,7 @@ for (const [link, idx] of __VLS_vFor((__VLS_ctx.middleLinks))) {
     [hasMiddle, hasMiddle, isExpanded, firstLink, firstLink, expand, middleLinks,];
 }
 if (props.links.length > 1) {
-    const __VLS_19 = AgDSBreadcrumbsItem;
+    const __VLS_19 = AGDSBreadcrumbsItem;
     // @ts-ignore
     const __VLS_20 = __VLS_asFunctionalComponent1(__VLS_19, new __VLS_19({
         href: (__VLS_ctx.lastLink.href),

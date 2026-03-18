@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSComboboxAsync from './AGDSComboboxAsync.vue'
-import AgDSAutocomplete from './AGDSAutocomplete.vue'
+import AGDSComboboxAsync from './AGDSComboboxAsync.vue'
+import AGDSAutocomplete from './AGDSAutocomplete.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -24,7 +24,7 @@ function makeFetch(results = OPTIONS) {
 
 function renderCombobox(props: Record<string, unknown> = {}) {
   const fetchOptions = props.fetchOptions ?? makeFetch()
-  return render(AgDSComboboxAsync, {
+  return render(AGDSComboboxAsync, {
     props: {
       label: 'Country',
       fetchOptions,
@@ -36,7 +36,7 @@ function renderCombobox(props: Record<string, unknown> = {}) {
 
 function renderAutocomplete(props: Record<string, unknown> = {}) {
   const fetchOptions = props.fetchOptions ?? makeFetch()
-  return render(AgDSAutocomplete, {
+  return render(AGDSAutocomplete, {
     props: {
       label: 'Country',
       fetchOptions,
@@ -48,7 +48,7 @@ function renderAutocomplete(props: Record<string, unknown> = {}) {
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — rendering', () => {
+describe('AGDSComboboxAsync — rendering', () => {
   it('renders a visible label', () => {
     renderCombobox()
     expect(screen.getByText('Country')).toBeTruthy()
@@ -103,7 +103,7 @@ describe('AgDSComboboxAsync — rendering', () => {
 
 // ─── Typing and fetch ─────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — typing and fetch', () => {
+describe('AGDSComboboxAsync — typing and fetch', () => {
   it('calls fetchOptions after user types (debounce=0)', async () => {
     const fetchOptions = makeFetch()
     renderCombobox({ fetchOptions })
@@ -166,7 +166,7 @@ describe('AgDSComboboxAsync — typing and fetch', () => {
 
 // ─── Loading state ────────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — loading state', () => {
+describe('AGDSComboboxAsync — loading state', () => {
   it('shows spinner when loading=true', () => {
     renderCombobox({ loading: true })
     expect(document.querySelector('.agds-combobox-async__spinner')).toBeTruthy()
@@ -185,7 +185,7 @@ describe('AgDSComboboxAsync — loading state', () => {
 
 // ─── Disabled state ───────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — disabled state', () => {
+describe('AGDSComboboxAsync — disabled state', () => {
   it('disables the input when disabled=true', () => {
     renderCombobox({ disabled: true })
     expect(screen.getByRole('combobox').hasAttribute('disabled')).toBe(true)
@@ -206,7 +206,7 @@ describe('AgDSComboboxAsync — disabled state', () => {
 
 // ─── Option selection ─────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — option selection', () => {
+describe('AGDSComboboxAsync — option selection', () => {
   it('selects an option on click and updates the input value', async () => {
     renderCombobox()
     const input = screen.getByRole('combobox')
@@ -249,7 +249,7 @@ describe('AgDSComboboxAsync — option selection', () => {
 
 // ─── Keyboard navigation ──────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — keyboard navigation', () => {
+describe('AGDSComboboxAsync — keyboard navigation', () => {
   it('ArrowDown moves highlight to first option', async () => {
     renderCombobox()
     const input = screen.getByRole('combobox')
@@ -299,7 +299,7 @@ describe('AgDSComboboxAsync — keyboard navigation', () => {
 
 // ─── Clear button ─────────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — clear button', () => {
+describe('AGDSComboboxAsync — clear button', () => {
   it('does not render clear button when clearable=false (default)', () => {
     renderCombobox()
     expect(document.querySelector('.agds-combobox__clear')).toBeNull()
@@ -329,7 +329,7 @@ describe('AgDSComboboxAsync — clear button', () => {
 
 // ─── Dropdown trigger ─────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — dropdown trigger', () => {
+describe('AGDSComboboxAsync — dropdown trigger', () => {
   it('opens the listbox on trigger click when options exist', async () => {
     renderCombobox()
     const input = screen.getByRole('combobox')
@@ -360,9 +360,9 @@ describe('AgDSComboboxAsync — dropdown trigger', () => {
   })
 })
 
-// ─── AgDSAutocomplete wrapper ───────────────────────────────────────────────
+// ─── AGDSAutocomplete wrapper ───────────────────────────────────────────────
 
-describe('AgDSAutocomplete', () => {
+describe('AGDSAutocomplete', () => {
   it('renders with role="combobox"', () => {
     renderAutocomplete()
     expect(screen.getByRole('combobox')).toBeTruthy()
@@ -399,7 +399,7 @@ describe('AgDSAutocomplete', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSComboboxAsync — axe accessibility', () => {
+describe('AGDSComboboxAsync — axe accessibility', () => {
   it('has no violations in the default (closed) state', async () => {
     const { container } = renderCombobox()
     await runAxe(container, AXE_OPTS)
@@ -432,7 +432,7 @@ describe('AgDSComboboxAsync — axe accessibility', () => {
     await runAxe(container, AXE_OPTS)
   })
 
-  it('has no violations for AgDSAutocomplete', async () => {
+  it('has no violations for AGDSAutocomplete', async () => {
     const { container } = renderAutocomplete()
     await runAxe(container, AXE_OPTS)
   })

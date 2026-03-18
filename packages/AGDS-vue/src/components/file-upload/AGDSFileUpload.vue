@@ -21,7 +21,7 @@ import {
 
 // ── Props ─────────────────────────────────────────────────────────────────────
 
-export interface AgDSFileUploadProps {
+export interface AGDSFileUploadProps {
   /** Describes the purpose of the field */
   label: string
   /** Currently accepted file list (controlled) */
@@ -56,7 +56,7 @@ export interface AgDSFileUploadProps {
   existingFiles?: ExistingFile[]
 }
 
-const props = withDefaults(defineProps<AgDSFileUploadProps>(), {
+const props = withDefaults(defineProps<AGDSFileUploadProps>(), {
   modelValue: () => [],
   existingFiles: () => [],
   invalid: false,
@@ -114,7 +114,7 @@ const formattedMaxSize = computed(() => formatFileSize(maxSizeBytes.value))
 const validMaxFiles = computed(() => {
   if (props.maxFiles === undefined) return undefined
   if (props.maxFiles < 1) {
-    console.warn('AgDSFileUpload: maxFiles cannot be less than 1. The property is being ignored.')
+    console.warn('AGDSFileUpload: maxFiles cannot be less than 1. The property is being ignored.')
     return undefined
   }
   return props.maxFiles

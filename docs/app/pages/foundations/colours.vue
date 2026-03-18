@@ -67,7 +67,7 @@ const palettes = [
     <div class="found-page">
       <h1>Colours</h1>
       <p class="found-page__intro">
-        The AgDS-vue colour system is derived from the Agriculture Design System brand palette.
+        The AGDS-vue colour system is derived from the Agriculture Design System brand palette.
         Every colour is available as a <code>--agds-color-*</code> CSS custom property.
       </p>
 

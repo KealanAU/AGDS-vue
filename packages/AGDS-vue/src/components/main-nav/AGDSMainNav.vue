@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import AgDSMainNavList from './AGDSMainNavList.vue'
-import AgDSMainNavDialog from './AGDSMainNavDialog.vue'
+import AGDSMainNavList from './AGDSMainNavList.vue'
+import AGDSMainNavDialog from './AGDSMainNavDialog.vue'
 import {
   findBestMatch,
   type MainNavItem,
@@ -9,7 +9,7 @@ import {
   type MainNavBorderColor,
 } from './mainNavTypes'
 
-export interface AgDSMainNavProps {
+export interface AGDSMainNavProps {
   /** Current URL path — used to highlight the matching nav item. */
   activePath?: string
   /** Background colour variant of the nav bar. */
@@ -31,7 +31,7 @@ export interface AgDSMainNavProps {
   secondaryItems?: MainNavItem[]
 }
 
-const props = withDefaults(defineProps<AgDSMainNavProps>(), {
+const props = withDefaults(defineProps<AGDSMainNavProps>(), {
   background: 'body',
   borderColor: 'brand',
   focusMode: false,
@@ -121,7 +121,7 @@ const borderColorValue = computed(() => {
         </button>
 
         <!-- Primary nav (desktop only) -->
-        <AgDSMainNavList
+        <AGDSMainNavList
           v-if="props.items?.length"
           :items="props.items"
           :active-path="bestMatch"
@@ -130,7 +130,7 @@ const borderColorValue = computed(() => {
         />
 
         <!-- Secondary nav -->
-        <AgDSMainNavList
+        <AGDSMainNavList
           v-if="props.secondaryItems?.length"
           :items="props.secondaryItems"
           :active-path="bestMatch"
@@ -147,7 +147,7 @@ const borderColorValue = computed(() => {
     />
 
     <!-- Mobile slide-in dialog -->
-    <AgDSMainNavDialog
+    <AGDSMainNavDialog
       id="agds-main-nav-dialog"
       :items="props.items"
       :active-path="bestMatch"

@@ -18,9 +18,9 @@ const isOpen = ref(false)
 <template>
   <button type="button" @click="isOpen = true">Open drawer</button>
 
-  <AgDSDrawer v-model="isOpen" title="Filters">
+  <AGDSDrawer v-model="isOpen" title="Filters">
     <p>Drawer body content goes here.</p>
-  </AgDSDrawer>
+  </AGDSDrawer>
 </template>
 ```
 
@@ -30,14 +30,14 @@ Use the `actions` slot to render a button group in a sticky footer at the bottom
 
 ```vue
 <template>
-  <AgDSDrawer v-model="isOpen" title="Edit profile">
+  <AGDSDrawer v-model="isOpen" title="Edit profile">
     <p>Edit your profile details below.</p>
 
     <template #actions>
       <button type="button" @click="save">Save changes</button>
       <button type="button" @click="isOpen = false">Cancel</button>
     </template>
-  </AgDSDrawer>
+  </AGDSDrawer>
 </template>
 ```
 
@@ -47,9 +47,9 @@ Use `width="lg"` for content that needs more horizontal space (`45rem` vs the de
 
 ```vue
 <template>
-  <AgDSDrawer v-model="isOpen" title="Document preview" width="lg">
+  <AGDSDrawer v-model="isOpen" title="Document preview" width="lg">
     <p>Wide content here.</p>
-  </AgDSDrawer>
+  </AGDSDrawer>
 </template>
 ```
 
@@ -59,9 +59,9 @@ Use `muted-overlay` to lighten the backdrop so that the main content underneath 
 
 ```vue
 <template>
-  <AgDSDrawer v-model="isOpen" title="Help" muted-overlay>
+  <AGDSDrawer v-model="isOpen" title="Help" muted-overlay>
     <p>Contextual help content.</p>
-  </AgDSDrawer>
+  </AGDSDrawer>
 </template>
 ```
 
@@ -78,13 +78,13 @@ const fallbackEl = ref(null)
 
 <template>
   <div ref="fallbackEl" tabindex="-1" />
-  <AgDSDrawer
+  <AGDSDrawer
     v-model="isOpen"
     title="Settings"
     :element-to-focus-on-close="fallbackEl"
   >
     <p>Settings content.</p>
-  </AgDSDrawer>
+  </AGDSDrawer>
 </template>
 ```
 

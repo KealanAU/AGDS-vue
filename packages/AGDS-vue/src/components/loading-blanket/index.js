@@ -1,1 +1,1 @@
-export { default as AgDSLoadingBlanket } from './AGDSLoadingBlanket.vue';
+export { default as AGDSLoadingBlanket } from './AGDSLoadingBlanket.vue';

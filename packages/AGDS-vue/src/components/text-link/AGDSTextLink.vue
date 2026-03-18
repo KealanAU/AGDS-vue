@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-export interface AgDSTextLinkProps {
+export interface AGDSTextLinkProps {
   /** URL the link navigates to */
   href: string
   /**
@@ -11,7 +11,7 @@ export interface AgDSTextLinkProps {
   focusRingFor?: 'keyboard' | 'all'
 }
 
-withDefaults(defineProps<AgDSTextLinkProps>(), {
+withDefaults(defineProps<AGDSTextLinkProps>(), {
   focusRingFor: 'keyboard',
 })
 

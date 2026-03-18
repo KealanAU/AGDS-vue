@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useAppLayoutContext } from './appLayoutContext'
-import AgDSHeaderBrand from '../header/AGDSHeaderBrand.vue'
+import AGDSHeaderBrand from '../header/AGDSHeaderBrand.vue'
 import type { HeaderDividerPosition, HeaderSize } from '../header/AGDSHeader.vue'
 import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as AppLayoutHeaderBackground }
 export type AppLayoutHeaderMaxWidth = 'container' | 'containerLg'
 
-export interface AgDSAppLayoutHeaderProps {
+export interface AGDSAppLayoutHeaderProps {
   /** Site or service name — rendered as the main heading. */
   heading: string
   /** Destination href for the heading/logo link. */
@@ -28,7 +28,7 @@ export interface AgDSAppLayoutHeaderProps {
   size?: HeaderSize
 }
 
-const props = withDefaults(defineProps<AgDSAppLayoutHeaderProps>(), {
+const props = withDefaults(defineProps<AGDSAppLayoutHeaderProps>(), {
   href: '/',
   background: 'body',
   dividerPosition: 'after',
@@ -90,7 +90,7 @@ const { focusMode, isMobileMenuOpen, openMobileMenu } = useAppLayoutContext()
 
       <!-- Brand section — logo + heading -->
       <div class="agds-app-layout-header__brand">
-        <AgDSHeaderBrand
+        <AGDSHeaderBrand
           :badge-label="badgeLabel"
           :divider-position="dividerPosition"
           :has-right-content="!!$slots.account"
@@ -106,7 +106,7 @@ const { focusMode, isMobileMenuOpen, openMobileMenu } = useAppLayoutContext()
           <template v-if="$slots.secondLogo" #secondLogo>
             <slot name="secondLogo" />
           </template>
-        </AgDSHeaderBrand>
+        </AGDSHeaderBrand>
       </div>
 
       <!-- Account section — always at the far right -->

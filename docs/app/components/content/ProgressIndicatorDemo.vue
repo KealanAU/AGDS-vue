@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AgDSProgressIndicator } from 'agds-vue'
+import { AGDSProgressIndicator } from 'agds-vue'
 import type { ProgressIndicatorItem } from 'agds-vue'
 
 const props = defineProps<{
@@ -40,22 +40,22 @@ const subItems: ProgressIndicatorItem[] = [
 
 <template>
   <div style="max-width: 400px; width: 100%">
-    <AgDSProgressIndicator
+    <AGDSProgressIndicator
       v-if="variant === 'statuses'"
       :items="allStatusItems"
       active-path="In progress step"
     />
-    <AgDSProgressIndicator
+    <AGDSProgressIndicator
       v-else-if="variant === 'sub-items'"
       :items="subItems"
       active-path="/apply/contact/address"
     />
-    <AgDSProgressIndicator
+    <AGDSProgressIndicator
       v-else-if="variant === 'bodyAlt'"
       :items="defaultItems"
       active-path="/apply/personal"
       background="bodyAlt"
     />
-    <AgDSProgressIndicator v-else :items="defaultItems" active-path="/apply/personal" />
+    <AGDSProgressIndicator v-else :items="defaultItems" active-path="/apply/personal" />
   </div>
 </template>

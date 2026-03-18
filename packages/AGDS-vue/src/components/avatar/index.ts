@@ -1,2 +1,2 @@
-export { default as AgDSAvatar } from './AGDSAvatar.vue'
-export type { AgDSAvatarProps, AvatarTone, AvatarSize } from './AGDSAvatar.vue'
+export { default as AGDSAvatar } from './AGDSAvatar.vue'
+export type { AGDSAvatarProps, AvatarTone, AvatarSize } from './AGDSAvatar.vue'

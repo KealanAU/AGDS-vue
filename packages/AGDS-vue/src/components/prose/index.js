@@ -1,1 +1,1 @@
-export { default as AgDSProse } from './AGDSProse.vue';
+export { default as AGDSProse } from './AGDSProse.vue';

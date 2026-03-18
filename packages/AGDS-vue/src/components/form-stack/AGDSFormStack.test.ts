@@ -1,17 +1,17 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSFormStack from './AGDSFormStack.vue'
+import AGDSFormStack from './AGDSFormStack.vue'
 
 const AXE_OPTS = { rules: { 'color-contrast': { enabled: false } } } as const
 
 function renderFormStack(props: Record<string, unknown> = {}, slot = '<input /><input />') {
-  return render(AgDSFormStack, { props, slots: { default: slot } })
+  return render(AGDSFormStack, { props, slots: { default: slot } })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSFormStack — rendering', () => {
+describe('AGDSFormStack — rendering', () => {
   it('renders a div by default', () => {
     const { container } = renderFormStack()
     expect(container.querySelector('div')).toBeTruthy()
@@ -25,7 +25,7 @@ describe('AgDSFormStack — rendering', () => {
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
 
-describe('AgDSFormStack — layout', () => {
+describe('AGDSFormStack — layout', () => {
   it('applies display: flex', () => {
     const { container } = renderFormStack()
     expect((container.querySelector('div') as HTMLElement).style.display).toBe('flex')
@@ -44,7 +44,7 @@ describe('AgDSFormStack — layout', () => {
 
 // ─── as prop ──────────────────────────────────────────────────────────────────
 
-describe('AgDSFormStack — as prop', () => {
+describe('AGDSFormStack — as prop', () => {
   it('renders as a <form> when as="form"', () => {
     const { container } = renderFormStack({ as: 'form' })
     expect(container.querySelector('form')).toBeTruthy()
@@ -58,9 +58,9 @@ describe('AgDSFormStack — as prop', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSFormStack — axe accessibility', () => {
+describe('AGDSFormStack — axe accessibility', () => {
   it('has no violations wrapping labelled inputs', async () => {
-    const { container } = render(AgDSFormStack, {
+    const { container } = render(AGDSFormStack, {
       slots: {
         default: `
           <div>
@@ -78,7 +78,7 @@ describe('AgDSFormStack — axe accessibility', () => {
   })
 
   it('has no violations rendered as a form', async () => {
-    const { container } = render(AgDSFormStack, {
+    const { container } = render(AGDSFormStack, {
       props: { as: 'form' },
       attrs: { 'aria-label': 'Contact form' },
       slots: {

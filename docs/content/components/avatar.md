@@ -15,7 +15,7 @@ Pass a `name` and the component derives initials automatically. Up to two initia
 
 ```vue
 <template>
-  <AgDSAvatar name="Jordan Lee" />
+  <AGDSAvatar name="Jordan Lee" />
 </template>
 ```
 
@@ -29,12 +29,12 @@ Use the `size` prop to scale the avatar. The default is `md`.
 
 ```vue
 <template>
-  <AgDSAvatar name="Alex Smith" size="sm" />
-  <AgDSAvatar name="Alex Smith" size="md" />
-  <AgDSAvatar name="Alex Smith" size="lg" />
-  <AgDSAvatar name="Alex Smith" size="xl" />
-  <AgDSAvatar name="Alex Smith" size="xxl" />
-  <AgDSAvatar name="Alex Smith" size="xxxl" />
+  <AGDSAvatar name="Alex Smith" size="sm" />
+  <AGDSAvatar name="Alex Smith" size="md" />
+  <AGDSAvatar name="Alex Smith" size="lg" />
+  <AGDSAvatar name="Alex Smith" size="xl" />
+  <AGDSAvatar name="Alex Smith" size="xxl" />
+  <AGDSAvatar name="Alex Smith" size="xxxl" />
 </template>
 ```
 
@@ -48,8 +48,8 @@ Use the `tone` prop to change the colour. `neutral` (default) uses muted text; `
 
 ```vue
 <template>
-  <AgDSAvatar name="Sam Taylor" tone="neutral" />
-  <AgDSAvatar name="Sam Taylor" tone="action" />
+  <AGDSAvatar name="Sam Taylor" tone="neutral" />
+  <AGDSAvatar name="Sam Taylor" tone="action" />
 </template>
 ```
 
@@ -60,7 +60,7 @@ Pass `aria-hidden="true"` when the avatar is decorative — for example, when th
 ```vue
 <template>
   <div>
-    <AgDSAvatar name="Casey Brown" aria-hidden="true" />
+    <AGDSAvatar name="Casey Brown" aria-hidden="true" />
     <span>Casey Brown</span>
   </div>
 </template>
@@ -73,7 +73,7 @@ Override the accessible name with `aria-label` when the initials alone would be 
 ```vue
 <template>
   <!-- Name contains a title — label the role, not the initials -->
-  <AgDSAvatar name="Dr Sarah Chen" aria-label="Sarah Chen" />
+  <AGDSAvatar name="Dr Sarah Chen" aria-label="Sarah Chen" />
 </template>
 ```
 

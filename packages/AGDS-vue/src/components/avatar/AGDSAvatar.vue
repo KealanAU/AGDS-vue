@@ -5,7 +5,7 @@ import { getInitialsFromName } from './utils'
 export type AvatarTone = 'neutral' | 'action'
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'
 
-export interface AgDSAvatarProps {
+export interface AGDSAvatarProps {
   /** The name of the person represented by the avatar. Used to derive initials and as the default accessible label. */
   name: string
   /** The colour tone to apply. */
@@ -17,7 +17,7 @@ export interface AgDSAvatarProps {
 // Disable automatic attribute inheritance so we can control where aria-* land.
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<AgDSAvatarProps>(), {
+const props = withDefaults(defineProps<AGDSAvatarProps>(), {
   tone: 'neutral',
   size: 'md',
 })

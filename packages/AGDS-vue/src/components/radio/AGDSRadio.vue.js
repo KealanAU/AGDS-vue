@@ -11,7 +11,7 @@ const emit = defineEmits();
 let _idCounter = 0;
 const autoId = `agds-radio-${++_idCounter}`;
 const inputId = computed(() => props.id ?? autoId);
-// ── Group context (provided by AgDSRadioGroup) ─────────────────────────────
+// ── Group context (provided by AGDSRadioGroup) ─────────────────────────────
 const group = inject(RADIO_GROUP_KEY, null);
 const resolvedName = computed(() => props.name ?? group?.name ?? undefined);
 const resolvedInvalid = computed(() => typeof props.invalid === 'boolean' && props.invalid

@@ -1,5 +1,5 @@
-export { default as AgDSTimePicker } from './AGDSTimePicker.vue'
-export type { AgDSTimePickerProps } from './AGDSTimePicker.vue'
+export { default as AGDSTimePicker } from './AGDSTimePicker.vue'
+export type { AGDSTimePickerProps } from './AGDSTimePicker.vue'
 
 export {
   filterOptions,

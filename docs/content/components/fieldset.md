@@ -10,20 +10,20 @@ status: stable
 Provide a `legend` to describe the group of controls. All child controls are slotted inside the content area.
 
 ::doc-preview
-<AgDSFieldset legend="Delivery address">
-  <AgDSTextInput label="Street address" />
-  <AgDSTextInput label="City" />
-  <AgDSSelect label="State" :options="[{ label: 'NSW', value: 'nsw' }, { label: 'VIC', value: 'vic' }, { label: 'QLD', value: 'qld' }]" />
-</AgDSFieldset>
+<AGDSFieldset legend="Delivery address">
+  <AGDSTextInput label="Street address" />
+  <AGDSTextInput label="City" />
+  <AGDSSelect label="State" :options="[{ label: 'NSW', value: 'nsw' }, { label: 'VIC', value: 'vic' }, { label: 'QLD', value: 'qld' }]" />
+</AGDSFieldset>
 ::
 
 ```vue
 <template>
-  <AgDSFieldset legend="Delivery address">
-    <AgDSTextInput label="Street address" />
-    <AgDSTextInput label="City" />
-    <AgDSSelect label="State" :options="stateOptions" />
-  </AgDSFieldset>
+  <AGDSFieldset legend="Delivery address">
+    <AGDSTextInput label="Street address" />
+    <AGDSTextInput label="City" />
+    <AGDSSelect label="State" :options="stateOptions" />
+  </AGDSFieldset>
 </template>
 ```
 
@@ -32,21 +32,21 @@ Provide a `legend` to describe the group of controls. All child controls are slo
 Use `hint` to add supplementary text below the legend. The hint id is wired into `aria-describedby` on the `<fieldset>` automatically.
 
 ::doc-preview{label="With hint"}
-<AgDSFieldset legend="Contact details" hint="We will use these details to send your confirmation.">
-  <AgDSTextInput label="Email address" type="email" />
-  <AgDSTextInput label="Phone number" type="tel" />
-</AgDSFieldset>
+<AGDSFieldset legend="Contact details" hint="We will use these details to send your confirmation.">
+  <AGDSTextInput label="Email address" type="email" />
+  <AGDSTextInput label="Phone number" type="tel" />
+</AGDSFieldset>
 ::
 
 ```vue
 <template>
-  <AgDSFieldset
+  <AGDSFieldset
     legend="Contact details"
     hint="We will use these details to send your confirmation."
   >
-    <AgDSTextInput label="Email address" type="email" />
-    <AgDSTextInput label="Phone number" type="tel" />
-  </AgDSFieldset>
+    <AGDSTextInput label="Email address" type="email" />
+    <AGDSTextInput label="Phone number" type="tel" />
+  </AGDSFieldset>
 </template>
 ```
 
@@ -56,10 +56,10 @@ Pass `id` to control the fieldset's id. The hint id is always derived from the a
 
 ```vue
 <template>
-  <AgDSFieldset id="address-section" legend="Postal address">
-    <AgDSTextInput label="Street" />
-    <AgDSTextInput label="Suburb" />
-  </AgDSFieldset>
+  <AGDSFieldset id="address-section" legend="Postal address">
+    <AGDSTextInput label="Street" />
+    <AGDSTextInput label="Suburb" />
+  </AGDSFieldset>
 </template>
 ```
 

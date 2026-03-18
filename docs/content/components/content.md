@@ -7,59 +7,59 @@ status: stable
 
 ## Usage
 
-`AgDSContent` renders a full-width band with no vertical padding. It centres its content within the standard container max-width.
+`AGDSContent` renders a full-width band with no vertical padding. It centres its content within the standard container max-width.
 
 ::doc-preview
-<AgDSContent>
+<AGDSContent>
   <p>Page content goes here.</p>
-</AgDSContent>
+</AGDSContent>
 ::
 
 ```vue
 <template>
-  <AgDSContent>
+  <AGDSContent>
     <p>Page content goes here.</p>
-  </AgDSContent>
+  </AGDSContent>
 </template>
 ```
 
 ## PageContent
 
-Use `AgDSPageContent` for the main readable area of a page. It applies the standard page-level vertical padding.
+Use `AGDSPageContent` for the main readable area of a page. It applies the standard page-level vertical padding.
 
 ::doc-preview{label="PageContent"}
-<AgDSPageContent>
+<AGDSPageContent>
   <h1>Page heading</h1>
   <p>This content has top and bottom page padding applied.</p>
-</AgDSPageContent>
+</AGDSPageContent>
 ::
 
 ```vue
 <template>
-  <AgDSPageContent>
+  <AGDSPageContent>
     <h1>Page heading</h1>
     <p>This content has top and bottom page padding applied.</p>
-  </AgDSPageContent>
+  </AGDSPageContent>
 </template>
 ```
 
 ## SectionContent
 
-Use `AgDSSectionContent` for thematic sections within a page. It renders as a `<section>` by default and applies section-level vertical padding.
+Use `AGDSSectionContent` for thematic sections within a page. It renders as a `<section>` by default and applies section-level vertical padding.
 
 ::doc-preview{label="SectionContent"}
-<AgDSSectionContent>
+<AGDSSectionContent>
   <h2>Section heading</h2>
   <p>This content has section vertical padding applied.</p>
-</AgDSSectionContent>
+</AGDSSectionContent>
 ::
 
 ```vue
 <template>
-  <AgDSSectionContent>
+  <AGDSSectionContent>
     <h2>Section heading</h2>
     <p>This content has section vertical padding applied.</p>
-  </AgDSSectionContent>
+  </AGDSSectionContent>
 </template>
 ```
 
@@ -71,23 +71,23 @@ Use the `background` prop on any content component to set the background colour 
 - `bodyAlt` — sets `--agds-color-bg-subtle`
 
 ::doc-preview{label="Background variants"}
-<AgDSSectionContent background="body">
+<AGDSSectionContent background="body">
   <p>Body background</p>
-</AgDSSectionContent>
-<AgDSSectionContent background="bodyAlt">
+</AGDSSectionContent>
+<AGDSSectionContent background="bodyAlt">
   <p>Body alt background</p>
-</AgDSSectionContent>
+</AGDSSectionContent>
 ::
 
 ```vue
 <template>
-  <AgDSSectionContent background="body">
+  <AGDSSectionContent background="body">
     <p>Body background</p>
-  </AgDSSectionContent>
+  </AGDSSectionContent>
 
-  <AgDSSectionContent background="bodyAlt">
+  <AGDSSectionContent background="bodyAlt">
     <p>Body alt background</p>
-  </AgDSSectionContent>
+  </AGDSSectionContent>
 </template>
 ```
 
@@ -100,15 +100,15 @@ Use the `maxWidth` prop to switch between the standard container width and a lar
 
 ```vue
 <template>
-  <AgDSPageContent maxWidth="containerLg">
+  <AGDSPageContent maxWidth="containerLg">
     <p>Wider inner container.</p>
-  </AgDSPageContent>
+  </AGDSPageContent>
 </template>
 ```
 
 ## ContentBleed
 
-`AgDSContentBleed` allows a child element to extend to the edges of its parent content band, negating the horizontal padding. Place it as a direct child of any content component.
+`AGDSContentBleed` allows a child element to extend to the edges of its parent content band, negating the horizontal padding. Place it as a direct child of any content component.
 
 Use `visible` to control bleed responsively:
 
@@ -118,29 +118,29 @@ Use `visible` to control bleed responsively:
 - `{ md: false }` — no bleed on desktop only
 
 ::doc-preview{label="ContentBleed"}
-<AgDSSectionContent>
-  <AgDSContentBleed>
+<AGDSSectionContent>
+  <AGDSContentBleed>
     <div style="background: var(--agds-color-bg-subtle); padding: 1rem;">
       This element bleeds to the edges of the section band.
     </div>
-  </AgDSContentBleed>
-</AgDSSectionContent>
+  </AGDSContentBleed>
+</AGDSSectionContent>
 ::
 
 ```vue
 <template>
-  <AgDSSectionContent>
-    <AgDSContentBleed>
+  <AGDSSectionContent>
+    <AGDSContentBleed>
       <img src="/hero.jpg" alt="Hero image" style="width: 100%;" />
-    </AgDSContentBleed>
-  </AgDSSectionContent>
+    </AGDSContentBleed>
+  </AGDSSectionContent>
 
   <!-- Disable bleed on mobile, keep bleed on desktop -->
-  <AgDSSectionContent>
-    <AgDSContentBleed :visible="{ xs: false }">
+  <AGDSSectionContent>
+    <AGDSContentBleed :visible="{ xs: false }">
       <img src="/hero.jpg" alt="Hero image" style="width: 100%;" />
-    </AgDSContentBleed>
-  </AgDSSectionContent>
+    </AGDSContentBleed>
+  </AGDSSectionContent>
 </template>
 ```
 
@@ -151,13 +151,13 @@ All content components accept an `as` prop to change the rendered outer element.
 ```vue
 <template>
   <!-- Render SectionContent as an <article> -->
-  <AgDSSectionContent as="article">
+  <AGDSSectionContent as="article">
     <h2>Article heading</h2>
-  </AgDSSectionContent>
+  </AGDSSectionContent>
 </template>
 ```
 
-## Props — AgDSContent
+## Props — AGDSContent
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -166,7 +166,7 @@ All content components accept an `as` prop to change the rendered outer element.
 | `maxWidth` | `'container' \| 'containerLg'` | `'container'` | Max-width of the inner container |
 | `id` | `string` | — | HTML `id` placed on the outer wrapper |
 
-## Props — AgDSPageContent
+## Props — AGDSPageContent
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -175,7 +175,7 @@ All content components accept an `as` prop to change the rendered outer element.
 | `maxWidth` | `'container' \| 'containerLg'` | `'container'` | Max-width of the inner container |
 | `id` | `string` | — | HTML `id` placed on the outer wrapper |
 
-## Props — AgDSSectionContent
+## Props — AGDSSectionContent
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -184,7 +184,7 @@ All content components accept an `as` prop to change the rendered outer element.
 | `maxWidth` | `'container' \| 'containerLg'` | `'container'` | Max-width of the inner container |
 | `id` | `string` | — | HTML `id` placed on the outer wrapper |
 
-## Props — AgDSContentBleed
+## Props — AGDSContentBleed
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -200,12 +200,12 @@ All four components expose a `default` slot.
 
 ## Accessibility
 
-- `AgDSSectionContent` renders as `<section>` by default — give sections an accessible name via a heading or `aria-label` so they appear correctly in landmark navigation
+- `AGDSSectionContent` renders as `<section>` by default — give sections an accessible name via a heading or `aria-label` so they appear correctly in landmark navigation
 - Use the `id` prop to provide anchor targets for skip-links (e.g. `id="main-content"`)
-- `AgDSContentBleed` is a purely visual layout wrapper with no ARIA implications
+- `AGDSContentBleed` is a purely visual layout wrapper with no ARIA implications
 
 ## Changelog
 
 ### 0.1.0
 
-- Initial release — `AgDSContent`, `AgDSPageContent`, `AgDSSectionContent` with `background`, `maxWidth`, `as`, `id` props; `AgDSContentBleed` with responsive `visible` prop
+- Initial release — `AGDSContent`, `AGDSPageContent`, `AGDSSectionContent` with `background`, `maxWidth`, `as`, `id` props; `AGDSContentBleed` with responsive `visible` prop

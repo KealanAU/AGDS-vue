@@ -1,2 +1,2 @@
-export { default as AgDSFlex } from './AGDSFlex.vue'
-export type { AgDSFlexProps } from './AGDSFlex.vue'
+export { default as AGDSFlex } from './AGDSFlex.vue'
+export type { AGDSFlexProps } from './AGDSFlex.vue'

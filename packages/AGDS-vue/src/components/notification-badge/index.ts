@@ -1,2 +1,2 @@
-export { default as AgDSNotificationBadge } from './AGDSNotificationBadge.vue'
-export type { AgDSNotificationBadgeProps, BadgeTone } from './AGDSNotificationBadge.vue'
+export { default as AGDSNotificationBadge } from './AGDSNotificationBadge.vue'
+export type { AGDSNotificationBadgeProps, BadgeTone } from './AGDSNotificationBadge.vue'

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSwitch from './AGDSSwitch.vue'
+import AGDSSwitch from './AGDSSwitch.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,12 +10,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderSwitch(props: Record<string, unknown> = {}, slot = 'Notifications') {
-  return render(AgDSSwitch, { props, slots: { default: slot } })
+  return render(AGDSSwitch, { props, slots: { default: slot } })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — rendering', () => {
+describe('AGDSSwitch — rendering', () => {
   it('renders a switch input', () => {
     const { getByRole } = renderSwitch()
     expect(getByRole('switch')).toBeTruthy()
@@ -58,7 +58,7 @@ describe('AgDSSwitch — rendering', () => {
 
 // ─── Props: size ─────────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — size prop', () => {
+describe('AGDSSwitch — size prop', () => {
   it.each(['sm', 'md'] as const)('applies agds-switch--%s class', (size) => {
     const { container } = renderSwitch({ size })
     expect(container.querySelector(`.agds-switch--${size}`)).toBeTruthy()
@@ -67,7 +67,7 @@ describe('AgDSSwitch — size prop', () => {
 
 // ─── Props: modelValue (v-model) ─────────────────────────────────────────────
 
-describe('AgDSSwitch — modelValue prop', () => {
+describe('AGDSSwitch — modelValue prop', () => {
   it('is off by default', () => {
     const { getByRole } = renderSwitch()
     expect((getByRole('switch') as HTMLInputElement).checked).toBe(false)
@@ -81,7 +81,7 @@ describe('AgDSSwitch — modelValue prop', () => {
 
 // ─── Props: disabled ─────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — disabled prop', () => {
+describe('AGDSSwitch — disabled prop', () => {
   it('is not disabled by default', () => {
     const { getByRole } = renderSwitch()
     expect((getByRole('switch') as HTMLInputElement).disabled).toBe(false)
@@ -116,7 +116,7 @@ describe('AgDSSwitch — disabled prop', () => {
 
 // ─── Props: invalid ───────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — invalid prop', () => {
+describe('AGDSSwitch — invalid prop', () => {
   it('sets aria-invalid when invalid=true', () => {
     const { getByRole } = renderSwitch({ invalid: true })
     expect(getByRole('switch').getAttribute('aria-invalid')).toBe('true')
@@ -135,7 +135,7 @@ describe('AgDSSwitch — invalid prop', () => {
 
 // ─── Props: required ─────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — required prop', () => {
+describe('AGDSSwitch — required prop', () => {
   it('sets aria-required when required=true', () => {
     const { getByRole } = renderSwitch({ required: true })
     expect(getByRole('switch').getAttribute('aria-required')).toBe('true')
@@ -149,7 +149,7 @@ describe('AgDSSwitch — required prop', () => {
 
 // ─── Events ──────────────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — events', () => {
+describe('AGDSSwitch — events', () => {
   it('emits update:modelValue with true when turned on', async () => {
     const { getByRole, emitted } = renderSwitch({ modelValue: false })
     await fireEvent.click(getByRole('switch'))
@@ -184,9 +184,9 @@ describe('AgDSSwitch — events', () => {
 
 // ─── Slot: no label ───────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — without label slot', () => {
+describe('AGDSSwitch — without label slot', () => {
   it('does not render the label span when no slot is provided', () => {
-    const { container } = render(AgDSSwitch, {
+    const { container } = render(AGDSSwitch, {
       props: { 'aria-label': 'Enable notifications' },
     })
     expect(container.querySelector('.agds-switch__label')).toBeNull()
@@ -195,7 +195,7 @@ describe('AgDSSwitch — without label slot', () => {
 
 // ─── defineExpose ─────────────────────────────────────────────────────────────
 
-describe('AgDSSwitch — defineExpose', () => {
+describe('AGDSSwitch — defineExpose', () => {
   it('exposes a focus method', () => {
     const { getByRole } = renderSwitch()
     const input = getByRole('switch') as HTMLInputElement
@@ -207,7 +207,7 @@ describe('AgDSSwitch — defineExpose', () => {
 
 // ─── Accessibility: axe-core ─────────────────────────────────────────────────
 
-describe('AgDSSwitch — axe accessibility', () => {
+describe('AGDSSwitch — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderSwitch()
     await runAxe(container, AXE_OPTS)
@@ -235,7 +235,7 @@ describe('AgDSSwitch — axe accessibility', () => {
 
   it('detects a violation when switch has no accessible name', async () => {
     // Verifies the a11y helper catches real failures.
-    const { container } = render(AgDSSwitch, { slots: { default: '' } })
+    const { container } = render(AGDSSwitch, { slots: { default: '' } })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })
 })

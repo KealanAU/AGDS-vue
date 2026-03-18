@@ -1,1 +1,1 @@
-export { default as AgDSDetails } from './AGDSDetails.vue';
+export { default as AGDSDetails } from './AGDSDetails.vue';

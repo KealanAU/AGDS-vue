@@ -6,7 +6,7 @@ export interface InpageNavLink {
   href: string
 }
 
-export interface AgDSInpageNavProps {
+export interface AGDSInpageNavProps {
   /** Describes the navigation landmark to assistive technologies. Defaults to 'In page'. */
   ariaLabel?: string
   /** The list of anchor links to display. */
@@ -15,7 +15,7 @@ export interface AgDSInpageNavProps {
   title?: string
 }
 
-const props = withDefaults(defineProps<AgDSInpageNavProps>(), {
+const props = withDefaults(defineProps<AGDSInpageNavProps>(), {
   ariaLabel: 'In page',
 })
 </script>

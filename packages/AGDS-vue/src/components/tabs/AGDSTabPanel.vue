@@ -2,12 +2,12 @@
 import { inject } from 'vue'
 import { TabsContent } from 'reka-ui'
 
-export interface AgDSTabPanelProps {
-  /** Value — must match the corresponding AgDSTab value. */
+export interface AGDSTabPanelProps {
+  /** Value — must match the corresponding AGDSTab value. */
   value: string
 }
 
-const props = defineProps<AgDSTabPanelProps>()
+const props = defineProps<AGDSTabPanelProps>()
 
 const contained = inject<boolean>('tabsContained', true)
 </script>

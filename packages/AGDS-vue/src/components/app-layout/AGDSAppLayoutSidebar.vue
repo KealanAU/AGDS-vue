@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, nextTick, computed } from 'vue'
 import { useAppLayoutContext } from './appLayoutContext'
-import AgDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue'
+import AGDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue'
 import {
   findBestMatch,
   type AppLayoutNavGroup,
@@ -9,7 +9,7 @@ import {
   type AppLayoutBackground,
 } from './appLayoutTypes'
 
-export interface AgDSAppLayoutSidebarProps {
+export interface AGDSAppLayoutSidebarProps {
   /** Navigation groups displayed in the sidebar. */
   items: AppLayoutNavGroup[]
   /** Current URL path — used to highlight the matching nav item. */
@@ -20,7 +20,7 @@ export interface AgDSAppLayoutSidebarProps {
   subLevelVisible?: AppLayoutSubLevelVisible
 }
 
-const props = withDefaults(defineProps<AgDSAppLayoutSidebarProps>(), {
+const props = withDefaults(defineProps<AGDSAppLayoutSidebarProps>(), {
   background: 'bodyAlt',
   subLevelVisible: 'whenActive',
 })
@@ -85,7 +85,7 @@ function handleKeydown(event: KeyboardEvent) {
     ]"
     aria-label="Navigation"
   >
-    <AgDSAppLayoutSidebarNav
+    <AGDSAppLayoutSidebarNav
       :items="items"
       :active-path="bestMatch"
       :sub-level-visible="subLevelVisible"
@@ -146,7 +146,7 @@ function handleKeydown(event: KeyboardEvent) {
         </div>
 
         <!-- Nav items -->
-        <AgDSAppLayoutSidebarNav
+        <AGDSAppLayoutSidebarNav
           :items="items"
           :active-path="bestMatch"
           :sub-level-visible="subLevelVisible"

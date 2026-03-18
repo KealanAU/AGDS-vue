@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
-import AgDSVisuallyHidden from '../visually-hidden/AGDSVisuallyHidden.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
+import AGDSVisuallyHidden from '../visually-hidden/AGDSVisuallyHidden.vue'
 
 export type TaskListItemStatus =
   | 'notRequired'
@@ -11,7 +11,7 @@ export type TaskListItemStatus =
   | 'done'
   | 'doneRecently'
 
-export interface AgDSTaskListItemProps {
+export interface AGDSTaskListItemProps {
   /** Current progress status of the task */
   status: TaskListItemStatus
   /** Secondary description displayed below the label */
@@ -26,7 +26,7 @@ export interface AgDSTaskListItemProps {
   disabled?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSTaskListItemProps>(), {
+const props = withDefaults(defineProps<AGDSTaskListItemProps>(), {
   ordered: false,
   type: 'button',
   disabled: false,
@@ -99,7 +99,7 @@ const statusInfo = computed(() => STATUS_MAP[props.status])
       <span class="agds-task-list-item__left">
         <!-- Desktop: large icon on the left -->
         <span class="agds-task-list-item__icon-desktop" aria-hidden="true">
-          <AgDSIcon
+          <AGDSIcon
             :name="statusInfo.icon"
             size="xl"
             :color="statusInfo.iconColor"
@@ -112,12 +112,12 @@ const statusInfo = computed(() => STATUS_MAP[props.status])
           <span class="agds-task-list-item__label">
             <span v-if="ordered" class="agds-task-list-item__counter" aria-hidden="true" />
             <slot />
-            <AgDSVisuallyHidden>.</AgDSVisuallyHidden>
+            <AGDSVisuallyHidden>.</AGDSVisuallyHidden>
           </span>
 
           <!-- Mobile: small icon + status label -->
           <span class="agds-task-list-item__status">
-            <AgDSIcon
+            <AGDSIcon
               class="agds-task-list-item__icon-mobile"
               :name="statusInfo.icon"
               size="md"
@@ -126,7 +126,7 @@ const statusInfo = computed(() => STATUS_MAP[props.status])
             />
             <span class="agds-task-list-item__status-label">
               {{ statusInfo.label }}
-              <AgDSVisuallyHidden>.</AgDSVisuallyHidden>
+              <AGDSVisuallyHidden>.</AGDSVisuallyHidden>
             </span>
           </span>
 
@@ -138,7 +138,7 @@ const statusInfo = computed(() => STATUS_MAP[props.status])
       </span><!-- /.agds-task-list-item__left -->
 
       <!-- Arrow -->
-      <AgDSIcon
+      <AGDSIcon
         name="mdi:arrow-right"
         class="agds-task-list-item__arrow"
         :color="'var(--agds-color-action-primary)'"

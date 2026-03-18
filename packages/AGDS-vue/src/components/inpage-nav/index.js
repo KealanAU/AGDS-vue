@@ -1,1 +1,1 @@
-export { default as AgDSInpageNav } from './AGDSInpageNav.vue';
+export { default as AGDSInpageNav } from './AGDSInpageNav.vue';

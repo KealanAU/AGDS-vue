@@ -1,10 +1,10 @@
 <script setup lang="ts" generic="TOption extends DefaultComboboxOption">
 import { ref, shallowRef, computed, watch, onUnmounted, getCurrentInstance } from 'vue'
-import AgDSField from '../field/AGDSField.vue'
+import AGDSField from '../field/AGDSField.vue'
 import type { DefaultComboboxOption, ComboboxMaxWidth } from './comboboxUtils'
 import { filterOptions } from './comboboxUtils'
 
-export interface AgDSComboboxAsyncMultiProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
+export interface AGDSComboboxAsyncMultiProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
   /** Async function called on each debounced keystroke to load matching options */
   fetchOptions: (query: string) => Promise<O[]>
   /** Visible label text */
@@ -45,7 +45,7 @@ export interface AgDSComboboxAsyncMultiProps<O extends DefaultComboboxOption = D
   maxWidth?: ComboboxMaxWidth
 }
 
-const props = withDefaults(defineProps<AgDSComboboxAsyncMultiProps<TOption>>(), {
+const props = withDefaults(defineProps<AGDSComboboxAsyncMultiProps<TOption>>(), {
   invalid: false,
   required: false,
   disabled: false,
@@ -224,7 +224,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 </script>
 
 <template>
-  <AgDSField
+  <AGDSField
     :label="label"
     :id="inputId"
     :label-id="labelId"
@@ -394,7 +394,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
         </div>
       </div>
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 
 <style scoped>

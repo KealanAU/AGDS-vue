@@ -1,2 +1,2 @@
-export { default as AgDSProse } from './AGDSProse.vue'
-export type { AgDSProseProps } from './AGDSProse.vue'
+export { default as AGDSProse } from './AGDSProse.vue'
+export type { AGDSProseProps } from './AGDSProse.vue'

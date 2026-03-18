@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { AgDSIcon } from '../icon';
+import { AGDSIcon } from '../icon';
 const STATUS_MAP = {
     blocked: { label: 'Cannot start yet', icon: 'mdi:lock', iconColor: 'border' },
     doing: { label: 'In progress', icon: 'mdi:progress-clock', iconColor: 'border' },
@@ -87,8 +87,8 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
 /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__ring']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__ring--active']} */ ;
 let __VLS_0;
-/** @ts-ignore @type {typeof __VLS_components.AgDSIcon} */
-AgDSIcon;
+/** @ts-ignore @type {typeof __VLS_components.AGDSIcon} */
+AGDSIcon;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     name: (__VLS_ctx.statusInfo.icon),
@@ -183,8 +183,8 @@ if (__VLS_ctx.activeSubItem) {
     /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__sub-link']} */ ;
     const { default: __VLS_18 } = __VLS_16.slots;
     let __VLS_19;
-    /** @ts-ignore @type {typeof __VLS_components.AgDSIcon} */
-    AgDSIcon;
+    /** @ts-ignore @type {typeof __VLS_components.AGDSIcon} */
+    AGDSIcon;
     // @ts-ignore
     const __VLS_20 = __VLS_asFunctionalComponent1(__VLS_19, new __VLS_19({
         name: "mdi:arrow-right-bottom",

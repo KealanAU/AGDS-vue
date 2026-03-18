@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSPageAlert from './AGDSPageAlert.vue'
+import AGDSPageAlert from './AGDSPageAlert.vue'
 import type { PageAlertTone } from './AGDSPageAlert.vue'
 
 const AXE_OPTS = {
@@ -16,7 +16,7 @@ function renderAlert(
   props: Record<string, unknown> = {},
   slots: Record<string, string> = {},
 ) {
-  return render(AgDSPageAlert, {
+  return render(AGDSPageAlert, {
     props: { tone: 'info', title: 'Alert title', ...props },
     slots: Object.keys(slots).length ? slots : undefined,
   })
@@ -24,7 +24,7 @@ function renderAlert(
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSPageAlert — rendering', () => {
+describe('AGDSPageAlert — rendering', () => {
   it('renders a <div> with role="region" by default', () => {
     const { container } = renderAlert()
     const el = container.querySelector('div.agds-page-alert')
@@ -78,7 +78,7 @@ describe('AgDSPageAlert — rendering', () => {
 
 // ─── Props: role ──────────────────────────────────────────────────────────────
 
-describe('AgDSPageAlert — role prop', () => {
+describe('AGDSPageAlert — role prop', () => {
   it('defaults to role="region"', () => {
     const { container } = renderAlert()
     expect(container.querySelector('[role="region"]')).toBeTruthy()
@@ -92,7 +92,7 @@ describe('AgDSPageAlert — role prop', () => {
 
 // ─── ARIA ─────────────────────────────────────────────────────────────────────
 
-describe('AgDSPageAlert — ARIA', () => {
+describe('AGDSPageAlert — ARIA', () => {
   it('aria-labelledby contains toneId and titleId', () => {
     const { container } = renderAlert()
     const root      = container.querySelector('.agds-page-alert')!
@@ -143,7 +143,7 @@ describe('AgDSPageAlert — ARIA', () => {
 
 // ─── Props: onClose ───────────────────────────────────────────────────────────
 
-describe('AgDSPageAlert — onClose prop', () => {
+describe('AGDSPageAlert — onClose prop', () => {
   it('does not render a close button when onClose is omitted', () => {
     const { container } = renderAlert()
     expect(container.querySelector('.agds-page-alert__close')).toBeNull()
@@ -199,7 +199,7 @@ describe('AgDSPageAlert — onClose prop', () => {
 
 // ─── Props: tabIndex ──────────────────────────────────────────────────────────
 
-describe('AgDSPageAlert — tabIndex prop', () => {
+describe('AGDSPageAlert — tabIndex prop', () => {
   it('has no tabindex by default', () => {
     const { container } = renderAlert()
     expect(container.querySelector('.agds-page-alert')!.getAttribute('tabindex')).toBeNull()
@@ -223,7 +223,7 @@ describe('AgDSPageAlert — tabIndex prop', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSPageAlert — axe accessibility', () => {
+describe('AGDSPageAlert — axe accessibility', () => {
   it.each(TONES)(
     'has no violations: tone=%s, title only',
     async (tone) => {

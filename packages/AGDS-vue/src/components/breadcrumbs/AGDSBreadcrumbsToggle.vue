@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AgDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue'
+import AGDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue'
 
 const emit = defineEmits<{
   click: [event: MouseEvent]
@@ -12,7 +12,7 @@ function handleClick(event: MouseEvent) {
 
 <template>
   <li class="agds-breadcrumbs__item">
-    <AgDSBreadcrumbsDivider />
+    <AGDSBreadcrumbsDivider />
     <button
       type="button"
       class="agds-breadcrumbs__toggle"

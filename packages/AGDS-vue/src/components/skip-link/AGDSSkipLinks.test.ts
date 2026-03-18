@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSkipLinks from './AGDSSkipLinks.vue'
+import AGDSSkipLinks from './AGDSSkipLinks.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -15,14 +15,14 @@ const DEFAULT_LINKS = [
 function renderSkipLinks(
   props: Record<string, unknown> = {},
 ) {
-  return render(AgDSSkipLinks, {
+  return render(AGDSSkipLinks, {
     props: { links: DEFAULT_LINKS, ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSSkipLinks — rendering', () => {
+describe('AGDSSkipLinks — rendering', () => {
   it('renders a <nav> landmark', () => {
     const { getByRole } = renderSkipLinks()
     expect(getByRole('navigation')).toBeTruthy()
@@ -56,7 +56,7 @@ describe('AgDSSkipLinks — rendering', () => {
 
 // ─── Props: ariaLabel ─────────────────────────────────────────────────────────
 
-describe('AgDSSkipLinks — ariaLabel prop', () => {
+describe('AGDSSkipLinks — ariaLabel prop', () => {
   it('defaults nav aria-label to "Skip links"', () => {
     const { getByRole } = renderSkipLinks()
     expect(getByRole('navigation', { name: 'Skip links' })).toBeTruthy()
@@ -70,7 +70,7 @@ describe('AgDSSkipLinks — ariaLabel prop', () => {
 
 // ─── Accessibility: links are in the DOM ──────────────────────────────────────
 
-describe('AgDSSkipLinks — DOM presence', () => {
+describe('AGDSSkipLinks — DOM presence', () => {
   it('links are present in the DOM even when visually hidden', () => {
     // Skip links are visually hidden but must be in the DOM for keyboard users.
     const { getAllByRole } = renderSkipLinks()
@@ -86,7 +86,7 @@ describe('AgDSSkipLinks — DOM presence', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSkipLinks — axe accessibility', () => {
+describe('AGDSSkipLinks — axe accessibility', () => {
   it('has no violations with default links', async () => {
     const { container } = renderSkipLinks()
     await runAxe(container, AXE_OPTS)

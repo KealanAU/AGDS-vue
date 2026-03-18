@@ -1,19 +1,19 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSCollapsingSideBar from './AGDSCollapsingSideBar.vue'
+import AGDSCollapsingSideBar from './AGDSCollapsingSideBar.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
 } as const
 
-function renderSidebar(props: Partial<InstanceType<typeof AgDSCollapsingSideBar>['$props']> & { title: string } = { title: 'Filters' }) {
-  return render(AgDSCollapsingSideBar, { props })
+function renderSidebar(props: Partial<InstanceType<typeof AGDSCollapsingSideBar>['$props']> & { title: string } = { title: 'Filters' }) {
+  return render(AGDSCollapsingSideBar, { props })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSCollapsingSideBar — rendering', () => {
+describe('AGDSCollapsingSideBar — rendering', () => {
   it('renders a <section> by default', () => {
     const { container } = renderSidebar({ title: 'My Section' })
     expect(container.querySelector('section.agds-csb')).toBeTruthy()
@@ -56,7 +56,7 @@ describe('AgDSCollapsingSideBar — rendering', () => {
   })
 
   it('renders default slot content in the body', () => {
-    const { getByText } = render(AgDSCollapsingSideBar, {
+    const { getByText } = render(AGDSCollapsingSideBar, {
       props: { title: 'Filters' },
       slots: { default: '<p>Filter content here</p>' },
     })
@@ -64,7 +64,7 @@ describe('AgDSCollapsingSideBar — rendering', () => {
   })
 
   it('renders custom heading via the title slot', () => {
-    const { container } = render(AgDSCollapsingSideBar, {
+    const { container } = render(AGDSCollapsingSideBar, {
       props: { title: 'Filters', ariaLabel: 'Filters' },
       slots: { title: '<h3 class="custom-heading">Custom Heading</h3>' },
     })
@@ -76,7 +76,7 @@ describe('AgDSCollapsingSideBar — rendering', () => {
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 
-describe('AgDSCollapsingSideBar — props', () => {
+describe('AGDSCollapsingSideBar — props', () => {
   it('applies --bg-body class by default', () => {
     const { container } = renderSidebar({ title: 'Filters' })
     expect(container.querySelector('.agds-csb--bg-body')).toBeTruthy()
@@ -111,7 +111,7 @@ describe('AgDSCollapsingSideBar — props', () => {
 
 // ─── Toggle button ────────────────────────────────────────────────────────────
 
-describe('AgDSCollapsingSideBar — toggle button', () => {
+describe('AGDSCollapsingSideBar — toggle button', () => {
   it('toggle button has type="button"', () => {
     const { container } = renderSidebar({ title: 'Filters' })
     expect(container.querySelector('.agds-csb__toggle')?.getAttribute('type')).toBe('button')
@@ -171,7 +171,7 @@ describe('AgDSCollapsingSideBar — toggle button', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSCollapsingSideBar — axe accessibility', () => {
+describe('AGDSCollapsingSideBar — axe accessibility', () => {
   it('has no violations in collapsed state', async () => {
     const { container } = renderSidebar({ title: 'Filters' })
     await runAxe(container, AXE_OPTS)

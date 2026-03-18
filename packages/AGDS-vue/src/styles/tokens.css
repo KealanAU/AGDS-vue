@@ -174,7 +174,7 @@
   --agds-card-shadow-sm:                  var(--agds-shadow-sm);
   --agds-card-shadow-md:                  var(--agds-shadow-md);
   --agds-card-footer-outside-padding-top: var(--agds-space-4);      /* 1rem   */
-  --agds-card-footer-outside-padding-x:   var(--agds-space-1);      /* 0.25rem */
+  --agds-card-footer-outside-padding-x:   var(--agds-space-0);      /* 0       */
 
   /* ── Divider component tokens ──────────────────────────── */
   --agds-divider-border-width:    1px;

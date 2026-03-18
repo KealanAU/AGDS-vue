@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSectionAlert from './AGDSSectionAlert.vue'
+import AGDSSectionAlert from './AGDSSectionAlert.vue'
 import { sectionAlertToneMap } from './sectionAlertUtils'
 import type { SectionAlertTones, SectionAlertTone } from './sectionAlertUtils'
 
@@ -15,7 +15,7 @@ function renderAlert(
   props: Record<string, unknown> = {},
   slot = '',
 ) {
-  return render(AgDSSectionAlert, {
+  return render(AGDSSectionAlert, {
     props: { title: 'Alert title', tone: 'infoHigh', ...props },
     slots: slot ? { default: slot } : undefined,
   })
@@ -23,7 +23,7 @@ function renderAlert(
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — rendering', () => {
+describe('AGDSSectionAlert — rendering', () => {
   it('renders a <div> with role="region" by default', () => {
     const { container } = renderAlert()
     const el = container.querySelector('div.agds-section-alert')
@@ -56,7 +56,7 @@ describe('AgDSSectionAlert — rendering', () => {
 
 // ─── Props: tone (resolved) ───────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — tone prop (new tones)', () => {
+describe('AGDSSectionAlert — tone prop (new tones)', () => {
   it.each(Object.keys(sectionAlertToneMap) as SectionAlertTones[])(
     'applies agds-section-alert--%s class for tone="%s"',
     (tone) => {
@@ -92,7 +92,7 @@ describe('AgDSSectionAlert — tone prop (new tones)', () => {
 
 // ─── Props: legacy tone aliases ───────────────────────────────────────────────
 
-describe('AgDSSectionAlert — legacy tone aliases', () => {
+describe('AGDSSectionAlert — legacy tone aliases', () => {
   const legacyMap: Array<[SectionAlertTone, SectionAlertTones]> = [
     ['error',   'errorHigh'],
     ['success', 'successHigh'],
@@ -124,7 +124,7 @@ describe('AgDSSectionAlert — legacy tone aliases', () => {
 
 // ─── Props: role ──────────────────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — role prop', () => {
+describe('AGDSSectionAlert — role prop', () => {
   it('defaults to role="region"', () => {
     const { container } = renderAlert()
     expect(container.querySelector('[role="region"]')).toBeTruthy()
@@ -138,7 +138,7 @@ describe('AgDSSectionAlert — role prop', () => {
 
 // ─── ARIA ─────────────────────────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — ARIA', () => {
+describe('AGDSSectionAlert — ARIA', () => {
   it('has aria-labelledby referencing toneId and titleId', () => {
     const { container } = renderAlert()
     const root = container.querySelector('.agds-section-alert')!
@@ -205,7 +205,7 @@ describe('AgDSSectionAlert — ARIA', () => {
 
 // ─── Icon variant ─────────────────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — icon variant', () => {
+describe('AGDSSectionAlert — icon variant', () => {
   it('High tones render a filled SVG (fill="currentColor")', () => {
     for (const tone of ['errorHigh', 'infoHigh', 'successHigh', 'warningHigh'] as const) {
       const { container } = renderAlert({ tone })
@@ -226,7 +226,7 @@ describe('AgDSSectionAlert — icon variant', () => {
 
 // ─── Props: onClose ───────────────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — onClose prop', () => {
+describe('AGDSSectionAlert — onClose prop', () => {
   it('does not render a close button when onClose is omitted', () => {
     const { container } = renderAlert()
     expect(container.querySelector('.agds-section-alert__close')).toBeNull()
@@ -280,7 +280,7 @@ describe('AgDSSectionAlert — onClose prop', () => {
 
 // ─── Props: tabIndex ──────────────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — tabIndex prop', () => {
+describe('AGDSSectionAlert — tabIndex prop', () => {
   it('has no tabindex by default', () => {
     const { container } = renderAlert()
     expect(container.querySelector('.agds-section-alert')!.getAttribute('tabindex')).toBeNull()
@@ -304,7 +304,7 @@ describe('AgDSSectionAlert — tabIndex prop', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSectionAlert — axe accessibility', () => {
+describe('AGDSSectionAlert — axe accessibility', () => {
   it.each(Object.keys(sectionAlertToneMap) as SectionAlertTones[])(
     'has no violations: tone=%s, title only',
     async (tone) => {

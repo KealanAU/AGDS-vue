@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSDivider from './AGDSDivider.vue'
+import AGDSDivider from './AGDSDivider.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,7 +10,7 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderDivider(props: Record<string, unknown> = {}, slot?: string) {
-  return render(AgDSDivider, {
+  return render(AGDSDivider, {
     props,
     slots: slot ? { default: slot } : undefined,
   })
@@ -18,7 +18,7 @@ function renderDivider(props: Record<string, unknown> = {}, slot?: string) {
 
 // ─── Plain divider ────────────────────────────────────────────────────────────
 
-describe('AgDSDivider — plain', () => {
+describe('AGDSDivider — plain', () => {
   it('renders a single <hr> when no slot content is provided', () => {
     const { container } = renderDivider()
     expect(container.querySelector('hr.agds-divider')).toBeTruthy()
@@ -44,7 +44,7 @@ describe('AgDSDivider — plain', () => {
 
 // ─── Divider with text ────────────────────────────────────────────────────────
 
-describe('AgDSDivider — with text', () => {
+describe('AGDSDivider — with text', () => {
   it('renders a wrapper div instead of a plain <hr> when slot content is provided', () => {
     const { container } = renderDivider({}, '<span>or</span>')
     expect(container.querySelector('.agds-divider--with-text')).toBeTruthy()
@@ -95,7 +95,7 @@ describe('AgDSDivider — with text', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSDivider — axe accessibility', () => {
+describe('AGDSDivider — axe accessibility', () => {
   it('has no violations: plain divider', async () => {
     const { container } = renderDivider()
     await runAxe(container, AXE_OPTS)

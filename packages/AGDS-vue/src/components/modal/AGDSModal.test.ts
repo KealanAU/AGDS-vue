@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
 import { ref } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSModal from './AGDSModal.vue'
+import AGDSModal from './AGDSModal.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -28,12 +28,12 @@ function renderModal(options: {
   } = options
 
   return render({
-    components: { AgDSModal },
+    components: { AGDSModal },
     template: `
-      <AgDSModal v-model="open" :title="title">
+      <AGDSModal v-model="open" :title="title">
         ${bodySlot}
         ${showActions ? '<template #actions><button>Save</button></template>' : ''}
-      </AgDSModal>
+      </AGDSModal>
     `,
     setup: () => {
       const open = ref(initialOpen)
@@ -49,7 +49,7 @@ afterEach(() => {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSModal — rendering', () => {
+describe('AGDSModal — rendering', () => {
   it('renders the dialog when modelValue is true', () => {
     renderModal()
     expect(screen.getByRole('dialog')).toBeTruthy()
@@ -83,7 +83,7 @@ describe('AgDSModal — rendering', () => {
 
 // ─── Semantics ────────────────────────────────────────────────────────────────
 
-describe('AgDSModal — semantics', () => {
+describe('AGDSModal — semantics', () => {
   it('dialog has role="dialog"', () => {
     renderModal()
     const dialog = screen.getByRole('dialog')
@@ -115,7 +115,7 @@ describe('AgDSModal — semantics', () => {
 
 // ─── Open / close behaviour ───────────────────────────────────────────────────
 
-describe('AgDSModal — open/close behaviour', () => {
+describe('AGDSModal — open/close behaviour', () => {
   it('close button closes the modal', async () => {
     renderModal()
     const closeBtn = screen.getByRole('button', { name: 'Close modal' })
@@ -156,7 +156,7 @@ describe('AgDSModal — open/close behaviour', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSModal — axe accessibility', () => {
+describe('AGDSModal — axe accessibility', () => {
   it('has no violations when open with body content', async () => {
     renderModal()
     await runAxe(document.body, AXE_OPTS)
@@ -176,8 +176,8 @@ describe('AgDSModal — axe accessibility', () => {
     // Verify the helper catches real axe failures — render with an empty title
     // so the dialog element has no accessible name (WCAG 4.1.2).
     render({
-      components: { AgDSModal },
-      template: `<AgDSModal :model-value="true" title="">Content</AgDSModal>`,
+      components: { AGDSModal },
+      template: `<AGDSModal :model-value="true" title="">Content</AGDSModal>`,
     })
     await expect(runAxe(document.body, AXE_OPTS)).rejects.toThrow('axe-core found')
   })

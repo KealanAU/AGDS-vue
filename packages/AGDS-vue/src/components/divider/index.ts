@@ -1,2 +1,2 @@
-export { default as AgDSDivider } from './AGDSDivider.vue'
-export type { AgDSDividerProps } from './AGDSDivider.vue'
+export { default as AGDSDivider } from './AGDSDivider.vue'
+export type { AGDSDividerProps } from './AGDSDivider.vue'

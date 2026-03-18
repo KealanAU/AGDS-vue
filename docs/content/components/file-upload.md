@@ -10,7 +10,7 @@ status: stable
 Bind the selected files with `v-model`. The component validates files against your constraints and emits the accepted list.
 
 ::doc-preview
-<AgDSFileUpload label="Attach supporting documents" v-model="[]" />
+<AGDSFileUpload label="Attach supporting documents" v-model="[]" />
 ::
 
 ```vue
@@ -20,7 +20,7 @@ const files = ref([])
 </script>
 
 <template>
-  <AgDSFileUpload label="Attach supporting documents" v-model="files" />
+  <AGDSFileUpload label="Attach supporting documents" v-model="files" />
 </template>
 ```
 
@@ -30,7 +30,7 @@ Use the `multiple` prop to allow more than one file at a time.
 
 ```vue
 <template>
-  <AgDSFileUpload
+  <AGDSFileUpload
     label="Upload evidence"
     v-model="files"
     multiple
@@ -44,7 +44,7 @@ Pass an array of MIME types to `accept`. The component displays accepted formats
 
 ```vue
 <template>
-  <AgDSFileUpload
+  <AGDSFileUpload
     label="Upload identity document"
     v-model="files"
     :accept="['image/jpeg', 'image/png', 'application/pdf']"
@@ -60,7 +60,7 @@ Use `maxSize` (in KB) to reject files that are too large.
 
 ```vue
 <template>
-  <AgDSFileUpload
+  <AGDSFileUpload
     label="Upload photo"
     v-model="files"
     :max-size="5000"
@@ -75,7 +75,7 @@ Use `maxFiles` together with `multiple` to limit how many files can be selected.
 
 ```vue
 <template>
-  <AgDSFileUpload
+  <AGDSFileUpload
     label="Upload up to 3 documents"
     v-model="files"
     multiple
@@ -89,12 +89,12 @@ Use `maxFiles` together with `multiple` to limit how many files can be selected.
 Use `invalid` and `message` to show a validation error.
 
 ::doc-preview{label="Invalid state"}
-<AgDSFileUpload label="Upload document" v-model="[]" invalid message="You must upload at least one document" />
+<AGDSFileUpload label="Upload document" v-model="[]" invalid message="You must upload at least one document" />
 ::
 
 ```vue
 <template>
-  <AgDSFileUpload
+  <AGDSFileUpload
     label="Upload document"
     v-model="files"
     :invalid="!files.length && submitted"
@@ -123,7 +123,7 @@ function onRemoveExisting(file) {
 </script>
 
 <template>
-  <AgDSFileUpload
+  <AGDSFileUpload
     label="Supporting documents"
     v-model="newFiles"
     :existing-files="existingFiles"

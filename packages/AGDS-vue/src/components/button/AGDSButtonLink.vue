@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ButtonVariant, ButtonSize } from './AGDSButton.vue'
 
-export interface AgDSButtonLinkProps {
+export interface AGDSButtonLinkProps {
   /** URL the link navigates to */
   href: string
   /** Visual prominence — matches Button variants */
@@ -14,7 +14,7 @@ export interface AgDSButtonLinkProps {
   external?: boolean
 }
 
-withDefaults(defineProps<AgDSButtonLinkProps>(), {
+withDefaults(defineProps<AGDSButtonLinkProps>(), {
   variant: 'primary',
   size: 'md',
   block: false,
@@ -62,7 +62,7 @@ defineEmits<{
 
 <style scoped>
 /*
-  Visual styles are shared with AgDSButton via the same CSS class names.
+  Visual styles are shared with AGDSButton via the same CSS class names.
   Import AGDS-vue/styles globally — this file only adds link-specific overrides.
 */
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
-export interface AgDSCallToActionButtonProps {
+export interface AGDSCallToActionButtonProps {
   /** Disables the button, preventing interaction */
   disabled?: boolean
   /** Shows a loading indicator and prevents interaction */
@@ -19,7 +19,7 @@ export interface AgDSCallToActionButtonProps {
   focusRingFor?: 'keyboard' | 'all'
 }
 
-const props = withDefaults(defineProps<AgDSCallToActionButtonProps>(), {
+const props = withDefaults(defineProps<AGDSCallToActionButtonProps>(), {
   disabled: false,
   loading: false,
   loadingLabel: 'Loading',
@@ -75,7 +75,7 @@ function handleClick(event: MouseEvent) {
       <slot />
     </span>
 
-    <AgDSIcon
+    <AGDSIcon
       name="mdi:chevron-right"
       size="sm"
       class="agds-cta__icon"

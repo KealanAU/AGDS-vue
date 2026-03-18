@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSBreadcrumbs from './AGDSBreadcrumbs.vue'
+import AGDSBreadcrumbs from './AGDSBreadcrumbs.vue'
 import type { BreadcrumbLink } from './AGDSBreadcrumbs.vue'
 
 const AXE_OPTS = {
@@ -23,12 +23,12 @@ const MANY_LINKS: BreadcrumbLink[] = [
 ]
 
 function renderBreadcrumbs(links: BreadcrumbLink[], props: Record<string, unknown> = {}) {
-  return render(AgDSBreadcrumbs, { props: { links, ...props } })
+  return render(AGDSBreadcrumbs, { props: { links, ...props } })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSBreadcrumbs — rendering', () => {
+describe('AGDSBreadcrumbs — rendering', () => {
   it('renders a <nav> landmark', () => {
     const { getByRole } = renderBreadcrumbs(TWO_LINKS)
     expect(getByRole('navigation')).toBeTruthy()
@@ -71,7 +71,7 @@ describe('AgDSBreadcrumbs — rendering', () => {
 
 // ─── Current page ─────────────────────────────────────────────────────────────
 
-describe('AgDSBreadcrumbs — current page', () => {
+describe('AGDSBreadcrumbs — current page', () => {
   it('sets aria-current="page" on the last item link', () => {
     const { getAllByRole } = renderBreadcrumbs(TWO_LINKS)
     const links = getAllByRole('link')
@@ -93,7 +93,7 @@ describe('AgDSBreadcrumbs — current page', () => {
 
 // ─── Collapsed state (3+ links) ───────────────────────────────────────────────
 
-describe('AgDSBreadcrumbs — collapsed state', () => {
+describe('AGDSBreadcrumbs — collapsed state', () => {
   it('renders a toggle button in the DOM when there are middle links', () => {
     const { getByRole } = renderBreadcrumbs(MANY_LINKS)
     expect(getByRole('button', { name: 'Show all breadcrumbs' })).toBeTruthy()
@@ -128,7 +128,7 @@ describe('AgDSBreadcrumbs — collapsed state', () => {
 
 // ─── Expanded state ───────────────────────────────────────────────────────────
 
-describe('AgDSBreadcrumbs — expanded state', () => {
+describe('AGDSBreadcrumbs — expanded state', () => {
   it('does not render a toggle button when there are no middle links (2 items)', () => {
     const { queryByRole } = renderBreadcrumbs(TWO_LINKS)
     expect(queryByRole('button', { name: 'Show all breadcrumbs' })).toBeNull()
@@ -151,7 +151,7 @@ describe('AgDSBreadcrumbs — expanded state', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSBreadcrumbs — axe accessibility', () => {
+describe('AGDSBreadcrumbs — axe accessibility', () => {
   it('has no violations with two links', async () => {
     const { container } = renderBreadcrumbs(TWO_LINKS)
     await runAxe(container, AXE_OPTS)
@@ -174,7 +174,7 @@ describe('AgDSBreadcrumbs — axe accessibility', () => {
   })
 
   it('has a violation when links have no accessible name', async () => {
-    const { container } = render(AgDSBreadcrumbs, {
+    const { container } = render(AGDSBreadcrumbs, {
       props: { links: [{ href: '/', label: '' }, { href: '/about', label: '' }] },
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')

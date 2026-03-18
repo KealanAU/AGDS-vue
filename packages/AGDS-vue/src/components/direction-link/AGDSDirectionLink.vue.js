@@ -1,4 +1,4 @@
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const __VLS_props = withDefaults(defineProps(), {
     external: false,
     focusRingFor: 'keyboard',
@@ -56,7 +56,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.a, __VLS_intrinsics.a)({
 /** @type {__VLS_StyleScopedClasses['agds-direction-link']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-direction-link--focus-all']} */ ;
 if (__VLS_ctx.direction === 'left') {
-    const __VLS_0 = AgDSIcon;
+    const __VLS_0 = AGDSIcon;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         name: (__VLS_ctx.ICON_MAP[__VLS_ctx.direction]),
@@ -74,7 +74,7 @@ if (__VLS_ctx.direction === 'left') {
 }
 var __VLS_5 = {};
 if (__VLS_ctx.direction !== 'left') {
-    const __VLS_7 = AgDSIcon;
+    const __VLS_7 = AGDSIcon;
     // @ts-ignore
     const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
         name: (__VLS_ctx.ICON_MAP[__VLS_ctx.direction]),

@@ -1,1 +1,1 @@
-export { default as AgDSStatusBadge } from './AGDSStatusBadge.vue';
+export { default as AGDSStatusBadge } from './AGDSStatusBadge.vue';

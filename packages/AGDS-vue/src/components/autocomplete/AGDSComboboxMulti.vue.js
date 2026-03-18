@@ -1,6 +1,6 @@
 import { computed, getCurrentInstance, ref, watch } from 'vue';
 import { ComboboxAnchor, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxPortal, ComboboxRoot, ComboboxTrigger, ComboboxViewport, } from 'reka-ui';
-import AgDSField from '../field/AGDSField.vue';
+import AGDSField from '../field/AGDSField.vue';
 import { filterOptions } from './comboboxUtils';
 const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (async () => {
     const props = withDefaults(defineProps(), {
@@ -82,7 +82,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     /** @type {__VLS_StyleScopedClasses['agds-combobox-multi__trigger']} */ ;
     /** @type {__VLS_StyleScopedClasses['agds-combobox-multi__option']} */ ;
     /** @type {__VLS_StyleScopedClasses['agds-combobox-multi__option']} */ ;
-    const __VLS_0 = AgDSField || AgDSField;
+    const __VLS_0 = AGDSField || AGDSField;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         label: (__VLS_ctx.label),

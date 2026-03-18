@@ -1,5 +1,5 @@
 import { computed, getCurrentInstance, ref } from 'vue';
-import AgDSFlex from '../flex/AGDSFlex.vue';
+import AGDSFlex from '../flex/AGDSFlex.vue';
 const props = withDefaults(defineProps(), {
     label: 'Search',
     labelVisible: false,
@@ -42,7 +42,7 @@ let __VLS_directives;
 /** @type {__VLS_StyleScopedClasses['agds-search-box__input']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-search-box__clear']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-search-box__clear']} */ ;
-const __VLS_0 = AgDSFlex || AgDSFlex;
+const __VLS_0 = AGDSFlex || AGDSFlex;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     flexDirection: "column",

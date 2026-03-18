@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSubNav from './AGDSSubNav.vue'
+import AGDSSubNav from './AGDSSubNav.vue'
 import type { SubNavLink } from './AGDSSubNav.vue'
 
 const AXE_OPTS = {
@@ -16,13 +16,13 @@ const LINKS: SubNavLink[] = [
   { href: '/history', label: 'History' },
 ]
 
-function renderNav(props: Partial<InstanceType<typeof AgDSSubNav>['$props']> & { links: SubNavLink[] }) {
-  return render(AgDSSubNav, { props })
+function renderNav(props: Partial<InstanceType<typeof AGDSSubNav>['$props']> & { links: SubNavLink[] }) {
+  return render(AGDSSubNav, { props })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSSubNav — rendering', () => {
+describe('AGDSSubNav — rendering', () => {
   it('renders a <nav> landmark', () => {
     const { getByRole } = renderNav({ links: LINKS })
     expect(getByRole('navigation')).toBeTruthy()
@@ -67,7 +67,7 @@ describe('AgDSSubNav — rendering', () => {
 
 // ─── Active path ──────────────────────────────────────────────────────────────
 
-describe('AgDSSubNav — active path', () => {
+describe('AGDSSubNav — active path', () => {
   it('sets aria-current="page" on the matching link', () => {
     const { getAllByRole } = renderNav({ links: LINKS, activePath: '/details' })
     const links = getAllByRole('link')
@@ -114,7 +114,7 @@ describe('AgDSSubNav — active path', () => {
 
 // ─── Background ───────────────────────────────────────────────────────────────
 
-describe('AgDSSubNav — background', () => {
+describe('AGDSSubNav — background', () => {
   it('applies body background class by default', () => {
     const { container } = renderNav({ links: LINKS })
     expect(container.querySelector('.agds-sub-nav--bg-body')).toBeTruthy()
@@ -128,7 +128,7 @@ describe('AgDSSubNav — background', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSubNav — axe accessibility', () => {
+describe('AGDSSubNav — axe accessibility', () => {
   it('has no violations with no active path', async () => {
     const { container } = renderNav({ links: LINKS })
     await runAxe(container, AXE_OPTS)

@@ -3,7 +3,7 @@ import { computed, getCurrentInstance, ref } from 'vue'
 import AGDSField from '../field/AGDSField.vue'
 import type { FieldMaxWidth } from '../field/AGDSField.vue'
 
-export interface AgDSTextInputProps {
+export interface AGDSTextInputProps {
   /** Describes the purpose of the field */
   label: string
   /** If true, "(optional)" will never be appended to the label */
@@ -37,7 +37,7 @@ export interface AgDSTextInputProps {
   modelValue?: string
 }
 
-const props = withDefaults(defineProps<AgDSTextInputProps>(), {
+const props = withDefaults(defineProps<AGDSTextInputProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,

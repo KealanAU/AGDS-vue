@@ -3,14 +3,14 @@ import { computed, ref, watch, getCurrentInstance } from 'vue'
 import { useDropdownMenuContext } from './dropdownMenuContext'
 import type { Component } from 'vue'
 
-export interface AgDSDropdownMenuItemLinkProps {
+export interface AGDSDropdownMenuItemLinkProps {
   href: string
   id?: string
   icon?: Component
   target?: '_blank' | '_self' | '_parent' | '_top'
 }
 
-const props = defineProps<AgDSDropdownMenuItemLinkProps>()
+const props = defineProps<AGDSDropdownMenuItemLinkProps>()
 
 const emit = defineEmits<{
   click: [event: MouseEvent]

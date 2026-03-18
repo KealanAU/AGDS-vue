@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSAppLayoutFooterDividerProps {}
+export interface AGDSAppLayoutFooterDividerProps {}
 </script>
 
 <template>

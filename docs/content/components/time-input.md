@@ -10,7 +10,7 @@ status: stable
 Bind `v-model` to receive a `TimeValue` object `{ value: string; formatted?: string }` where `value` is always in `HH:mm`.
 
 ::doc-preview
-<AgDSTimeInput label="Appointment time" />
+<AGDSTimeInput label="Appointment time" />
 ::
 
 ```vue
@@ -22,7 +22,7 @@ const time = ref<TimeValue>()
 </script>
 
 <template>
-  <AgDSTimeInput
+  <AGDSTimeInput
     v-model="time"
     label="Appointment time"
     required
@@ -36,7 +36,7 @@ Use `invalid` and `message` to surface errors.
 
 ```vue
 <template>
-  <AgDSTimeInput
+  <AGDSTimeInput
     v-model="time"
     label="Start time"
     required
@@ -52,7 +52,7 @@ Set `timeFormat` to `'HH:mm'` to display and hint in 24-hour format.
 
 ```vue
 <template>
-  <AgDSTimeInput
+  <AGDSTimeInput
     v-model="time"
     label="Departure time"
     time-format="HH:mm"
@@ -64,7 +64,7 @@ Set `timeFormat` to `'HH:mm'` to display and hint in 24-hour format.
 
 ```vue
 <template>
-  <AgDSTimeInput
+  <AGDSTimeInput
     v-model="time"
     label="Locked time"
     disabled
@@ -74,7 +74,7 @@ Set `timeFormat` to `'HH:mm'` to display and hint in 24-hour format.
 
 ## How it works
 
-The component renders a plain `<input type="text">` wrapped in `AgDSField` for label, hint, and error message. On blur it parses the raw input (accepting bare digits like `"930"`, colon-separated `"9:30"`, and suffixed variants like `"9:30pm"` or `"2130"`) and normalises the result to `HH:mm`. The `v-model` value is always `{ value: 'HH:mm', formatted: '<display string>' }` or `undefined` if the input could not be parsed. A secondary label (e.g. `"(e.g. 9:30 pm)"`) is automatically generated from `timeFormat`.
+The component renders a plain `<input type="text">` wrapped in `AGDSField` for label, hint, and error message. On blur it parses the raw input (accepting bare digits like `"930"`, colon-separated `"9:30"`, and suffixed variants like `"9:30pm"` or `"2130"`) and normalises the result to `HH:mm`. The `v-model` value is always `{ value: 'HH:mm', formatted: '<display string>' }` or `undefined` if the input could not be parsed. A secondary label (e.g. `"(e.g. 9:30 pm)"`) is automatically generated from `timeFormat`.
 
 ## Props
 
@@ -130,7 +130,7 @@ The component renders a plain `<input type="text">` wrapped in `AgDSField` for l
 ## Accessibility
 
 - Rendered as `<input type="text">` — screen readers announce it as a text field
-- `aria-required`, `aria-invalid`, and `aria-describedby` are wired automatically via the `AgDSField` slot
+- `aria-required`, `aria-invalid`, and `aria-describedby` are wired automatically via the `AGDSField` slot
 - The secondary label (e.g. `"(e.g. 9:30 pm)"`) sets user expectation for the accepted format
 - Focus indicator meets WCAG 2.2 focus-appearance requirements
 

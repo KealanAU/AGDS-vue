@@ -7,67 +7,67 @@ status: stable
 
 ## Usage
 
-Compose `AgDSSummaryList` with `AgDSSummaryListItem`, `AgDSSummaryListItemTerm`, `AgDSSummaryListItemDescription`, and optionally `AgDSSummaryListItemAction`.
+Compose `AGDSSummaryList` with `AGDSSummaryListItem`, `AGDSSummaryListItemTerm`, `AGDSSummaryListItemDescription`, and optionally `AGDSSummaryListItemAction`.
 
 ::doc-preview
-<AgDSSummaryList>
-  <AgDSSummaryListItem>
-    <AgDSSummaryListItemTerm>Full name</AgDSSummaryListItemTerm>
-    <AgDSSummaryListItemDescription>Jane Smith</AgDSSummaryListItemDescription>
-    <AgDSSummaryListItemAction><a href="#">Change</a></AgDSSummaryListItemAction>
-  </AgDSSummaryListItem>
-  <AgDSSummaryListItem>
-    <AgDSSummaryListItemTerm>Date of birth</AgDSSummaryListItemTerm>
-    <AgDSSummaryListItemDescription>1 January 1990</AgDSSummaryListItemDescription>
-  </AgDSSummaryListItem>
-</AgDSSummaryList>
+<AGDSSummaryList>
+  <AGDSSummaryListItem>
+    <AGDSSummaryListItemTerm>Full name</AGDSSummaryListItemTerm>
+    <AGDSSummaryListItemDescription>Jane Smith</AGDSSummaryListItemDescription>
+    <AGDSSummaryListItemAction><a href="#">Change</a></AGDSSummaryListItemAction>
+  </AGDSSummaryListItem>
+  <AGDSSummaryListItem>
+    <AGDSSummaryListItemTerm>Date of birth</AGDSSummaryListItemTerm>
+    <AGDSSummaryListItemDescription>1 January 1990</AGDSSummaryListItemDescription>
+  </AGDSSummaryListItem>
+</AGDSSummaryList>
 ::
 
 ```vue
 <template>
-  <AgDSSummaryList>
-    <AgDSSummaryListItem>
-      <AgDSSummaryListItemTerm>Full name</AgDSSummaryListItemTerm>
-      <AgDSSummaryListItemDescription>Jane Smith</AgDSSummaryListItemDescription>
-      <AgDSSummaryListItemAction>
-        <AgDSTextLink href="/edit/name">Change</AgDSTextLink>
-      </AgDSSummaryListItemAction>
-    </AgDSSummaryListItem>
+  <AGDSSummaryList>
+    <AGDSSummaryListItem>
+      <AGDSSummaryListItemTerm>Full name</AGDSSummaryListItemTerm>
+      <AGDSSummaryListItemDescription>Jane Smith</AGDSSummaryListItemDescription>
+      <AGDSSummaryListItemAction>
+        <AGDSTextLink href="/edit/name">Change</AGDSTextLink>
+      </AGDSSummaryListItemAction>
+    </AGDSSummaryListItem>
 
-    <AgDSSummaryListItem>
-      <AgDSSummaryListItemTerm>Date of birth</AgDSSummaryListItemTerm>
-      <AgDSSummaryListItemDescription>1 January 1990</AgDSSummaryListItemDescription>
-    </AgDSSummaryListItem>
-  </AgDSSummaryList>
+    <AGDSSummaryListItem>
+      <AGDSSummaryListItemTerm>Date of birth</AGDSSummaryListItemTerm>
+      <AGDSSummaryListItemDescription>1 January 1990</AGDSSummaryListItemDescription>
+    </AGDSSummaryListItem>
+  </AGDSSummaryList>
 </template>
 ```
 
 ## Without actions
 
-Omit `AgDSSummaryListItemAction` for read-only display rows.
+Omit `AGDSSummaryListItemAction` for read-only display rows.
 
 ```vue
 <template>
-  <AgDSSummaryList>
-    <AgDSSummaryListItem>
-      <AgDSSummaryListItemTerm>Reference number</AgDSSummaryListItemTerm>
-      <AgDSSummaryListItemDescription>REF-2024-001234</AgDSSummaryListItemDescription>
-    </AgDSSummaryListItem>
-    <AgDSSummaryListItem>
-      <AgDSSummaryListItemTerm>Submitted</AgDSSummaryListItemTerm>
-      <AgDSSummaryListItemDescription>12 March 2024</AgDSSummaryListItemDescription>
-    </AgDSSummaryListItem>
-  </AgDSSummaryList>
+  <AGDSSummaryList>
+    <AGDSSummaryListItem>
+      <AGDSSummaryListItemTerm>Reference number</AGDSSummaryListItemTerm>
+      <AGDSSummaryListItemDescription>REF-2024-001234</AGDSSummaryListItemDescription>
+    </AGDSSummaryListItem>
+    <AGDSSummaryListItem>
+      <AGDSSummaryListItemTerm>Submitted</AGDSSummaryListItemTerm>
+      <AGDSSummaryListItemDescription>12 March 2024</AGDSSummaryListItemDescription>
+    </AGDSSummaryListItem>
+  </AGDSSummaryList>
 </template>
 ```
 
 ## How it works
 
-The component renders a native `<dl>` (description list). Each `AgDSSummaryListItem` is a `<div>` wrapper (valid inside `<dl>` per the HTML spec) containing:
+The component renders a native `<dl>` (description list). Each `AGDSSummaryListItem` is a `<div>` wrapper (valid inside `<dl>` per the HTML spec) containing:
 
-- `AgDSSummaryListItemTerm` → `<dt>` — the label / key
-- `AgDSSummaryListItemDescription` → `<dd>` — the value
-- `AgDSSummaryListItemAction` → `<dd>` — optional action (a second `<dd>` is valid when one term has multiple associated descriptions)
+- `AGDSSummaryListItemTerm` → `<dt>` — the label / key
+- `AGDSSummaryListItemDescription` → `<dd>` — the value
+- `AGDSSummaryListItemAction` → `<dd>` — optional action (a second `<dd>` is valid when one term has multiple associated descriptions)
 
 On narrow viewports the term stacks above the description (column layout). At 768 px and wider they display side-by-side — the term occupies 30 % / minimum 200 px of the width.
 
@@ -75,11 +75,11 @@ On narrow viewports the term stacks above the description (column layout). At 76
 
 | Component | Description |
 |-----------|-------------|
-| `AgDSSummaryList` | Root `<dl>` wrapper |
-| `AgDSSummaryListItem` | Row `<div>` — one per key–value pair |
-| `AgDSSummaryListItemTerm` | `<dt>` — the label |
-| `AgDSSummaryListItemDescription` | `<dd>` — the value |
-| `AgDSSummaryListItemAction` | `<dd>` — optional trailing action |
+| `AGDSSummaryList` | Root `<dl>` wrapper |
+| `AGDSSummaryListItem` | Row `<div>` — one per key–value pair |
+| `AGDSSummaryListItemTerm` | `<dt>` — the label |
+| `AGDSSummaryListItemDescription` | `<dd>` — the value |
+| `AGDSSummaryListItemAction` | `<dd>` — optional trailing action |
 
 None of the components have props beyond a `default` slot.
 
@@ -87,7 +87,7 @@ None of the components have props beyond a `default` slot.
 
 - Renders a native `<dl>` so the browser's accessibility tree communicates term/description relationships automatically (WCAG 1.3.1)
 - No ARIA roles required — native semantics are sufficient
-- Action links inside `AgDSSummaryListItemAction` should have descriptive labels that include the field name (e.g. `"Change full name"`) — use `AgDSVisuallyHidden` to add context if the visible text is just `"Change"`
+- Action links inside `AGDSSummaryListItemAction` should have descriptive labels that include the field name (e.g. `"Change full name"`) — use `AGDSVisuallyHidden` to add context if the visible text is just `"Change"`
 
 ## Changelog
 

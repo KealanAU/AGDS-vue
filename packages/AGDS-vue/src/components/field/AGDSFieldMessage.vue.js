@@ -1,4 +1,4 @@
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const __VLS_props = defineProps();
 const __VLS_ctx = {
     ...{},
@@ -14,7 +14,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     role: "alert",
 });
 /** @type {__VLS_StyleScopedClasses['agds-field-message']} */ ;
-const __VLS_0 = AgDSIcon;
+const __VLS_0 = AGDSIcon;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     name: "mdi:alert-circle",

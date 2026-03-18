@@ -1,2 +1,2 @@
-export { default as AgDSSkipLinks } from './AGDSSkipLinks.vue'
-export type { AgDSSkipLinksProps, SkipLink } from './AGDSSkipLinks.vue'
+export { default as AGDSSkipLinks } from './AGDSSkipLinks.vue'
+export type { AGDSSkipLinksProps, SkipLink } from './AGDSSkipLinks.vue'

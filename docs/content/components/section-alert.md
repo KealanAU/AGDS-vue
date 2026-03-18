@@ -10,16 +10,16 @@ status: stable
 Provide a `tone` and a required `title`. Optionally add body content via the default slot.
 
 ::doc-preview
-<AgDSSectionAlert tone="errorHigh" title="Unable to save changes">
+<AGDSSectionAlert tone="errorHigh" title="Unable to save changes">
   <p>Check the highlighted fields and try again.</p>
-</AgDSSectionAlert>
+</AGDSSectionAlert>
 ::
 
 ```vue
 <template>
-  <AgDSSectionAlert tone="errorHigh" title="Unable to save changes">
+  <AGDSSectionAlert tone="errorHigh" title="Unable to save changes">
     <p>Check the highlighted fields and try again.</p>
-  </AgDSSectionAlert>
+  </AGDSSectionAlert>
 </template>
 ```
 
@@ -37,18 +37,18 @@ The `tone` prop drives the background, border colour, icon shape, and screen-rea
 `errorLow`, `successLow`, `infoLow`, `warningLow`, `cannotStartLow`, `inProgressLow`, `notStartedLow`, `pausedLow`, `unknownLow`
 
 ::doc-preview{label="Selected tones"}
-<AgDSSectionAlert tone="errorHigh" title="Error — High" />
-<AgDSSectionAlert tone="successMedium" title="Success — Medium" />
-<AgDSSectionAlert tone="infoLow" title="Info — Low" />
-<AgDSSectionAlert tone="inProgressLow" title="In progress" />
+<AGDSSectionAlert tone="errorHigh" title="Error — High" />
+<AGDSSectionAlert tone="successMedium" title="Success — Medium" />
+<AGDSSectionAlert tone="infoLow" title="Info — Low" />
+<AGDSSectionAlert tone="inProgressLow" title="In progress" />
 ::
 
 ```vue
 <template>
-  <AgDSSectionAlert tone="errorHigh" title="Error — High" />
-  <AgDSSectionAlert tone="successMedium" title="Success — Medium" />
-  <AgDSSectionAlert tone="infoLow" title="Info — Low" />
-  <AgDSSectionAlert tone="inProgressLow" title="In progress" />
+  <AGDSSectionAlert tone="errorHigh" title="Error — High" />
+  <AGDSSectionAlert tone="successMedium" title="Success — Medium" />
+  <AGDSSectionAlert tone="infoLow" title="Info — Low" />
+  <AGDSSectionAlert tone="inProgressLow" title="In progress" />
 </template>
 ```
 
@@ -57,7 +57,7 @@ The `tone` prop drives the background, border colour, icon shape, and screen-rea
 Pass an `onClose` handler to render a close button.
 
 ::doc-preview{label="Dismissible"}
-<AgDSSectionAlert tone="infoMedium" title="Your draft has been saved" :on-close="() => {}" />
+<AGDSSectionAlert tone="infoMedium" title="Your draft has been saved" :on-close="() => {}" />
 ::
 
 ```vue
@@ -67,7 +67,7 @@ const show = ref(true)
 </script>
 
 <template>
-  <AgDSSectionAlert
+  <AGDSSectionAlert
     v-if="show"
     tone="infoMedium"
     title="Your draft has been saved"
@@ -82,7 +82,7 @@ Use `focusOnMount` when the alert is injected after a user action so screen read
 
 ```vue
 <template>
-  <AgDSSectionAlert
+  <AGDSSectionAlert
     v-if="saved"
     tone="successHigh"
     title="Changes saved"

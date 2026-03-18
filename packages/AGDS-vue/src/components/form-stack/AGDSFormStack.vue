@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import AgDSFlex from '../flex/AGDSFlex.vue'
+import AGDSFlex from '../flex/AGDSFlex.vue'
 
-export interface AgDSFormStackProps {
+export interface AGDSFormStackProps {
   /** Element or component to render as. Defaults to 'div'. */
   as?: string | Component
 }
 
-withDefaults(defineProps<AgDSFormStackProps>(), {
+withDefaults(defineProps<AGDSFormStackProps>(), {
   as: 'div',
 })
 </script>
@@ -17,7 +17,7 @@ withDefaults(defineProps<AgDSFormStackProps>(), {
     Mirrors the React FormStack: a vertical flex column with a consistent gap
     between form controls. gap=2 → var(--agds-space-2) = 8px.
   -->
-  <AgDSFlex :as="as" flex-direction="column" :gap="2">
+  <AGDSFlex :as="as" flex-direction="column" :gap="2">
     <slot />
-  </AgDSFlex>
+  </AGDSFlex>
 </template>

@@ -7,23 +7,23 @@ status: stable
 
 ## Usage
 
-`AgDSFlex` renders a `<div>` with `display: flex`. Use it anywhere you need a flex container without setting `display` manually.
+`AGDSFlex` renders a `<div>` with `display: flex`. Use it anywhere you need a flex container without setting `display` manually.
 
 ::doc-preview
-<AgDSFlex gap="3">
+<AGDSFlex gap="3">
   <span>Item one</span>
   <span>Item two</span>
   <span>Item three</span>
-</AgDSFlex>
+</AGDSFlex>
 ::
 
 ```vue
 <template>
-  <AgDSFlex gap="3">
+  <AGDSFlex gap="3">
     <span>Item one</span>
     <span>Item two</span>
     <span>Item three</span>
-  </AgDSFlex>
+  </AGDSFlex>
 </template>
 ```
 
@@ -32,20 +32,20 @@ status: stable
 Use `flexDirection` to arrange children in a row or column. Defaults to `row`.
 
 ::doc-preview{label="Column direction"}
-<AgDSFlex flexDirection="column" gap="2">
+<AGDSFlex flexDirection="column" gap="2">
   <span>First</span>
   <span>Second</span>
   <span>Third</span>
-</AgDSFlex>
+</AGDSFlex>
 ::
 
 ```vue
 <template>
-  <AgDSFlex flexDirection="column" gap="2">
+  <AGDSFlex flexDirection="column" gap="2">
     <span>First</span>
     <span>Second</span>
     <span>Third</span>
-  </AgDSFlex>
+  </AGDSFlex>
 </template>
 ```
 
@@ -54,17 +54,17 @@ Use `flexDirection` to arrange children in a row or column. Defaults to `row`.
 Use `alignItems` and `justifyContent` to align children on the cross and main axes.
 
 ::doc-preview{label="Centred content"}
-<AgDSFlex alignItems="center" justifyContent="center" gap="4" style="height: 6rem; border: 1px dashed currentColor;">
+<AGDSFlex alignItems="center" justifyContent="center" gap="4" style="height: 6rem; border: 1px dashed currentColor;">
   <span>Centred</span>
-</AgDSFlex>
+</AGDSFlex>
 ::
 
 ```vue
 <template>
-  <AgDSFlex alignItems="center" justifyContent="space-between">
+  <AGDSFlex alignItems="center" justifyContent="space-between">
     <span>Left</span>
     <span>Right</span>
-  </AgDSFlex>
+  </AGDSFlex>
 </template>
 ```
 
@@ -73,17 +73,17 @@ Use `alignItems` and `justifyContent` to align children on the cross and main ax
 Set `inline` to render `display: inline-flex` instead of `display: flex`.
 
 ::doc-preview{label="Inline flex"}
-<p>Text before <AgDSFlex inline gap="1" alignItems="center"><span>inline</span><span>flex</span></AgDSFlex> text after.</p>
+<p>Text before <AGDSFlex inline gap="1" alignItems="center"><span>inline</span><span>flex</span></AGDSFlex> text after.</p>
 ::
 
 ```vue
 <template>
   <p>
     Text before
-    <AgDSFlex inline gap="1" alignItems="center">
+    <AGDSFlex inline gap="1" alignItems="center">
       <span>inline</span>
       <span>flex</span>
-    </AgDSFlex>
+    </AGDSFlex>
     text after.
   </p>
 </template>
@@ -95,9 +95,9 @@ Use `flexWrap` to control whether children wrap when they overflow the container
 
 ```vue
 <template>
-  <AgDSFlex flexWrap="wrap" gap="3">
+  <AGDSFlex flexWrap="wrap" gap="3">
     <span v-for="i in 10" :key="i">Tag {{ i }}</span>
-  </AgDSFlex>
+  </AGDSFlex>
 </template>
 ```
 
@@ -108,15 +108,15 @@ Numeric values for `gap`, `padding`, and related props map to `var(--agds-space-
 ```vue
 <template>
   <!-- :gap="4" → var(--agds-space-4) -->
-  <AgDSFlex gap="4" paddingX="6">
+  <AGDSFlex gap="4" paddingX="6">
     <span>Item</span>
-  </AgDSFlex>
+  </AGDSFlex>
 </template>
 ```
 
 ## Props
 
-`AgDSFlex` extends all props from `AgDSBox`. The `display` prop defaults to `flex` (or `inline-flex` when `inline` is set).
+`AGDSFlex` extends all props from `AGDSBox`. The `display` prop defaults to `flex` (or `inline-flex` when `inline` is set).
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -155,7 +155,7 @@ Numeric values for `gap`, `padding`, and related props map to `var(--agds-space-
 
 ## Accessibility
 
-`AgDSFlex` is a transparent layout primitive with no implicit ARIA role. The rendered element and any accessible attributes are entirely under the caller's control.
+`AGDSFlex` is a transparent layout primitive with no implicit ARIA role. The rendered element and any accessible attributes are entirely under the caller's control.
 
 - Use a semantically appropriate `as` value where the container carries landmark meaning (e.g. `nav`, `header`)
 - All non-prop attributes fall through to the root element
@@ -164,4 +164,4 @@ Numeric values for `gap`, `padding`, and related props map to `var(--agds-space-
 
 ### 0.1.0
 
-- Initial release — extends `AgDSBox` with `inline` prop and flex-oriented defaults for `flexDirection`, `alignItems`, and `justifyContent`
+- Initial release — extends `AGDSBox` with `inline` prop and flex-oriented defaults for `flexDirection`, `alignItems`, and `justifyContent`

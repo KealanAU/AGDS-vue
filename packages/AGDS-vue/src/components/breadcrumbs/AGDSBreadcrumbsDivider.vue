@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 </script>
 
 <template>
-  <AgDSIcon
+  <AGDSIcon
     name="mdi:chevron-right"
     size="sm"
     aria-hidden="true"

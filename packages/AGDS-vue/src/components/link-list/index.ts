@@ -1,5 +1,5 @@
-export { default as AgDSLinkList } from './AGDSLinkList.vue'
-export type { AgDSLinkListProps, LinkListLink } from './AGDSLinkList.vue'
+export { default as AGDSLinkList } from './AGDSLinkList.vue'
+export type { AGDSLinkListProps, LinkListLink } from './AGDSLinkList.vue'
 
-export { default as AgDSLinkListItem } from './AGDSLinkListItem.vue'
-export type { AgDSLinkListItemProps } from './AGDSLinkListItem.vue'
+export { default as AGDSLinkListItem } from './AGDSLinkListItem.vue'
+export type { AGDSLinkListItemProps } from './AGDSLinkListItem.vue'

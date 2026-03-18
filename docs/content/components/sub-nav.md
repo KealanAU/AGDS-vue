@@ -11,7 +11,7 @@ Pass `links` (each with an `href` and `label`) and `activePath` to highlight the
 
 ```vue
 <template>
-  <AgDSSubNav
+  <AGDSSubNav
     active-path="/about/team"
     :links="[
       { href: '/about', label: 'Overview' },
@@ -28,7 +28,7 @@ Add `endElement` to any link to append a short badge or count after the label (e
 
 ```vue
 <template>
-  <AgDSSubNav
+  <AGDSSubNav
     active-path="/results"
     :links="[
       { href: '/all', label: 'All' },
@@ -45,7 +45,7 @@ Use `background="bodyAlt"` when the sub-nav sits on an off-white surface.
 
 ```vue
 <template>
-  <AgDSSubNav
+  <AGDSSubNav
     background="bodyAlt"
     active-path="/about"
     :links="[
@@ -62,7 +62,7 @@ Override the default `'Content'` label when the page has multiple navigations.
 
 ```vue
 <template>
-  <AgDSSubNav
+  <AGDSSubNav
     aria-label="About section"
     active-path="/about"
     :links="[

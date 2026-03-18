@@ -10,12 +10,12 @@ status: stable
 Use the default slot to set the label of the Button.
 
 ::doc-preview
-<AgDSButton>Submit application</AgDSButton>
+<AGDSButton>Submit application</AGDSButton>
 ::
 
 ```vue
 <template>
-  <AgDSButton>Submit application</AgDSButton>
+  <AGDSButton>Submit application</AGDSButton>
 </template>
 ```
 
@@ -28,16 +28,16 @@ Use the `variant` prop to change the visual style of the Button.
 - `tertiary` — low-emphasis link-style action
 
 ::doc-preview{label="All variants"}
-<AgDSButton variant="primary">Primary</AgDSButton>
-<AgDSButton variant="secondary">Secondary</AgDSButton>
-<AgDSButton variant="tertiary">Tertiary</AgDSButton>
+<AGDSButton variant="primary">Primary</AGDSButton>
+<AGDSButton variant="secondary">Secondary</AGDSButton>
+<AGDSButton variant="tertiary">Tertiary</AGDSButton>
 ::
 
 ```vue
 <template>
-  <AgDSButton variant="primary">Primary</AgDSButton>
-  <AgDSButton variant="secondary">Secondary</AgDSButton>
-  <AgDSButton variant="tertiary">Tertiary</AgDSButton>
+  <AGDSButton variant="primary">Primary</AGDSButton>
+  <AGDSButton variant="secondary">Secondary</AGDSButton>
+  <AGDSButton variant="tertiary">Tertiary</AGDSButton>
 </template>
 ```
 
@@ -46,16 +46,16 @@ Use the `variant` prop to change the visual style of the Button.
 Use the `size` prop to change the size of the Button. The default is `md`.
 
 ::doc-preview{label="All sizes"}
-<AgDSButton size="sm">Small</AgDSButton>
-<AgDSButton size="md">Medium</AgDSButton>
-<AgDSButton size="lg">Large</AgDSButton>
+<AGDSButton size="sm">Small</AGDSButton>
+<AGDSButton size="md">Medium</AGDSButton>
+<AGDSButton size="lg">Large</AGDSButton>
 ::
 
 ```vue
 <template>
-  <AgDSButton size="sm">Small</AgDSButton>
-  <AgDSButton size="md">Medium</AgDSButton>
-  <AgDSButton size="lg">Large</AgDSButton>
+  <AGDSButton size="sm">Small</AGDSButton>
+  <AGDSButton size="md">Medium</AGDSButton>
+  <AGDSButton size="lg">Large</AGDSButton>
 </template>
 ```
 
@@ -64,14 +64,14 @@ Use the `size` prop to change the size of the Button. The default is `md`.
 Use the `disabled` prop to prevent interaction. The native `disabled` attribute is set, removing the button from the tab order. `aria-disabled="true"` is also set.
 
 ::doc-preview{label="Disabled"}
-<AgDSButton disabled>Can't click me</AgDSButton>
-<AgDSButton variant="secondary" disabled>Secondary</AgDSButton>
+<AGDSButton disabled>Can't click me</AGDSButton>
+<AGDSButton variant="secondary" disabled>Secondary</AGDSButton>
 ::
 
 ```vue
 <template>
-  <AgDSButton disabled>Can't click me</AgDSButton>
-  <AgDSButton variant="secondary" disabled>Secondary</AgDSButton>
+  <AGDSButton disabled>Can't click me</AGDSButton>
+  <AGDSButton variant="secondary" disabled>Secondary</AGDSButton>
 </template>
 ```
 
@@ -80,8 +80,8 @@ Use the `disabled` prop to prevent interaction. The native `disabled` attribute 
 Use the `loading` prop to show a spinner and disable the button while an async operation is pending. `aria-busy="true"` is set automatically.
 
 ::doc-preview{label="Loading"}
-<AgDSButton loading>Submitting…</AgDSButton>
-<AgDSButton variant="secondary" loading>Saving…</AgDSButton>
+<AGDSButton loading>Submitting…</AGDSButton>
+<AGDSButton variant="secondary" loading>Saving…</AGDSButton>
 ::
 
 ```vue
@@ -98,9 +98,9 @@ async function submit() {
 </script>
 
 <template>
-  <AgDSButton :loading="loading" @click="submit">
+  <AGDSButton :loading="loading" @click="submit">
     Submit application
-  </AgDSButton>
+  </AGDSButton>
 </template>
 ```
 
@@ -111,8 +111,8 @@ Use the `type` prop to control the native button type. Defaults to `button` to p
 ```vue
 <template>
   <!-- Inside a <form> -->
-  <AgDSButton type="submit">Submit</AgDSButton>
-  <AgDSButton type="reset" variant="secondary">Reset</AgDSButton>
+  <AGDSButton type="submit">Submit</AGDSButton>
+  <AGDSButton type="reset" variant="secondary">Reset</AGDSButton>
 </template>
 ```
 

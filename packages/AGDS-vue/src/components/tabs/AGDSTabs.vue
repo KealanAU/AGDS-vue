@@ -5,7 +5,7 @@ import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as TabsBackground }
 
-export interface AgDSTabsProps {
+export interface AGDSTabsProps {
   /** Controlled active tab value. Use v-model for two-way binding. */
   modelValue?: string
   /** Default active tab value for uncontrolled use. */
@@ -23,7 +23,7 @@ export interface AgDSTabsProps {
   background?: BackgroundVariant
 }
 
-const props = withDefaults(defineProps<AgDSTabsProps>(), {
+const props = withDefaults(defineProps<AGDSTabsProps>(), {
   contained: true,
   background: 'body',
 })

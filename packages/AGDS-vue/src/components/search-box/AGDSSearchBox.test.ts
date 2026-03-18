@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSearchBox from './AGDSSearchBox.vue'
-import AgDSSearchBoxInput from './AGDSSearchBoxInput.vue'
-import AgDSSearchBoxButton from './AGDSSearchBoxButton.vue'
+import AGDSSearchBox from './AGDSSearchBox.vue'
+import AGDSSearchBoxInput from './AGDSSearchBoxInput.vue'
+import AGDSSearchBoxButton from './AGDSSearchBoxButton.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -13,12 +13,12 @@ const AXE_OPTS = {
 
 function renderSearchBox(inputProps: Record<string, unknown> = {}) {
   return render({
-    components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+    components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
     template: `
-      <AgDSSearchBox>
-        <AgDSSearchBoxInput v-bind="inputProps" />
-        <AgDSSearchBoxButton label="Search" />
-      </AgDSSearchBox>
+      <AGDSSearchBox>
+        <AGDSSearchBoxInput v-bind="inputProps" />
+        <AGDSSearchBoxButton label="Search" />
+      </AGDSSearchBox>
     `,
     data() {
       return { inputProps }
@@ -28,7 +28,7 @@ function renderSearchBox(inputProps: Record<string, unknown> = {}) {
 
 // ─── SearchBox (form wrapper) ─────────────────────────────────────────────────
 
-describe('AgDSSearchBox — rendering', () => {
+describe('AGDSSearchBox — rendering', () => {
   it('renders a <form> with role="search"', () => {
     const { getByRole } = renderSearchBox()
     expect(getByRole('search')).toBeTruthy()
@@ -41,12 +41,12 @@ describe('AgDSSearchBox — rendering', () => {
 
   it('accepts a custom aria-label', () => {
     const { getByRole } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox aria-label="Products">
-          <AgDSSearchBoxInput />
-          <AgDSSearchBoxButton label="Search" />
-        </AgDSSearchBox>
+        <AGDSSearchBox aria-label="Products">
+          <AGDSSearchBoxInput />
+          <AGDSSearchBoxButton label="Search" />
+        </AGDSSearchBox>
       `,
     })
     expect(getByRole('search').getAttribute('aria-label')).toBe('Products')
@@ -54,12 +54,12 @@ describe('AgDSSearchBox — rendering', () => {
 
   it('emits submit when the form is submitted', async () => {
     const { getByRole, emitted } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox @submit.prevent="onSubmit">
-          <AgDSSearchBoxInput />
-          <AgDSSearchBoxButton label="Search" />
-        </AgDSSearchBox>
+        <AGDSSearchBox @submit.prevent="onSubmit">
+          <AGDSSearchBoxInput />
+          <AGDSSearchBoxButton label="Search" />
+        </AGDSSearchBox>
       `,
       setup() {
         return { onSubmit: vi.fn() }
@@ -73,7 +73,7 @@ describe('AgDSSearchBox — rendering', () => {
 
 // ─── SearchBoxInput ───────────────────────────────────────────────────────────
 
-describe('AgDSSearchBoxInput — rendering', () => {
+describe('AGDSSearchBoxInput — rendering', () => {
   it('renders an input with type="search"', () => {
     const { getByRole } = renderSearchBox()
     const input = getByRole('searchbox')
@@ -112,7 +112,7 @@ describe('AgDSSearchBoxInput — rendering', () => {
   })
 })
 
-describe('AgDSSearchBoxInput — clear button', () => {
+describe('AGDSSearchBoxInput — clear button', () => {
   it('does not show a clear button when the input is empty', () => {
     const { queryByRole } = renderSearchBox({ modelValue: '' })
     // The clear button has type="button" — there should be only the submit button
@@ -127,12 +127,12 @@ describe('AgDSSearchBoxInput — clear button', () => {
 
   it('clears the input when the clear button is clicked', async () => {
     const { getByText, getByRole, queryByText } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox>
-          <AgDSSearchBoxInput v-model="query" />
-          <AgDSSearchBoxButton label="Search" />
-        </AgDSSearchBox>
+        <AGDSSearchBox>
+          <AGDSSearchBoxInput v-model="query" />
+          <AGDSSearchBoxButton label="Search" />
+        </AGDSSearchBox>
       `,
       data() {
         return { query: 'hello' }
@@ -144,7 +144,7 @@ describe('AgDSSearchBoxInput — clear button', () => {
   })
 })
 
-describe('AgDSSearchBoxInput — v-model', () => {
+describe('AGDSSearchBoxInput — v-model', () => {
   it('reflects modelValue in the input', () => {
     const { getByRole } = renderSearchBox({ modelValue: 'vue3' })
     expect((getByRole('searchbox') as HTMLInputElement).value).toBe('vue3')
@@ -152,12 +152,12 @@ describe('AgDSSearchBoxInput — v-model', () => {
 
   it('emits update:modelValue on input', async () => {
     const { getByRole, emitted } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox>
-          <AgDSSearchBoxInput :model-value="query" @update:model-value="query = $event" />
-          <AgDSSearchBoxButton label="Search" />
-        </AgDSSearchBox>
+        <AGDSSearchBox>
+          <AGDSSearchBoxInput :model-value="query" @update:model-value="query = $event" />
+          <AGDSSearchBoxButton label="Search" />
+        </AGDSSearchBox>
       `,
       data() {
         return { query: '' }
@@ -170,7 +170,7 @@ describe('AgDSSearchBoxInput — v-model', () => {
 
 // ─── SearchBoxButton ──────────────────────────────────────────────────────────
 
-describe('AgDSSearchBoxButton — rendering', () => {
+describe('AGDSSearchBoxButton — rendering', () => {
   it('renders a submit button', () => {
     const { getByRole } = renderSearchBox()
     const submitBtn = getByRole('button', { name: 'Search' })
@@ -179,12 +179,12 @@ describe('AgDSSearchBoxButton — rendering', () => {
 
   it('has an accessible name matching the label prop', () => {
     const { getByRole } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox>
-          <AgDSSearchBoxInput />
-          <AgDSSearchBoxButton label="Find" />
-        </AgDSSearchBox>
+        <AGDSSearchBox>
+          <AGDSSearchBoxInput />
+          <AGDSSearchBoxButton label="Find" />
+        </AGDSSearchBox>
       `,
     })
     expect(getByRole('button', { name: 'Find' })).toBeTruthy()
@@ -192,12 +192,12 @@ describe('AgDSSearchBoxButton — rendering', () => {
 
   it('hides visible label text in iconOnly mode via sr-only', () => {
     const { getByRole } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox>
-          <AgDSSearchBoxInput />
-          <AgDSSearchBoxButton label="Search" :icon-only="true" />
-        </AgDSSearchBox>
+        <AGDSSearchBox>
+          <AGDSSearchBoxInput />
+          <AGDSSearchBoxButton label="Search" :icon-only="true" />
+        </AGDSSearchBox>
       `,
     })
     // aria-label keeps the accessible name even with sr-only text
@@ -207,7 +207,7 @@ describe('AgDSSearchBoxButton — rendering', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSearchBox — axe accessibility', () => {
+describe('AGDSSearchBox — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderSearchBox()
     await runAxe(container, AXE_OPTS)
@@ -225,12 +225,12 @@ describe('AgDSSearchBox — axe accessibility', () => {
 
   it('has no violations in icon-only button mode', async () => {
     const { container } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox>
-          <AgDSSearchBoxInput />
-          <AgDSSearchBoxButton label="Search" :icon-only="true" />
-        </AgDSSearchBox>
+        <AGDSSearchBox>
+          <AGDSSearchBoxInput />
+          <AGDSSearchBoxButton label="Search" :icon-only="true" />
+        </AGDSSearchBox>
       `,
     })
     await runAxe(container, AXE_OPTS)
@@ -239,12 +239,12 @@ describe('AgDSSearchBox — axe accessibility', () => {
   it('has a violation when the input has no accessible name', async () => {
     // Intentional bad case — verifies the axe helper catches real failures
     const { container } = render({
-      components: { AgDSSearchBox, AgDSSearchBoxInput, AgDSSearchBoxButton },
+      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
       template: `
-        <AgDSSearchBox>
-          <AgDSSearchBoxInput label="" />
-          <AgDSSearchBoxButton label="Search" />
-        </AgDSSearchBox>
+        <AGDSSearchBox>
+          <AGDSSearchBoxInput label="" />
+          <AGDSSearchBoxButton label="Search" />
+        </AGDSSearchBox>
       `,
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')

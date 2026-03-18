@@ -9,7 +9,7 @@ import { boxPalettes } from './boxPalette'
 import { tokens } from './tokens'
 import type { Theme } from './theme'
 
-export interface AgDSCoreProps {
+export interface AGDSCoreProps {
   /** When true (default), applies a CSS reset to `html` and `body`. */
   applyReset?: boolean
   /** Overrides the default gold theme. Only the keys you provide are changed. */
@@ -21,7 +21,7 @@ export interface AgDSCoreProps {
   linkComponent?: Component
 }
 
-const props = withDefaults(defineProps<AgDSCoreProps>(), {
+const props = withDefaults(defineProps<AGDSCoreProps>(), {
   applyReset: true,
 })
 

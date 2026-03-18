@@ -1,27 +1,27 @@
-export { default as AgDSAppLayout } from './AGDSAppLayout.vue'
-export type { AgDSAppLayoutProps } from './AGDSAppLayout.vue'
+export { default as AGDSAppLayout } from './AGDSAppLayout.vue'
+export type { AGDSAppLayoutProps } from './AGDSAppLayout.vue'
 
-export { default as AgDSAppLayoutHeader } from './AGDSAppLayoutHeader.vue'
+export { default as AGDSAppLayoutHeader } from './AGDSAppLayoutHeader.vue'
 export type {
-  AgDSAppLayoutHeaderProps,
+  AGDSAppLayoutHeaderProps,
   AppLayoutHeaderBackground,
   AppLayoutHeaderMaxWidth,
 } from './AGDSAppLayoutHeader.vue'
 
-export { default as AgDSAppLayoutSidebar } from './AGDSAppLayoutSidebar.vue'
-export type { AgDSAppLayoutSidebarProps } from './AGDSAppLayoutSidebar.vue'
+export { default as AGDSAppLayoutSidebar } from './AGDSAppLayoutSidebar.vue'
+export type { AGDSAppLayoutSidebarProps } from './AGDSAppLayoutSidebar.vue'
 
-export { default as AgDSAppLayoutSidebarNav } from './AGDSAppLayoutSidebarNav.vue'
-export type { AgDSAppLayoutSidebarNavProps } from './AGDSAppLayoutSidebarNav.vue'
+export { default as AGDSAppLayoutSidebarNav } from './AGDSAppLayoutSidebarNav.vue'
+export type { AGDSAppLayoutSidebarNavProps } from './AGDSAppLayoutSidebarNav.vue'
 
-export { default as AgDSAppLayoutFooter } from './AGDSAppLayoutFooter.vue'
+export { default as AGDSAppLayoutFooter } from './AGDSAppLayoutFooter.vue'
 export type {
-  AgDSAppLayoutFooterProps,
+  AGDSAppLayoutFooterProps,
   AppLayoutFooterBackground,
   AppLayoutFooterMaxWidth,
 } from './AGDSAppLayoutFooter.vue'
 
-export { default as AgDSAppLayoutFooterDivider } from './AGDSAppLayoutFooterDivider.vue'
+export { default as AGDSAppLayoutFooterDivider } from './AGDSAppLayoutFooterDivider.vue'
 
 export type {
   AppLayoutBackground,

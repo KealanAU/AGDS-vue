@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import AgDSStack from '../stack/AGDSStack.vue'
-import AgDSHeading from '../heading/AGDSHeading.vue'
-import AgDSText from '../text/AGDSText.vue'
+import AGDSStack from '../stack/AGDSStack.vue'
+import AGDSHeading from '../heading/AGDSHeading.vue'
+import AGDSText from '../text/AGDSText.vue'
 import AGDSTaskListItem from './AGDSTaskListItem.vue'
-import type { AgDSTaskListItemProps, TaskListItemStatus } from './AGDSTaskListItem.vue'
+import type { AGDSTaskListItemProps, TaskListItemStatus } from './AGDSTaskListItem.vue'
 
-export type TaskListItem = AgDSTaskListItemProps & {
+export type TaskListItem = AGDSTaskListItemProps & {
   /** Visible label text for the task */
   label: string
 }
 
-export interface AgDSTaskListProps {
+export interface AGDSTaskListProps {
   /** Array of task items to render */
   items: TaskListItem[]
   /** When true, renders an <ol> with counter prefixes on each item */
   ordered?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSTaskListProps>(), {
+const props = withDefaults(defineProps<AGDSTaskListProps>(), {
   ordered: false,
 })
 
@@ -30,14 +30,14 @@ const tasksCompleted = computed(
 </script>
 
 <template>
-  <AgDSStack :gap="3" class="agds-task-list">
+  <AGDSStack :gap="3" class="agds-task-list">
     <!-- Heading section -->
-    <AgDSStack :gap="2">
-      <AgDSHeading type="h2">Complete these tasks</AgDSHeading>
-      <AgDSText as="p" color="muted" font-size="sm">
+    <AGDSStack :gap="2">
+      <AGDSHeading type="h2">Complete these tasks</AGDSHeading>
+      <AGDSText as="p" color="muted" font-size="sm">
         {{ tasksCompleted }} of {{ items.length }} tasks completed
-      </AgDSText>
-    </AgDSStack>
+      </AGDSText>
+    </AGDSStack>
 
     <!-- Items list -->
     <component
@@ -57,7 +57,7 @@ const tasksCompleted = computed(
         {{ item.label }}
       </AGDSTaskListItem>
     </component>
-  </AgDSStack>
+  </AGDSStack>
 </template>
 
 <style scoped>

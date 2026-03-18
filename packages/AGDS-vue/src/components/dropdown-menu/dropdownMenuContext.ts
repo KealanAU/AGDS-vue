@@ -33,6 +33,6 @@ export const DROPDOWN_MENU_KEY: InjectionKey<DropdownMenuContextValue> = Symbol(
 
 export function useDropdownMenuContext(): DropdownMenuContextValue {
   const ctx = inject(DROPDOWN_MENU_KEY)
-  if (!ctx) throw new Error('useDropdownMenuContext must be called within AgDSDropdownMenu')
+  if (!ctx) throw new Error('useDropdownMenuContext must be called within AGDSDropdownMenu')
   return ctx
 }

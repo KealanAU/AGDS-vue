@@ -6,12 +6,12 @@ export type ColumnRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 export type ColumnsAlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
 
-export interface AgDSColumnsProps {
+export interface AGDSColumnsProps {
   /** Element or component to render as */
   as?: string | Component
   /**
    * Number of equal columns to create. Defaults to 12.
-   * Each `AgDSColumn` child can span any number of these columns via its `span` prop.
+   * Each `AGDSColumn` child can span any number of these columns via its `span` prop.
    */
   cols?: ColumnRange
   /**
@@ -29,7 +29,7 @@ export interface AgDSColumnsProps {
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<AgDSColumnsProps>(), {
+const props = withDefaults(defineProps<AGDSColumnsProps>(), {
   cols: 12,
 })
 

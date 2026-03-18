@@ -2,7 +2,7 @@
 useSeoMeta({
   title: 'Digital Service Standard — AGDS-vue',
   description:
-    'How AgDS-vue aligns with all 10 criteria of the Digital Service Standard.',
+    'How AGDS-vue aligns with all 10 criteria of the Digital Service Standard.',
 })
 
 const criteria = [

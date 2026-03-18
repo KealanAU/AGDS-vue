@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSGlobalAlert from './AGDSGlobalAlert.vue'
+import AGDSGlobalAlert from './AGDSGlobalAlert.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -13,7 +13,7 @@ function renderAlert(
   props: Record<string, unknown> = {},
   slot = '<p>Alert body content.</p>',
 ) {
-  return render(AgDSGlobalAlert, {
+  return render(AGDSGlobalAlert, {
     props,
     slots: { default: slot },
   })
@@ -21,7 +21,7 @@ function renderAlert(
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSGlobalAlert — rendering', () => {
+describe('AGDSGlobalAlert — rendering', () => {
   it('renders a <section> element', () => {
     const { container } = renderAlert()
     expect(container.querySelector('section.agds-global-alert')).toBeTruthy()
@@ -50,7 +50,7 @@ describe('AgDSGlobalAlert — rendering', () => {
 
 // ─── Props: tone ─────────────────────────────────────────────────────────────
 
-describe('AgDSGlobalAlert — tone prop', () => {
+describe('AGDSGlobalAlert — tone prop', () => {
   it('defaults to warning tone', () => {
     const { container } = renderAlert()
     expect(container.querySelector('.agds-global-alert--warning')).toBeTruthy()
@@ -82,7 +82,7 @@ describe('AgDSGlobalAlert — tone prop', () => {
 
 // ─── Props: onClose ───────────────────────────────────────────────────────────
 
-describe('AgDSGlobalAlert — onClose prop', () => {
+describe('AGDSGlobalAlert — onClose prop', () => {
   it('does not render a close button when onClose is omitted', () => {
     const { container } = renderAlert()
     expect(container.querySelector('.agds-global-alert__close')).toBeNull()
@@ -120,7 +120,7 @@ describe('AgDSGlobalAlert — onClose prop', () => {
 
 // ─── Icon strip accessibility ─────────────────────────────────────────────────
 
-describe('AgDSGlobalAlert — icon strip a11y', () => {
+describe('AGDSGlobalAlert — icon strip a11y', () => {
   it('icon strip is aria-hidden (tone conveyed by section aria-label)', () => {
     const { container } = renderAlert()
     const strip = container.querySelector('.agds-global-alert__strip')!
@@ -136,7 +136,7 @@ describe('AgDSGlobalAlert — icon strip a11y', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSGlobalAlert — axe accessibility', () => {
+describe('AGDSGlobalAlert — axe accessibility', () => {
   it('has no violations: tone=warning, no title, no close', async () => {
     const { container } = renderAlert({ tone: 'warning' })
     await runAxe(container, AXE_OPTS)

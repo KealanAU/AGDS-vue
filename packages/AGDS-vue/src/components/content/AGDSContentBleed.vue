@@ -4,7 +4,7 @@ import { CONTENT_SPACING_KEY } from './contentContext'
 
 export type ContentBleedVisible = boolean | { xs?: boolean; md?: boolean }
 
-export interface AgDSContentBleedProps {
+export interface AGDSContentBleedProps {
   /**
    * Controls whether this element bleeds to the edges of its parent content band.
    * Pass `false` to disable bleed, or a `{ xs, md }` object for responsive control.
@@ -13,7 +13,7 @@ export interface AgDSContentBleedProps {
   visible?: ContentBleedVisible
 }
 
-const props = withDefaults(defineProps<AgDSContentBleedProps>(), {})
+const props = withDefaults(defineProps<AGDSContentBleedProps>(), {})
 
 const spacing = inject(CONTENT_SPACING_KEY, 'none')
 

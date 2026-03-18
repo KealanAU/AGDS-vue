@@ -1,13 +1,13 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSHeading from './AGDSHeading.vue'
-import AgDSH1 from './AGDSH1.vue'
-import AgDSH2 from './AGDSH2.vue'
-import AgDSH3 from './AGDSH3.vue'
-import AgDSH4 from './AGDSH4.vue'
-import AgDSH5 from './AGDSH5.vue'
-import AgDSH6 from './AGDSH6.vue'
+import AGDSHeading from './AGDSHeading.vue'
+import AGDSH1 from './AGDSH1.vue'
+import AGDSH2 from './AGDSH2.vue'
+import AGDSH3 from './AGDSH3.vue'
+import AGDSH4 from './AGDSH4.vue'
+import AGDSH5 from './AGDSH5.vue'
+import AGDSH6 from './AGDSH6.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -16,12 +16,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderHeading(props: Record<string, unknown> = {}, slot = 'Heading text') {
-  return render(AgDSHeading, { props, slots: { default: slot } })
+  return render(AGDSHeading, { props, slots: { default: slot } })
 }
 
 // ─── Rendered element ─────────────────────────────────────────────────────────
 
-describe('AgDSHeading — rendered element', () => {
+describe('AGDSHeading — rendered element', () => {
   it('renders as h2 by default', () => {
     const { container } = renderHeading()
     expect(container.querySelector('h2')).toBeTruthy()
@@ -43,7 +43,7 @@ describe('AgDSHeading — rendered element', () => {
 
 // ─── `as` prop — polymorphic tag ──────────────────────────────────────────────
 
-describe('AgDSHeading — as prop', () => {
+describe('AGDSHeading — as prop', () => {
   it('overrides the rendered element while keeping the type class', () => {
     const { container } = renderHeading({ type: 'h2', as: 'h3' })
     // rendered element should be h3 (the `as` value)
@@ -56,7 +56,7 @@ describe('AgDSHeading — as prop', () => {
 
 // ─── CSS classes ──────────────────────────────────────────────────────────────
 
-describe('AgDSHeading — CSS classes', () => {
+describe('AGDSHeading — CSS classes', () => {
   it('always has the base agds-heading class', () => {
     const { container } = renderHeading()
     expect(container.querySelector('.agds-heading')).toBeTruthy()
@@ -73,42 +73,42 @@ describe('AgDSHeading — CSS classes', () => {
 
 // ─── Convenience wrappers ─────────────────────────────────────────────────────
 
-describe('AgDSH1 – AgDSH6 convenience wrappers', () => {
-  it('AgDSH1 renders an <h1>', () => {
-    const { container } = render(AgDSH1, { slots: { default: 'Title' } })
+describe('AGDSH1 – AGDSH6 convenience wrappers', () => {
+  it('AGDSH1 renders an <h1>', () => {
+    const { container } = render(AGDSH1, { slots: { default: 'Title' } })
     expect(container.querySelector('h1')).toBeTruthy()
     expect(container.querySelector('.agds-heading--h1')).toBeTruthy()
   })
 
-  it('AgDSH2 renders an <h2>', () => {
-    const { container } = render(AgDSH2, { slots: { default: 'Title' } })
+  it('AGDSH2 renders an <h2>', () => {
+    const { container } = render(AGDSH2, { slots: { default: 'Title' } })
     expect(container.querySelector('h2')).toBeTruthy()
   })
 
-  it('AgDSH3 renders an <h3>', () => {
-    const { container } = render(AgDSH3, { slots: { default: 'Title' } })
+  it('AGDSH3 renders an <h3>', () => {
+    const { container } = render(AGDSH3, { slots: { default: 'Title' } })
     expect(container.querySelector('h3')).toBeTruthy()
   })
 
-  it('AgDSH4 renders an <h4>', () => {
-    const { container } = render(AgDSH4, { slots: { default: 'Title' } })
+  it('AGDSH4 renders an <h4>', () => {
+    const { container } = render(AGDSH4, { slots: { default: 'Title' } })
     expect(container.querySelector('h4')).toBeTruthy()
   })
 
-  it('AgDSH5 renders an <h5>', () => {
-    const { container } = render(AgDSH5, { slots: { default: 'Title' } })
+  it('AGDSH5 renders an <h5>', () => {
+    const { container } = render(AGDSH5, { slots: { default: 'Title' } })
     expect(container.querySelector('h5')).toBeTruthy()
   })
 
-  it('AgDSH6 renders an <h6>', () => {
-    const { container } = render(AgDSH6, { slots: { default: 'Title' } })
+  it('AGDSH6 renders an <h6>', () => {
+    const { container } = render(AGDSH6, { slots: { default: 'Title' } })
     expect(container.querySelector('h6')).toBeTruthy()
   })
 })
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSHeading — axe accessibility', () => {
+describe('AGDSHeading — axe accessibility', () => {
   it('has no violations: default (h2)', async () => {
     const { container } = renderHeading()
     await runAxe(container, AXE_OPTS)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AgDSFeatureLinkList } from 'agds-vue'
+import { AGDSFeatureLinkList } from 'agds-vue'
 
 const props = defineProps<{
   /** 'basic' | 'secondary' */
@@ -29,5 +29,5 @@ const links = computed(() => (props.variant === 'secondary' ? secondaryLinks : b
 </script>
 
 <template>
-  <AgDSFeatureLinkList :links="links" />
+  <AGDSFeatureLinkList :links="links" />
 </template>

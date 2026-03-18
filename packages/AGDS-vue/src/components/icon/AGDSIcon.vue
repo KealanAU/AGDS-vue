@@ -1,7 +1,7 @@
 <script lang="ts">
 export type IconSize = 'sm' | 'md' | 'lg' | 'xl'
 
-export interface AgDSIconProps {
+export interface AGDSIconProps {
   /** Iconify icon name (e.g. "mdi:home", "i-heroicons-solid:home") or a Vue component */
   name: string | object
   /** Named size or any CSS length (e.g. 'md', 32, '2rem', '24px') */
@@ -17,7 +17,7 @@ import { Icon } from '@iconify/vue'
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<AgDSIconProps>(), {
+const props = withDefaults(defineProps<AGDSIconProps>(), {
   size: 'md',
 })
 

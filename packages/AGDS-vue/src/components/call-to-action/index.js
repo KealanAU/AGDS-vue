@@ -1,2 +1,2 @@
-export { default as AgDSCallToActionLink } from './AGDSCallToActionLink.vue';
-export { default as AgDSCallToActionButton } from './AGDSCallToActionButton.vue';
+export { default as AGDSCallToActionLink } from './AGDSCallToActionLink.vue';
+export { default as AGDSCallToActionButton } from './AGDSCallToActionButton.vue';

@@ -2,11 +2,11 @@ import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { defineComponent, h } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSummaryList from './AGDSSummaryList.vue'
-import AgDSSummaryListItem from './AGDSSummaryListItem.vue'
-import AgDSSummaryListItemTerm from './AGDSSummaryListItemTerm.vue'
-import AgDSSummaryListItemDescription from './AGDSSummaryListItemDescription.vue'
-import AgDSSummaryListItemAction from './AGDSSummaryListItemAction.vue'
+import AGDSSummaryList from './AGDSSummaryList.vue'
+import AGDSSummaryListItem from './AGDSSummaryListItem.vue'
+import AGDSSummaryListItemTerm from './AGDSSummaryListItemTerm.vue'
+import AGDSSummaryListItemDescription from './AGDSSummaryListItemDescription.vue'
+import AGDSSummaryListItemAction from './AGDSSummaryListItemAction.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -22,24 +22,24 @@ const AXE_OPTS = {
 function renderList() {
   const Fixture = defineComponent({
     components: {
-      AgDSSummaryList,
-      AgDSSummaryListItem,
-      AgDSSummaryListItemTerm,
-      AgDSSummaryListItemDescription,
-      AgDSSummaryListItemAction,
+      AGDSSummaryList,
+      AGDSSummaryListItem,
+      AGDSSummaryListItemTerm,
+      AGDSSummaryListItemDescription,
+      AGDSSummaryListItemAction,
     },
     template: `
-      <AgDSSummaryList>
-        <AgDSSummaryListItem>
-          <AgDSSummaryListItemTerm>Name</AgDSSummaryListItemTerm>
-          <AgDSSummaryListItemDescription>Jane Citizen</AgDSSummaryListItemDescription>
-          <AgDSSummaryListItemAction><a href="/edit-name">Edit</a></AgDSSummaryListItemAction>
-        </AgDSSummaryListItem>
-        <AgDSSummaryListItem>
-          <AgDSSummaryListItemTerm>Email</AgDSSummaryListItemTerm>
-          <AgDSSummaryListItemDescription>jane@example.com</AgDSSummaryListItemDescription>
-        </AgDSSummaryListItem>
-      </AgDSSummaryList>
+      <AGDSSummaryList>
+        <AGDSSummaryListItem>
+          <AGDSSummaryListItemTerm>Name</AGDSSummaryListItemTerm>
+          <AGDSSummaryListItemDescription>Jane Citizen</AGDSSummaryListItemDescription>
+          <AGDSSummaryListItemAction><a href="/edit-name">Edit</a></AGDSSummaryListItemAction>
+        </AGDSSummaryListItem>
+        <AGDSSummaryListItem>
+          <AGDSSummaryListItemTerm>Email</AGDSSummaryListItemTerm>
+          <AGDSSummaryListItemDescription>jane@example.com</AGDSSummaryListItemDescription>
+        </AGDSSummaryListItem>
+      </AGDSSummaryList>
     `,
   })
   return render(Fixture)
@@ -47,7 +47,7 @@ function renderList() {
 
 // ─── HTML elements ────────────────────────────────────────────────────────────
 
-describe('AgDSSummaryList — HTML elements', () => {
+describe('AGDSSummaryList — HTML elements', () => {
   it('renders a <dl> root element', () => {
     const { container } = renderList()
     expect(container.querySelector('dl.agds-summary-list')).toBeTruthy()
@@ -80,7 +80,7 @@ describe('AgDSSummaryList — HTML elements', () => {
 
 // ─── Slot content ─────────────────────────────────────────────────────────────
 
-describe('AgDSSummaryList — slot content', () => {
+describe('AGDSSummaryList — slot content', () => {
   it('renders term text', () => {
     const { getAllByText } = renderList()
     expect(getAllByText('Name').length).toBeGreaterThan(0)
@@ -104,23 +104,23 @@ describe('AgDSSummaryList — slot content', () => {
 
 // ─── Individual component rendering ──────────────────────────────────────────
 
-describe('AgDSSummaryList — individual components', () => {
+describe('AGDSSummaryList — individual components', () => {
   it('SummaryList renders a <dl>', () => {
-    const { container } = render(AgDSSummaryList, {
+    const { container } = render(AGDSSummaryList, {
       slots: { default: '<div>content</div>' },
     })
     expect(container.querySelector('dl')).toBeTruthy()
   })
 
   it('SummaryListItem renders a <div>', () => {
-    const { container } = render(AgDSSummaryListItem, {
+    const { container } = render(AGDSSummaryListItem, {
       slots: { default: '<dt>term</dt><dd>desc</dd>' },
     })
     expect(container.querySelector('div.agds-summary-list-item')).toBeTruthy()
   })
 
   it('SummaryListItemTerm renders a <dt>', () => {
-    const { container } = render(AgDSSummaryListItemTerm, {
+    const { container } = render(AGDSSummaryListItemTerm, {
       slots: { default: 'Status' },
     })
     expect(container.querySelector('dt')).toBeTruthy()
@@ -128,7 +128,7 @@ describe('AgDSSummaryList — individual components', () => {
   })
 
   it('SummaryListItemDescription renders a <dd>', () => {
-    const { container } = render(AgDSSummaryListItemDescription, {
+    const { container } = render(AGDSSummaryListItemDescription, {
       slots: { default: 'Active' },
     })
     expect(container.querySelector('dd')).toBeTruthy()
@@ -136,7 +136,7 @@ describe('AgDSSummaryList — individual components', () => {
   })
 
   it('SummaryListItemAction renders a <dd>', () => {
-    const { container } = render(AgDSSummaryListItemAction, {
+    const { container } = render(AGDSSummaryListItemAction, {
       slots: { default: '<a href="/edit">Edit</a>' },
     })
     expect(container.querySelector('dd')).toBeTruthy()
@@ -146,7 +146,7 @@ describe('AgDSSummaryList — individual components', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSummaryList — axe accessibility', () => {
+describe('AGDSSummaryList — axe accessibility', () => {
   it('has no violations for a complete list', async () => {
     const { container } = renderList()
     await runAxe(container, AXE_OPTS)
@@ -155,18 +155,18 @@ describe('AgDSSummaryList — axe accessibility', () => {
   it('has no violations for a list without action items', async () => {
     const Fixture = defineComponent({
       components: {
-        AgDSSummaryList,
-        AgDSSummaryListItem,
-        AgDSSummaryListItemTerm,
-        AgDSSummaryListItemDescription,
+        AGDSSummaryList,
+        AGDSSummaryListItem,
+        AGDSSummaryListItemTerm,
+        AGDSSummaryListItemDescription,
       },
       template: `
-        <AgDSSummaryList>
-          <AgDSSummaryListItem>
-            <AgDSSummaryListItemTerm>Name</AgDSSummaryListItemTerm>
-            <AgDSSummaryListItemDescription>Jane Citizen</AgDSSummaryListItemDescription>
-          </AgDSSummaryListItem>
-        </AgDSSummaryList>
+        <AGDSSummaryList>
+          <AGDSSummaryListItem>
+            <AGDSSummaryListItemTerm>Name</AGDSSummaryListItemTerm>
+            <AGDSSummaryListItemDescription>Jane Citizen</AGDSSummaryListItemDescription>
+          </AGDSSummaryListItem>
+        </AGDSSummaryList>
       `,
     })
     const { container } = render(Fixture)

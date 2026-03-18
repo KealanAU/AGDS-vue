@@ -1,2 +1,2 @@
-export { default as AgDSDetails } from './AGDSDetails.vue'
-export type { AgDSDetailsProps } from './AGDSDetails.vue'
+export { default as AGDSDetails } from './AGDSDetails.vue'
+export type { AGDSDetailsProps } from './AGDSDetails.vue'

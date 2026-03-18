@@ -1,17 +1,17 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSBox from './AGDSBox.vue'
+import AGDSBox from './AGDSBox.vue'
 
 const AXE_OPTS = { rules: { 'color-contrast': { enabled: false } } } as const
 
 function renderBox(props: Record<string, unknown> = {}, slot = '<p>Content</p>') {
-  return render(AgDSBox, { props, slots: { default: slot } })
+  return render(AGDSBox, { props, slots: { default: slot } })
 }
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSBox — rendering', () => {
+describe('AGDSBox — rendering', () => {
   it('renders a div by default', () => {
     const { container } = renderBox()
     expect(container.querySelector('div')).toBeTruthy()
@@ -25,7 +25,7 @@ describe('AgDSBox — rendering', () => {
 
 // ─── as prop ──────────────────────────────────────────────────────────────────
 
-describe('AgDSBox — as prop', () => {
+describe('AGDSBox — as prop', () => {
   it('renders as a <section> when as="section"', () => {
     const { container } = renderBox({ as: 'section' })
     expect(container.querySelector('section')).toBeTruthy()
@@ -39,7 +39,7 @@ describe('AgDSBox — as prop', () => {
 
 // ─── Style: display ───────────────────────────────────────────────────────────
 
-describe('AgDSBox — display prop', () => {
+describe('AGDSBox — display prop', () => {
   it('sets display style when provided', () => {
     const { container } = renderBox({ display: 'flex' })
     const el = container.querySelector('div') as HTMLElement
@@ -55,7 +55,7 @@ describe('AgDSBox — display prop', () => {
 
 // ─── Style: flex layout ───────────────────────────────────────────────────────
 
-describe('AgDSBox — flex layout props', () => {
+describe('AGDSBox — flex layout props', () => {
   it('sets flexDirection', () => {
     const { container } = renderBox({ display: 'flex', flexDirection: 'column' })
     expect((container.querySelector('div') as HTMLElement).style.flexDirection).toBe('column')
@@ -91,7 +91,7 @@ describe('AgDSBox — flex layout props', () => {
 
 // ─── Style: gap ───────────────────────────────────────────────────────────────
 
-describe('AgDSBox — gap prop', () => {
+describe('AGDSBox — gap prop', () => {
   it('maps a numeric gap to an agds space token', () => {
     const { container } = renderBox({ gap: 4 })
     expect((container.querySelector('div') as HTMLElement).style.gap).toBe('var(--agds-space-4)')
@@ -119,7 +119,7 @@ describe('AgDSBox — gap prop', () => {
 
 // ─── Style: padding ───────────────────────────────────────────────────────────
 
-describe('AgDSBox — padding props', () => {
+describe('AGDSBox — padding props', () => {
   it('maps numeric padding to a space token', () => {
     const { container } = renderBox({ padding: 4 })
     expect((container.querySelector('div') as HTMLElement).style.padding).toBe(
@@ -159,7 +159,7 @@ describe('AgDSBox — padding props', () => {
 
 // ─── Style: dimensions ────────────────────────────────────────────────────────
 
-describe('AgDSBox — dimension props', () => {
+describe('AGDSBox — dimension props', () => {
   it('sets width', () => {
     const { container } = renderBox({ width: '100%' })
     expect((container.querySelector('div') as HTMLElement).style.width).toBe('100%')
@@ -178,9 +178,9 @@ describe('AgDSBox — dimension props', () => {
 
 // ─── Attr passthrough ─────────────────────────────────────────────────────────
 
-describe('AgDSBox — attribute passthrough', () => {
+describe('AGDSBox — attribute passthrough', () => {
   it('passes aria-label to the root element', () => {
-    const { container } = render(AgDSBox, {
+    const { container } = render(AGDSBox, {
       attrs: { 'aria-label': 'region' },
       slots: { default: '<p>Content</p>' },
     })
@@ -190,7 +190,7 @@ describe('AgDSBox — attribute passthrough', () => {
   })
 
   it('passes class to the root element', () => {
-    const { container } = render(AgDSBox, {
+    const { container } = render(AGDSBox, {
       attrs: { class: 'custom-class' },
       slots: { default: '<p>Content</p>' },
     })
@@ -200,7 +200,7 @@ describe('AgDSBox — attribute passthrough', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSBox — axe accessibility', () => {
+describe('AGDSBox — axe accessibility', () => {
   it('has no violations with default props', async () => {
     const { container } = renderBox()
     await runAxe(container, AXE_OPTS)

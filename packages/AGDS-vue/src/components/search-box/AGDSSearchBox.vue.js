@@ -1,4 +1,4 @@
-import AgDSFlex from '../flex/AGDSFlex.vue';
+import AGDSFlex from '../flex/AGDSFlex.vue';
 const props = withDefaults(defineProps(), {
     ariaLabel: 'Sitewide',
 });
@@ -27,7 +27,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.form, __VLS_intrinsics.form)({
     'aria-label': (props.ariaLabel),
 });
 /** @type {__VLS_StyleScopedClasses['agds-search-box']} */ ;
-const __VLS_0 = AgDSFlex || AgDSFlex;
+const __VLS_0 = AGDSFlex || AGDSFlex;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     alignItems: "flex-end",

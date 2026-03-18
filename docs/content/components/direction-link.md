@@ -7,15 +7,15 @@ status: stable
 
 ## Usage
 
-Use `AgDSDirectionLink` when the destination is a URL. Use `AgDSDirectionButton` when the action is triggered by JavaScript (e.g. moving through a multi-step form).
+Use `AGDSDirectionLink` when the destination is a URL. Use `AGDSDirectionButton` when the action is triggered by JavaScript (e.g. moving through a multi-step form).
 
 ::doc-preview
-<AgDSDirectionLink href="#" direction="right">Next step</AgDSDirectionLink>
+<AGDSDirectionLink href="#" direction="right">Next step</AGDSDirectionLink>
 ::
 
 ```vue
 <template>
-  <AgDSDirectionLink href="/next" direction="right">Next step</AgDSDirectionLink>
+  <AGDSDirectionLink href="/next" direction="right">Next step</AGDSDirectionLink>
 </template>
 ```
 
@@ -29,18 +29,18 @@ Use the `direction` prop to control which arrow is shown and where it appears.
 - `down` — arrow after the label (expand / scroll down)
 
 ::doc-preview{label="All directions"}
-<AgDSDirectionLink href="#" direction="left">Back</AgDSDirectionLink>
-<AgDSDirectionLink href="#" direction="right">Forward</AgDSDirectionLink>
-<AgDSDirectionLink href="#" direction="up">Top of page</AgDSDirectionLink>
-<AgDSDirectionLink href="#" direction="down">See more</AgDSDirectionLink>
+<AGDSDirectionLink href="#" direction="left">Back</AGDSDirectionLink>
+<AGDSDirectionLink href="#" direction="right">Forward</AGDSDirectionLink>
+<AGDSDirectionLink href="#" direction="up">Top of page</AGDSDirectionLink>
+<AGDSDirectionLink href="#" direction="down">See more</AGDSDirectionLink>
 ::
 
 ```vue
 <template>
-  <AgDSDirectionLink href="#" direction="left">Back</AgDSDirectionLink>
-  <AgDSDirectionLink href="#" direction="right">Forward</AgDSDirectionLink>
-  <AgDSDirectionLink href="#" direction="up">Top of page</AgDSDirectionLink>
-  <AgDSDirectionLink href="#" direction="down">See more</AgDSDirectionLink>
+  <AGDSDirectionLink href="#" direction="left">Back</AGDSDirectionLink>
+  <AGDSDirectionLink href="#" direction="right">Forward</AGDSDirectionLink>
+  <AGDSDirectionLink href="#" direction="up">Top of page</AGDSDirectionLink>
+  <AGDSDirectionLink href="#" direction="down">See more</AGDSDirectionLink>
 </template>
 ```
 
@@ -49,60 +49,60 @@ Use the `direction` prop to control which arrow is shown and where it appears.
 Set `external` to open the link in a new tab. Screen reader users hear ", opens in a new tab" appended automatically.
 
 ::doc-preview{label="External link"}
-<AgDSDirectionLink href="https://www.australia.gov.au" direction="right" external>australia.gov.au</AgDSDirectionLink>
+<AGDSDirectionLink href="https://www.australia.gov.au" direction="right" external>australia.gov.au</AGDSDirectionLink>
 ::
 
 ```vue
 <template>
-  <AgDSDirectionLink href="https://www.australia.gov.au" direction="right" external>
+  <AGDSDirectionLink href="https://www.australia.gov.au" direction="right" external>
     australia.gov.au
-  </AgDSDirectionLink>
+  </AGDSDirectionLink>
 </template>
 ```
 
 ## Button variant
 
-Use `AgDSDirectionButton` when there is no URL destination. It supports `disabled` and `loading` states.
+Use `AGDSDirectionButton` when there is no URL destination. It supports `disabled` and `loading` states.
 
 ::doc-preview{label="Button variant"}
-<AgDSDirectionButton direction="right">Next step</AgDSDirectionButton>
-<AgDSDirectionButton direction="left">Previous</AgDSDirectionButton>
+<AGDSDirectionButton direction="right">Next step</AGDSDirectionButton>
+<AGDSDirectionButton direction="left">Previous</AGDSDirectionButton>
 ::
 
 ```vue
 <template>
-  <AgDSDirectionButton direction="right" @click="next">Next step</AgDSDirectionButton>
-  <AgDSDirectionButton direction="left" @click="prev">Previous</AgDSDirectionButton>
+  <AGDSDirectionButton direction="right" @click="next">Next step</AGDSDirectionButton>
+  <AGDSDirectionButton direction="left" @click="prev">Previous</AGDSDirectionButton>
 </template>
 ```
 
 ## Disabled
 
 ::doc-preview{label="Disabled button"}
-<AgDSDirectionButton direction="right" disabled>Next step</AgDSDirectionButton>
+<AGDSDirectionButton direction="right" disabled>Next step</AGDSDirectionButton>
 ::
 
 ```vue
 <template>
-  <AgDSDirectionButton direction="right" disabled>Next step</AgDSDirectionButton>
+  <AGDSDirectionButton direction="right" disabled>Next step</AGDSDirectionButton>
 </template>
 ```
 
 ## Loading
 
 ::doc-preview{label="Loading button"}
-<AgDSDirectionButton direction="right" loading>Saving…</AgDSDirectionButton>
+<AGDSDirectionButton direction="right" loading>Saving…</AGDSDirectionButton>
 ::
 
 ```vue
 <template>
-  <AgDSDirectionButton direction="right" :loading="saving" @click="save">
+  <AGDSDirectionButton direction="right" :loading="saving" @click="save">
     Save and continue
-  </AgDSDirectionButton>
+  </AGDSDirectionButton>
 </template>
 ```
 
-## Props — AgDSDirectionLink
+## Props — AGDSDirectionLink
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -111,7 +111,7 @@ Use `AgDSDirectionButton` when there is no URL destination. It supports `disable
 | `external` | `boolean` | `false` | Opens in a new tab and appends accessible off-screen text |
 | `focusRingFor` | `'keyboard' \| 'all'` | `'keyboard'` | When to show the focus ring |
 
-## Props — AgDSDirectionButton
+## Props — AGDSDirectionButton
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -149,4 +149,4 @@ Use `AgDSDirectionButton` when there is no URL destination. It supports `disable
 
 ### 0.1.0
 
-- Initial release — `AgDSDirectionLink` and `AgDSDirectionButton` with `direction`, `external`, `disabled`, `loading`, `focusRingFor` props
+- Initial release — `AGDSDirectionLink` and `AGDSDirectionButton` with `direction`, `external`, `disabled`, `loading`, `focusRingFor` props

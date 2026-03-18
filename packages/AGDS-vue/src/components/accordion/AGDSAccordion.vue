@@ -6,7 +6,7 @@ import type { BackgroundVariant } from '../../core'
 export type AccordionType = 'single' | 'multiple'
 export type { BackgroundVariant as AccordionBackground }
 
-export interface AgDSAccordionProps {
+export interface AGDSAccordionProps {
   /**
    * 'single' — only one item can be open at a time.
    * 'multiple' — any number of items can be open simultaneously (default).
@@ -36,7 +36,7 @@ export interface AgDSAccordionProps {
   background?: BackgroundVariant
 }
 
-const props = withDefaults(defineProps<AgDSAccordionProps>(), {
+const props = withDefaults(defineProps<AGDSAccordionProps>(), {
   type: 'multiple',
   collapsible: true,
   indent: false,

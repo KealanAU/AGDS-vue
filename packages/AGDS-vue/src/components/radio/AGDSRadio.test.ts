@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSRadio from './AGDSRadio.vue'
-import AgDSRadioGroup from './AGDSRadioGroup.vue'
+import AGDSRadio from './AGDSRadio.vue'
+import AGDSRadioGroup from './AGDSRadioGroup.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -11,12 +11,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderRadio(props: Record<string, unknown> = {}, slot = 'Option A') {
-  return render(AgDSRadio, { props, slots: { default: slot } })
+  return render(AGDSRadio, { props, slots: { default: slot } })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSRadio — rendering', () => {
+describe('AGDSRadio — rendering', () => {
   it('renders a radio input', () => {
     const { getByRole } = renderRadio()
     expect(getByRole('radio')).toBeTruthy()
@@ -52,7 +52,7 @@ describe('AgDSRadio — rendering', () => {
 
 // ─── Props: size ─────────────────────────────────────────────────────────────
 
-describe('AgDSRadio — size prop', () => {
+describe('AGDSRadio — size prop', () => {
   it.each(['sm', 'md'] as const)('applies agds-radio--%s class', (size) => {
     const { container } = renderRadio({ size })
     expect(container.querySelector(`.agds-radio--${size}`)).toBeTruthy()
@@ -61,7 +61,7 @@ describe('AgDSRadio — size prop', () => {
 
 // ─── Props: modelValue / value (checked state) ───────────────────────────────
 
-describe('AgDSRadio — checked state', () => {
+describe('AGDSRadio — checked state', () => {
   it('is unchecked when modelValue does not match value', () => {
     const { getByRole } = renderRadio({ modelValue: 'b', value: 'a' })
     expect((getByRole('radio') as HTMLInputElement).checked).toBe(false)
@@ -75,7 +75,7 @@ describe('AgDSRadio — checked state', () => {
 
 // ─── Props: disabled ─────────────────────────────────────────────────────────
 
-describe('AgDSRadio — disabled prop', () => {
+describe('AGDSRadio — disabled prop', () => {
   it('is not disabled by default', () => {
     const { getByRole } = renderRadio()
     expect((getByRole('radio') as HTMLInputElement).disabled).toBe(false)
@@ -105,7 +105,7 @@ describe('AgDSRadio — disabled prop', () => {
 
 // ─── Props: invalid ──────────────────────────────────────────────────────────
 
-describe('AgDSRadio — invalid prop', () => {
+describe('AGDSRadio — invalid prop', () => {
   it('sets aria-invalid when invalid=true', () => {
     const { getByRole } = renderRadio({ invalid: true })
     expect(getByRole('radio').getAttribute('aria-invalid')).toBe('true')
@@ -124,7 +124,7 @@ describe('AgDSRadio — invalid prop', () => {
 
 // ─── Props: required ─────────────────────────────────────────────────────────
 
-describe('AgDSRadio — required prop', () => {
+describe('AGDSRadio — required prop', () => {
   it('sets aria-required when required=true', () => {
     const { getByRole } = renderRadio({ required: true })
     expect(getByRole('radio').getAttribute('aria-required')).toBe('true')
@@ -138,7 +138,7 @@ describe('AgDSRadio — required prop', () => {
 
 // ─── Events ──────────────────────────────────────────────────────────────────
 
-describe('AgDSRadio — events', () => {
+describe('AGDSRadio — events', () => {
   it('emits update:modelValue with the radio value when selected', async () => {
     const { getByRole, emitted } = renderRadio({ modelValue: 'b', value: 'a' })
     await fireEvent.click(getByRole('radio'))
@@ -167,15 +167,15 @@ describe('AgDSRadio — events', () => {
 
 // ─── Group context ───────────────────────────────────────────────────────────
 
-describe('AgDSRadio — inside AgDSRadioGroup', () => {
+describe('AGDSRadio — inside AGDSRadioGroup', () => {
   function renderGroup(groupProps: Record<string, unknown> = {}) {
     return render({
-      components: { AgDSRadioGroup, AgDSRadio },
+      components: { AGDSRadioGroup, AGDSRadio },
       template: `
-        <AgDSRadioGroup v-bind="groupProps" legend="Options">
-          <AgDSRadio id="opt-a" value="a">Option A</AgDSRadio>
-          <AgDSRadio id="opt-b" value="b">Option B</AgDSRadio>
-        </AgDSRadioGroup>
+        <AGDSRadioGroup v-bind="groupProps" legend="Options">
+          <AGDSRadio id="opt-a" value="a">Option A</AGDSRadio>
+          <AGDSRadio id="opt-b" value="b">Option B</AGDSRadio>
+        </AGDSRadioGroup>
       `,
       data() { return { groupProps } },
     })
@@ -216,12 +216,12 @@ describe('AgDSRadio — inside AgDSRadioGroup', () => {
 
   it('shows the error message slot when invalid', () => {
     const { getByText } = render({
-      components: { AgDSRadioGroup, AgDSRadio },
+      components: { AGDSRadioGroup, AGDSRadio },
       template: `
-        <AgDSRadioGroup :invalid="true" legend="Options" messageId="err">
+        <AGDSRadioGroup :invalid="true" legend="Options" messageId="err">
           <template #message>Please select an option</template>
-          <AgDSRadio value="a">Option A</AgDSRadio>
-        </AgDSRadioGroup>
+          <AGDSRadio value="a">Option A</AGDSRadio>
+        </AGDSRadioGroup>
       `,
     })
     expect(getByText('Please select an option')).toBeTruthy()
@@ -230,7 +230,7 @@ describe('AgDSRadio — inside AgDSRadioGroup', () => {
 
 // ─── Accessibility: axe-core ─────────────────────────────────────────────────
 
-describe('AgDSRadio — axe accessibility', () => {
+describe('AGDSRadio — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderRadio()
     await runAxe(container, AXE_OPTS)
@@ -258,12 +258,12 @@ describe('AgDSRadio — axe accessibility', () => {
 
   it('has no violations in a group', async () => {
     const { container } = render({
-      components: { AgDSRadioGroup, AgDSRadio },
+      components: { AGDSRadioGroup, AGDSRadio },
       template: `
-        <AgDSRadioGroup legend="Options" name="opts">
-          <AgDSRadio id="r1" value="a">Option A</AgDSRadio>
-          <AgDSRadio id="r2" value="b">Option B</AgDSRadio>
-        </AgDSRadioGroup>
+        <AGDSRadioGroup legend="Options" name="opts">
+          <AGDSRadio id="r1" value="a">Option A</AGDSRadio>
+          <AGDSRadio id="r2" value="b">Option B</AGDSRadio>
+        </AGDSRadioGroup>
       `,
     })
     await runAxe(container, AXE_OPTS)
@@ -271,7 +271,7 @@ describe('AgDSRadio — axe accessibility', () => {
 
   it('detects a violation when radio has no accessible name', async () => {
     // Verifies the a11y helper catches real failures.
-    const { container } = render(AgDSRadio, { slots: { default: '' } })
+    const { container } = render(AGDSRadio, { slots: { default: '' } })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })
 })

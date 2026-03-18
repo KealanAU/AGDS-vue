@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'text'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
-export interface AgDSButtonProps {
+export interface AGDSButtonProps {
   /** Visual prominence of the button */
   variant?: ButtonVariant
   /** Size of the button */
@@ -27,7 +27,7 @@ export interface AgDSButtonProps {
   focusRingFor?: 'keyboard' | 'all'
 }
 
-const props = withDefaults(defineProps<AgDSButtonProps>(), {
+const props = withDefaults(defineProps<AGDSButtonProps>(), {
   variant: 'primary',
   size: 'md',
   block: false,

@@ -2,12 +2,12 @@
 import { inject } from 'vue'
 import { CARD_CONTEXT_KEY } from './cardContext'
 
-export interface AgDSCardFooterProps {
+export interface AGDSCardFooterProps {
   /** Override the footer's background. Inherits from Card when omitted. */
   background?: 'body' | 'bodyAlt'
 }
 
-const props = defineProps<AgDSCardFooterProps>()
+const props = defineProps<AGDSCardFooterProps>()
 
 const context = inject(CARD_CONTEXT_KEY)
 </script>

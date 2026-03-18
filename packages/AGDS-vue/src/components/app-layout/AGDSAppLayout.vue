@@ -2,7 +2,7 @@
 import { ref, computed, provide } from 'vue'
 import { APP_LAYOUT_KEY } from './appLayoutContext'
 
-export interface AgDSAppLayoutProps {
+export interface AGDSAppLayoutProps {
   /**
    * When true, hides the sidebar and removes nav items.
    * Use during multi-step forms or checkout flows to reduce distractions.
@@ -10,7 +10,7 @@ export interface AgDSAppLayoutProps {
   focusMode?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSAppLayoutProps>(), {
+const props = withDefaults(defineProps<AGDSAppLayoutProps>(), {
   focusMode: false,
 })
 

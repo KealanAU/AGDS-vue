@@ -1,5 +1,3 @@
-import { AgDSVue } from 'agds-vue'
-
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(AgDSVue)
-})
+// Components are registered globally via docs/modules/agds-components.ts.
+// No additional registration needed here.
+export default defineNuxtPlugin(() => {})

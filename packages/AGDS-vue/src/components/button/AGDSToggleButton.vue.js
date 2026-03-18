@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue';
-import AgDSButton from './AGDSButton.vue';
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSButton from './AGDSButton.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const ICON_MAP = {
     flag: { false: 'mdi:flag-outline', true: 'mdi:flag' },
     star: { false: 'mdi:star-outline', true: 'mdi:star' },
@@ -40,7 +40,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSButton || AgDSButton;
+const __VLS_0 = AGDSButton || AGDSButton;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     ...{ 'onClick': {} },
@@ -69,7 +69,7 @@ var __VLS_7 = {};
 const { default: __VLS_9 } = __VLS_3.slots;
 {
     const { iconBefore: __VLS_10 } = __VLS_3.slots;
-    const __VLS_11 = AgDSIcon;
+    const __VLS_11 = AGDSIcon;
     // @ts-ignore
     const __VLS_12 = __VLS_asFunctionalComponent1(__VLS_11, new __VLS_11({
         name: (__VLS_ctx.iconName),

@@ -1,6 +1,6 @@
-export { default as AgDSProgressIndicator } from './AGDSProgressIndicator.vue'
+export { default as AGDSProgressIndicator } from './AGDSProgressIndicator.vue'
 export type {
-  AgDSProgressIndicatorProps,
+  AGDSProgressIndicatorProps,
   ProgressIndicatorItem,
   ProgressIndicatorItemStatus,
   ProgressIndicatorBackground,

@@ -22,7 +22,7 @@ async function fetchCountries(query) {
 </script>
 
 <template>
-  <AgDSComboboxAsyncMulti
+  <AGDSComboboxAsyncMulti
     v-model="selected"
     label="Countries"
     :fetch-options="fetchCountries"
@@ -35,7 +35,7 @@ async function fetchCountries(query) {
 
 ```vue
 <template>
-  <AgDSComboboxAsyncMulti
+  <AGDSComboboxAsyncMulti
     v-model="selected"
     label="Countries"
     :fetch-options="fetchCountries"
@@ -53,7 +53,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
 
 ```vue
 <template>
-  <AgDSComboboxAsyncMulti
+  <AGDSComboboxAsyncMulti
     v-model="selected"
     label="Team members"
     :fetch-options="fetchUsers"
@@ -62,7 +62,7 @@ Use the `option` slot to customise how each option is displayed in the dropdown.
       <strong>{{ option.label }}</strong>
       <span style="color: grey; margin-left: 0.5rem;">{{ option.jobTitle }}</span>
     </template>
-  </AgDSComboboxAsyncMulti>
+  </AGDSComboboxAsyncMulti>
 </template>
 ```
 
@@ -72,7 +72,7 @@ By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust 
 
 ```vue
 <template>
-  <AgDSComboboxAsyncMulti
+  <AGDSComboboxAsyncMulti
     v-model="selected"
     label="Search"
     :debounce="500"
@@ -85,7 +85,7 @@ By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust 
 
 ```vue
 <template>
-  <AgDSComboboxAsyncMulti
+  <AGDSComboboxAsyncMulti
     v-model="selected"
     label="Services"
     empty-results-message="No services match your search."
@@ -98,7 +98,7 @@ By default, `fetchOptions` is called 300 ms after the user stops typing. Adjust 
 
 ```vue
 <template>
-  <AgDSComboboxAsyncMulti
+  <AGDSComboboxAsyncMulti
     v-model="selected"
     label="Countries"
     disabled
@@ -178,7 +178,7 @@ The generic `Option` type can extend `DefaultComboboxOption` with additional fie
 - A second `aria-live="polite"` region announces selection changes (e.g. "Australia has been added.", "Austria has been removed.", "All items have been removed.") — WCAG 4.1.3
 - Each tag's remove button has an `aria-label` of "Remove {label}" so screen reader users know what they are removing
 - Already-selected items are excluded from the dropdown results to prevent duplicate selection
-- The field is wrapped in `AgDSField`, wiring label, hint, error message, and `aria-describedby` automatically
+- The field is wrapped in `AGDSField`, wiring label, hint, error message, and `aria-describedby` automatically
 
 ## Changelog
 

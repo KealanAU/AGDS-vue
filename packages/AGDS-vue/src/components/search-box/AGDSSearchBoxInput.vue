@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, ref } from 'vue'
-import AgDSFlex from '../flex/AGDSFlex.vue'
+import AGDSFlex from '../flex/AGDSFlex.vue'
 
-export interface AgDSSearchBoxInputProps {
+export interface AGDSSearchBoxInputProps {
   /** Controlled value. When provided the component operates in controlled mode. */
   modelValue?: string
   /** Initial value for uncontrolled mode. Ignored when modelValue is provided. */
@@ -19,7 +19,7 @@ export interface AgDSSearchBoxInputProps {
   placeholder?: string
 }
 
-const props = withDefaults(defineProps<AgDSSearchBoxInputProps>(), {
+const props = withDefaults(defineProps<AGDSSearchBoxInputProps>(), {
   label: 'Search',
   labelVisible: false,
 })
@@ -62,7 +62,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 </script>
 
 <template>
-  <AgDSFlex flex-direction="column" style="width: 100%">
+  <AGDSFlex flex-direction="column" style="width: 100%">
     <!-- Label — visible or sr-only -->
     <label
       :for="inputId"
@@ -111,7 +111,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
         <span class="sr-only">Clear search</span>
       </button>
     </div>
-  </AgDSFlex>
+  </AGDSFlex>
 </template>
 
 <style scoped>

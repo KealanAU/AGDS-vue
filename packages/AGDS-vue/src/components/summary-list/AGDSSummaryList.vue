@@ -4,7 +4,7 @@
  * Renders a `<dl>` (HTML Description List). Compose with SummaryListItem,
  * SummaryListItemTerm, SummaryListItemDescription, and SummaryListItemAction.
  */
-export interface AgDSSummaryListProps {}
+export interface AGDSSummaryListProps {}
 </script>
 
 <template>

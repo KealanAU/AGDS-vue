@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HeaderDividerPosition, HeaderSize } from './AGDSHeader.vue'
 
-export interface AgDSHeaderBrandProps {
+export interface AGDSHeaderBrandProps {
   badgeLabel?: string
   dividerPosition?: HeaderDividerPosition
   hasRightContent?: boolean
@@ -12,7 +12,7 @@ export interface AgDSHeaderBrandProps {
   subline?: string
 }
 
-withDefaults(defineProps<AgDSHeaderBrandProps>(), {
+withDefaults(defineProps<AGDSHeaderBrandProps>(), {
   dividerPosition: 'after',
   hasRightContent: false,
   href: '/',

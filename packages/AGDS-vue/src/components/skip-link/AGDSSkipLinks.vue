@@ -6,7 +6,7 @@ export interface SkipLink {
   href: string
 }
 
-export interface AgDSSkipLinksProps {
+export interface AGDSSkipLinksProps {
   /** One or more skip-link destinations. */
   links: SkipLink[]
   /**
@@ -16,7 +16,7 @@ export interface AgDSSkipLinksProps {
   ariaLabel?: string
 }
 
-withDefaults(defineProps<AgDSSkipLinksProps>(), {
+withDefaults(defineProps<AGDSSkipLinksProps>(), {
   ariaLabel: 'Skip links',
 })
 </script>

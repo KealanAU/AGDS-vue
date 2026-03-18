@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import AgDSFeatureLinkListItem from './AGDSFeatureLinkListItem.vue'
-import type { AgDSFeatureLinkListItemProps, FeatureLinkListBackground } from './AGDSFeatureLinkListItem.vue'
+import AGDSFeatureLinkListItem from './AGDSFeatureLinkListItem.vue'
+import type { AGDSFeatureLinkListItemProps, FeatureLinkListBackground } from './AGDSFeatureLinkListItem.vue'
 
 // Each entry in `links` supplies all item props except `background`,
 // which is set at the list level and forwarded to every item.
-export type FeatureLinkListLink = Omit<AgDSFeatureLinkListItemProps, 'background'>
+export type FeatureLinkListLink = Omit<AGDSFeatureLinkListItemProps, 'background'>
 
-export interface AgDSFeatureLinkListProps {
+export interface AGDSFeatureLinkListProps {
   /** Array of link entries to render */
   links: FeatureLinkListLink[]
   /** Background context of the containing surface — controls item hover shade */
   background?: FeatureLinkListBackground
 }
 
-withDefaults(defineProps<AgDSFeatureLinkListProps>(), {
+withDefaults(defineProps<AGDSFeatureLinkListProps>(), {
   background: 'body',
 })
 </script>
 
 <template>
   <ul class="agds-feature-link-list">
-    <AgDSFeatureLinkListItem
+    <AGDSFeatureLinkListItem
       v-for="(link, index) in links"
       :key="index"
       v-bind="link"

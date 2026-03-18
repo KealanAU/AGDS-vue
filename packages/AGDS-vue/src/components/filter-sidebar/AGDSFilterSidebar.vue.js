@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import AgDSCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue';
+import AGDSCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue';
 const props = withDefaults(defineProps(), {
     activeFiltersCount: 0,
     background: 'body',
@@ -34,7 +34,7 @@ let __VLS_directives;
 /** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-filter-sidebar__clear-btn']} */ ;
-const __VLS_0 = AgDSCollapsingSideBar || AgDSCollapsingSideBar;
+const __VLS_0 = AGDSCollapsingSideBar || AGDSCollapsingSideBar;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     title: (__VLS_ctx.title),

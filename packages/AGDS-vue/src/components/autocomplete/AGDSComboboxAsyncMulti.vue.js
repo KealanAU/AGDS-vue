@@ -1,5 +1,5 @@
 import { ref, shallowRef, computed, watch, onUnmounted, getCurrentInstance } from 'vue';
-import AgDSField from '../field/AGDSField.vue';
+import AGDSField from '../field/AGDSField.vue';
 import { filterOptions } from './comboboxUtils';
 const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (async () => {
     const props = withDefaults(defineProps(), {
@@ -189,7 +189,7 @@ const __VLS_export = ((__VLS_props, __VLS_ctx, __VLS_exposed, __VLS_setup = (asy
     /** @type {__VLS_StyleScopedClasses['agds-combobox-async-multi__tag-remove']} */ ;
     /** @type {__VLS_StyleScopedClasses['agds-combobox-async-multi__input']} */ ;
     /** @type {__VLS_StyleScopedClasses['agds-combobox-async-multi__input']} */ ;
-    const __VLS_0 = AgDSField || AgDSField;
+    const __VLS_0 = AGDSField || AGDSField;
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
         label: (__VLS_ctx.label),

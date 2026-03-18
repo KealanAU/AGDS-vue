@@ -16,11 +16,11 @@ const isOpen = ref(false)
 </script>
 
 <template>
-  <AgDSButton @click="isOpen = true">Open modal</AgDSButton>
+  <AGDSButton @click="isOpen = true">Open modal</AGDSButton>
 
-  <AgDSModal v-model="isOpen" title="Confirm submission">
+  <AGDSModal v-model="isOpen" title="Confirm submission">
     <p>Are you sure you want to submit your application? You cannot edit it after submission.</p>
-  </AgDSModal>
+  </AGDSModal>
 </template>
 ```
 
@@ -40,16 +40,16 @@ function submit() {
 </script>
 
 <template>
-  <AgDSButton @click="isOpen = true">Submit application</AgDSButton>
+  <AGDSButton @click="isOpen = true">Submit application</AGDSButton>
 
-  <AgDSModal v-model="isOpen" title="Confirm submission">
+  <AGDSModal v-model="isOpen" title="Confirm submission">
     <p>Are you sure you want to submit your application?</p>
 
     <template #actions>
-      <AgDSButton variant="primary" @click="submit">Submit</AgDSButton>
-      <AgDSButton variant="secondary" @click="isOpen = false">Cancel</AgDSButton>
+      <AGDSButton variant="primary" @click="submit">Submit</AGDSButton>
+      <AGDSButton variant="secondary" @click="isOpen = false">Cancel</AGDSButton>
     </template>
-  </AgDSModal>
+  </AGDSModal>
 </template>
 ```
 

@@ -1,6 +1,6 @@
 import { computed } from 'vue';
-import AgDSIcon from '../icon/AGDSIcon.vue';
-import AgDSVisuallyHidden from '../visually-hidden/AGDSVisuallyHidden.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
+import AGDSVisuallyHidden from '../visually-hidden/AGDSVisuallyHidden.vue';
 const props = withDefaults(defineProps(), {
     ordered: false,
     type: 'button',
@@ -128,7 +128,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     'aria-hidden': "true",
 });
 /** @type {__VLS_StyleScopedClasses['agds-task-list-item__icon-desktop']} */ ;
-const __VLS_10 = AgDSIcon;
+const __VLS_10 = AGDSIcon;
 // @ts-ignore
 const __VLS_11 = __VLS_asFunctionalComponent1(__VLS_10, new __VLS_10({
     name: (__VLS_ctx.statusInfo.icon),
@@ -156,7 +156,7 @@ if (__VLS_ctx.ordered) {
     /** @type {__VLS_StyleScopedClasses['agds-task-list-item__counter']} */ ;
 }
 var __VLS_15 = {};
-const __VLS_17 = AgDSVisuallyHidden || AgDSVisuallyHidden;
+const __VLS_17 = AGDSVisuallyHidden || AGDSVisuallyHidden;
 // @ts-ignore
 const __VLS_18 = __VLS_asFunctionalComponent1(__VLS_17, new __VLS_17({}));
 const __VLS_19 = __VLS_18({}, ...__VLS_functionalComponentArgsRest(__VLS_18));
@@ -168,7 +168,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
     ...{ class: "agds-task-list-item__status" },
 });
 /** @type {__VLS_StyleScopedClasses['agds-task-list-item__status']} */ ;
-const __VLS_23 = AgDSIcon;
+const __VLS_23 = AGDSIcon;
 // @ts-ignore
 const __VLS_24 = __VLS_asFunctionalComponent1(__VLS_23, new __VLS_23({
     ...{ class: "agds-task-list-item__icon-mobile" },
@@ -190,7 +190,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
 });
 /** @type {__VLS_StyleScopedClasses['agds-task-list-item__status-label']} */ ;
 (__VLS_ctx.statusInfo.label);
-const __VLS_28 = AgDSVisuallyHidden || AgDSVisuallyHidden;
+const __VLS_28 = AGDSVisuallyHidden || AGDSVisuallyHidden;
 // @ts-ignore
 const __VLS_29 = __VLS_asFunctionalComponent1(__VLS_28, new __VLS_28({}));
 const __VLS_30 = __VLS_29({}, ...__VLS_functionalComponentArgsRest(__VLS_29));
@@ -205,7 +205,7 @@ if (__VLS_ctx.message) {
     /** @type {__VLS_StyleScopedClasses['agds-task-list-item__message']} */ ;
     (__VLS_ctx.message);
 }
-const __VLS_34 = AgDSIcon;
+const __VLS_34 = AGDSIcon;
 // @ts-ignore
 const __VLS_35 = __VLS_asFunctionalComponent1(__VLS_34, new __VLS_34({
     name: "mdi:arrow-right",

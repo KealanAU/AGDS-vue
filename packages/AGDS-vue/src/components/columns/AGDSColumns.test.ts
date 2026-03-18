@@ -1,22 +1,22 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSColumns from './AGDSColumns.vue'
-import AgDSColumn from './AGDSColumn.vue'
+import AGDSColumns from './AGDSColumns.vue'
+import AGDSColumn from './AGDSColumn.vue'
 
 const AXE_OPTS = { rules: { 'color-contrast': { enabled: false } } } as const
 
 function renderColumns(props: Record<string, unknown> = {}, slot = '<div>A</div><div>B</div>') {
-  return render(AgDSColumns, { props, slots: { default: slot } })
+  return render(AGDSColumns, { props, slots: { default: slot } })
 }
 
 function renderColumn(props: Record<string, unknown> = {}, slot = '<p>Content</p>') {
-  return render(AgDSColumn, { props, slots: { default: slot } })
+  return render(AGDSColumn, { props, slots: { default: slot } })
 }
 
-// ─── AgDSColumns — defaults ──────────────────────────────────────────────────
+// ─── AGDSColumns — defaults ──────────────────────────────────────────────────
 
-describe('AgDSColumns — defaults', () => {
+describe('AGDSColumns — defaults', () => {
   it('renders a div by default', () => {
     const { container } = renderColumns()
     expect(container.querySelector('div')).toBeTruthy()
@@ -35,9 +35,9 @@ describe('AgDSColumns — defaults', () => {
   })
 })
 
-// ─── AgDSColumns — cols prop ─────────────────────────────────────────────────
+// ─── AGDSColumns — cols prop ─────────────────────────────────────────────────
 
-describe('AgDSColumns — cols prop', () => {
+describe('AGDSColumns — cols prop', () => {
   it('sets 3-column grid', () => {
     const { container } = renderColumns({ cols: 3 })
     expect((container.querySelector('div') as HTMLElement).style.gridTemplateColumns).toBe(
@@ -53,9 +53,9 @@ describe('AgDSColumns — cols prop', () => {
   })
 })
 
-// ─── AgDSColumns — gap props ─────────────────────────────────────────────────
+// ─── AGDSColumns — gap props ─────────────────────────────────────────────────
 
-describe('AgDSColumns — gap props', () => {
+describe('AGDSColumns — gap props', () => {
   it('maps numeric gap to a space token', () => {
     const { container } = renderColumns({ gap: 3 })
     expect((container.querySelector('div') as HTMLElement).style.gap).toBe('var(--agds-space-3)')
@@ -81,36 +81,36 @@ describe('AgDSColumns — gap props', () => {
   })
 })
 
-// ─── AgDSColumns — alignItems prop ──────────────────────────────────────────
+// ─── AGDSColumns — alignItems prop ──────────────────────────────────────────
 
-describe('AgDSColumns — alignItems prop', () => {
+describe('AGDSColumns — alignItems prop', () => {
   it('sets align-items: center', () => {
     const { container } = renderColumns({ alignItems: 'center' })
     expect((container.querySelector('div') as HTMLElement).style.alignItems).toBe('center')
   })
 })
 
-// ─── AgDSColumns — as prop ───────────────────────────────────────────────────
+// ─── AGDSColumns — as prop ───────────────────────────────────────────────────
 
-describe('AgDSColumns — as prop', () => {
+describe('AGDSColumns — as prop', () => {
   it('renders as the given element', () => {
     const { container } = renderColumns({ as: 'section' })
     expect(container.querySelector('section')).toBeTruthy()
   })
 })
 
-// ─── AgDSColumns — slot ─────────────────────────────────────────────────────
+// ─── AGDSColumns — slot ─────────────────────────────────────────────────────
 
-describe('AgDSColumns — slot', () => {
+describe('AGDSColumns — slot', () => {
   it('renders default slot content', () => {
     const { getByText } = renderColumns({}, '<span>Hello</span>')
     expect(getByText('Hello')).toBeTruthy()
   })
 })
 
-// ─── AgDSColumn — defaults ───────────────────────────────────────────────────
+// ─── AGDSColumn — defaults ───────────────────────────────────────────────────
 
-describe('AgDSColumn — defaults', () => {
+describe('AGDSColumn — defaults', () => {
   it('renders a div by default', () => {
     const { container } = renderColumn()
     expect(container.querySelector('div')).toBeTruthy()
@@ -125,9 +125,9 @@ describe('AgDSColumn — defaults', () => {
   })
 })
 
-// ─── AgDSColumn — span prop ──────────────────────────────────────────────────
+// ─── AGDSColumn — span prop ──────────────────────────────────────────────────
 
-describe('AgDSColumn — span prop', () => {
+describe('AGDSColumn — span prop', () => {
   it('sets grid-column span shorthand', () => {
     const { container } = renderColumn({ span: 6 })
     expect((container.querySelector('div') as HTMLElement).style.gridColumn).toBe(
@@ -143,9 +143,9 @@ describe('AgDSColumn — span prop', () => {
   })
 })
 
-// ─── AgDSColumn — start / end props ─────────────────────────────────────────
+// ─── AGDSColumn — start / end props ─────────────────────────────────────────
 
-describe('AgDSColumn — start/end props', () => {
+describe('AGDSColumn — start/end props', () => {
   it('sets grid-column-start', () => {
     const { container } = renderColumn({ start: 3 })
     expect((container.querySelector('div') as HTMLElement).style.gridColumnStart).toBe('3')
@@ -164,9 +164,9 @@ describe('AgDSColumn — start/end props', () => {
   })
 })
 
-// ─── AgDSColumn — alignSelf / justifySelf props ─────────────────────────────
+// ─── AGDSColumn — alignSelf / justifySelf props ─────────────────────────────
 
-describe('AgDSColumn — alignSelf/justifySelf props', () => {
+describe('AGDSColumn — alignSelf/justifySelf props', () => {
   it('sets align-self: center', () => {
     const { container } = renderColumn({ alignSelf: 'center' })
     expect((container.querySelector('div') as HTMLElement).style.alignSelf).toBe('center')
@@ -178,18 +178,18 @@ describe('AgDSColumn — alignSelf/justifySelf props', () => {
   })
 })
 
-// ─── AgDSColumn — as prop ────────────────────────────────────────────────────
+// ─── AGDSColumn — as prop ────────────────────────────────────────────────────
 
-describe('AgDSColumn — as prop', () => {
+describe('AGDSColumn — as prop', () => {
   it('renders as the given element', () => {
     const { container } = renderColumn({ as: 'article' })
     expect(container.querySelector('article')).toBeTruthy()
   })
 })
 
-// ─── AgDSColumn — slot ──────────────────────────────────────────────────────
+// ─── AGDSColumn — slot ──────────────────────────────────────────────────────
 
-describe('AgDSColumn — slot', () => {
+describe('AGDSColumn — slot', () => {
   it('renders default slot content', () => {
     const { getByText } = renderColumn({}, '<span>Cell content</span>')
     expect(getByText('Cell content')).toBeTruthy()
@@ -198,7 +198,7 @@ describe('AgDSColumn — slot', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSColumns — axe accessibility', () => {
+describe('AGDSColumns — axe accessibility', () => {
   it('has no violations with default props', async () => {
     const { container } = renderColumns()
     await runAxe(container, AXE_OPTS)
@@ -221,7 +221,7 @@ describe('AgDSColumns — axe accessibility', () => {
   })
 })
 
-describe('AgDSColumn — axe accessibility', () => {
+describe('AGDSColumn — axe accessibility', () => {
   it('has no violations with span prop', async () => {
     const { container } = renderColumn({ span: 6 })
     await runAxe(container, AXE_OPTS)

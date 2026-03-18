@@ -1,2 +1,2 @@
-export { default as AgDSFieldset } from './AGDSFieldset.vue'
-export type { AgDSFieldsetProps } from './AGDSFieldset.vue'
+export { default as AGDSFieldset } from './AGDSFieldset.vue'
+export type { AGDSFieldsetProps } from './AGDSFieldset.vue'

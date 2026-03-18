@@ -1,8 +1,8 @@
-export { default as AgDSDropdownMenu } from './AGDSDropdownMenu.vue';
-export { default as AgDSDropdownMenuButton } from './AGDSDropdownMenuButton.vue';
-export { default as AgDSDropdownMenuPanel } from './AGDSDropdownMenuPanel.vue';
-export { default as AgDSDropdownMenuItem } from './AGDSDropdownMenuItem.vue';
-export { default as AgDSDropdownMenuItemLink } from './AGDSDropdownMenuItemLink.vue';
-export { default as AgDSDropdownMenuItemRadio } from './AGDSDropdownMenuItemRadio.vue';
-export { default as AgDSDropdownMenuGroup } from './AGDSDropdownMenuGroup.vue';
-export { default as AgDSDropdownMenuDivider } from './AGDSDropdownMenuDivider.vue';
+export { default as AGDSDropdownMenu } from './AGDSDropdownMenu.vue';
+export { default as AGDSDropdownMenuButton } from './AGDSDropdownMenuButton.vue';
+export { default as AGDSDropdownMenuPanel } from './AGDSDropdownMenuPanel.vue';
+export { default as AGDSDropdownMenuItem } from './AGDSDropdownMenuItem.vue';
+export { default as AGDSDropdownMenuItemLink } from './AGDSDropdownMenuItemLink.vue';
+export { default as AGDSDropdownMenuItemRadio } from './AGDSDropdownMenuItemRadio.vue';
+export { default as AGDSDropdownMenuGroup } from './AGDSDropdownMenuGroup.vue';
+export { default as AGDSDropdownMenuDivider } from './AGDSDropdownMenuDivider.vue';

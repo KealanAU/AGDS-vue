@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { AgDSIcon } from '../icon'
+import { AGDSIcon } from '../icon'
 import type { ProgressIndicatorItemStatus, ProgressIndicatorLevelTwoItem as ProgressIndicatorLevelTwoItemBase } from './AGDSProgressIndicator.vue'
 import type { BackgroundVariant } from '../../core'
 
@@ -78,7 +78,7 @@ const hasSub = computed(() => !!(props.item.items?.length))
           class="agds-progress-indicator__ring"
           :class="{ 'agds-progress-indicator__ring--active': item.isActive }"
         >
-          <AgDSIcon
+          <AGDSIcon
             :name="statusInfo.icon"
             size="md"
             :color="resolvedIconColor"
@@ -117,7 +117,7 @@ const hasSub = computed(() => !!(props.item.items?.length))
               :href="activeSubItem.href || undefined"
               aria-current="step"
             >
-              <AgDSIcon
+              <AGDSIcon
                 name="mdi:arrow-right-bottom"
                 size="sm"
                 color="var(--agds-color-action-primary)"

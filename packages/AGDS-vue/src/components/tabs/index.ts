@@ -1,11 +1,11 @@
-export { default as AgDSTabs } from './AGDSTabs.vue'
-export type { AgDSTabsProps, TabsBackground } from './AGDSTabs.vue'
+export { default as AGDSTabs } from './AGDSTabs.vue'
+export type { AGDSTabsProps, TabsBackground } from './AGDSTabs.vue'
 
-export { default as AgDSTabList } from './AGDSTabList.vue'
-export type { AgDSTabListProps } from './AGDSTabList.vue'
+export { default as AGDSTabList } from './AGDSTabList.vue'
+export type { AGDSTabListProps } from './AGDSTabList.vue'
 
-export { default as AgDSTab } from './AGDSTab.vue'
-export type { AgDSTabProps } from './AGDSTab.vue'
+export { default as AGDSTab } from './AGDSTab.vue'
+export type { AGDSTabProps } from './AGDSTab.vue'
 
-export { default as AgDSTabPanel } from './AGDSTabPanel.vue'
-export type { AgDSTabPanelProps } from './AGDSTabPanel.vue'
+export { default as AGDSTabPanel } from './AGDSTabPanel.vue'
+export type { AGDSTabPanelProps } from './AGDSTabPanel.vue'

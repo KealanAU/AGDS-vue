@@ -2,7 +2,7 @@
 import { computed, inject } from 'vue'
 import { CARD_CONTEXT_KEY } from './cardContext'
 
-export interface AgDSCardLinkProps {
+export interface AGDSCardLinkProps {
   /**
    * Element or component to render as.
    * Use 'RouterLink' / your router's link component for client-side navigation.
@@ -12,7 +12,7 @@ export interface AgDSCardLinkProps {
 
 defineOptions({ inheritAttrs: false })
 
-const props = withDefaults(defineProps<AgDSCardLinkProps>(), {
+const props = withDefaults(defineProps<AGDSCardLinkProps>(), {
   as: 'a',
 })
 

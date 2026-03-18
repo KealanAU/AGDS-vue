@@ -1,1 +1,1 @@
-export { default as AgDSText } from './AGDSText.vue';
+export { default as AGDSText } from './AGDSText.vue';

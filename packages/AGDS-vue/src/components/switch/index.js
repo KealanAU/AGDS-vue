@@ -1,1 +1,1 @@
-export { default as AgDSSwitch } from './AGDSSwitch.vue';
+export { default as AGDSSwitch } from './AGDSSwitch.vue';

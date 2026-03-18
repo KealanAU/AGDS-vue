@@ -1,6 +1,6 @@
-export { default as AgDSBox } from './AGDSBox.vue'
+export { default as AGDSBox } from './AGDSBox.vue'
 export type {
-  AgDSBoxProps,
+  AGDSBoxProps,
   BoxDisplay,
   BoxFlexDirection,
   BoxFlexWrap,

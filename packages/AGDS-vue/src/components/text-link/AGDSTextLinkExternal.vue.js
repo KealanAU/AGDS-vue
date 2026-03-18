@@ -1,6 +1,6 @@
-import AgDSTextLink from './AGDSTextLink.vue';
-import AgDSExternalLinkCallout from '../visually-hidden/AGDSExternalLinkCallout.vue';
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSTextLink from './AGDSTextLink.vue';
+import AGDSExternalLinkCallout from '../visually-hidden/AGDSExternalLinkCallout.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const __VLS_props = withDefaults(defineProps(), {
     focusRingFor: 'keyboard',
 });
@@ -17,7 +17,7 @@ const __VLS_ctx = {
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSTextLink || AgDSTextLink;
+const __VLS_0 = AGDSTextLink || AGDSTextLink;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     ...{ 'onClick': {} },
@@ -59,11 +59,11 @@ const __VLS_8 = ({ blur: {} },
 var __VLS_9 = {};
 const { default: __VLS_10 } = __VLS_3.slots;
 var __VLS_11 = {};
-const __VLS_13 = AgDSExternalLinkCallout;
+const __VLS_13 = AGDSExternalLinkCallout;
 // @ts-ignore
 const __VLS_14 = __VLS_asFunctionalComponent1(__VLS_13, new __VLS_13({}));
 const __VLS_15 = __VLS_14({}, ...__VLS_functionalComponentArgsRest(__VLS_14));
-const __VLS_18 = AgDSIcon;
+const __VLS_18 = AGDSIcon;
 // @ts-ignore
 const __VLS_19 = __VLS_asFunctionalComponent1(__VLS_18, new __VLS_18({
     name: "mdi:open-in-new",

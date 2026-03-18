@@ -1,1 +1,1 @@
-export { default as AgDSFilterSidebar } from './AGDSFilterSidebar.vue';
+export { default as AGDSFilterSidebar } from './AGDSFilterSidebar.vue';

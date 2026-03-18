@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AgDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue'
+import AGDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue'
 
-export interface AgDSBreadcrumbsItemProps {
+export interface AGDSBreadcrumbsItemProps {
   /** URL the breadcrumb navigates to. Omit for the current page when no link is needed. */
   href?: string
   /** Visible text label */
@@ -11,7 +11,7 @@ export interface AgDSBreadcrumbsItemProps {
   current?: boolean
 }
 
-withDefaults(defineProps<AgDSBreadcrumbsItemProps>(), {
+withDefaults(defineProps<AGDSBreadcrumbsItemProps>(), {
   current: false,
 })
 
@@ -22,7 +22,7 @@ defineExpose({ focus: () => linkRef.value?.focus() })
 
 <template>
   <li class="agds-breadcrumbs__item">
-    <AgDSBreadcrumbsDivider />
+    <AGDSBreadcrumbsDivider />
     <a
       v-if="href"
       ref="linkRef"

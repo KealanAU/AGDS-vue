@@ -7,13 +7,13 @@ status: stable
 
 ## Usage
 
-Wrap your application in `AgDSCore` once, at the root level. It injects all design token CSS variables and, optionally, a CSS reset.
+Wrap your application in `AGDSCore` once, at the root level. It injects all design token CSS variables and, optionally, a CSS reset.
 
 ```vue
 <template>
-  <AgDSCore>
+  <AGDSCore>
     <App />
-  </AgDSCore>
+  </AGDSCore>
 </template>
 ```
 
@@ -34,9 +34,9 @@ const myTheme: Partial<Theme> = {
 </script>
 
 <template>
-  <AgDSCore :theme="myTheme">
+  <AGDSCore :theme="myTheme">
     <App />
-  </AgDSCore>
+  </AGDSCore>
 </template>
 ```
 
@@ -50,9 +50,9 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <AgDSCore :link-component="RouterLink">
+  <AGDSCore :link-component="RouterLink">
     <App />
-  </AgDSCore>
+  </AGDSCore>
 </template>
 ```
 
@@ -62,9 +62,9 @@ Set `applyReset` to `false` if your application already manages `html` and `body
 
 ```vue
 <template>
-  <AgDSCore :apply-reset="false">
+  <AGDSCore :apply-reset="false">
     <App />
-  </AgDSCore>
+  </AGDSCore>
 </template>
 ```
 
@@ -84,9 +84,9 @@ Set `applyReset` to `false` if your application already manages `html` and `body
 
 ## Notes
 
-- `AgDSCore` injects a `<style>` tag into `<head>` on mount and removes it on unmount
+- `AGDSCore` injects a `<style>` tag into `<head>` on mount and removes it on unmount
 - Print theme overrides are automatically applied via `@media print`
-- For SSR, use `AgDSCoreProvider` directly to control how styles are injected
+- For SSR, use `AGDSCoreProvider` directly to control how styles are injected
 
 ## Changelog
 

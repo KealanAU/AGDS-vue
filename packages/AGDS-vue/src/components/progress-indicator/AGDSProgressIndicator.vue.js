@@ -1,8 +1,8 @@
 import { computed, ref } from 'vue';
-import AgDSProgressIndicatorItem from './AGDSProgressIndicatorItem.vue';
+import AGDSProgressIndicatorItem from './AGDSProgressIndicatorItem.vue';
 export default {};
 const __VLS_export = await (async () => {
-    defineOptions({ name: 'AgDSProgressIndicator' });
+    defineOptions({ name: 'AGDSProgressIndicator' });
     const props = withDefaults(defineProps(), {
         background: 'body',
         hideSubtitle: false,
@@ -120,7 +120,7 @@ const __VLS_export = await (async () => {
     });
     /** @type {__VLS_StyleScopedClasses['agds-progress-indicator__list']} */ ;
     for (const [item, index] of __VLS_vFor((__VLS_ctx.processedItems))) {
-        const __VLS_0 = AgDSProgressIndicatorItem;
+        const __VLS_0 = AGDSProgressIndicatorItem;
         // @ts-ignore
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             key: (item.label),

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import AgDSLinkListItem from './AGDSLinkListItem.vue'
-import type { AgDSLinkListItemProps } from './AGDSLinkListItem.vue'
+import AGDSLinkListItem from './AGDSLinkListItem.vue'
+import type { AGDSLinkListItemProps } from './AGDSLinkListItem.vue'
 
-export type LinkListLink = Omit<AgDSLinkListItemProps, 'label'> & { label: string }
+export type LinkListLink = Omit<AGDSLinkListItemProps, 'label'> & { label: string }
 
-export interface AgDSLinkListProps {
-  /** Array of link entries to render */
-  links: LinkListLink[]
+export interface AGDSLinkListProps {
+  /** Array of link entries to render. If omitted, use the default slot with AGDSLinkListItem. */
+  links?: LinkListLink[]
   /** Lay links out in a horizontal row instead of a vertical column */
   horizontal?: boolean
 }
 
-withDefaults(defineProps<AgDSLinkListProps>(), {
+withDefaults(defineProps<AGDSLinkListProps>(), {
   horizontal: false,
 })
 </script>
@@ -21,7 +21,8 @@ withDefaults(defineProps<AgDSLinkListProps>(), {
     class="agds-link-list"
     :class="horizontal ? 'agds-link-list--horizontal' : 'agds-link-list--vertical'"
   >
-    <AgDSLinkListItem
+    <slot />
+    <AGDSLinkListItem
       v-for="(link, index) in links"
       :key="index"
       v-bind="link"

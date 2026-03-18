@@ -1,2 +1,2 @@
-export { default as AgDSBreadcrumbs } from './AGDSBreadcrumbs.vue';
-export { default as AgDSBreadcrumbsItem } from './AGDSBreadcrumbsItem.vue';
+export { default as AGDSBreadcrumbs } from './AGDSBreadcrumbs.vue';
+export { default as AGDSBreadcrumbsItem } from './AGDSBreadcrumbsItem.vue';

@@ -1,6 +1,6 @@
 ---
 title: Main nav
-description: The primary navigation bar for Agriculture Design System (AgDS) sites. Shows top-level links on desktop, collapses to a hamburger + slide-in drawer on mobile, and supports dropdown menus and secondary actions on the right.
+description: The primary navigation bar for Agriculture Design System (AGDS) sites. Shows top-level links on desktop, collapses to a hamburger + slide-in drawer on mobile, and supports dropdown menus and secondary actions on the right.
 category: Navigation
 status: stable
 ---
@@ -11,7 +11,7 @@ Pass `items` for the primary navigation links. The hamburger button and mobile d
 
 ```vue
 <template>
-  <AgDSMainNav
+  <AGDSMainNav
     :items="[
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
@@ -28,7 +28,7 @@ Use `secondaryItems` to add links or actions to the right side of the bar (sign 
 
 ```vue
 <template>
-  <AgDSMainNav
+  <AGDSMainNav
     :items="[
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
@@ -47,7 +47,7 @@ Include a `items` array on a nav item to render a dropdown menu. The dropdown is
 
 ```vue
 <template>
-  <AgDSMainNav
+  <AGDSMainNav
     :items="[
       { label: 'Home', href: '/' },
       {
@@ -73,7 +73,7 @@ function openSearch() { /* … */ }
 </script>
 
 <template>
-  <AgDSMainNav
+  <AGDSMainNav
     :items="[{ label: 'Home', href: '/' }]"
     :secondary-items="[{ label: 'Search', onClick: openSearch }]"
   />
@@ -86,7 +86,7 @@ Use `background="bodyAlt"` when the nav sits on an off-white surface.
 
 ```vue
 <template>
-  <AgDSMainNav
+  <AGDSMainNav
     background="bodyAlt"
     :items="[{ label: 'Home', href: '/' }]"
   />
@@ -99,7 +99,7 @@ Set `focus-mode` to remove all nav items — useful during checkout or multi-ste
 
 ```vue
 <template>
-  <AgDSMainNav focus-mode :items="[{ label: 'Home', href: '/' }]" />
+  <AGDSMainNav focus-mode :items="[{ label: 'Home', href: '/' }]" />
 </template>
 ```
 

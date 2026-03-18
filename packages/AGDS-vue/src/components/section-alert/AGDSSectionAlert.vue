@@ -7,7 +7,7 @@ export type { SectionAlertTone, SectionAlertTones } from './sectionAlertUtils'
 
 // ── Props ─────────────────────────────────────────────────────────────────────
 
-export interface AgDSSectionAlertProps {
+export interface AGDSSectionAlertProps {
   /** Controls background colour, border colour, and icon. */
   tone: SectionAlertTone
   /** The title of the alert. Always required — it is the primary label. */
@@ -39,7 +39,7 @@ export interface AgDSSectionAlertProps {
   onDismiss?: () => void
 }
 
-const props = withDefaults(defineProps<AgDSSectionAlertProps>(), {
+const props = withDefaults(defineProps<AGDSSectionAlertProps>(), {
   role: 'region',
 })
 

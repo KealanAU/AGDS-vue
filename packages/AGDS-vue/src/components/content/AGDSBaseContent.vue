@@ -2,7 +2,7 @@
 import { provide } from 'vue'
 import { CONTENT_SPACING_KEY, type ContentSpacing } from './contentContext'
 
-export interface AgDSBaseContentProps {
+export interface AGDSBaseContentProps {
   /** HTML element to render the outer wrapper as. */
   as?: string
   /** Background colour of the content band. */
@@ -15,7 +15,7 @@ export interface AgDSBaseContentProps {
   id?: string
 }
 
-const props = withDefaults(defineProps<AgDSBaseContentProps>(), {
+const props = withDefaults(defineProps<AGDSBaseContentProps>(), {
   as: 'div',
   maxWidth: 'container',
 })

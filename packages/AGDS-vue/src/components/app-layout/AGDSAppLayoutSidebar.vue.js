@@ -1,6 +1,6 @@
 import { ref, watch, nextTick, computed } from 'vue';
 import { useAppLayoutContext } from './appLayoutContext';
-import AgDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue';
+import AGDSAppLayoutSidebarNav from './AGDSAppLayoutSidebarNav.vue';
 import { findBestMatch, } from './appLayoutTypes';
 const props = withDefaults(defineProps(), {
     background: 'bodyAlt',
@@ -70,7 +70,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.aside, __VLS_intrinsics.aside)({
 });
 /** @type {__VLS_StyleScopedClasses['agds-app-layout-sidebar']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-app-layout-sidebar--focus-mode']} */ ;
-const __VLS_0 = AgDSAppLayoutSidebarNav;
+const __VLS_0 = AGDSAppLayoutSidebarNav;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     items: (__VLS_ctx.items),
@@ -177,7 +177,7 @@ if (__VLS_ctx.isMobileMenuOpen) {
         y2: "18",
     });
     __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({});
-    const __VLS_23 = AgDSAppLayoutSidebarNav;
+    const __VLS_23 = AGDSAppLayoutSidebarNav;
     // @ts-ignore
     const __VLS_24 = __VLS_asFunctionalComponent1(__VLS_23, new __VLS_23({
         ...{ 'onClose': {} },

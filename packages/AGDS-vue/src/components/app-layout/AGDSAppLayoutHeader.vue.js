@@ -1,5 +1,5 @@
 import { useAppLayoutContext } from './appLayoutContext';
-import AgDSHeaderBrand from '../header/AGDSHeaderBrand.vue';
+import AGDSHeaderBrand from '../header/AGDSHeaderBrand.vue';
 const props = withDefaults(defineProps(), {
     href: '/',
     background: 'body',
@@ -87,7 +87,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
     ...{ class: "agds-app-layout-header__brand" },
 });
 /** @type {__VLS_StyleScopedClasses['agds-app-layout-header__brand']} */ ;
-const __VLS_0 = AgDSHeaderBrand || AgDSHeaderBrand;
+const __VLS_0 = AGDSHeaderBrand || AGDSHeaderBrand;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     badgeLabel: (__VLS_ctx.badgeLabel),

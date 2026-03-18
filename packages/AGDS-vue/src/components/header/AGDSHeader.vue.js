@@ -1,4 +1,4 @@
-import AgDSHeaderBrand from './AGDSHeaderBrand.vue';
+import AGDSHeaderBrand from './AGDSHeaderBrand.vue';
 const __VLS_props = withDefaults(defineProps(), {
     background: 'body',
     dividerPosition: 'after',
@@ -42,7 +42,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
 });
 /** @type {__VLS_StyleScopedClasses['agds-header__brand-col']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-header__brand-col--with-right']} */ ;
-const __VLS_0 = AgDSHeaderBrand || AgDSHeaderBrand;
+const __VLS_0 = AGDSHeaderBrand || AGDSHeaderBrand;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     badgeLabel: (__VLS_ctx.badgeLabel),

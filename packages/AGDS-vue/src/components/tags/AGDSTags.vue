@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AgDSTag from './AGDSTag.vue'
+import AGDSTag from './AGDSTag.vue'
 
 export interface TagItem {
   /** Display label for the tag. */
@@ -11,12 +11,12 @@ export interface TagItem {
   removable?: boolean
 }
 
-export interface AgDSTagsProps {
+export interface AGDSTagsProps {
   /** List of tag items to render. */
   items: TagItem[]
 }
 
-defineProps<AgDSTagsProps>()
+defineProps<AGDSTagsProps>()
 
 const emit = defineEmits<{
   /**
@@ -55,7 +55,7 @@ function onTagRemove(index: number, event: MouseEvent) {
 
     <ul ref="listRef" class="agds-tags__list">
       <li v-for="(item, index) in items" :key="index" class="agds-tags__item">
-        <AgDSTag
+        <AGDSTag
           :label="item.label"
           :href="item.href"
           :removable="item.removable"

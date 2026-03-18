@@ -1,7 +1,7 @@
-import AgDSDropdownMenu from '../dropdown-menu/AGDSDropdownMenu.vue';
-import AgDSDropdownMenuButton from '../dropdown-menu/AGDSDropdownMenuButton.vue';
-import AgDSDropdownMenuPanel from '../dropdown-menu/AGDSDropdownMenuPanel.vue';
-import AgDSDropdownMenuItemLink from '../dropdown-menu/AGDSDropdownMenuItemLink.vue';
+import AGDSDropdownMenu from '../dropdown-menu/AGDSDropdownMenu.vue';
+import AGDSDropdownMenuButton from '../dropdown-menu/AGDSDropdownMenuButton.vue';
+import AGDSDropdownMenuPanel from '../dropdown-menu/AGDSDropdownMenuPanel.vue';
+import AGDSDropdownMenuItemLink from '../dropdown-menu/AGDSDropdownMenuItemLink.vue';
 import { isLinkItem, isDropdownItem } from './mainNavTypes';
 const props = withDefaults(defineProps(), {
     ariaLabel: 'Main',
@@ -56,7 +56,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
         (item.label);
     }
     else if (__VLS_ctx.isDropdownItem(item)) {
-        const __VLS_0 = AgDSDropdownMenu || AgDSDropdownMenu;
+        const __VLS_0 = AGDSDropdownMenu || AGDSDropdownMenu;
         // @ts-ignore
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             popoverPlacement: "bottom-end",
@@ -67,7 +67,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
             popoverOffset: (-8),
         }, ...__VLS_functionalComponentArgsRest(__VLS_1));
         const { default: __VLS_5 } = __VLS_3.slots;
-        const __VLS_6 = AgDSDropdownMenuButton || AgDSDropdownMenuButton;
+        const __VLS_6 = AGDSDropdownMenuButton || AGDSDropdownMenuButton;
         // @ts-ignore
         const __VLS_7 = __VLS_asFunctionalComponent1(__VLS_6, new __VLS_6({}));
         const __VLS_8 = __VLS_7({}, ...__VLS_functionalComponentArgsRest(__VLS_7));
@@ -76,7 +76,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
         // @ts-ignore
         [isLinkItem, isDropdownItem,];
         var __VLS_9;
-        const __VLS_12 = AgDSDropdownMenuPanel || AgDSDropdownMenuPanel;
+        const __VLS_12 = AGDSDropdownMenuPanel || AGDSDropdownMenuPanel;
         // @ts-ignore
         const __VLS_13 = __VLS_asFunctionalComponent1(__VLS_12, new __VLS_12({}));
         const __VLS_14 = __VLS_13({}, ...__VLS_functionalComponentArgsRest(__VLS_13));
@@ -84,7 +84,7 @@ for (const [item, index] of __VLS_vFor((props.items))) {
         for (const [sub, si] of __VLS_vFor((item.items))) {
             (si);
             if (__VLS_ctx.isLinkItem(sub)) {
-                const __VLS_18 = AgDSDropdownMenuItemLink || AgDSDropdownMenuItemLink;
+                const __VLS_18 = AGDSDropdownMenuItemLink || AGDSDropdownMenuItemLink;
                 // @ts-ignore
                 const __VLS_19 = __VLS_asFunctionalComponent1(__VLS_18, new __VLS_18({
                     href: (sub.href),

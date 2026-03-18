@@ -5,7 +5,7 @@ import type { FieldMaxWidth } from '../field/AGDSField.vue'
 
 export type TextareaMaxWidth = Extract<FieldMaxWidth, 'md' | 'lg' | 'xl'>
 
-export interface AgDSTextareaProps {
+export interface AGDSTextareaProps {
   /** Describes the purpose of the field */
   label: string
   /** If true, "(optional)" will never be appended to the label */
@@ -35,7 +35,7 @@ export interface AgDSTextareaProps {
   modelValue?: string
 }
 
-const props = withDefaults(defineProps<AgDSTextareaProps>(), {
+const props = withDefaults(defineProps<AGDSTextareaProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,

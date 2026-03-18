@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import AgDSCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue'
+import AGDSCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue'
 import type { CollapsingSideBarBackground } from '../collapsing-side-bar/AGDSCollapsingSideBar.vue'
 
-export interface AgDSFilterSidebarProps {
+export interface AGDSFilterSidebarProps {
   /** Number of currently active filters. When > 0, appended to the title and aria-label. */
   activeFiltersCount?: number
   /**
@@ -15,7 +15,7 @@ export interface AgDSFilterSidebarProps {
   showClearFilters?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSFilterSidebarProps>(), {
+const props = withDefaults(defineProps<AGDSFilterSidebarProps>(), {
   activeFiltersCount: 0,
   background: 'body',
   showClearFilters: false,
@@ -43,7 +43,7 @@ const ariaLabel = computed(() =>
 </script>
 
 <template>
-  <AgDSCollapsingSideBar
+  <AGDSCollapsingSideBar
     :title="title"
     :aria-label="ariaLabel"
     :background="props.background"
@@ -71,7 +71,7 @@ const ariaLabel = computed(() =>
         </button>
       </template>
     </div>
-  </AgDSCollapsingSideBar>
+  </AGDSCollapsingSideBar>
 </template>
 
 <style scoped>

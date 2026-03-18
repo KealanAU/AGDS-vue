@@ -5,7 +5,7 @@
  * Renders a `<dd>` (description details) — valid per the HTML spec when a
  * single term has multiple associated descriptions.
  */
-export interface AgDSSummaryListItemActionProps {}
+export interface AGDSSummaryListItemActionProps {}
 </script>
 
 <template>

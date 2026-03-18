@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
 export type TableSortDirection = 'ASC' | 'DESC'
 
-export interface AgDSTableHeaderSortableProps {
+export interface AGDSTableHeaderSortableProps {
   /** The active sort direction for this column. Omit when unsorted. */
   sort?: TableSortDirection
   /** Horizontal alignment of the header content. */
@@ -15,7 +15,7 @@ export interface AgDSTableHeaderSortableProps {
   colSpan?: number
 }
 
-const props = withDefaults(defineProps<AgDSTableHeaderSortableProps>(), {
+const props = withDefaults(defineProps<AGDSTableHeaderSortableProps>(), {
   textAlign: 'left',
 })
 
@@ -65,7 +65,7 @@ const isSorted = computed(() => Boolean(props.sort))
       >
         <slot />
       </span>
-      <AgDSIcon
+      <AGDSIcon
         :name="sortIcon"
         size="sm"
         class="agds-table-header-sortable__icon"

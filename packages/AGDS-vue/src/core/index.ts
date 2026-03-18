@@ -1,8 +1,8 @@
-export { default as AgDSCore } from './AusGovCore.vue'
-export type { AgDSCoreProps } from './AusGovCore.vue'
+export { default as AGDSCore } from './AusGovCore.vue'
+export type { AGDSCoreProps } from './AusGovCore.vue'
 
-export { default as AgDSCoreProvider } from './CoreProvider.vue'
-export type { AgDSCoreProviderProps } from './CoreProvider.vue'
+export { default as AGDSCoreProvider } from './CoreProvider.vue'
+export type { AGDSCoreProviderProps } from './CoreProvider.vue'
 
 export {
   boxPalette,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSListItemProps {}
+export interface AGDSListItemProps {}
 </script>
 
 <template>

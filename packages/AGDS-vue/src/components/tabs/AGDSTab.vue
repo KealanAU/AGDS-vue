@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { TabsTrigger } from 'reka-ui'
 
-export interface AgDSTabProps {
-  /** Value identifying this tab — must match the corresponding AgDSTabPanel value. */
+export interface AGDSTabProps {
+  /** Value identifying this tab — must match the corresponding AGDSTabPanel value. */
   value: string
   /** Prevents the tab from being selected. */
   disabled?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSTabProps>(), {
+const props = withDefaults(defineProps<AGDSTabProps>(), {
   disabled: false,
 })
 </script>

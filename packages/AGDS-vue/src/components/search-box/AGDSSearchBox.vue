@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import AgDSFlex from '../flex/AGDSFlex.vue'
+import AGDSFlex from '../flex/AGDSFlex.vue'
 
-export interface AgDSSearchBoxProps {
+export interface AGDSSearchBoxProps {
   /** Accessible label for the search landmark. Announced by screen readers to
    *  distinguish this search region from others on the page. */
   ariaLabel?: string
 }
 
-const props = withDefaults(defineProps<AgDSSearchBoxProps>(), {
+const props = withDefaults(defineProps<AGDSSearchBoxProps>(), {
   ariaLabel: 'Sitewide',
 })
 
@@ -23,8 +23,8 @@ const emit = defineEmits<{
     :aria-label="props.ariaLabel"
     @submit="emit('submit', $event)"
   >
-    <AgDSFlex align-items="flex-end">
+    <AGDSFlex align-items="flex-end">
       <slot />
-    </AgDSFlex>
+    </AGDSFlex>
   </form>
 </template>

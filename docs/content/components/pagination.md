@@ -1,13 +1,13 @@
 ---
 title: Pagination
-description: Two pagination components — link-based (AgDSPagination) for server-rendered pages and button-based (AgDSPaginationButtons) for client-side state. Both share the same sliding window algorithm.
+description: Two pagination components — link-based (AGDSPagination) for server-rendered pages and button-based (AGDSPaginationButtons) for client-side state. Both share the same sliding window algorithm.
 category: Navigation
 status: stable
 ---
 
 ## Link-based pagination
 
-`AgDSPagination` renders `<a>` elements. Provide a `generateHref` function that returns a URL for each page number. This variant suits server-rendered or full-page navigation.
+`AGDSPagination` renders `<a>` elements. Provide a `generateHref` function that returns a URL for each page number. This variant suits server-rendered or full-page navigation.
 
 ::doc-preview
 <PaginationDemo />
@@ -15,7 +15,7 @@ status: stable
 
 ```vue
 <template>
-  <AgDSPagination
+  <AGDSPagination
     :current-page="currentPage"
     :total-pages="totalPages"
     :generate-href="(page) => `/results?page=${page}`"
@@ -25,7 +25,7 @@ status: stable
 
 ## Button-based pagination
 
-`AgDSPaginationButtons` renders `<button>` elements and emits a `change` event with the new page number. Use this for client-side pagination where the URL does not change.
+`AGDSPaginationButtons` renders `<button>` elements and emits a `change` event with the new page number. Use this for client-side pagination where the URL does not change.
 
 ::doc-preview{label="Button-based"}
 <PaginationDemo variant="buttons" />
@@ -38,7 +38,7 @@ const currentPage = ref(1)
 </script>
 
 <template>
-  <AgDSPaginationButtons
+  <AGDSPaginationButtons
     :current-page="currentPage"
     :total-pages="totalPages"
     @change="(page) => { currentPage = page }"
@@ -52,7 +52,7 @@ Use `windowLimit` to control how many page buttons appear in the sliding window.
 
 ```vue
 <template>
-  <AgDSPagination
+  <AGDSPagination
     :current-page="5"
     :total-pages="20"
     :window-limit="5"
@@ -67,7 +67,7 @@ Provide `itemRangeText` and/or `itemsPerPage` to show a secondary row with item 
 
 ```vue
 <template>
-  <AgDSPagination
+  <AGDSPagination
     :current-page="2"
     :total-pages="46"
     :generate-href="(p) => `?page=${p}`"
@@ -79,7 +79,7 @@ Provide `itemRangeText` and/or `itemsPerPage` to show a secondary row with item 
 </template>
 ```
 
-## Props — AgDSPagination
+## Props — AGDSPagination
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -92,9 +92,9 @@ Provide `itemRangeText` and/or `itemsPerPage` to show a secondary row with item 
 | `itemsPerPage` | `number` | — | Currently selected items per page. Shows the per-page selector when provided |
 | `itemsPerPageOptions` | `number[]` | `[10, 20, 50, 100]` | Options for the per-page selector |
 
-## Props — AgDSPaginationButtons
+## Props — AGDSPaginationButtons
 
-Same as `AgDSPagination` except `generateHref` is replaced by `change` event.
+Same as `AGDSPagination` except `generateHref` is replaced by `change` event.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -106,14 +106,14 @@ Same as `AgDSPagination` except `generateHref` is replaced by `change` event.
 | `itemsPerPage` | `number` | — | Shows per-page selector when provided |
 | `itemsPerPageOptions` | `number[]` | `[10, 20, 50, 100]` | Options for the per-page selector |
 
-## Events — AgDSPaginationButtons
+## Events — AGDSPaginationButtons
 
 | Event | Payload | Description |
 |-------|---------|-------------|
 | `change` | `number` | Emitted when a page button is clicked |
 | `itemsPerPageChange` | `number` | Emitted when the items-per-page select changes |
 
-## Events — AgDSPagination
+## Events — AGDSPagination
 
 | Event | Payload | Description |
 |-------|---------|-------------|
@@ -125,7 +125,7 @@ Same as `AgDSPagination` except `generateHref` is replaced by `change` event.
 - The active page link/button receives `aria-current="page"`
 - Each page control has an explicit `aria-label` e.g. "Go to page 3"
 - Separator ellipsis items are `<li>` elements with an `aria-label` describing the hidden page range (e.g. "Pages 4 to 7")
-- On `AgDSPaginationButtons`, when navigating from page 2 to page 1 (Previous disappears), focus is automatically moved to the page-1 button
+- On `AGDSPaginationButtons`, when navigating from page 2 to page 1 (Previous disappears), focus is automatically moved to the page-1 button
 
 ## Changelog
 

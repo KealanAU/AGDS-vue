@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { defineComponent, h } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSUnorderedList from './AGDSUnorderedList.vue'
-import AgDSOrderedList from './AGDSOrderedList.vue'
-import AgDSListItem from './AGDSListItem.vue'
+import AGDSUnorderedList from './AGDSUnorderedList.vue'
+import AGDSOrderedList from './AGDSOrderedList.vue'
+import AGDSListItem from './AGDSListItem.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -13,7 +13,7 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderUl(items = ['One', 'Two', 'Three']) {
-  return render(AgDSUnorderedList, {
+  return render(AGDSUnorderedList, {
     slots: {
       default: items
         .map((t) => `<li class="agds-list-item">${t}</li>`)
@@ -23,7 +23,7 @@ function renderUl(items = ['One', 'Two', 'Three']) {
 }
 
 function renderOl(items = ['One', 'Two', 'Three']) {
-  return render(AgDSOrderedList, {
+  return render(AGDSOrderedList, {
     slots: {
       default: items
         .map((t) => `<li class="agds-list-item">${t}</li>`)
@@ -32,9 +32,9 @@ function renderOl(items = ['One', 'Two', 'Three']) {
   })
 }
 
-// ─── AgDSUnorderedList — rendering ─────────────────────────────────────────
+// ─── AGDSUnorderedList — rendering ─────────────────────────────────────────
 
-describe('AgDSUnorderedList — rendering', () => {
+describe('AGDSUnorderedList — rendering', () => {
   it('renders a <ul>', () => {
     const { container } = renderUl()
     expect(container.querySelector('ul.agds-unordered-list')).toBeTruthy()
@@ -51,19 +51,19 @@ describe('AgDSUnorderedList — rendering', () => {
   })
 })
 
-// ─── AgDSUnorderedList — nested ─────────────────────────────────────────────
+// ─── AGDSUnorderedList — nested ─────────────────────────────────────────────
 
-describe('AgDSUnorderedList — nested', () => {
+describe('AGDSUnorderedList — nested', () => {
   it('applies nested class when inside another list', () => {
     const Nested = defineComponent({
       render() {
-        return h(AgDSUnorderedList, null, {
+        return h(AGDSUnorderedList, null, {
           default: () =>
-            h(AgDSListItem, null, {
+            h(AGDSListItem, null, {
               default: () => [
                 'Parent',
-                h(AgDSUnorderedList, null, {
-                  default: () => h(AgDSListItem, null, { default: () => 'Child' }),
+                h(AGDSUnorderedList, null, {
+                  default: () => h(AGDSListItem, null, { default: () => 'Child' }),
                 }),
               ],
             }),
@@ -77,9 +77,9 @@ describe('AgDSUnorderedList — nested', () => {
   })
 })
 
-// ─── AgDSOrderedList — rendering ───────────────────────────────────────────
+// ─── AGDSOrderedList — rendering ───────────────────────────────────────────
 
-describe('AgDSOrderedList — rendering', () => {
+describe('AGDSOrderedList — rendering', () => {
   it('renders an <ol>', () => {
     const { container } = renderOl()
     expect(container.querySelector('ol.agds-ordered-list')).toBeTruthy()
@@ -96,19 +96,19 @@ describe('AgDSOrderedList — rendering', () => {
   })
 })
 
-// ─── AgDSOrderedList — nested ───────────────────────────────────────────────
+// ─── AGDSOrderedList — nested ───────────────────────────────────────────────
 
-describe('AgDSOrderedList — nested', () => {
+describe('AGDSOrderedList — nested', () => {
   it('applies nested class when inside another ordered list', () => {
     const Nested = defineComponent({
       render() {
-        return h(AgDSOrderedList, null, {
+        return h(AGDSOrderedList, null, {
           default: () =>
-            h(AgDSListItem, null, {
+            h(AGDSListItem, null, {
               default: () => [
                 'Parent',
-                h(AgDSOrderedList, null, {
-                  default: () => h(AgDSListItem, null, { default: () => 'Child' }),
+                h(AGDSOrderedList, null, {
+                  default: () => h(AGDSListItem, null, { default: () => 'Child' }),
                 }),
               ],
             }),
@@ -122,18 +122,18 @@ describe('AgDSOrderedList — nested', () => {
   })
 })
 
-// ─── AgDSListItem — rendering ───────────────────────────────────────────────
+// ─── AGDSListItem — rendering ───────────────────────────────────────────────
 
-describe('AgDSListItem — rendering', () => {
+describe('AGDSListItem — rendering', () => {
   it('renders a <li>', () => {
-    const { container } = render(AgDSListItem, {
+    const { container } = render(AGDSListItem, {
       slots: { default: 'Item text' },
     })
     expect(container.querySelector('li.agds-list-item')).toBeTruthy()
   })
 
   it('renders slot content', () => {
-    const { getByText } = render(AgDSListItem, {
+    const { getByText } = render(AGDSListItem, {
       slots: { default: 'Hello list item' },
     })
     expect(getByText('Hello list item')).toBeTruthy()
@@ -142,15 +142,15 @@ describe('AgDSListItem — rendering', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSUnorderedList — axe', () => {
+describe('AGDSUnorderedList — axe', () => {
   it('has no violations with list items', async () => {
     const { container } = render(
       defineComponent({
         render: () =>
-          h(AgDSUnorderedList, null, {
+          h(AGDSUnorderedList, null, {
             default: () => [
-              h(AgDSListItem, null, { default: () => 'First' }),
-              h(AgDSListItem, null, { default: () => 'Second' }),
+              h(AGDSListItem, null, { default: () => 'First' }),
+              h(AGDSListItem, null, { default: () => 'Second' }),
             ],
           }),
       }),
@@ -162,14 +162,14 @@ describe('AgDSUnorderedList — axe', () => {
     const { container } = render(
       defineComponent({
         render: () =>
-          h(AgDSUnorderedList, null, {
+          h(AGDSUnorderedList, null, {
             default: () =>
-              h(AgDSListItem, null, {
+              h(AGDSListItem, null, {
                 default: () => [
                   'Parent item',
-                  h(AgDSUnorderedList, null, {
+                  h(AGDSUnorderedList, null, {
                     default: () =>
-                      h(AgDSListItem, null, { default: () => 'Child item' }),
+                      h(AGDSListItem, null, { default: () => 'Child item' }),
                   }),
                 ],
               }),
@@ -180,15 +180,15 @@ describe('AgDSUnorderedList — axe', () => {
   })
 })
 
-describe('AgDSOrderedList — axe', () => {
+describe('AGDSOrderedList — axe', () => {
   it('has no violations with list items', async () => {
     const { container } = render(
       defineComponent({
         render: () =>
-          h(AgDSOrderedList, null, {
+          h(AGDSOrderedList, null, {
             default: () => [
-              h(AgDSListItem, null, { default: () => 'Step 1' }),
-              h(AgDSListItem, null, { default: () => 'Step 2' }),
+              h(AGDSListItem, null, { default: () => 'Step 1' }),
+              h(AGDSListItem, null, { default: () => 'Step 2' }),
             ],
           }),
       }),
@@ -200,9 +200,9 @@ describe('AgDSOrderedList — axe', () => {
     const { container } = render(
       defineComponent({
         render: () =>
-          h(AgDSUnorderedList, null, {
+          h(AGDSUnorderedList, null, {
             default: () =>
-              h(AgDSListItem, null, {
+              h(AGDSListItem, null, {
                 // button with no label → axe violation
                 default: () => h('button'),
               }),

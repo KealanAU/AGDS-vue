@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const props = withDefaults(defineProps(), {
     removable: false,
 });
@@ -65,7 +65,7 @@ if (__VLS_ctx.removable) {
         ...{ class: "agds-tag__remove" },
     });
     /** @type {__VLS_StyleScopedClasses['agds-tag__remove']} */ ;
-    const __VLS_6 = AgDSIcon;
+    const __VLS_6 = AGDSIcon;
     // @ts-ignore
     const __VLS_7 = __VLS_asFunctionalComponent1(__VLS_6, new __VLS_6({
         name: "mdi:close",

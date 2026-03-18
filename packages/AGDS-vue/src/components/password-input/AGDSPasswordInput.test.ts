@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSPasswordInput from './AGDSPasswordInput.vue'
+import AGDSPasswordInput from './AGDSPasswordInput.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,12 +10,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderInput(props: Record<string, unknown> = {}) {
-  return render(AgDSPasswordInput, { props: { label: 'Password', ...props } })
+  return render(AGDSPasswordInput, { props: { label: 'Password', ...props } })
 }
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — accessibility', () => {
+describe('AGDSPasswordInput — accessibility', () => {
   it('passes axe in default state', async () => {
     const { container } = renderInput()
     await runAxe(container, AXE_OPTS)
@@ -45,7 +45,7 @@ describe('AgDSPasswordInput — accessibility', () => {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — rendering', () => {
+describe('AGDSPasswordInput — rendering', () => {
   it('renders a password input by default', () => {
     const { getByLabelText } = renderInput()
     const input = getByLabelText('Password (optional)') as HTMLInputElement
@@ -98,7 +98,7 @@ describe('AgDSPasswordInput — rendering', () => {
 
 // ─── Show/hide toggle ─────────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — show/hide toggle', () => {
+describe('AGDSPasswordInput — show/hide toggle', () => {
   it('toggles input type to text when "Show password" is checked', async () => {
     const { getByLabelText, getByRole } = renderInput({ required: true })
     const input = getByLabelText('Password') as HTMLInputElement
@@ -123,7 +123,7 @@ describe('AgDSPasswordInput — show/hide toggle', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — disabled prop', () => {
+describe('AGDSPasswordInput — disabled prop', () => {
   it('disables the input', () => {
     const { getByLabelText } = renderInput({ required: true, disabled: true })
     const input = getByLabelText('Password') as HTMLInputElement
@@ -139,7 +139,7 @@ describe('AgDSPasswordInput — disabled prop', () => {
 
 // ─── Props: ARIA ──────────────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — ARIA attributes', () => {
+describe('AGDSPasswordInput — ARIA attributes', () => {
   it('sets aria-invalid on input when invalid', () => {
     const { getByLabelText } = renderInput({ required: true, invalid: true, message: 'Error' })
     const input = getByLabelText('Password')
@@ -161,7 +161,7 @@ describe('AgDSPasswordInput — ARIA attributes', () => {
 
 // ─── v-model ──────────────────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — v-model', () => {
+describe('AGDSPasswordInput — v-model', () => {
   it('emits update:modelValue on input', async () => {
     const { getByLabelText, emitted } = renderInput({ required: true, modelValue: '' })
     const input = getByLabelText('Password') as HTMLInputElement
@@ -179,7 +179,7 @@ describe('AgDSPasswordInput — v-model', () => {
 
 // ─── defineExpose: focus ──────────────────────────────────────────────────────
 
-describe('AgDSPasswordInput — defineExpose', () => {
+describe('AGDSPasswordInput — defineExpose', () => {
   it('exposes a focus method', () => {
     const { getByLabelText } = renderInput({ required: true })
     const input = getByLabelText('Password') as HTMLInputElement

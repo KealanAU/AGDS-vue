@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance } from 'vue'
 
-export interface AgDSFieldsetProps {
+export interface AGDSFieldsetProps {
   /** Describes the purpose of the group of fields */
   legend: string
   /** Provides extra information about the fieldset */
@@ -10,7 +10,7 @@ export interface AgDSFieldsetProps {
   id?: string
 }
 
-const props = defineProps<AgDSFieldsetProps>()
+const props = defineProps<AGDSFieldsetProps>()
 
 // Note: fieldset is NOT rendered as a flex container — `legend` must be the
 // first child of `fieldset`, and setting `fieldset` as a flex/grid container

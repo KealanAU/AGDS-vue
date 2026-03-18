@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSTag from './AGDSTag.vue';
+import AGDSTag from './AGDSTag.vue';
 const __VLS_props = defineProps();
 const emit = defineEmits();
 const listRef = ref(null);
@@ -43,7 +43,7 @@ for (const [item, index] of __VLS_vFor((__VLS_ctx.items))) {
         ...{ class: "agds-tags__item" },
     });
     /** @type {__VLS_StyleScopedClasses['agds-tags__item']} */ ;
-    const __VLS_2 = AgDSTag;
+    const __VLS_2 = AGDSTag;
     // @ts-ignore
     const __VLS_3 = __VLS_asFunctionalComponent1(__VLS_2, new __VLS_2({
         ...{ 'onRemove': {} },

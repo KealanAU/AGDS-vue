@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSText from './AGDSText.vue'
+import AGDSText from './AGDSText.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,12 +10,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderText(props: Record<string, unknown> = {}, slot = 'Hello text') {
-  return render(AgDSText, { props, slots: { default: slot } })
+  return render(AGDSText, { props, slots: { default: slot } })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSText — rendering', () => {
+describe('AGDSText — rendering', () => {
   it('renders a <span> by default', () => {
     const { container } = renderText()
     expect(container.querySelector('span.agds-text')).toBeTruthy()
@@ -29,7 +29,7 @@ describe('AgDSText — rendering', () => {
 
 // ─── as prop ─────────────────────────────────────────────────────────────────
 
-describe('AgDSText — as prop', () => {
+describe('AGDSText — as prop', () => {
   it.each(['p', 'div', 'li', 'label', 'strong', 'em'] as const)(
     'renders as <%s>',
     (as) => {
@@ -41,7 +41,7 @@ describe('AgDSText — as prop', () => {
 
 // ─── color prop ──────────────────────────────────────────────────────────────
 
-describe('AgDSText — color prop', () => {
+describe('AGDSText — color prop', () => {
   it('defaults to text color', () => {
     const { container } = renderText()
     const el = container.querySelector('.agds-text') as HTMLElement
@@ -60,7 +60,7 @@ describe('AgDSText — color prop', () => {
 
 // ─── fontFamily prop ─────────────────────────────────────────────────────────
 
-describe('AgDSText — fontFamily prop', () => {
+describe('AGDSText — fontFamily prop', () => {
   it.each(['body', 'heading', 'mono'] as const)(
     'applies %s font-family token',
     (fontFamily) => {
@@ -73,7 +73,7 @@ describe('AgDSText — fontFamily prop', () => {
 
 // ─── fontSize prop ───────────────────────────────────────────────────────────
 
-describe('AgDSText — fontSize prop', () => {
+describe('AGDSText — fontSize prop', () => {
   it('defaults to sm', () => {
     const { container } = renderText()
     const el = container.querySelector('.agds-text') as HTMLElement
@@ -92,7 +92,7 @@ describe('AgDSText — fontSize prop', () => {
 
 // ─── fontWeight prop ─────────────────────────────────────────────────────────
 
-describe('AgDSText — fontWeight prop', () => {
+describe('AGDSText — fontWeight prop', () => {
   it.each(['normal', 'medium', 'semibold', 'bold'] as const)(
     'applies %s weight token',
     (fontWeight) => {
@@ -105,7 +105,7 @@ describe('AgDSText — fontWeight prop', () => {
 
 // ─── lineHeight prop ─────────────────────────────────────────────────────────
 
-describe('AgDSText — lineHeight prop', () => {
+describe('AGDSText — lineHeight prop', () => {
   it.each(['tight', 'snug', 'normal', 'relaxed'] as const)(
     'applies %s line-height token',
     (lineHeight) => {
@@ -118,7 +118,7 @@ describe('AgDSText — lineHeight prop', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSText — axe', () => {
+describe('AGDSText — axe', () => {
   it('has no violations as default span', async () => {
     const { container } = renderText()
     await runAxe(container, AXE_OPTS)
@@ -138,7 +138,7 @@ describe('AgDSText — axe', () => {
   )
 
   it('catches intentional axe violation — button with no accessible name', async () => {
-    const { container } = render(AgDSText, {
+    const { container } = render(AGDSText, {
       props: { as: 'p' },
       slots: { default: '<button></button>' },
     })

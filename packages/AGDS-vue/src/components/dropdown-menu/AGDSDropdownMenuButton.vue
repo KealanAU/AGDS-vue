@@ -2,14 +2,14 @@
 import { ref, onMounted } from 'vue'
 import { useDropdownMenuContext } from './dropdownMenuContext'
 
-export interface AgDSDropdownMenuButtonProps {
+export interface AGDSDropdownMenuButtonProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'text'
   size?: 'sm' | 'md' | 'lg'
   block?: boolean
   disabled?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSDropdownMenuButtonProps>(), {
+const props = withDefaults(defineProps<AGDSDropdownMenuButtonProps>(), {
   variant: 'text',
   size: 'md',
   block: false,

@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
-import AgDSMainNavList from './AGDSMainNavList.vue';
-import AgDSMainNavDialog from './AGDSMainNavDialog.vue';
+import AGDSMainNavList from './AGDSMainNavList.vue';
+import AGDSMainNavDialog from './AGDSMainNavDialog.vue';
 import { findBestMatch, } from './mainNavTypes';
 const props = withDefaults(defineProps(), {
     background: 'body',
@@ -117,7 +117,7 @@ if (!props.focusMode) {
         /** @type {__VLS_StyleScopedClasses['sr-only']} */ ;
     }
     if (props.items?.length) {
-        const __VLS_0 = AgDSMainNavList;
+        const __VLS_0 = AGDSMainNavList;
         // @ts-ignore
         const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
             items: (props.items),
@@ -133,7 +133,7 @@ if (!props.focusMode) {
         }, ...__VLS_functionalComponentArgsRest(__VLS_1));
     }
     if (props.secondaryItems?.length) {
-        const __VLS_5 = AgDSMainNavList;
+        const __VLS_5 = AGDSMainNavList;
         // @ts-ignore
         const __VLS_6 = __VLS_asFunctionalComponent1(__VLS_5, new __VLS_5({
             items: (props.secondaryItems),
@@ -154,7 +154,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.div)({
     ...{ style: ({ borderBottomColor: __VLS_ctx.borderColorValue }) },
 });
 /** @type {__VLS_StyleScopedClasses['agds-main-nav__border']} */ ;
-const __VLS_10 = AgDSMainNavDialog;
+const __VLS_10 = AGDSMainNavDialog;
 // @ts-ignore
 const __VLS_11 = __VLS_asFunctionalComponent1(__VLS_10, new __VLS_10({
     ...{ 'onClose': {} },

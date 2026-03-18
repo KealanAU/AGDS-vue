@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSToggleButton from './AGDSToggleButton.vue'
+import AGDSToggleButton from './AGDSToggleButton.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
 } as const
 
 function renderToggle(props: Record<string, unknown> = {}) {
-  return render(AgDSToggleButton, {
+  return render(AGDSToggleButton, {
     props: {
       pressed: false,
       label: 'Bookmark',
@@ -20,7 +20,7 @@ function renderToggle(props: Record<string, unknown> = {}) {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSToggleButton — rendering', () => {
+describe('AGDSToggleButton — rendering', () => {
   it('renders a <button> element', () => {
     const { getByRole } = renderToggle()
     expect(getByRole('button')).toBeTruthy()
@@ -39,7 +39,7 @@ describe('AgDSToggleButton — rendering', () => {
 
 // ─── aria-pressed ────────────────────────────────────────────────────────────
 
-describe('AgDSToggleButton — aria-pressed', () => {
+describe('AGDSToggleButton — aria-pressed', () => {
   it('sets aria-pressed="false" when unpressed', () => {
     const { getByRole } = renderToggle({ pressed: false })
     expect(getByRole('button').getAttribute('aria-pressed')).toBe('false')
@@ -53,7 +53,7 @@ describe('AgDSToggleButton — aria-pressed', () => {
 
 // ─── hiddenLabel ─────────────────────────────────────────────────────────────
 
-describe('AgDSToggleButton — hiddenLabel', () => {
+describe('AGDSToggleButton — hiddenLabel', () => {
   it('renders visible label when hiddenLabel=false', () => {
     const { getByText } = renderToggle({ hiddenLabel: false })
     expect(getByText('Bookmark')).toBeTruthy()
@@ -82,7 +82,7 @@ describe('AgDSToggleButton — hiddenLabel', () => {
 
 // ─── Events ──────────────────────────────────────────────────────────────────
 
-describe('AgDSToggleButton — events', () => {
+describe('AGDSToggleButton — events', () => {
   it('emits update:pressed with true when clicked in unpressed state', async () => {
     const { getByRole, emitted } = renderToggle({ pressed: false })
     await fireEvent.click(getByRole('button'))
@@ -104,7 +104,7 @@ describe('AgDSToggleButton — events', () => {
 
 // ─── iconType ────────────────────────────────────────────────────────────────
 
-describe('AgDSToggleButton — iconType', () => {
+describe('AGDSToggleButton — iconType', () => {
   it('defaults to flag iconType', () => {
     const { getByRole } = renderToggle()
     // Icon is rendered — button should exist
@@ -119,7 +119,7 @@ describe('AgDSToggleButton — iconType', () => {
 
 // ─── Accessibility: axe-core ─────────────────────────────────────────────────
 
-describe('AgDSToggleButton — axe accessibility', () => {
+describe('AGDSToggleButton — axe accessibility', () => {
   it('has no violations in unpressed state', async () => {
     const { container } = renderToggle({ pressed: false })
     await runAxe(container, AXE_OPTS)
@@ -147,7 +147,7 @@ describe('AgDSToggleButton — axe accessibility', () => {
 
   it('has a violation when the button has no accessible name', async () => {
     // Intentional: verify the axe helper catches missing names.
-    const { container } = render(AgDSToggleButton, {
+    const { container } = render(AGDSToggleButton, {
       props: { pressed: false, label: '', pressedLabel: '', hiddenLabel: true },
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')

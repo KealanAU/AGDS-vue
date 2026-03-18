@@ -1,7 +1,7 @@
 <script setup lang="ts">
 export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-export interface AgDSHeadingProps {
+export interface AGDSHeadingProps {
   /** The heading level — controls both the rendered element and default font size. */
   type?: HeadingType
   /**
@@ -11,7 +11,7 @@ export interface AgDSHeadingProps {
   as?: HeadingType
 }
 
-const props = withDefaults(defineProps<AgDSHeadingProps>(), {
+const props = withDefaults(defineProps<AGDSHeadingProps>(), {
   type: 'h2',
 })
 

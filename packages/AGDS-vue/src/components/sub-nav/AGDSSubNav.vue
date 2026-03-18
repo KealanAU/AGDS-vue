@@ -12,7 +12,7 @@ export interface SubNavLink {
   endElement?: string
 }
 
-export interface AgDSSubNavProps {
+export interface AGDSSubNavProps {
   /** Navigation links. */
   links: SubNavLink[]
   /** Highlights the link whose href best matches this path. */
@@ -25,7 +25,7 @@ export interface AgDSSubNavProps {
   background?: BackgroundVariant
 }
 
-const props = withDefaults(defineProps<AgDSSubNavProps>(), {
+const props = withDefaults(defineProps<AGDSSubNavProps>(), {
   ariaLabel: 'Content',
   background: 'body',
 })

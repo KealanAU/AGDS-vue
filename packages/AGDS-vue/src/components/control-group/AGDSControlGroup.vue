@@ -6,7 +6,7 @@ import AGDSFieldHint from '../field/AGDSFieldHint.vue'
 import AGDSFieldMessage from '../field/AGDSFieldMessage.vue'
 import { CONTROL_GROUP_KEY } from './controlGroupContext'
 
-export interface AgDSControlGroupProps {
+export interface AGDSControlGroupProps {
   /** If true, children will be stacked vertically */
   block?: boolean
   /** If true, "(optional)" will never be appended to the label */
@@ -27,7 +27,7 @@ export interface AgDSControlGroupProps {
   required?: boolean
 }
 
-const props = withDefaults(defineProps<AgDSControlGroupProps>(), {
+const props = withDefaults(defineProps<AGDSControlGroupProps>(), {
   block: false,
   invalid: false,
   required: false,

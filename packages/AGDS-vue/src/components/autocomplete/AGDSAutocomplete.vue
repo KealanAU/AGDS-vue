@@ -1,11 +1,11 @@
 <script setup lang="ts" generic="TOption extends DefaultComboboxOption">
 import { ref } from 'vue'
-import AgDSComboboxAsync from './AGDSComboboxAsync.vue'
+import AGDSComboboxAsync from './AGDSComboboxAsync.vue'
 import type { DefaultComboboxOption, ComboboxMaxWidth } from './comboboxUtils'
 
 export type { DefaultComboboxOption, ComboboxMaxWidth }
 
-export interface AgDSAutocompleteProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
+export interface AGDSAutocompleteProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
   /** Async function called on each debounced keystroke to load matching options */
   fetchOptions: (query: string) => Promise<O[]>
   /** Visible label text for the input */
@@ -46,7 +46,7 @@ export interface AgDSAutocompleteProps<O extends DefaultComboboxOption = Default
   maxWidth?: ComboboxMaxWidth
 }
 
-const props = withDefaults(defineProps<AgDSAutocompleteProps<TOption>>(), {
+const props = withDefaults(defineProps<AGDSAutocompleteProps<TOption>>(), {
   emptyResultsMessage: 'No results found',
   loadingLabel: 'Loading',
   debounce: 300,
@@ -65,7 +65,7 @@ defineExpose({ focus: () => comboboxRef.value?.focus() })
 </script>
 
 <template>
-  <AgDSComboboxAsync
+  <AGDSComboboxAsync
     ref="comboboxRef"
     v-bind="props"
     v-model="model"
@@ -77,5 +77,5 @@ defineExpose({ focus: () => comboboxRef.value?.focus() })
     <template v-if="$slots.option" #option="slotProps">
       <slot name="option" v-bind="slotProps" />
     </template>
-  </AgDSComboboxAsync>
+  </AGDSComboboxAsync>
 </template>

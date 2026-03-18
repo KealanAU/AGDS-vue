@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSTableBodyProps {}
+export interface AGDSTableBodyProps {}
 </script>
 
 <template>

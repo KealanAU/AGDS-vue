@@ -2,37 +2,37 @@ import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import { defineComponent, h } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSContent from './AGDSContent.vue'
-import AgDSSectionContent from './AGDSSectionContent.vue'
-import AgDSPageContent from './AGDSPageContent.vue'
-import AgDSContentBleed from './AGDSContentBleed.vue'
+import AGDSContent from './AGDSContent.vue'
+import AGDSSectionContent from './AGDSSectionContent.vue'
+import AGDSPageContent from './AGDSPageContent.vue'
+import AGDSContentBleed from './AGDSContentBleed.vue'
 
 // ──────────────────────────────────────────────────────────
-// AgDSContent
+// AGDSContent
 // ──────────────────────────────────────────────────────────
 
-describe('AgDSContent', () => {
+describe('AGDSContent', () => {
   it('renders default element as div', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       slots: { default: '<p>Hello</p>' },
     })
     expect(container.firstElementChild!.tagName).toBe('DIV')
   })
 
   it('applies no-padding class', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       slots: { default: 'text' },
     })
     expect(container.firstElementChild!.classList).toContain('agds-content--none')
   })
 
   it('renders slot content', () => {
-    render(AgDSContent, { slots: { default: '<p>Content body</p>' } })
+    render(AGDSContent, { slots: { default: '<p>Content body</p>' } })
     expect(screen.getByText('Content body')).toBeTruthy()
   })
 
   it('uses custom element with `as` prop', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       props: { as: 'article' },
       slots: { default: 'text' },
     })
@@ -40,7 +40,7 @@ describe('AgDSContent', () => {
   })
 
   it('applies background body class', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       props: { background: 'body' },
       slots: { default: 'text' },
     })
@@ -48,7 +48,7 @@ describe('AgDSContent', () => {
   })
 
   it('applies background bodyAlt class', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       props: { background: 'bodyAlt' },
       slots: { default: 'text' },
     })
@@ -56,7 +56,7 @@ describe('AgDSContent', () => {
   })
 
   it('applies containerLg max-width class on inner element', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       props: { maxWidth: 'containerLg' },
       slots: { default: 'text' },
     })
@@ -65,7 +65,7 @@ describe('AgDSContent', () => {
   })
 
   it('applies id to outer wrapper', () => {
-    const { container } = render(AgDSContent, {
+    const { container } = render(AGDSContent, {
       props: { id: 'main-content' },
       slots: { default: 'text' },
     })
@@ -73,32 +73,32 @@ describe('AgDSContent', () => {
   })
 
   it('passes axe — default', async () => {
-    const { container } = render(AgDSContent, { slots: { default: '<p>Text</p>' } })
+    const { container } = render(AGDSContent, { slots: { default: '<p>Text</p>' } })
     await runAxe(container)
   })
 })
 
 // ──────────────────────────────────────────────────────────
-// AgDSSectionContent
+// AGDSSectionContent
 // ──────────────────────────────────────────────────────────
 
-describe('AgDSSectionContent', () => {
+describe('AGDSSectionContent', () => {
   it('renders default element as section', () => {
-    const { container } = render(AgDSSectionContent, {
+    const { container } = render(AGDSSectionContent, {
       slots: { default: 'text' },
     })
     expect(container.firstElementChild!.tagName).toBe('SECTION')
   })
 
   it('applies section padding class', () => {
-    const { container } = render(AgDSSectionContent, {
+    const { container } = render(AGDSSectionContent, {
       slots: { default: 'text' },
     })
     expect(container.firstElementChild!.classList).toContain('agds-content--section')
   })
 
   it('accepts custom element', () => {
-    const { container } = render(AgDSSectionContent, {
+    const { container } = render(AGDSSectionContent, {
       props: { as: 'div' },
       slots: { default: 'text' },
     })
@@ -106,14 +106,14 @@ describe('AgDSSectionContent', () => {
   })
 
   it('passes axe — default', async () => {
-    const { container } = render(AgDSSectionContent, {
+    const { container } = render(AGDSSectionContent, {
       slots: { default: '<p>Section body</p>' },
     })
     await runAxe(container)
   })
 
   it('passes axe — bodyAlt background', async () => {
-    const { container } = render(AgDSSectionContent, {
+    const { container } = render(AGDSSectionContent, {
       props: { background: 'bodyAlt' },
       slots: { default: '<p>Section body</p>' },
     })
@@ -122,26 +122,26 @@ describe('AgDSSectionContent', () => {
 })
 
 // ──────────────────────────────────────────────────────────
-// AgDSPageContent
+// AGDSPageContent
 // ──────────────────────────────────────────────────────────
 
-describe('AgDSPageContent', () => {
+describe('AGDSPageContent', () => {
   it('renders default element as div', () => {
-    const { container } = render(AgDSPageContent, {
+    const { container } = render(AGDSPageContent, {
       slots: { default: 'text' },
     })
     expect(container.firstElementChild!.tagName).toBe('DIV')
   })
 
   it('applies page padding class', () => {
-    const { container } = render(AgDSPageContent, {
+    const { container } = render(AGDSPageContent, {
       slots: { default: 'text' },
     })
     expect(container.firstElementChild!.classList).toContain('agds-content--page')
   })
 
   it('passes axe — default', async () => {
-    const { container } = render(AgDSPageContent, {
+    const { container } = render(AGDSPageContent, {
       slots: { default: '<p>Page body</p>' },
     })
     await runAxe(container)
@@ -149,29 +149,29 @@ describe('AgDSPageContent', () => {
 })
 
 // ──────────────────────────────────────────────────────────
-// AgDSContentBleed
+// AGDSContentBleed
 // ──────────────────────────────────────────────────────────
 
-describe('AgDSContentBleed', () => {
+describe('AGDSContentBleed', () => {
   const wrapInSection = (bleedProps = {}, slotContent = '<img src="x.jpg" alt="Hero">') =>
     defineComponent({
-      components: { AgDSSectionContent, AgDSContentBleed },
+      components: { AGDSSectionContent, AGDSContentBleed },
       setup: () => ({ bleedProps }),
       template: `
-        <AgDSSectionContent>
-          <AgDSContentBleed v-bind="bleedProps">${slotContent}</AgDSContentBleed>
-        </AgDSSectionContent>
+        <AGDSSectionContent>
+          <AGDSContentBleed v-bind="bleedProps">${slotContent}</AGDSContentBleed>
+        </AGDSSectionContent>
       `,
     })
 
   const wrapInPage = (bleedProps = {}) =>
     defineComponent({
-      components: { AgDSPageContent, AgDSContentBleed },
+      components: { AGDSPageContent, AGDSContentBleed },
       setup: () => ({ bleedProps }),
       template: `
-        <AgDSPageContent>
-          <AgDSContentBleed v-bind="bleedProps"><img src="x.jpg" alt="Hero"></AgDSContentBleed>
-        </AgDSPageContent>
+        <AGDSPageContent>
+          <AGDSContentBleed v-bind="bleedProps"><img src="x.jpg" alt="Hero"></AGDSContentBleed>
+        </AGDSPageContent>
       `,
     })
 
@@ -193,7 +193,7 @@ describe('AgDSContentBleed', () => {
   })
 
   it('applies no bleed class when not inside content component', () => {
-    const { container } = render(AgDSContentBleed, {
+    const { container } = render(AGDSContentBleed, {
       slots: { default: '<span>orphan</span>' },
     })
     const bleedEl = container.firstElementChild!
@@ -247,11 +247,11 @@ describe('AgDSContentBleed', () => {
   it('intentional axe violation — img without alt', async () => {
     const { container } = render(
       defineComponent({
-        components: { AgDSSectionContent, AgDSContentBleed },
+        components: { AGDSSectionContent, AGDSContentBleed },
         template: `
-          <AgDSSectionContent>
-            <AgDSContentBleed><img src="x.jpg"></AgDSContentBleed>
-          </AgDSSectionContent>
+          <AGDSSectionContent>
+            <AGDSContentBleed><img src="x.jpg"></AGDSContentBleed>
+          </AGDSSectionContent>
         `,
       }),
     )

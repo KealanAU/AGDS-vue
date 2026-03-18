@@ -7,29 +7,29 @@ status: stable
 
 ## Usage
 
-Wrap any raw HTML content in `AgDSProse` to apply the AGDS typography system automatically.
+Wrap any raw HTML content in `AGDSProse` to apply the AGDS typography system automatically.
 
 ::doc-preview
-<AgDSProse>
+<AGDSProse>
   <h2>Section heading</h2>
   <p>This paragraph is inside a prose container. Links, <strong>bold text</strong>, and <em>italics</em> are all styled automatically.</p>
   <ul>
     <li>Bullet one</li>
     <li>Bullet two</li>
   </ul>
-</AgDSProse>
+</AGDSProse>
 ::
 
 ```vue
 <template>
-  <AgDSProse>
+  <AGDSProse>
     <h2>Section heading</h2>
     <p>Paragraph text with <a href="#">a link</a> and <strong>bold</strong>.</p>
     <ul>
       <li>Item one</li>
       <li>Item two</li>
     </ul>
-  </AgDSProse>
+  </AGDSProse>
 </template>
 ```
 
@@ -39,7 +39,7 @@ Pass raw HTML from a CMS or Markdown parser using Vue's `v-html` directive.
 
 ```vue
 <template>
-  <AgDSProse v-html="article.bodyHtml" />
+  <AGDSProse v-html="article.bodyHtml" />
 </template>
 ```
 
@@ -49,10 +49,10 @@ Use the `as` prop to change the rendered container element. Useful when you need
 
 ```vue
 <template>
-  <AgDSProse as="article">
+  <AGDSProse as="article">
     <h1>Article title</h1>
     <p>Article body…</p>
-  </AgDSProse>
+  </AGDSProse>
 </template>
 ```
 
@@ -62,13 +62,13 @@ Add `agds-prose-unset` to any child container to prevent prose styles from apply
 
 ```vue
 <template>
-  <AgDSProse>
+  <AGDSProse>
     <p>Normal prose paragraph.</p>
     <div class="agds-prose-unset">
       <!-- This subtree is not affected by prose typography rules -->
-      <AgDSButton>Submit</AgDSButton>
+      <AGDSButton>Submit</AGDSButton>
     </div>
-  </AgDSProse>
+  </AGDSProse>
 </template>
 ```
 
@@ -78,7 +78,7 @@ Add `agds-prose-block` to a block element to restore the standard vertical spaci
 
 ## Styled elements
 
-`AgDSProse` styles the following HTML elements when they have no class (i.e. are not already managed by another component):
+`AGDSProse` styles the following HTML elements when they have no class (i.e. are not already managed by another component):
 
 - **Text**: `p`, `strong`, `em`, `small`, `s`, `del`, `ins`, `sub`, `sup`
 - **Links**: `a` — action-primary colour with underline

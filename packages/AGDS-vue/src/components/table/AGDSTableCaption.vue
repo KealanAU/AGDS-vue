@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface AgDSTableCaptionProps {}
+export interface AGDSTableCaptionProps {}
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSDirectionLink from './AGDSDirectionLink.vue'
-import AgDSDirectionButton from './AGDSDirectionButton.vue'
+import AGDSDirectionLink from './AGDSDirectionLink.vue'
+import AGDSDirectionButton from './AGDSDirectionButton.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -11,22 +11,22 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderLink(props: Record<string, unknown> = {}, slot = 'Continue') {
-  return render(AgDSDirectionLink, {
+  return render(AGDSDirectionLink, {
     props: { href: '/next', direction: 'right', ...props },
     slots: { default: slot },
   })
 }
 
 function renderButton(props: Record<string, unknown> = {}, slot = 'Continue') {
-  return render(AgDSDirectionButton, {
+  return render(AGDSDirectionButton, {
     props: { direction: 'right', ...props },
     slots: { default: slot },
   })
 }
 
-// ─── AgDSDirectionLink — rendering ─────────────────────────────────────────
+// ─── AGDSDirectionLink — rendering ─────────────────────────────────────────
 
-describe('AgDSDirectionLink — rendering', () => {
+describe('AGDSDirectionLink — rendering', () => {
   it('renders an <a> element', () => {
     const { getByRole } = renderLink()
     expect(getByRole('link')).toBeTruthy()
@@ -43,14 +43,14 @@ describe('AgDSDirectionLink — rendering', () => {
   })
 })
 
-// ─── AgDSDirectionLink — direction prop ────────────────────────────────────
+// ─── AGDSDirectionLink — direction prop ────────────────────────────────────
 
-describe('AgDSDirectionLink — direction prop', () => {
+describe('AGDSDirectionLink — direction prop', () => {
   it.each(['up', 'right', 'down', 'left'] as const)(
     'renders an icon for direction="%s"',
     (direction) => {
       const { container } = renderLink({ direction })
-      // AgDSIcon wraps @iconify/vue which renders an SVG
+      // AGDSIcon wraps @iconify/vue which renders an SVG
       expect(container.querySelector('svg')).toBeTruthy()
     },
   )
@@ -74,9 +74,9 @@ describe('AgDSDirectionLink — direction prop', () => {
   })
 })
 
-// ─── AgDSDirectionLink — external prop ─────────────────────────────────────
+// ─── AGDSDirectionLink — external prop ─────────────────────────────────────
 
-describe('AgDSDirectionLink — external prop', () => {
+describe('AGDSDirectionLink — external prop', () => {
   it('sets target="_blank" and rel when external=true', () => {
     const { getByRole } = renderLink({ external: true })
     const a = getByRole('link')
@@ -97,9 +97,9 @@ describe('AgDSDirectionLink — external prop', () => {
   })
 })
 
-// ─── AgDSDirectionLink — events ────────────────────────────────────────────
+// ─── AGDSDirectionLink — events ────────────────────────────────────────────
 
-describe('AgDSDirectionLink — events', () => {
+describe('AGDSDirectionLink — events', () => {
   it('emits click on click', async () => {
     const { getByRole, emitted } = renderLink()
     await fireEvent.click(getByRole('link'))
@@ -119,9 +119,9 @@ describe('AgDSDirectionLink — events', () => {
   })
 })
 
-// ─── AgDSDirectionLink — accessibility ─────────────────────────────────────
+// ─── AGDSDirectionLink — accessibility ─────────────────────────────────────
 
-describe('AgDSDirectionLink — accessibility', () => {
+describe('AGDSDirectionLink — accessibility', () => {
   it('has no axe violations with direction=right', async () => {
     const { container } = renderLink({ direction: 'right' }, 'Continue')
     await runAxe(container, AXE_OPTS)
@@ -138,7 +138,7 @@ describe('AgDSDirectionLink — accessibility', () => {
   })
 
   it('detects axe violations (intentional: empty link label)', async () => {
-    const { container } = render(AgDSDirectionLink, {
+    const { container } = render(AGDSDirectionLink, {
       props: { href: '/x', direction: 'right' },
       slots: { default: '' },
     })
@@ -146,9 +146,9 @@ describe('AgDSDirectionLink — accessibility', () => {
   })
 })
 
-// ─── AgDSDirectionButton — rendering ───────────────────────────────────────
+// ─── AGDSDirectionButton — rendering ───────────────────────────────────────
 
-describe('AgDSDirectionButton — rendering', () => {
+describe('AGDSDirectionButton — rendering', () => {
   it('renders a <button> element', () => {
     const { getByRole } = renderButton()
     expect(getByRole('button')).toBeTruthy()
@@ -165,9 +165,9 @@ describe('AgDSDirectionButton — rendering', () => {
   })
 })
 
-// ─── AgDSDirectionButton — direction prop ──────────────────────────────────
+// ─── AGDSDirectionButton — direction prop ──────────────────────────────────
 
-describe('AgDSDirectionButton — direction prop', () => {
+describe('AGDSDirectionButton — direction prop', () => {
   it.each(['up', 'right', 'down', 'left'] as const)(
     'renders an icon for direction="%s"',
     (direction) => {
@@ -177,9 +177,9 @@ describe('AgDSDirectionButton — direction prop', () => {
   )
 })
 
-// ─── AgDSDirectionButton — disabled state ──────────────────────────────────
+// ─── AGDSDirectionButton — disabled state ──────────────────────────────────
 
-describe('AgDSDirectionButton — disabled state', () => {
+describe('AGDSDirectionButton — disabled state', () => {
   it('sets disabled attribute when disabled=true', () => {
     const { getByRole } = renderButton({ disabled: true })
     expect((getByRole('button') as HTMLButtonElement).disabled).toBe(true)
@@ -197,9 +197,9 @@ describe('AgDSDirectionButton — disabled state', () => {
   })
 })
 
-// ─── AgDSDirectionButton — loading state ───────────────────────────────────
+// ─── AGDSDirectionButton — loading state ───────────────────────────────────
 
-describe('AgDSDirectionButton — loading state', () => {
+describe('AGDSDirectionButton — loading state', () => {
   it('sets aria-busy when loading=true', () => {
     const { getByRole } = renderButton({ loading: true })
     expect(getByRole('button').getAttribute('aria-busy')).toBe('true')
@@ -217,9 +217,9 @@ describe('AgDSDirectionButton — loading state', () => {
   })
 })
 
-// ─── AgDSDirectionButton — events ──────────────────────────────────────────
+// ─── AGDSDirectionButton — events ──────────────────────────────────────────
 
-describe('AgDSDirectionButton — events', () => {
+describe('AGDSDirectionButton — events', () => {
   it('emits click when clicked', async () => {
     const { getByRole, emitted } = renderButton()
     await fireEvent.click(getByRole('button'))
@@ -245,9 +245,9 @@ describe('AgDSDirectionButton — events', () => {
   })
 })
 
-// ─── AgDSDirectionButton — keyboard ────────────────────────────────────────
+// ─── AGDSDirectionButton — keyboard ────────────────────────────────────────
 
-describe('AgDSDirectionButton — keyboard', () => {
+describe('AGDSDirectionButton — keyboard', () => {
   it('activates on Enter key', async () => {
     const { getByRole, emitted } = renderButton()
     getByRole('button').focus()
@@ -257,9 +257,9 @@ describe('AgDSDirectionButton — keyboard', () => {
   })
 })
 
-// ─── AgDSDirectionButton — defineExpose ────────────────────────────────────
+// ─── AGDSDirectionButton — defineExpose ────────────────────────────────────
 
-describe('AgDSDirectionButton — defineExpose', () => {
+describe('AGDSDirectionButton — defineExpose', () => {
   it('exposes a focus() method', () => {
     const { getByRole, getCurrentComponent } = renderButton() as any
     const vm = getCurrentComponent?.()?.exposed ?? null
@@ -275,9 +275,9 @@ describe('AgDSDirectionButton — defineExpose', () => {
   })
 })
 
-// ─── AgDSDirectionButton — accessibility ───────────────────────────────────
+// ─── AGDSDirectionButton — accessibility ───────────────────────────────────
 
-describe('AgDSDirectionButton — accessibility', () => {
+describe('AGDSDirectionButton — accessibility', () => {
   it('has no axe violations in default state', async () => {
     const { container } = renderButton({}, 'Continue')
     await runAxe(container, AXE_OPTS)
@@ -294,7 +294,7 @@ describe('AgDSDirectionButton — accessibility', () => {
   })
 
   it('detects axe violations (intentional: empty button label)', async () => {
-    const { container } = render(AgDSDirectionButton, {
+    const { container } = render(AGDSDirectionButton, {
       props: { direction: 'right' },
       slots: { default: '' },
     })

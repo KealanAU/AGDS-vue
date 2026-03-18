@@ -1,17 +1,17 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSFlex from './AGDSFlex.vue'
+import AGDSFlex from './AGDSFlex.vue'
 
 const AXE_OPTS = { rules: { 'color-contrast': { enabled: false } } } as const
 
 function renderFlex(props: Record<string, unknown> = {}, slot = '<p>Content</p>') {
-  return render(AgDSFlex, { props, slots: { default: slot } })
+  return render(AGDSFlex, { props, slots: { default: slot } })
 }
 
 // ─── Defaults ─────────────────────────────────────────────────────────────────
 
-describe('AgDSFlex — defaults', () => {
+describe('AGDSFlex — defaults', () => {
   it('renders a div by default', () => {
     const { container } = renderFlex()
     expect(container.querySelector('div')).toBeTruthy()
@@ -40,7 +40,7 @@ describe('AgDSFlex — defaults', () => {
 
 // ─── inline prop ──────────────────────────────────────────────────────────────
 
-describe('AgDSFlex — inline prop', () => {
+describe('AGDSFlex — inline prop', () => {
   it('applies display: inline-flex when inline=true', () => {
     const { container } = renderFlex({ inline: true })
     expect((container.querySelector('div') as HTMLElement).style.display).toBe('inline-flex')
@@ -54,7 +54,7 @@ describe('AgDSFlex — inline prop', () => {
 
 // ─── as prop ──────────────────────────────────────────────────────────────────
 
-describe('AgDSFlex — as prop', () => {
+describe('AGDSFlex — as prop', () => {
   it('renders as the given element', () => {
     const { container } = renderFlex({ as: 'ul' })
     expect(container.querySelector('ul')).toBeTruthy()
@@ -63,7 +63,7 @@ describe('AgDSFlex — as prop', () => {
 
 // ─── Layout props ─────────────────────────────────────────────────────────────
 
-describe('AgDSFlex — layout props', () => {
+describe('AGDSFlex — layout props', () => {
   it('sets flex-direction: column', () => {
     const { container } = renderFlex({ flexDirection: 'column' })
     expect((container.querySelector('div') as HTMLElement).style.flexDirection).toBe('column')
@@ -82,7 +82,7 @@ describe('AgDSFlex — layout props', () => {
 
 // ─── Slot ─────────────────────────────────────────────────────────────────────
 
-describe('AgDSFlex — slot', () => {
+describe('AGDSFlex — slot', () => {
   it('renders default slot content', () => {
     const { getByText } = renderFlex({}, '<span>Child</span>')
     expect(getByText('Child')).toBeTruthy()
@@ -91,7 +91,7 @@ describe('AgDSFlex — slot', () => {
 
 // ─── Accessibility ────────────────────────────────────────────────────────────
 
-describe('AgDSFlex — axe accessibility', () => {
+describe('AGDSFlex — axe accessibility', () => {
   it('has no violations with default props', async () => {
     const { container } = renderFlex()
     await runAxe(container, AXE_OPTS)

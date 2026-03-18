@@ -7,7 +7,7 @@ status: stable
 
 ## Usage
 
-Pass an array of `links` to `AgDSBreadcrumbs`. Each link needs a `label` and an optional `href`. The last item is automatically marked as the current page.
+Pass an array of `links` to `AGDSBreadcrumbs`. Each link needs a `label` and an optional `href`. The last item is automatically marked as the current page.
 
 ::doc-preview
 <BreadcrumbsDemo />
@@ -15,7 +15,7 @@ Pass an array of `links` to `AgDSBreadcrumbs`. Each link needs a `label` and an 
 
 ```vue
 <template>
-  <AgDSBreadcrumbs
+  <AGDSBreadcrumbs
     :links="[
       { href: '/', label: 'Home' },
       { href: '/services', label: 'Services' },
@@ -35,7 +35,7 @@ When there are middle items (more than first + last), they are hidden on small s
 
 ```vue
 <template>
-  <AgDSBreadcrumbs
+  <AGDSBreadcrumbs
     :links="[
       { href: '/', label: 'Home' },
       { href: '/services', label: 'Services' },
@@ -53,7 +53,7 @@ The wrapping `<nav>` element defaults to `aria-label="Breadcrumbs"`. Override wi
 
 ```vue
 <template>
-  <AgDSBreadcrumbs
+  <AGDSBreadcrumbs
     aria-label="Section navigation"
     :links="links"
   />

@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSCallToActionLink from './AGDSCallToActionLink.vue'
-import AgDSCallToActionButton from './AGDSCallToActionButton.vue'
+import AGDSCallToActionLink from './AGDSCallToActionLink.vue'
+import AGDSCallToActionButton from './AGDSCallToActionButton.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -11,22 +11,22 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderLink(props: Record<string, unknown> = {}, slot = 'Get started') {
-  return render(AgDSCallToActionLink, {
+  return render(AGDSCallToActionLink, {
     props: { href: '/start', ...props },
     slots: { default: slot },
   })
 }
 
 function renderButton(props: Record<string, unknown> = {}, slot = 'Get started') {
-  return render(AgDSCallToActionButton, {
+  return render(AGDSCallToActionButton, {
     props,
     slots: { default: slot },
   })
 }
 
-// ─── AgDSCallToActionLink — rendering ──────────────────────────────────────
+// ─── AGDSCallToActionLink — rendering ──────────────────────────────────────
 
-describe('AgDSCallToActionLink — rendering', () => {
+describe('AGDSCallToActionLink — rendering', () => {
   it('renders an <a> element', () => {
     const { getByRole } = renderLink()
     expect(getByRole('link')).toBeTruthy()
@@ -53,9 +53,9 @@ describe('AgDSCallToActionLink — rendering', () => {
   })
 })
 
-// ─── AgDSCallToActionLink — external prop ──────────────────────────────────
+// ─── AGDSCallToActionLink — external prop ──────────────────────────────────
 
-describe('AgDSCallToActionLink — external prop', () => {
+describe('AGDSCallToActionLink — external prop', () => {
   it('does not set target by default', () => {
     const { getByRole } = renderLink()
     expect(getByRole('link').getAttribute('target')).toBeNull()
@@ -82,9 +82,9 @@ describe('AgDSCallToActionLink — external prop', () => {
   })
 })
 
-// ─── AgDSCallToActionLink — events ─────────────────────────────────────────
+// ─── AGDSCallToActionLink — events ─────────────────────────────────────────
 
-describe('AgDSCallToActionLink — events', () => {
+describe('AGDSCallToActionLink — events', () => {
   it('emits click when clicked', async () => {
     const { getByRole, emitted } = renderLink()
     await fireEvent.click(getByRole('link'))
@@ -98,9 +98,9 @@ describe('AgDSCallToActionLink — events', () => {
   })
 })
 
-// ─── AgDSCallToActionLink — accessibility ───────────────────────────────────
+// ─── AGDSCallToActionLink — accessibility ───────────────────────────────────
 
-describe('AgDSCallToActionLink — axe accessibility', () => {
+describe('AGDSCallToActionLink — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderLink()
     await runAxe(container, AXE_OPTS)
@@ -112,7 +112,7 @@ describe('AgDSCallToActionLink — axe accessibility', () => {
   })
 
   it('has a violation when the link has no accessible name', async () => {
-    const { container } = render(AgDSCallToActionLink, {
+    const { container } = render(AGDSCallToActionLink, {
       props: { href: '/start' },
       slots: { default: '' },
     })
@@ -120,9 +120,9 @@ describe('AgDSCallToActionLink — axe accessibility', () => {
   })
 })
 
-// ─── AgDSCallToActionButton — rendering ────────────────────────────────────
+// ─── AGDSCallToActionButton — rendering ────────────────────────────────────
 
-describe('AgDSCallToActionButton — rendering', () => {
+describe('AGDSCallToActionButton — rendering', () => {
   it('renders a <button> element', () => {
     const { getByRole } = renderButton()
     expect(getByRole('button')).toBeTruthy()
@@ -149,9 +149,9 @@ describe('AgDSCallToActionButton — rendering', () => {
   })
 })
 
-// ─── AgDSCallToActionButton — type prop ────────────────────────────────────
+// ─── AGDSCallToActionButton — type prop ────────────────────────────────────
 
-describe('AgDSCallToActionButton — type prop', () => {
+describe('AGDSCallToActionButton — type prop', () => {
   it.each(['button', 'submit', 'reset'] as const)(
     'sets type="%s" on the native element',
     (type) => {
@@ -161,9 +161,9 @@ describe('AgDSCallToActionButton — type prop', () => {
   )
 })
 
-// ─── AgDSCallToActionButton — disabled prop ────────────────────────────────
+// ─── AGDSCallToActionButton — disabled prop ────────────────────────────────
 
-describe('AgDSCallToActionButton — disabled prop', () => {
+describe('AGDSCallToActionButton — disabled prop', () => {
   it('is not disabled by default', () => {
     const { getByRole } = renderButton()
     expect((getByRole('button') as HTMLButtonElement).disabled).toBe(false)
@@ -196,9 +196,9 @@ describe('AgDSCallToActionButton — disabled prop', () => {
   })
 })
 
-// ─── AgDSCallToActionButton — loading prop ─────────────────────────────────
+// ─── AGDSCallToActionButton — loading prop ─────────────────────────────────
 
-describe('AgDSCallToActionButton — loading prop', () => {
+describe('AGDSCallToActionButton — loading prop', () => {
   it('renders spinner when loading=true', () => {
     const { getByRole } = renderButton({ loading: true })
     expect(getByRole('button').querySelector('.agds-cta__spinner')).toBeTruthy()
@@ -242,9 +242,9 @@ describe('AgDSCallToActionButton — loading prop', () => {
   })
 })
 
-// ─── AgDSCallToActionButton — events ───────────────────────────────────────
+// ─── AGDSCallToActionButton — events ───────────────────────────────────────
 
-describe('AgDSCallToActionButton — events', () => {
+describe('AGDSCallToActionButton — events', () => {
   it('emits click when clicked in default state', async () => {
     const { getByRole, emitted } = renderButton()
     await fireEvent.click(getByRole('button'))
@@ -258,9 +258,9 @@ describe('AgDSCallToActionButton — events', () => {
   })
 })
 
-// ─── AgDSCallToActionButton — defineExpose ─────────────────────────────────
+// ─── AGDSCallToActionButton — defineExpose ─────────────────────────────────
 
-describe('AgDSCallToActionButton — defineExpose', () => {
+describe('AGDSCallToActionButton — defineExpose', () => {
   it('exposes a focus method', () => {
     const { getByRole } = renderButton()
     const button = getByRole('button') as HTMLButtonElement
@@ -270,9 +270,9 @@ describe('AgDSCallToActionButton — defineExpose', () => {
   })
 })
 
-// ─── AgDSCallToActionButton — accessibility ────────────────────────────────
+// ─── AGDSCallToActionButton — accessibility ────────────────────────────────
 
-describe('AgDSCallToActionButton — axe accessibility', () => {
+describe('AGDSCallToActionButton — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderButton()
     await runAxe(container, AXE_OPTS)
@@ -294,7 +294,7 @@ describe('AgDSCallToActionButton — axe accessibility', () => {
   })
 
   it('has a violation when the button has no accessible name', async () => {
-    const { container } = render(AgDSCallToActionButton, { slots: { default: '' } })
+    const { container } = render(AGDSCallToActionButton, { slots: { default: '' } })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })
 })

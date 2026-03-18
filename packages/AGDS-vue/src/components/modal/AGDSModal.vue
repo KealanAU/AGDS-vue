@@ -9,14 +9,14 @@ import {
   DialogClose,
 } from 'reka-ui'
 
-export interface AgDSModalProps {
+export interface AGDSModalProps {
   /** v-model: controls whether the modal is open. */
   modelValue: boolean
   /** The title displayed in the modal header. Required for accessibility. */
   title: string
 }
 
-const props = defineProps<AgDSModalProps>()
+const props = defineProps<AGDSModalProps>()
 
 const emit = defineEmits<{
   'update:modelValue': [value: boolean]

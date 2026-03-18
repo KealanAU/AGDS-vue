@@ -3,7 +3,7 @@ import { ref, watch, nextTick, onUnmounted } from 'vue'
 
 export type DrawerWidth = 'md' | 'lg'
 
-export interface AgDSDrawerProps {
+export interface AGDSDrawerProps {
   /** v-model: controls whether the drawer is open. */
   modelValue: boolean
   /** The title displayed in the drawer header. Required for accessibility. */
@@ -22,7 +22,7 @@ export interface AgDSDrawerProps {
   elementToFocusOnClose?: HTMLElement | null
 }
 
-const props = withDefaults(defineProps<AgDSDrawerProps>(), {
+const props = withDefaults(defineProps<AGDSDrawerProps>(), {
   width: 'md',
   mutedOverlay: false,
   elementToFocusOnClose: null,

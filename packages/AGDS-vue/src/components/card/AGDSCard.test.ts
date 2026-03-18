@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSCard from './AGDSCard.vue'
-import AgDSCardHeader from './AGDSCardHeader.vue'
-import AgDSCardFooter from './AGDSCardFooter.vue'
-import AgDSCardInner from './AGDSCardInner.vue'
-import AgDSCardLink from './AGDSCardLink.vue'
+import AGDSCard from './AGDSCard.vue'
+import AGDSCardHeader from './AGDSCardHeader.vue'
+import AGDSCardFooter from './AGDSCardFooter.vue'
+import AGDSCardInner from './AGDSCardInner.vue'
+import AGDSCardLink from './AGDSCardLink.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -14,12 +14,12 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderCard(props: Record<string, unknown> = {}, slot = '<p>Card content</p>') {
-  return render(AgDSCard, { props, slots: { default: slot } })
+  return render(AGDSCard, { props, slots: { default: slot } })
 }
 
-// ─── AgDSCard — rendering ───────────────────────────────────────────────────
+// ─── AGDSCard — rendering ───────────────────────────────────────────────────
 
-describe('AgDSCard — rendering', () => {
+describe('AGDSCard — rendering', () => {
   it('renders a <div> by default', () => {
     const { container } = renderCard()
     expect(container.querySelector('div.agds-card')).toBeTruthy()
@@ -31,9 +31,9 @@ describe('AgDSCard — rendering', () => {
   })
 })
 
-// ─── AgDSCard — as prop ─────────────────────────────────────────────────────
+// ─── AGDSCard — as prop ─────────────────────────────────────────────────────
 
-describe('AgDSCard — as prop', () => {
+describe('AGDSCard — as prop', () => {
   it('renders as <li> when as="li"', () => {
     const { container } = renderCard({ as: 'li' })
     expect(container.querySelector('li.agds-card')).toBeTruthy()
@@ -45,9 +45,9 @@ describe('AgDSCard — as prop', () => {
   })
 })
 
-// ─── AgDSCard — background prop ────────────────────────────────────────────
+// ─── AGDSCard — background prop ────────────────────────────────────────────
 
-describe('AgDSCard — background prop', () => {
+describe('AGDSCard — background prop', () => {
   it('defaults to body background', () => {
     const { container } = renderCard()
     expect(container.querySelector('.agds-card--body')).toBeTruthy()
@@ -62,9 +62,9 @@ describe('AgDSCard — background prop', () => {
   )
 })
 
-// ─── AgDSCard — shadow prop ─────────────────────────────────────────────────
+// ─── AGDSCard — shadow prop ─────────────────────────────────────────────────
 
-describe('AgDSCard — shadow prop', () => {
+describe('AGDSCard — shadow prop', () => {
   it('applies shadow class when shadow=true', () => {
     const { container } = renderCard({ shadow: true })
     expect(container.querySelector('.agds-card--shadow')).toBeTruthy()
@@ -76,9 +76,9 @@ describe('AgDSCard — shadow prop', () => {
   })
 })
 
-// ─── AgDSCard — clickable prop ──────────────────────────────────────────────
+// ─── AGDSCard — clickable prop ──────────────────────────────────────────────
 
-describe('AgDSCard — clickable prop', () => {
+describe('AGDSCard — clickable prop', () => {
   it('applies clickable class when clickable=true', () => {
     const { container } = renderCard({ clickable: true })
     expect(container.querySelector('.agds-card--clickable')).toBeTruthy()
@@ -90,11 +90,11 @@ describe('AgDSCard — clickable prop', () => {
   })
 })
 
-// ─── AgDSCard — footerOutside prop ─────────────────────────────────────────
+// ─── AGDSCard — footerOutside prop ─────────────────────────────────────────
 
-describe('AgDSCard — footerOutside prop', () => {
+describe('AGDSCard — footerOutside prop', () => {
   it('renders an inner wrapper when footerOutside=true', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { footerOutside: true },
       slots: {
         default: '<p>Body</p>',
@@ -106,7 +106,7 @@ describe('AgDSCard — footerOutside prop', () => {
   })
 
   it('puts the footer slot outside the inner wrapper', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { footerOutside: true },
       slots: {
         default: '<p>Body</p>',
@@ -121,7 +121,7 @@ describe('AgDSCard — footerOutside prop', () => {
   })
 
   it('applies background and other style classes to the inner wrapper, not root', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { footerOutside: true, background: 'bodyAlt', shadow: true },
       slots: { default: '<p>Body</p>' },
     })
@@ -133,11 +133,11 @@ describe('AgDSCard — footerOutside prop', () => {
   })
 })
 
-// ─── AgDSCard — slots ───────────────────────────────────────────────────────
+// ─── AGDSCard — slots ───────────────────────────────────────────────────────
 
-describe('AgDSCard — header and footer slots', () => {
+describe('AGDSCard — header and footer slots', () => {
   it('renders the header slot', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       slots: {
         header: '<div class="the-header">Header</div>',
         default: '<p>Body</p>',
@@ -147,7 +147,7 @@ describe('AgDSCard — header and footer slots', () => {
   })
 
   it('renders the footer slot', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       slots: {
         default: '<p>Body</p>',
         footer: '<div class="the-footer">Footer</div>',
@@ -157,25 +157,25 @@ describe('AgDSCard — header and footer slots', () => {
   })
 })
 
-// ─── AgDSCardHeader ─────────────────────────────────────────────────────────
+// ─── AGDSCardHeader ─────────────────────────────────────────────────────────
 
-describe('AgDSCardHeader', () => {
+describe('AGDSCardHeader', () => {
   it('renders the header class', () => {
-    const { container } = render(AgDSCardHeader, {
+    const { container } = render(AGDSCardHeader, {
       slots: { default: '<p>Header content</p>' },
     })
     expect(container.querySelector('.agds-card-header')).toBeTruthy()
   })
 
   it('renders slot content', () => {
-    const { getByText } = render(AgDSCardHeader, {
+    const { getByText } = render(AGDSCardHeader, {
       slots: { default: '<p>Header title</p>' },
     })
     expect(getByText('Header title')).toBeTruthy()
   })
 
   it('applies background modifier when provided', () => {
-    const { container } = render(AgDSCardHeader, {
+    const { container } = render(AGDSCardHeader, {
       props: { background: 'bodyAlt' },
       slots: { default: '<p>H</p>' },
     })
@@ -183,32 +183,32 @@ describe('AgDSCardHeader', () => {
   })
 
   it('does not apply a background modifier by default', () => {
-    const { container } = render(AgDSCardHeader, {
+    const { container } = render(AGDSCardHeader, {
       slots: { default: '<p>H</p>' },
     })
     expect(container.querySelector('[class*="--body"]')).toBeNull()
   })
 })
 
-// ─── AgDSCardFooter ─────────────────────────────────────────────────────────
+// ─── AGDSCardFooter ─────────────────────────────────────────────────────────
 
-describe('AgDSCardFooter', () => {
+describe('AGDSCardFooter', () => {
   it('renders the footer class', () => {
-    const { container } = render(AgDSCardFooter, {
+    const { container } = render(AGDSCardFooter, {
       slots: { default: '<p>Footer content</p>' },
     })
     expect(container.querySelector('.agds-card-footer')).toBeTruthy()
   })
 
   it('renders slot content', () => {
-    const { getByText } = render(AgDSCardFooter, {
+    const { getByText } = render(AGDSCardFooter, {
       slots: { default: '<p>Footer text</p>' },
     })
     expect(getByText('Footer text')).toBeTruthy()
   })
 
   it('applies outside modifier when rendered inside a footerOutside card', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { footerOutside: true },
       slots: {
         default: '<p>Body</p>',
@@ -220,29 +220,29 @@ describe('AgDSCardFooter', () => {
   })
 })
 
-// ─── AgDSCardInner ─────────────────────────────────────────────────────────
+// ─── AGDSCardInner ─────────────────────────────────────────────────────────
 
-describe('AgDSCardInner', () => {
+describe('AGDSCardInner', () => {
   it('renders the inner class', () => {
-    const { container } = render(AgDSCardInner, {
+    const { container } = render(AGDSCardInner, {
       slots: { default: '<p>Inner content</p>' },
     })
     expect(container.querySelector('.agds-card-inner')).toBeTruthy()
   })
 
   it('renders slot content', () => {
-    const { getByText } = render(AgDSCardInner, {
+    const { getByText } = render(AGDSCardInner, {
       slots: { default: '<p>Inner text</p>' },
     })
     expect(getByText('Inner text')).toBeTruthy()
   })
 })
 
-// ─── AgDSCardLink ───────────────────────────────────────────────────────────
+// ─── AGDSCardLink ───────────────────────────────────────────────────────────
 
-describe('AgDSCardLink', () => {
+describe('AGDSCardLink', () => {
   it('renders as <a> by default', () => {
-    const { container } = render(AgDSCardLink, {
+    const { container } = render(AGDSCardLink, {
       attrs: { href: '/destination' },
       slots: { default: 'Read more' },
     })
@@ -250,7 +250,7 @@ describe('AgDSCardLink', () => {
   })
 
   it('renders slot content', () => {
-    const { getByText } = render(AgDSCardLink, {
+    const { getByText } = render(AGDSCardLink, {
       attrs: { href: '/foo' },
       slots: { default: 'Go somewhere' },
     })
@@ -258,7 +258,7 @@ describe('AgDSCardLink', () => {
   })
 
   it('passes through href attribute', () => {
-    const { container } = render(AgDSCardLink, {
+    const { container } = render(AGDSCardLink, {
       attrs: { href: '/test' },
       slots: { default: 'Link' },
     })
@@ -266,7 +266,7 @@ describe('AgDSCardLink', () => {
   })
 
   it('does not apply clickable modifier by default (outside a card)', () => {
-    const { container } = render(AgDSCardLink, {
+    const { container } = render(AGDSCardLink, {
       attrs: { href: '/' },
       slots: { default: 'Link' },
     })
@@ -274,7 +274,7 @@ describe('AgDSCardLink', () => {
   })
 
   it('applies clickable modifier when inside a clickable card', () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { clickable: true },
       slots: {
         default: {
@@ -292,16 +292,16 @@ describe('AgDSCardLink', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSCard — axe accessibility', () => {
+describe('AGDSCard — axe accessibility', () => {
   it('has no violations: default card', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       slots: { default: '<p>Content</p>' },
     })
     await runAxe(container, AXE_OPTS)
   })
 
   it('has no violations: bodyAlt background', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { background: 'bodyAlt' },
       slots: { default: '<p>Content</p>' },
     })
@@ -309,7 +309,7 @@ describe('AgDSCard — axe accessibility', () => {
   })
 
   it('has no violations: card with shadow', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { shadow: true },
       slots: { default: '<p>Content</p>' },
     })
@@ -317,7 +317,7 @@ describe('AgDSCard — axe accessibility', () => {
   })
 
   it('has no violations: clickable card with a labelled link', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { clickable: true },
       slots: {
         default: `<a href="/destination" class="agds-card-link agds-card-link--clickable">Read article</a><p>Description</p>`,
@@ -327,7 +327,7 @@ describe('AgDSCard — axe accessibility', () => {
   })
 
   it('has no violations: card rendered as <article> with aria-label', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { as: 'article' },
       attrs: { 'aria-label': 'Featured article' },
       slots: { default: '<p>Content</p>' },
@@ -336,7 +336,7 @@ describe('AgDSCard — axe accessibility', () => {
   })
 
   it('has no violations: card with header, inner, and footer', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       slots: {
         header: '<div class="agds-card-header"><p>Header</p></div>',
         default: '<div class="agds-card-inner"><p>Body</p></div>',
@@ -347,7 +347,7 @@ describe('AgDSCard — axe accessibility', () => {
   })
 
   it('has no violations: footerOutside card', async () => {
-    const { container } = render(AgDSCard, {
+    const { container } = render(AGDSCard, {
       props: { footerOutside: true },
       slots: {
         default: '<div class="agds-card-inner"><p>Body content</p></div>',
@@ -358,14 +358,14 @@ describe('AgDSCard — axe accessibility', () => {
   })
 
   it('has no violations: CardHeader component', async () => {
-    const { container } = render(AgDSCardHeader, {
+    const { container } = render(AGDSCardHeader, {
       slots: { default: '<h2>Card title</h2>' },
     })
     await runAxe(container, AXE_OPTS)
   })
 
   it('has no violations: CardInner component', async () => {
-    const { container } = render(AgDSCardInner, {
+    const { container } = render(AGDSCardInner, {
       slots: { default: '<p>Inner body text</p>' },
     })
     await runAxe(container, AXE_OPTS)

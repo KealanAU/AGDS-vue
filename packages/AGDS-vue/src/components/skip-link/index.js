@@ -1,1 +1,1 @@
-export { default as AgDSSkipLinks } from './AGDSSkipLinks.vue';
+export { default as AGDSSkipLinks } from './AGDSSkipLinks.vue';

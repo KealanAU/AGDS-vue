@@ -1,9 +1,9 @@
-import AgDSHeading from './AGDSHeading.vue';
+import AGDSHeading from './AGDSHeading.vue';
 const __VLS_ctx = {};
 let __VLS_components;
 let __VLS_intrinsics;
 let __VLS_directives;
-const __VLS_0 = AgDSHeading || AgDSHeading;
+const __VLS_0 = AGDSHeading || AGDSHeading;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     type: "h3",

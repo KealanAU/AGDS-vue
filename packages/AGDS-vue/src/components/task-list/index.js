@@ -1,2 +1,2 @@
-export { default as AgDSTaskList } from './AGDSTaskList.vue';
-export { default as AgDSTaskListItem } from './AGDSTaskListItem.vue';
+export { default as AGDSTaskList } from './AGDSTaskList.vue';
+export { default as AGDSTaskListItem } from './AGDSTaskListItem.vue';

@@ -7,17 +7,17 @@ status: stable
 
 ## Usage
 
-Wrap your entire page with `AgDSAppLayout` and slot in the sub-components. The sidebar column is hidden on mobile (< 80 rem) and revealed on desktop.
+Wrap your entire page with `AGDSAppLayout` and slot in the sub-components. The sidebar column is hidden on mobile (< 80 rem) and revealed on desktop.
 
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
 import {
-  AgDSAppLayout,
-  AgDSAppLayoutHeader,
-  AgDSAppLayoutSidebar,
-  AgDSAppLayoutFooter,
-  AgDSAppLayoutFooterDivider,
+  AGDSAppLayout,
+  AGDSAppLayoutHeader,
+  AGDSAppLayoutSidebar,
+  AGDSAppLayoutFooter,
+  AGDSAppLayoutFooterDivider,
 } from 'AGDS-vue'
 
 const navItems = [
@@ -30,52 +30,52 @@ const navItems = [
 </script>
 
 <template>
-  <AgDSAppLayout>
+  <AGDSAppLayout>
     <template #header>
-      <AgDSAppLayoutHeader heading="My Service" href="/" />
+      <AGDSAppLayoutHeader heading="My Service" href="/" />
     </template>
 
     <template #sidebar>
-      <AgDSAppLayoutSidebar :items="navItems" active-path="/dashboard" />
+      <AGDSAppLayoutSidebar :items="navItems" active-path="/dashboard" />
     </template>
 
     <!-- default slot = main content -->
     <main style="padding: 2rem;">
       <h1>Dashboard</h1>
     </main>
-  </AgDSAppLayout>
+  </AGDSAppLayout>
 </template>
 ```
 
 ## Focus mode
 
-Set `focus-mode` on `AgDSAppLayout` to hide the sidebar and suppress the hamburger button. Use during multi-step forms or checkout flows where nav is a distraction.
+Set `focus-mode` on `AGDSAppLayout` to hide the sidebar and suppress the hamburger button. Use during multi-step forms or checkout flows where nav is a distraction.
 
 ```vue
 <template>
-  <AgDSAppLayout focus-mode>
+  <AGDSAppLayout focus-mode>
     <template #header>
-      <AgDSAppLayoutHeader heading="My Service" />
+      <AGDSAppLayoutHeader heading="My Service" />
     </template>
     <main style="padding: 2rem;">Step 1 of 3</main>
-  </AgDSAppLayout>
+  </AGDSAppLayout>
 </template>
 ```
 
 ## Header slots
 
-`AgDSAppLayoutHeader` exposes three named slots for logos and account actions.
+`AGDSAppLayoutHeader` exposes three named slots for logos and account actions.
 
 ```vue
 <template>
-  <AgDSAppLayoutHeader heading="My Service" href="/">
+  <AGDSAppLayoutHeader heading="My Service" href="/">
     <template #logo>
       <img src="/logo.svg" alt="" />
     </template>
     <template #account>
-      <AgDSButton variant="secondary" size="sm">Sign in</AgDSButton>
+      <AGDSButton variant="secondary" size="sm">Sign in</AGDSButton>
     </template>
-  </AgDSAppLayoutHeader>
+  </AGDSAppLayoutHeader>
 </template>
 ```
 
@@ -109,7 +109,7 @@ const navItems = [
 
 ## Sub-level visibility
 
-The `sub-level-visible` prop on `AgDSAppLayoutSidebar` controls when nested items are shown.
+The `sub-level-visible` prop on `AGDSAppLayoutSidebar` controls when nested items are shown.
 
 | Value | Behaviour |
 |-------|-----------|
@@ -118,43 +118,43 @@ The `sub-level-visible` prop on `AgDSAppLayoutSidebar` controls when nested item
 
 ```vue
 <template>
-  <AgDSAppLayoutSidebar :items="navItems" sub-level-visible="always" />
+  <AGDSAppLayoutSidebar :items="navItems" sub-level-visible="always" />
 </template>
 ```
 
 ## Footer
 
-`AgDSAppLayoutFooter` wraps footer content in a max-width container with a top border. Use `AgDSAppLayoutFooterDivider` to separate footer sections.
+`AGDSAppLayoutFooter` wraps footer content in a max-width container with a top border. Use `AGDSAppLayoutFooterDivider` to separate footer sections.
 
 ```vue
 <template>
-  <AgDSAppLayout>
+  <AGDSAppLayout>
     <!-- … header and sidebar slots … -->
     <main style="padding: 2rem;">Content</main>
-    <AgDSAppLayoutFooter>
+    <AGDSAppLayoutFooter>
       <p>© 2025 Department of Agriculture, Fisheries and Forestry</p>
-      <AgDSAppLayoutFooterDivider />
+      <AGDSAppLayoutFooterDivider />
       <p>Accessibility · Privacy · Disclaimer</p>
-    </AgDSAppLayoutFooter>
-  </AgDSAppLayout>
+    </AGDSAppLayoutFooter>
+  </AGDSAppLayout>
 </template>
 ```
 
-## Props — AgDSAppLayout
+## Props — AGDSAppLayout
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `focusMode` | `boolean` | `false` | Hides the sidebar column and hamburger button |
 
-## Slots — AgDSAppLayout
+## Slots — AGDSAppLayout
 
 | Slot | Description |
 |------|-------------|
-| `header` | Place `AgDSAppLayoutHeader` here |
-| `sidebar` | Place `AgDSAppLayoutSidebar` here |
+| `header` | Place `AGDSAppLayoutHeader` here |
+| `sidebar` | Place `AGDSAppLayoutSidebar` here |
 | `default` | Main page content |
 
-## Props — AgDSAppLayoutHeader
+## Props — AGDSAppLayoutHeader
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -168,7 +168,7 @@ The `sub-level-visible` prop on `AgDSAppLayoutSidebar` controls when nested item
 | `dividerPosition` | `'before' \| 'after'` | `'after'` | Where the vertical divider sits when two logos are present |
 | `secondHref` | `string` | — | Href for the co-brand logo link |
 
-## Slots — AgDSAppLayoutHeader
+## Slots — AGDSAppLayoutHeader
 
 | Slot | Description |
 |------|-------------|
@@ -176,7 +176,7 @@ The `sub-level-visible` prop on `AgDSAppLayoutSidebar` controls when nested item
 | `secondLogo` | Second logo for co-branding |
 | `account` | Account section rendered at the far right of the header |
 
-## Props — AgDSAppLayoutSidebar
+## Props — AGDSAppLayoutSidebar
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -197,7 +197,7 @@ A group is either a plain `AppLayoutNavItem[]` or `{ items: AppLayoutNavItem[], 
 | Button item | `label` | `onClick`, `icon` |
 | Text item | `label` | — |
 
-## Props — AgDSAppLayoutFooter
+## Props — AGDSAppLayoutFooter
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -216,4 +216,4 @@ A group is either a plain `AppLayoutNavItem[]` or `{ items: AppLayoutNavItem[], 
 
 ### 0.1.0
 
-- Initial release — `AgDSAppLayout` (focusMode), `AgDSAppLayoutHeader` (heading, href, logo/secondLogo/account slots), `AgDSAppLayoutSidebar` (items, activePath, subLevelVisible), `AgDSAppLayoutFooter`, `AgDSAppLayoutFooterDivider`
+- Initial release — `AGDSAppLayout` (focusMode), `AGDSAppLayoutHeader` (heading, href, logo/secondLogo/account slots), `AGDSAppLayoutSidebar` (items, activePath, subLevelVisible), `AGDSAppLayoutFooter`, `AGDSAppLayoutFooterDivider`

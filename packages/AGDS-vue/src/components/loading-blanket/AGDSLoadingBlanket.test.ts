@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSLoadingBlanket from './AGDSLoadingBlanket.vue'
+import AGDSLoadingBlanket from './AGDSLoadingBlanket.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,14 +10,14 @@ const AXE_OPTS = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function renderBlanket(props: Record<string, unknown> = {}) {
-  return render(AgDSLoadingBlanket, {
+  return render(AGDSLoadingBlanket, {
     props: { label: 'Loading', ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSLoadingBlanket — rendering', () => {
+describe('AGDSLoadingBlanket — rendering', () => {
   it('renders the loading container', () => {
     const { container } = renderBlanket()
     expect(container.querySelector('.agds-loading-blanket')).toBeTruthy()
@@ -46,7 +46,7 @@ describe('AgDSLoadingBlanket — rendering', () => {
 
 // ─── Props: fullScreen ────────────────────────────────────────────────────────
 
-describe('AgDSLoadingBlanket — fullScreen prop', () => {
+describe('AGDSLoadingBlanket — fullScreen prop', () => {
   it('does not apply full-screen class by default', () => {
     const { container } = renderBlanket()
     expect(container.querySelector('.agds-loading-blanket--full-screen')).toBeNull()
@@ -70,7 +70,7 @@ describe('AgDSLoadingBlanket — fullScreen prop', () => {
 
 // ─── ARIA ─────────────────────────────────────────────────────────────────────
 
-describe('AgDSLoadingBlanket — ARIA', () => {
+describe('AGDSLoadingBlanket — ARIA', () => {
   it('label has role="status" by default (polite live region)', () => {
     const { container } = renderBlanket()
     const label = container.querySelector('.agds-loading-blanket__label')
@@ -92,7 +92,7 @@ describe('AgDSLoadingBlanket — ARIA', () => {
 
 // ─── Dots ─────────────────────────────────────────────────────────────────────
 
-describe('AgDSLoadingBlanket — dots animation', () => {
+describe('AGDSLoadingBlanket — dots animation', () => {
   it('each dot has a staggered animation delay (100ms per dot)', () => {
     const { container } = renderBlanket()
     const dots = container.querySelectorAll('.agds-loading-dots__dot')
@@ -112,7 +112,7 @@ describe('AgDSLoadingBlanket — dots animation', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSLoadingBlanket — axe accessibility', () => {
+describe('AGDSLoadingBlanket — axe accessibility', () => {
   it('has no violations with default props', async () => {
     const { container } = renderBlanket()
     await runAxe(container, AXE_OPTS)

@@ -1,5 +1,5 @@
-export { default as AgDSSummaryList } from './AGDSSummaryList.vue';
-export { default as AgDSSummaryListItem } from './AGDSSummaryListItem.vue';
-export { default as AgDSSummaryListItemTerm } from './AGDSSummaryListItemTerm.vue';
-export { default as AgDSSummaryListItemDescription } from './AGDSSummaryListItemDescription.vue';
-export { default as AgDSSummaryListItemAction } from './AGDSSummaryListItemAction.vue';
+export { default as AGDSSummaryList } from './AGDSSummaryList.vue';
+export { default as AGDSSummaryListItem } from './AGDSSummaryListItem.vue';
+export { default as AGDSSummaryListItemTerm } from './AGDSSummaryListItemTerm.vue';
+export { default as AGDSSummaryListItemDescription } from './AGDSSummaryListItemDescription.vue';
+export { default as AGDSSummaryListItemAction } from './AGDSSummaryListItemAction.vue';

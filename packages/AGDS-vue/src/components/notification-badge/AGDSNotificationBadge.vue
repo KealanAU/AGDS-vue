@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 export type BadgeTone = 'neutral' | 'action'
 
-export interface AgDSNotificationBadgeProps {
+export interface AGDSNotificationBadgeProps {
   /** The number to display inside the badge. */
   value: number
   /** When value exceeds this, display "{max}+" instead. */
@@ -12,7 +12,7 @@ export interface AgDSNotificationBadgeProps {
   tone: BadgeTone
 }
 
-const props = defineProps<AgDSNotificationBadgeProps>()
+const props = defineProps<AGDSNotificationBadgeProps>()
 
 const label = computed(() =>
   props.max === undefined || props.value <= props.max

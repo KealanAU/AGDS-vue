@@ -15,7 +15,7 @@ Provide `activePath` (the current page URL), a `title`, and an array of `items`.
 
 ```vue
 <template>
-  <AgDSSideNav
+  <AGDSSideNav
     active-path="/services/health"
     title="Services"
     :items="[
@@ -44,7 +44,7 @@ By default (`subLevelVisible="whenActive"`) nested items are only revealed when 
 
 ```vue
 <template>
-  <AgDSSideNav
+  <AGDSSideNav
     active-path="/services"
     title="Services"
     sub-level-visible="always"
@@ -59,7 +59,7 @@ Pass `titleLink` to render the section heading as an anchor. If `activePath` mat
 
 ```vue
 <template>
-  <AgDSSideNav
+  <AGDSSideNav
     active-path="/services"
     title="Services"
     title-link="/services"
@@ -74,7 +74,7 @@ Use `background="bodyAlt"` when the nav is placed on a `--agds-color-bg-subtle` 
 
 ```vue
 <template>
-  <AgDSSideNav
+  <AGDSSideNav
     active-path="/foo"
     title="Navigation"
     background="bodyAlt"

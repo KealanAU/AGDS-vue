@@ -10,12 +10,12 @@ status: stable
 Provide a `label` and listen for the `change` event to read the selected files.
 
 ::doc-preview
-<AgDSFileInput label="Upload your CV" />
+<AGDSFileInput label="Upload your CV" />
 ::
 
 ```vue
 <template>
-  <AgDSFileInput label="Upload your CV" @change="onFileChange" />
+  <AGDSFileInput label="Upload your CV" @change="onFileChange" />
 </template>
 
 <script setup>
@@ -31,12 +31,12 @@ function onFileChange(event) {
 Pass an array of MIME types to `accept`. The hint text is automatically generated from the MIME types if no explicit `hint` is provided.
 
 ::doc-preview{label="With accept"}
-<AgDSFileInput label="Upload identity document" :accept="['image/jpeg', 'image/png', 'application/pdf']" />
+<AGDSFileInput label="Upload identity document" :accept="['image/jpeg', 'image/png', 'application/pdf']" />
 ::
 
 ```vue
 <template>
-  <AgDSFileInput
+  <AGDSFileInput
     label="Upload identity document"
     :accept="['image/jpeg', 'image/png', 'application/pdf']"
   />
@@ -49,7 +49,7 @@ Use `multiple` to allow the user to pick more than one file.
 
 ```vue
 <template>
-  <AgDSFileInput label="Upload photos" multiple />
+  <AGDSFileInput label="Upload photos" multiple />
 </template>
 ```
 
@@ -58,12 +58,12 @@ Use `multiple` to allow the user to pick more than one file.
 Use `hint` for guidance and `invalid`/`message` to show a validation error.
 
 ::doc-preview{label="With hint and error"}
-<AgDSFileInput label="Proof of address" hint="Must be dated within the last 3 months." invalid message="You must upload a proof of address document" />
+<AGDSFileInput label="Proof of address" hint="Must be dated within the last 3 months." invalid message="You must upload a proof of address document" />
 ::
 
 ```vue
 <template>
-  <AgDSFileInput
+  <AGDSFileInput
     label="Proof of address"
     hint="Must be dated within the last 3 months."
     :invalid="hasError"
@@ -78,7 +78,7 @@ Use `capture` to open the device camera directly on mobile. `'user'` opens the f
 
 ```vue
 <template>
-  <AgDSFileInput
+  <AGDSFileInput
     label="Take a photo of your ID"
     :accept="['image/jpeg', 'image/png']"
     capture="environment"
@@ -90,8 +90,8 @@ Use `capture` to open the device camera directly on mobile. `'user'` opens the f
 
 ```vue
 <template>
-  <AgDSFileInput label="Signed declaration" required />
-  <AgDSFileInput label="Additional documents" />
+  <AGDSFileInput label="Signed declaration" required />
+  <AGDSFileInput label="Additional documents" />
 </template>
 ```
 

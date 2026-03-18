@@ -7,7 +7,7 @@ import AGDSFieldMessage from './AGDSFieldMessage.vue'
 
 export type FieldMaxWidth = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-export interface AgDSFieldProps {
+export interface AGDSFieldProps {
   /** Describes the purpose of the field */
   label: string
   /** Defines an identifier (ID) for the field. Auto-generated if omitted. */
@@ -38,7 +38,7 @@ const MAX_WIDTH_MAP: Record<FieldMaxWidth, string> = {
   xl: '60ch',
 }
 
-const props = withDefaults(defineProps<AgDSFieldProps>(), {
+const props = withDefaults(defineProps<AGDSFieldProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,

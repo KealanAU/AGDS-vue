@@ -7,7 +7,7 @@ status: stable
 
 ## Usage
 
-Pass an array of `links` to `AgDSFeatureLinkList`. Each link needs an `href` and a `label`.
+Pass an array of `links` to `AGDSFeatureLinkList`. Each link needs an `href` and a `label`.
 
 ::doc-preview
 <FeatureLinkListDemo />
@@ -15,7 +15,7 @@ Pass an array of `links` to `AgDSFeatureLinkList`. Each link needs an `href` and
 
 ```vue
 <template>
-  <AgDSFeatureLinkList
+  <AGDSFeatureLinkList
     :links="[
       { href: '/grants/apply', label: 'Apply for a grant' },
       { href: '/eligibility', label: 'Check your eligibility' },
@@ -35,7 +35,7 @@ Add `secondaryText` to any link to show a description below the label.
 
 ```vue
 <template>
-  <AgDSFeatureLinkList
+  <AGDSFeatureLinkList
     :links="[
       {
         href: '/grants/apply',
@@ -58,7 +58,7 @@ Set `external: true` on any link to open it in a new tab. A visually hidden ", o
 
 ```vue
 <template>
-  <AgDSFeatureLinkList
+  <AGDSFeatureLinkList
     :links="[
       { href: 'https://www.ato.gov.au', label: 'Australian Taxation Office', external: true },
     ]"
@@ -72,11 +72,11 @@ Use `background="bodyAlt"` when the list sits on an off-white surface to ensure 
 
 ```vue
 <template>
-  <AgDSFeatureLinkList background="bodyAlt" :links="links" />
+  <AGDSFeatureLinkList background="bodyAlt" :links="links" />
 </template>
 ```
 
-## Props — AgDSFeatureLinkList
+## Props — AGDSFeatureLinkList
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|

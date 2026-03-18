@@ -10,7 +10,7 @@ status: stable
 Use `v-model` to bind the selected date. In single mode, the value is `Date | null`.
 
 ::doc-preview
-<AgDSDatePicker label="Date of birth" v-model="null" />
+<AGDSDatePicker label="Date of birth" v-model="null" />
 ::
 
 ```vue
@@ -20,7 +20,7 @@ const date = ref(null)
 </script>
 
 <template>
-  <AgDSDatePicker label="Date of birth" v-model="date" />
+  <AGDSDatePicker label="Date of birth" v-model="date" />
 </template>
 ```
 
@@ -29,7 +29,7 @@ const date = ref(null)
 Set `range` to `true` to show two date inputs (start + end). The `v-model` value becomes `{ from: Date | null; to: Date | null }`.
 
 ::doc-preview{label="Date range"}
-<AgDSDatePicker range label="Employment period" v-model="{ from: null, to: null }" />
+<AGDSDatePicker range label="Employment period" v-model="{ from: null, to: null }" />
 ::
 
 ```vue
@@ -39,7 +39,7 @@ const range = ref({ from: null, to: null })
 </script>
 
 <template>
-  <AgDSDatePicker
+  <AGDSDatePicker
     range
     label="Employment period"
     from-label="Start date"
@@ -54,12 +54,12 @@ const range = ref({ from: null, to: null })
 Use `hint` for guidance and `invalid`/`message` to show a validation error.
 
 ::doc-preview{label="With hint and error"}
-<AgDSDatePicker label="Application date" hint="Enter the date you submitted your application" invalid message="Enter a valid date" v-model="null" />
+<AGDSDatePicker label="Application date" hint="Enter the date you submitted your application" invalid message="Enter a valid date" v-model="null" />
 ::
 
 ```vue
 <template>
-  <AgDSDatePicker
+  <AGDSDatePicker
     label="Application date"
     hint="Enter the date you submitted your application."
     :invalid="hasError"
@@ -80,7 +80,7 @@ const maxDate = new Date()
 </script>
 
 <template>
-  <AgDSDatePicker
+  <AGDSDatePicker
     label="Date issued"
     :min-date="minDate"
     :max-date="maxDate"
@@ -95,7 +95,7 @@ Provide `yearRange` to show a year dropdown in the calendar header, allowing use
 
 ```vue
 <template>
-  <AgDSDatePicker
+  <AGDSDatePicker
     label="Date of birth"
     :year-range="{ from: 1920, to: 2006 }"
     v-model="date"
@@ -109,7 +109,7 @@ The default format is `dd/MM/yyyy`. Set `dateFormat` to `'MM/dd/yyyy'` for US-st
 
 ```vue
 <template>
-  <AgDSDatePicker label="Date" date-format="MM/dd/yyyy" v-model="date" />
+  <AGDSDatePicker label="Date" date-format="MM/dd/yyyy" v-model="date" />
 </template>
 ```
 
@@ -118,10 +118,10 @@ The default format is `dd/MM/yyyy`. Set `dateFormat` to `'MM/dd/yyyy'` for US-st
 ```vue
 <template>
   <!-- Required — no "(optional)" suffix -->
-  <AgDSDatePicker label="Date of birth" required v-model="date" />
+  <AGDSDatePicker label="Date of birth" required v-model="date" />
 
   <!-- Optional (default) — "(optional)" appended to label -->
-  <AgDSDatePicker label="Preferred start date" v-model="date" />
+  <AGDSDatePicker label="Preferred start date" v-model="date" />
 </template>
 ```
 

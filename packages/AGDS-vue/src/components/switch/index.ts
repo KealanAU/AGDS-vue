@@ -1,2 +1,2 @@
-export { default as AgDSSwitch } from './AGDSSwitch.vue'
-export type { AgDSSwitchProps, SwitchSize } from './AGDSSwitch.vue'
+export { default as AGDSSwitch } from './AGDSSwitch.vue'
+export type { AGDSSwitchProps, SwitchSize } from './AGDSSwitch.vue'

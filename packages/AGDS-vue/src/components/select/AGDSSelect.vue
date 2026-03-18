@@ -19,7 +19,7 @@ export type Options = (Option | OptionGroup)[]
 
 export type SelectMaxWidth = Extract<FieldMaxWidth, 'sm' | 'md' | 'lg' | 'xl'>
 
-export interface AgDSSelectProps {
+export interface AGDSSelectProps {
   /** Describes the purpose of the field */
   label: string
   /** If true, "(optional)" will never be appended to the label */
@@ -50,7 +50,7 @@ export interface AgDSSelectProps {
   modelValue?: string | number
 }
 
-const props = withDefaults(defineProps<AgDSSelectProps>(), {
+const props = withDefaults(defineProps<AGDSSelectProps>(), {
   invalid: false,
   required: false,
   hideOptionalLabel: false,

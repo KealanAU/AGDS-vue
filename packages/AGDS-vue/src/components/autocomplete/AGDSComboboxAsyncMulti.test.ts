@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSComboboxAsyncMulti from './AGDSComboboxAsyncMulti.vue'
+import AGDSComboboxAsyncMulti from './AGDSComboboxAsyncMulti.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -21,7 +21,7 @@ function makeFetch(results = OPTIONS) {
 
 function renderComponent(props: Record<string, unknown> = {}) {
   const fetchOptions = props.fetchOptions ?? makeFetch()
-  return render(AgDSComboboxAsyncMulti, {
+  return render(AGDSComboboxAsyncMulti, {
     props: {
       label: 'Countries',
       fetchOptions,
@@ -33,7 +33,7 @@ function renderComponent(props: Record<string, unknown> = {}) {
 
 // ─── Rendering ────────────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — rendering', () => {
+describe('AGDSComboboxAsyncMulti — rendering', () => {
   it('renders a visible label', () => {
     renderComponent()
     expect(screen.getByText('Countries')).toBeTruthy()
@@ -78,7 +78,7 @@ describe('AgDSComboboxAsyncMulti — rendering', () => {
 
 // ─── Typing and fetch ─────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — typing and fetch', () => {
+describe('AGDSComboboxAsyncMulti — typing and fetch', () => {
   it('calls fetchOptions after user types (debounce=0)', async () => {
     const fetchOptions = makeFetch()
     renderComponent({ fetchOptions })
@@ -126,7 +126,7 @@ describe('AgDSComboboxAsyncMulti — typing and fetch', () => {
 
 // ─── Selection ────────────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — selection', () => {
+describe('AGDSComboboxAsyncMulti — selection', () => {
   it('adds an item on mousedown and clears the input', async () => {
     renderComponent()
     const input = screen.getByRole('combobox')
@@ -186,7 +186,7 @@ describe('AgDSComboboxAsyncMulti — selection', () => {
 
 // ─── Keyboard navigation ──────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — keyboard navigation', () => {
+describe('AGDSComboboxAsyncMulti — keyboard navigation', () => {
   it('ArrowDown moves highlight to first option', async () => {
     renderComponent()
     const input = screen.getByRole('combobox')
@@ -250,7 +250,7 @@ describe('AgDSComboboxAsyncMulti — keyboard navigation', () => {
 
 // ─── Loading state ────────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — loading state', () => {
+describe('AGDSComboboxAsyncMulti — loading state', () => {
   it('shows spinner when loading=true', () => {
     renderComponent({ loading: true })
     expect(document.querySelector('.agds-combobox-async-multi__spinner')).toBeTruthy()
@@ -269,7 +269,7 @@ describe('AgDSComboboxAsyncMulti — loading state', () => {
 
 // ─── Disabled state ───────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — disabled state', () => {
+describe('AGDSComboboxAsyncMulti — disabled state', () => {
   it('disables the input when disabled=true', () => {
     renderComponent({ disabled: true })
     expect(screen.getByRole('combobox').hasAttribute('disabled')).toBe(true)
@@ -289,7 +289,7 @@ describe('AgDSComboboxAsyncMulti — disabled state', () => {
 
 // ─── Field integration ────────────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — field integration', () => {
+describe('AGDSComboboxAsyncMulti — field integration', () => {
   it('renders hint text', () => {
     renderComponent({ hint: 'Start typing to search' })
     expect(screen.getByText('Start typing to search')).toBeTruthy()
@@ -313,7 +313,7 @@ describe('AgDSComboboxAsyncMulti — field integration', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSComboboxAsyncMulti — axe accessibility', () => {
+describe('AGDSComboboxAsyncMulti — axe accessibility', () => {
   it('has no violations in the default (closed) state', async () => {
     const { container } = renderComponent()
     await runAxe(container, AXE_OPTS)
@@ -351,8 +351,8 @@ describe('AgDSComboboxAsyncMulti — axe accessibility', () => {
 
   it('detects a violation when the input has no accessible name', async () => {
     // Render without a label prop so the input is not associated with any label.
-    // AgDSField renders an empty <label> that axe still flags as a missing name.
-    const { container } = render(AgDSComboboxAsyncMulti, {
+    // AGDSField renders an empty <label> that axe still flags as a missing name.
+    const { container } = render(AGDSComboboxAsyncMulti, {
       props: { label: ' ', fetchOptions: makeFetch() },
       // Override aria-label to undefined so there is genuinely no accessible name
       attrs: { 'aria-label': null },

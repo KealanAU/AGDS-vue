@@ -4,7 +4,7 @@ import { computed } from 'vue'
 export type CalloutTone = 'neutral' | 'info'
 export type CalloutVariant = 'compact' | 'regular' | 'feature'
 
-export interface AgDSCalloutProps {
+export interface AGDSCalloutProps {
   /** HTML element to render as. Use 'aside' to create a landmark region. */
   as?: string
   /** Title displayed in bold above the content. */
@@ -22,7 +22,7 @@ export interface AgDSCalloutProps {
   background?: 'shade' | 'shadeAlt'
 }
 
-const props = withDefaults(defineProps<AgDSCalloutProps>(), {
+const props = withDefaults(defineProps<AGDSCalloutProps>(), {
   as: 'div',
   tone: 'neutral',
   variant: 'regular',

@@ -7,10 +7,10 @@ status: stable
 
 ## Single selection
 
-`AgDSCombobox` lets the user type to filter options and select one. The model value is the full option object (`{ label, value }`) or `null`.
+`AGDSCombobox` lets the user type to filter options and select one. The model value is the full option object (`{ label, value }`) or `null`.
 
 ::doc-preview
-<AgDSCombobox
+<AGDSCombobox
   label="Country"
   :options="[{ label: 'Australia', value: 'au' }, { label: 'New Zealand', value: 'nz' }, { label: 'United Kingdom', value: 'uk' }, { label: 'United States', value: 'us' }]"
   placeholder="Select a country"
@@ -31,7 +31,7 @@ const countryOptions = [
 </script>
 
 <template>
-  <AgDSCombobox
+  <AGDSCombobox
     v-model="country"
     label="Country"
     :options="countryOptions"
@@ -43,10 +43,10 @@ const countryOptions = [
 
 ## Multi-selection
 
-`AgDSComboboxMulti` lets the user select multiple options. Selected items appear as removable tag chips inside the control. The model value is an array of option objects.
+`AGDSComboboxMulti` lets the user select multiple options. Selected items appear as removable tag chips inside the control. The model value is an array of option objects.
 
 ::doc-preview
-<AgDSComboboxMulti
+<AGDSComboboxMulti
   label="Interests"
   :options="[{ label: 'Agriculture', value: 'ag' }, { label: 'Education', value: 'ed' }, { label: 'Health', value: 'health' }, { label: 'Transport', value: 'transport' }, { label: 'Environment', value: 'env' }]"
   placeholder="Search interests…"
@@ -67,7 +67,7 @@ const options = [
 </script>
 
 <template>
-  <AgDSComboboxMulti
+  <AGDSComboboxMulti
     v-model="selected"
     label="Interests"
     :options="options"
@@ -83,7 +83,7 @@ Add `clearable` to show a × button when a selection exists, allowing the user t
 
 ```vue
 <template>
-  <AgDSCombobox
+  <AGDSCombobox
     v-model="state"
     label="State"
     :options="stateOptions"
@@ -95,10 +95,10 @@ Add `clearable` to show a × button when a selection exists, allowing the user t
 
 ## Validation
 
-Set `invalid` and `message` to show the error state. Both variants wire into `AgDSField` for consistent error display.
+Set `invalid` and `message` to show the error state. Both variants wire into `AGDSField` for consistent error display.
 
 ::doc-preview{label="Invalid"}
-<AgDSCombobox
+<AGDSCombobox
   label="State"
   :options="[{ label: 'NSW', value: 'nsw' }, { label: 'VIC', value: 'vic' }]"
   :invalid="true"
@@ -109,7 +109,7 @@ Set `invalid` and `message` to show the error state. Both variants wire into `Ag
 
 ```vue
 <template>
-  <AgDSCombobox
+  <AGDSCombobox
     v-model="state"
     label="State"
     :options="stateOptions"
@@ -126,16 +126,16 @@ Use the `#item` slot to render rich option content (e.g. a subtitle or badge ben
 
 ```vue
 <template>
-  <AgDSCombobox v-model="user" label="Assign to" :options="users">
+  <AGDSCombobox v-model="user" label="Assign to" :options="users">
     <template #item="{ option }">
       <span>{{ option.label }}</span>
       <span class="subtitle">{{ option.jobTitle }}</span>
     </template>
-  </AgDSCombobox>
+  </AGDSCombobox>
 </template>
 ```
 
-## Props — AgDSCombobox
+## Props — AGDSCombobox
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -158,9 +158,9 @@ Use the `#item` slot to render rich option content (e.g. a subtitle or badge ben
 | `secondaryLabel` | `string` | — | Text prepended to the secondary label |
 | `emptyResultsMessage` | `string` | `'No options found'` | Shown when no options match |
 
-## Props — AgDSComboboxMulti
+## Props — AGDSComboboxMulti
 
-Identical to `AgDSCombobox` except:
+Identical to `AGDSCombobox` except:
 
 | Difference | Value |
 |---|---|
@@ -188,7 +188,7 @@ Both components emit:
 - Built on Reka UI `ComboboxRoot` — keyboard navigation (arrow keys, Enter, Escape) and ARIA combobox/listbox roles are handled automatically
 - Filtering runs client-side on both `label` and `value` fields; Reka UI's built-in filter is bypassed (`ignoreFilter: true`)
 - The dropdown is teleported to `<body>` via `ComboboxPortal` to escape any `overflow: hidden` containers
-- `AgDSComboboxMulti` maintains an `aria-live="polite"` region that announces add and remove events to screen readers (WCAG 4.1.3)
+- `AGDSComboboxMulti` maintains an `aria-live="polite"` region that announces add and remove events to screen readers (WCAG 4.1.3)
 - `defineExpose({ focus })` is provided for programmatic focus management
 
 ## Changelog

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSButton from './AGDSButton.vue'
+import AGDSButton from './AGDSButton.vue'
 
 // jsdom has no computed styles, so colour-contrast checks will always fail.
 // Disable that rule globally for all component tests — contrast is verified
@@ -16,7 +16,7 @@ function renderButton(
   props: Record<string, unknown> = {},
   slot = 'Submit',
 ) {
-  return render(AgDSButton, {
+  return render(AGDSButton, {
     props,
     slots: { default: slot },
   })
@@ -24,7 +24,7 @@ function renderButton(
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSButton — rendering', () => {
+describe('AGDSButton — rendering', () => {
   it('renders a <button> element', () => {
     const { getByRole } = renderButton()
     expect(getByRole('button')).toBeTruthy()
@@ -36,7 +36,7 @@ describe('AgDSButton — rendering', () => {
   })
 
   it('renders slot HTML content', () => {
-    const { getByText } = render(AgDSButton, {
+    const { getByText } = render(AGDSButton, {
       slots: { default: '<strong>Bold label</strong>' },
     })
     expect(getByText('Bold label')).toBeTruthy()
@@ -45,7 +45,7 @@ describe('AgDSButton — rendering', () => {
 
 // ─── Props: variant ───────────────────────────────────────────────────────────
 
-describe('AgDSButton — variant prop', () => {
+describe('AGDSButton — variant prop', () => {
   it('defaults to primary variant', () => {
     const { getByRole } = renderButton()
     expect(getByRole('button').className).toContain('agds-button--primary')
@@ -62,7 +62,7 @@ describe('AgDSButton — variant prop', () => {
 
 // ─── Props: size ──────────────────────────────────────────────────────────────
 
-describe('AgDSButton — size prop', () => {
+describe('AGDSButton — size prop', () => {
   it('defaults to md size', () => {
     const { getByRole } = renderButton()
     expect(getByRole('button').className).toContain('agds-button--md')
@@ -79,7 +79,7 @@ describe('AgDSButton — size prop', () => {
 
 // ─── Props: type ──────────────────────────────────────────────────────────────
 
-describe('AgDSButton — type prop', () => {
+describe('AGDSButton — type prop', () => {
   it('defaults to type="button"', () => {
     const { getByRole } = renderButton()
     expect(getByRole('button').getAttribute('type')).toBe('button')
@@ -96,7 +96,7 @@ describe('AgDSButton — type prop', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSButton — disabled prop', () => {
+describe('AGDSButton — disabled prop', () => {
   it('is not disabled by default', () => {
     const { getByRole } = renderButton()
     expect((getByRole('button') as HTMLButtonElement).disabled).toBe(false)
@@ -125,7 +125,7 @@ describe('AgDSButton — disabled prop', () => {
 
 // ─── Props: loading ───────────────────────────────────────────────────────────
 
-describe('AgDSButton — loading prop', () => {
+describe('AGDSButton — loading prop', () => {
   it('is not loading by default', () => {
     const { queryByRole } = renderButton()
     // No spinner in DOM
@@ -167,7 +167,7 @@ describe('AgDSButton — loading prop', () => {
 
 // ─── Events ───────────────────────────────────────────────────────────────────
 
-describe('AgDSButton — click event', () => {
+describe('AGDSButton — click event', () => {
   it('emits click when clicked in default state', async () => {
     const { getByRole, emitted } = renderButton()
     await fireEvent.click(getByRole('button'))
@@ -195,7 +195,7 @@ describe('AgDSButton — click event', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSButton — axe accessibility', () => {
+describe('AGDSButton — axe accessibility', () => {
   it('has no violations in default (primary, md) state', async () => {
     const { container } = renderButton()
     await runAxe(container, AXE_OPTS)
@@ -238,7 +238,7 @@ describe('AgDSButton — axe accessibility', () => {
 
   it('has a violation when the button has no accessible name', async () => {
     // Verify our a11y helper correctly catches real violations.
-    const { container } = render(AgDSButton, { slots: { default: '' } })
+    const { container } = render(AGDSButton, { slots: { default: '' } })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })
 })

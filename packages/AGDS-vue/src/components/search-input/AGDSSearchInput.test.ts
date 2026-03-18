@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSSearchInput from './AGDSSearchInput.vue'
+import AGDSSearchInput from './AGDSSearchInput.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,14 +10,14 @@ const AXE_OPTS = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function renderInput(props: Record<string, unknown> = {}) {
-  return render(AgDSSearchInput, {
+  return render(AGDSSearchInput, {
     props: { label: 'Search', ...props },
   })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSSearchInput — rendering', () => {
+describe('AGDSSearchInput — rendering', () => {
   it('renders a search input', () => {
     const { getByRole } = renderInput()
     expect(getByRole('searchbox')).toBeTruthy()
@@ -62,7 +62,7 @@ describe('AgDSSearchInput — rendering', () => {
 
 // ─── Props: disabled ──────────────────────────────────────────────────────────
 
-describe('AgDSSearchInput — disabled prop', () => {
+describe('AGDSSearchInput — disabled prop', () => {
   it('sets the native disabled attribute', () => {
     const { getByRole } = renderInput({ disabled: true })
     expect((getByRole('searchbox') as HTMLInputElement).disabled).toBe(true)
@@ -76,7 +76,7 @@ describe('AgDSSearchInput — disabled prop', () => {
 
 // ─── Clear button ─────────────────────────────────────────────────────────────
 
-describe('AgDSSearchInput — clear button', () => {
+describe('AGDSSearchInput — clear button', () => {
   it('is not shown when the input is empty', () => {
     const { queryByRole } = renderInput({ modelValue: '' })
     expect(queryByRole('button', { name: 'Clear search' })).toBeNull()
@@ -90,8 +90,8 @@ describe('AgDSSearchInput — clear button', () => {
   it('clears the input on click and emits update:modelValue', async () => {
     // Use v-model binding so the parent propagates the empty value back
     const { getByRole, queryByRole, emitted } = render({
-      components: { AgDSSearchInput },
-      template: `<AgDSSearchInput v-model="query" label="Search" />`,
+      components: { AGDSSearchInput },
+      template: `<AGDSSearchInput v-model="query" label="Search" />`,
       data() { return { query: 'hello' } },
     })
     await fireEvent.click(getByRole('button', { name: 'Clear search' }))
@@ -100,7 +100,7 @@ describe('AgDSSearchInput — clear button', () => {
   })
 
   it('emits "clear" on click', async () => {
-    const { getByRole, emitted } = render(AgDSSearchInput, {
+    const { getByRole, emitted } = render(AGDSSearchInput, {
       props: { label: 'Search', modelValue: 'hello' },
     })
     await fireEvent.click(getByRole('button', { name: 'Clear search' }))
@@ -118,9 +118,9 @@ describe('AgDSSearchInput — clear button', () => {
 
 // ─── Keyboard: Escape clears ──────────────────────────────────────────────────
 
-describe('AgDSSearchInput — Escape key', () => {
+describe('AGDSSearchInput — Escape key', () => {
   it('clears the input when Escape is pressed', async () => {
-    const { getByRole, emitted } = render(AgDSSearchInput, {
+    const { getByRole, emitted } = render(AGDSSearchInput, {
       props: { label: 'Search', modelValue: 'vue3' },
     })
     await fireEvent.keyDown(getByRole('searchbox'), { code: 'Escape' })
@@ -129,7 +129,7 @@ describe('AgDSSearchInput — Escape key', () => {
   })
 
   it('does nothing on Escape when the input is already empty', async () => {
-    const { getByRole, emitted } = render(AgDSSearchInput, {
+    const { getByRole, emitted } = render(AGDSSearchInput, {
       props: { label: 'Search', modelValue: '' },
     })
     await fireEvent.keyDown(getByRole('searchbox'), { code: 'Escape' })
@@ -139,7 +139,7 @@ describe('AgDSSearchInput — Escape key', () => {
 
 // ─── v-model ──────────────────────────────────────────────────────────────────
 
-describe('AgDSSearchInput — v-model', () => {
+describe('AGDSSearchInput — v-model', () => {
   it('reflects modelValue in the input', () => {
     const { getByRole } = renderInput({ modelValue: 'government' })
     expect((getByRole('searchbox') as HTMLInputElement).value).toBe('government')
@@ -154,7 +154,7 @@ describe('AgDSSearchInput — v-model', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSSearchInput — axe accessibility', () => {
+describe('AGDSSearchInput — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderInput()
     await runAxe(container, AXE_OPTS)

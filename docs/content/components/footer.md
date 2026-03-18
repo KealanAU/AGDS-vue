@@ -7,28 +7,28 @@ status: stable
 
 ## Usage
 
-`AgDSFooter` is a layout shell — place your own content inside its default slot.
+`AGDSFooter` is a layout shell — place your own content inside its default slot.
 
 ```vue
 <template>
-  <AgDSFooter>
+  <AGDSFooter>
     <p>
       <a href="/privacy">Privacy</a> ·
       <a href="/accessibility">Accessibility</a> ·
       <a href="/contact">Contact</a>
     </p>
     <p>© Commonwealth of Australia</p>
-  </AgDSFooter>
+  </AGDSFooter>
 </template>
 ```
 
 ## With a divider
 
-Use `AgDSFooterDivider` to separate footer sections visually.
+Use `AGDSFooterDivider` to separate footer sections visually.
 
 ```vue
 <template>
-  <AgDSFooter>
+  <AGDSFooter>
     <nav aria-label="Footer">
       <ul>
         <li><a href="/privacy">Privacy</a></li>
@@ -36,10 +36,10 @@ Use `AgDSFooterDivider` to separate footer sections visually.
       </ul>
     </nav>
 
-    <AgDSFooterDivider />
+    <AGDSFooterDivider />
 
     <p>© Commonwealth of Australia</p>
-  </AgDSFooter>
+  </AGDSFooter>
 </template>
 ```
 
@@ -49,26 +49,26 @@ Use `background="bodyAlt"` when the footer sits on an off-white surface.
 
 ```vue
 <template>
-  <AgDSFooter background="bodyAlt">
+  <AGDSFooter background="bodyAlt">
     <p>Footer content</p>
-  </AgDSFooter>
+  </AGDSFooter>
 </template>
 ```
 
-## Props — AgDSFooter
+## Props — AGDSFooter
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `background` | `'body' \| 'bodyAlt'` | `'body'` | Background colour of the footer surface |
 | `maxWidth` | `'container' \| 'containerLg'` | `'container'` | Maximum width of the inner container |
 
-## Props — AgDSFooterDivider
+## Props — AGDSFooterDivider
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `color` | `'accent' \| 'muted'` | `'accent'` | Colour of the divider line |
 
-## Slots — AgDSFooter
+## Slots — AGDSFooter
 
 | Slot | Description |
 |------|-------------|
@@ -77,11 +77,11 @@ Use `background="bodyAlt"` when the footer sits on an off-white surface.
 ## Accessibility
 
 - Renders as a `<footer>` element which provides the `contentinfo` landmark
-- `AgDSFooterDivider` renders as `<hr aria-hidden="true">` — decorative only
+- `AGDSFooterDivider` renders as `<hr aria-hidden="true">` — decorative only
 - Place navigation links inside a `<nav aria-label="Footer">` to create a distinct landmark
 
 ## Changelog
 
 ### 0.1.0
 
-- Initial release — `AgDSFooter` (background, maxWidth), `AgDSFooterDivider` (color)
+- Initial release — `AGDSFooter` (background, maxWidth), `AGDSFooterDivider` (color)

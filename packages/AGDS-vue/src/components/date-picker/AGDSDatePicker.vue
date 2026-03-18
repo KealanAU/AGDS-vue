@@ -127,7 +127,7 @@ function getCalendarDefaultMonth(
 
 // ── Props ────────────────────────────────────────────────────────────────────
 
-export interface AgDSDatePickerProps {
+export interface AGDSDatePickerProps {
   /**
    * When `true`, the component shows two date inputs (start + end) and
    * `modelValue` must be `{ from: Date | null; to: Date | null }`.
@@ -181,7 +181,7 @@ export interface AgDSDatePickerProps {
   dateFormat?: string
 }
 
-const props = withDefaults(defineProps<AgDSDatePickerProps>(), {
+const props = withDefaults(defineProps<AGDSDatePickerProps>(), {
   range: false,
   modelValue: null,
   label: undefined,

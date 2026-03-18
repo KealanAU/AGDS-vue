@@ -1,1 +1,1 @@
-export { default as AgDSProgressIndicator } from './AGDSProgressIndicator.vue';
+export { default as AGDSProgressIndicator } from './AGDSProgressIndicator.vue';

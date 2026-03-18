@@ -1,1 +1,1 @@
-export { default as AgDSSideNav } from './AGDSSideNav.vue';
+export { default as AGDSSideNav } from './AGDSSideNav.vue';

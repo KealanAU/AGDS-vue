@@ -1,1 +1,1 @@
-export { default as AgDSGlobalAlert } from './AGDSGlobalAlert.vue';
+export { default as AGDSGlobalAlert } from './AGDSGlobalAlert.vue';

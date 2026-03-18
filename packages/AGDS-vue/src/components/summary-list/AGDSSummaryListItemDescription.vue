@@ -4,7 +4,7 @@
  * Must follow SummaryListItemTerm inside SummaryListItem.
  * Renders a `<dd>` (description details).
  */
-export interface AgDSSummaryListItemDescriptionProps {}
+export interface AGDSSummaryListItemDescriptionProps {}
 </script>
 
 <template>

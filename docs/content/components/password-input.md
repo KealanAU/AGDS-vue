@@ -1,6 +1,6 @@
 ---
 title: Password Input
-description: A password field with a show/hide toggle checkbox. Wraps AgDSField for standard label, hint, and error message layout.
+description: A password field with a show/hide toggle checkbox. Wraps AGDSField for standard label, hint, and error message layout.
 category: Forms
 status: stable
 ---
@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`. A "Show password" checkbox appears below the field and toggles between `type="password"` and `type="text"`.
 
 ::doc-preview
-<AgDSPasswordInput label="Password" required />
+<AGDSPasswordInput label="Password" required />
 ::
 
 ```vue
@@ -20,7 +20,7 @@ const password = ref('')
 </script>
 
 <template>
-  <AgDSPasswordInput v-model="password" label="Password" required />
+  <AGDSPasswordInput v-model="password" label="Password" required />
 </template>
 ```
 
@@ -29,12 +29,12 @@ const password = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AgDSPasswordInput label="New password" hint="Must be at least 8 characters and include a number" required />
+<AGDSPasswordInput label="New password" hint="Must be at least 8 characters and include a number" required />
 ::
 
 ```vue
 <template>
-  <AgDSPasswordInput
+  <AGDSPasswordInput
     v-model="password"
     label="New password"
     hint="Must be at least 8 characters and include a number"
@@ -48,12 +48,12 @@ Use the `hint` prop to provide additional guidance beneath the label.
 Set `invalid` and `message` together to render the error treatment.
 
 ::doc-preview{label="Invalid"}
-<AgDSPasswordInput label="Password" :invalid="true" message="Password must be at least 8 characters" required />
+<AGDSPasswordInput label="Password" :invalid="true" message="Password must be at least 8 characters" required />
 ::
 
 ```vue
 <template>
-  <AgDSPasswordInput
+  <AGDSPasswordInput
     v-model="password"
     label="Password"
     :invalid="hasError"
@@ -66,12 +66,12 @@ Set `invalid` and `message` together to render the error treatment.
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AgDSPasswordInput label="Password" disabled required />
+<AGDSPasswordInput label="Password" disabled required />
 ::
 
 ```vue
 <template>
-  <AgDSPasswordInput v-model="password" label="Password" disabled required />
+  <AGDSPasswordInput v-model="password" label="Password" disabled required />
 </template>
 ```
 
@@ -80,14 +80,14 @@ Set `invalid` and `message` together to render the error treatment.
 Use `maxWidth` to constrain the field width.
 
 ::doc-preview{label="Max widths"}
-<AgDSPasswordInput label="Medium (default)" max-width="md" required />
-<AgDSPasswordInput label="Large" max-width="lg" required />
-<AgDSPasswordInput label="Extra large" max-width="xl" required />
+<AGDSPasswordInput label="Medium (default)" max-width="md" required />
+<AGDSPasswordInput label="Large" max-width="lg" required />
+<AGDSPasswordInput label="Extra large" max-width="xl" required />
 ::
 
 ```vue
 <template>
-  <AgDSPasswordInput v-model="password" label="Password" max-width="lg" required />
+  <AGDSPasswordInput v-model="password" label="Password" max-width="lg" required />
 </template>
 ```
 
@@ -96,7 +96,7 @@ Use `maxWidth` to constrain the field width.
 Set `block` to stretch the input to the full width of its container.
 
 ::doc-preview{label="Block"}
-<AgDSPasswordInput label="Password" block required />
+<AGDSPasswordInput label="Password" block required />
 ::
 
 ---

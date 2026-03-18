@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSAvatar from './AGDSAvatar.vue'
+import AGDSAvatar from './AGDSAvatar.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -13,12 +13,12 @@ function renderAvatar(
   props: Record<string, unknown> = {},
   attrs: Record<string, unknown> = {},
 ) {
-  return render(AgDSAvatar, { props, attrs })
+  return render(AGDSAvatar, { props, attrs })
 }
 
 // ─── Initials derivation ──────────────────────────────────────────────────────
 
-describe('AgDSAvatar — initials', () => {
+describe('AGDSAvatar — initials', () => {
   it('shows first and last initials for a two-word name', () => {
     const { getByRole } = renderAvatar({ name: 'Jane Doe' })
     expect(getByRole('img').textContent).toBe('JD')
@@ -48,7 +48,7 @@ describe('AgDSAvatar — initials', () => {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSAvatar — rendering', () => {
+describe('AGDSAvatar — rendering', () => {
   it('renders a <span> element', () => {
     const { container } = renderAvatar({ name: 'Jane Doe' })
     expect(container.querySelector('span.agds-avatar')).toBeTruthy()
@@ -72,7 +72,7 @@ describe('AgDSAvatar — rendering', () => {
 
 // ─── Props: tone ─────────────────────────────────────────────────────────────
 
-describe('AgDSAvatar — tone prop', () => {
+describe('AGDSAvatar — tone prop', () => {
   it('defaults to neutral tone', () => {
     const { container } = renderAvatar({ name: 'Jane Doe' })
     expect(container.querySelector('.agds-avatar--neutral')).toBeTruthy()
@@ -89,7 +89,7 @@ describe('AgDSAvatar — tone prop', () => {
 
 // ─── Props: size ─────────────────────────────────────────────────────────────
 
-describe('AgDSAvatar — size prop', () => {
+describe('AGDSAvatar — size prop', () => {
   it('defaults to md size', () => {
     const { container } = renderAvatar({ name: 'Jane Doe' })
     expect(container.querySelector('.agds-avatar--md')).toBeTruthy()
@@ -106,7 +106,7 @@ describe('AgDSAvatar — size prop', () => {
 
 // ─── aria-hidden ─────────────────────────────────────────────────────────────
 
-describe('AgDSAvatar — aria-hidden', () => {
+describe('AGDSAvatar — aria-hidden', () => {
   it('sets aria-hidden="true" and removes role when aria-hidden="true"', () => {
     const { container } = renderAvatar({ name: 'Jane Doe' }, { 'aria-hidden': 'true' })
     const el = container.querySelector('.agds-avatar')!
@@ -124,7 +124,7 @@ describe('AgDSAvatar — aria-hidden', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSAvatar — axe accessibility', () => {
+describe('AGDSAvatar — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderAvatar({ name: 'Jane Doe' })
     await runAxe(container, AXE_OPTS)

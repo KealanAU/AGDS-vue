@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSDetails from './AGDSDetails.vue'
+import AGDSDetails from './AGDSDetails.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -13,7 +13,7 @@ function renderDetails(
   props: Record<string, unknown> = {},
   slot = '<p>Detail content</p>',
 ) {
-  return render(AgDSDetails, {
+  return render(AGDSDetails, {
     props: { label: 'More information', ...props },
     slots: { default: slot },
   })
@@ -21,7 +21,7 @@ function renderDetails(
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSDetails — rendering', () => {
+describe('AGDSDetails — rendering', () => {
   it('renders a <details> element', () => {
     const { container } = renderDetails()
     expect(container.querySelector('details.agds-details')).toBeTruthy()
@@ -45,7 +45,7 @@ describe('AgDSDetails — rendering', () => {
 
 // ─── Props: label ─────────────────────────────────────────────────────────────
 
-describe('AgDSDetails — label prop', () => {
+describe('AGDSDetails — label prop', () => {
   it('renders the provided label text', () => {
     const { getByText } = renderDetails({ label: 'Show details' })
     expect(getByText('Show details')).toBeTruthy()
@@ -54,7 +54,7 @@ describe('AgDSDetails — label prop', () => {
 
 // ─── Props: iconBefore ────────────────────────────────────────────────────────
 
-describe('AgDSDetails — iconBefore prop', () => {
+describe('AGDSDetails — iconBefore prop', () => {
   it('does not render the icon by default', () => {
     const { container } = renderDetails()
     expect(container.querySelector('.agds-details__icon-before')).toBeNull()
@@ -81,7 +81,7 @@ describe('AgDSDetails — iconBefore prop', () => {
 
 // ─── Props: onBodyAlt ─────────────────────────────────────────────────────────
 
-describe('AgDSDetails — onBodyAlt prop', () => {
+describe('AGDSDetails — onBodyAlt prop', () => {
   it('does not apply body-alt class by default', () => {
     const { container } = renderDetails()
     expect(container.querySelector('.agds-details__content--body-alt')).toBeNull()
@@ -95,7 +95,7 @@ describe('AgDSDetails — onBodyAlt prop', () => {
 
 // ─── Chevron ──────────────────────────────────────────────────────────────────
 
-describe('AgDSDetails — chevron', () => {
+describe('AGDSDetails — chevron', () => {
   it('renders a chevron SVG', () => {
     const { container } = renderDetails()
     expect(container.querySelector('.agds-details__chevron')).toBeTruthy()
@@ -110,7 +110,7 @@ describe('AgDSDetails — chevron', () => {
 
 // ─── Semantics ────────────────────────────────────────────────────────────────
 
-describe('AgDSDetails — semantics', () => {
+describe('AGDSDetails — semantics', () => {
   it('summary is a <summary> element', () => {
     const { container } = renderDetails()
     expect(container.querySelector('details > summary')).toBeTruthy()
@@ -125,7 +125,7 @@ describe('AgDSDetails — semantics', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSDetails — axe accessibility', () => {
+describe('AGDSDetails — axe accessibility', () => {
   it('has no violations with default props', async () => {
     const { container } = renderDetails()
     await runAxe(container, AXE_OPTS)

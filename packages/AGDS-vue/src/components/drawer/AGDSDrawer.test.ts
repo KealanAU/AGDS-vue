@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
 import { ref, nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
-import AgDSDrawer from './AGDSDrawer.vue'
+import AGDSDrawer from './AGDSDrawer.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -28,9 +28,9 @@ function renderDrawer(options: {
   } = options
 
   return render({
-    components: { AgDSDrawer },
+    components: { AGDSDrawer },
     template: `
-      <AgDSDrawer
+      <AGDSDrawer
         v-model="open"
         :title="title"
         :width="width"
@@ -38,7 +38,7 @@ function renderDrawer(options: {
       >
         ${bodySlot}
         ${showActions ? '<template #actions><button type="button">Save</button></template>' : ''}
-      </AgDSDrawer>
+      </AGDSDrawer>
     `,
     setup: () => {
       const open = ref(initialOpen)
@@ -53,7 +53,7 @@ afterEach(() => {
 
 // ── Rendering ─────────────────────────────────────────────────────────────────
 
-describe('AgDSDrawer — rendering', () => {
+describe('AGDSDrawer — rendering', () => {
   it('renders the dialog when modelValue is true', () => {
     renderDrawer()
     expect(screen.getByRole('dialog')).toBeTruthy()
@@ -107,7 +107,7 @@ describe('AgDSDrawer — rendering', () => {
 
 // ── Semantics ─────────────────────────────────────────────────────────────────
 
-describe('AgDSDrawer — semantics', () => {
+describe('AGDSDrawer — semantics', () => {
   it('dialog has role="dialog"', () => {
     renderDrawer()
     expect(screen.getByRole('dialog').getAttribute('role')).toBe('dialog')
@@ -146,7 +146,7 @@ describe('AgDSDrawer — semantics', () => {
 
 // ── Open / close behaviour ────────────────────────────────────────────────────
 
-describe('AgDSDrawer — open/close behaviour', () => {
+describe('AGDSDrawer — open/close behaviour', () => {
   it('close button closes the drawer', async () => {
     renderDrawer()
     await fireEvent.click(screen.getByRole('button', { name: 'Close' }))
@@ -194,7 +194,7 @@ describe('AgDSDrawer — open/close behaviour', () => {
 
 // ── Focus trap ────────────────────────────────────────────────────────────────
 
-describe('AgDSDrawer — focus trap', () => {
+describe('AGDSDrawer — focus trap', () => {
   it('Tab wraps from last to first focusable element', async () => {
     renderDrawer({ showActions: true })
     const dialog = screen.getByRole('dialog')
@@ -226,7 +226,7 @@ describe('AgDSDrawer — focus trap', () => {
 
 // ── Axe accessibility ─────────────────────────────────────────────────────────
 
-describe('AgDSDrawer — axe', () => {
+describe('AGDSDrawer — axe', () => {
   it('has no violations when open with body content', async () => {
     renderDrawer()
     await runAxe(document.body, AXE_OPTS)
@@ -249,8 +249,8 @@ describe('AgDSDrawer — axe', () => {
 
   it('detects a violation when the dialog has no accessible name', async () => {
     render({
-      components: { AgDSDrawer },
-      template: `<AgDSDrawer :model-value="true" title="">Content</AgDSDrawer>`,
+      components: { AGDSDrawer },
+      template: `<AGDSDrawer :model-value="true" title="">Content</AGDSDrawer>`,
     })
     await expect(runAxe(document.body, AXE_OPTS)).rejects.toThrow()
   })

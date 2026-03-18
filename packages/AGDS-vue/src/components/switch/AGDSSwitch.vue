@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 
 export type SwitchSize = 'sm' | 'md'
 
-export interface AgDSSwitchProps {
+export interface AGDSSwitchProps {
   /** The id of the input — auto-generated if not provided */
   id?: string
   /** The name of the input */
@@ -20,7 +20,7 @@ export interface AgDSSwitchProps {
   size?: SwitchSize
 }
 
-const props = withDefaults(defineProps<AgDSSwitchProps>(), {
+const props = withDefaults(defineProps<AGDSSwitchProps>(), {
   size: 'md',
   disabled: false,
   invalid: false,

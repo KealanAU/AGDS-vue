@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SideNavItem } from './utils'
 import { hasSubLevelActiveItem } from './utils'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
 interface Props {
   items: SideNavItem[]
@@ -81,7 +81,7 @@ function hasSubIndicator(item: SideNavItem): boolean {
 
         <span class="agds-side-nav__link-label">{{ item.label }}</span>
 
-        <AgDSIcon
+        <AGDSIcon
           v-if="hasSubIndicator(item)"
           name="mdi:chevron-right"
           :size="depth > 1 ? 'sm' : 'md'"

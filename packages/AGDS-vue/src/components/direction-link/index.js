@@ -1,2 +1,2 @@
-export { default as AgDSDirectionLink } from './AGDSDirectionLink.vue';
-export { default as AgDSDirectionButton } from './AGDSDirectionButton.vue';
+export { default as AGDSDirectionLink } from './AGDSDirectionLink.vue';
+export { default as AGDSDirectionButton } from './AGDSDirectionButton.vue';

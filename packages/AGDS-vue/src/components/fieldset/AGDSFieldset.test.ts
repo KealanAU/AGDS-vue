@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSFieldset from './AGDSFieldset.vue'
+import AGDSFieldset from './AGDSFieldset.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -12,7 +12,7 @@ const AXE_OPTS = {
 const LABELLED_SLOT = '<label for="street">Street</label><input id="street" type="text" />'
 
 function renderFieldset(props: Record<string, unknown> = {}, slot = '') {
-  return render(AgDSFieldset, {
+  return render(AGDSFieldset, {
     props: { legend: 'Delivery address', ...props },
     slots: { default: slot || LABELLED_SLOT },
   })
@@ -20,7 +20,7 @@ function renderFieldset(props: Record<string, unknown> = {}, slot = '') {
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSFieldset — rendering', () => {
+describe('AGDSFieldset — rendering', () => {
   it('renders a legend', () => {
     const { getByText } = renderFieldset()
     expect(getByText('Delivery address')).toBeTruthy()
@@ -56,7 +56,7 @@ describe('AgDSFieldset — rendering', () => {
 
 // ─── ARIA ────────────────────────────────────────────────────────────────────
 
-describe('AgDSFieldset — aria attributes', () => {
+describe('AGDSFieldset — aria attributes', () => {
   it('sets aria-describedby referencing the hint id when hint is provided', () => {
     const { container } = renderFieldset({ hint: 'Some hint' })
     const fieldset = container.querySelector('fieldset')
@@ -73,7 +73,7 @@ describe('AgDSFieldset — aria attributes', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSFieldset — axe accessibility', () => {
+describe('AGDSFieldset — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderFieldset()
     await runAxe(container, AXE_OPTS)

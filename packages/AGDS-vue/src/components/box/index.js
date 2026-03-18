@@ -1,1 +1,1 @@
-export { default as AgDSBox } from './AGDSBox.vue';
+export { default as AGDSBox } from './AGDSBox.vue';

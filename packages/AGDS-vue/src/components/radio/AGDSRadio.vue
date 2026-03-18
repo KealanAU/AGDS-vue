@@ -4,7 +4,7 @@ import { RADIO_GROUP_KEY } from './radioGroupContext'
 
 export type RadioSize = 'sm' | 'md'
 
-export interface AgDSRadioProps {
+export interface AGDSRadioProps {
   /** The id of the input — auto-generated if not provided */
   id?: string
   /** The name of the input — can be provided by a parent RadioGroup */
@@ -23,7 +23,7 @@ export interface AgDSRadioProps {
   size?: RadioSize
 }
 
-const props = withDefaults(defineProps<AgDSRadioProps>(), {
+const props = withDefaults(defineProps<AGDSRadioProps>(), {
   size: 'md',
   disabled: false,
   invalid: false,
@@ -43,7 +43,7 @@ let _idCounter = 0
 const autoId = `agds-radio-${++_idCounter}`
 const inputId = computed(() => props.id ?? autoId)
 
-// ── Group context (provided by AgDSRadioGroup) ─────────────────────────────
+// ── Group context (provided by AGDSRadioGroup) ─────────────────────────────
 
 const group = inject(RADIO_GROUP_KEY, null)
 

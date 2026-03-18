@@ -1,7 +1,7 @@
 import { computed, getCurrentInstance, ref } from 'vue';
 import AGDSField from '../field/AGDSField.vue';
 import AGDSCheckbox from '../checkbox/AGDSCheckbox.vue';
-import AgDSStack from '../stack/AGDSStack.vue';
+import AGDSStack from '../stack/AGDSStack.vue';
 const props = withDefaults(defineProps(), {
     invalid: false,
     required: false,
@@ -48,7 +48,7 @@ let __VLS_directives;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
-const __VLS_0 = AgDSStack || AgDSStack;
+const __VLS_0 = AGDSStack || AGDSStack;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
     gap: (1),

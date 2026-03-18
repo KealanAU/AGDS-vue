@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import AgDSButton from './AGDSButton.vue'
+import AGDSButton from './AGDSButton.vue'
 import type { ButtonSize, ButtonVariant } from './AGDSButton.vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
-export interface AgDSToggleButtonProps {
+export interface AGDSToggleButtonProps {
   /** The current pressed state of the button. */
   pressed: boolean
   /** The label shown in the default (unpressed) state. */
@@ -25,7 +25,7 @@ const ICON_MAP = {
   star: { false: 'mdi:star-outline', true: 'mdi:star' },
 } as const
 
-const props = withDefaults(defineProps<AgDSToggleButtonProps>(), {
+const props = withDefaults(defineProps<AGDSToggleButtonProps>(), {
   hiddenLabel: false,
   iconType: 'flag',
   size: 'md',
@@ -37,7 +37,7 @@ const emit = defineEmits<{
   'update:pressed': [value: boolean]
 }>()
 
-const buttonRef = ref<InstanceType<typeof AgDSButton> | null>(null)
+const buttonRef = ref<InstanceType<typeof AGDSButton> | null>(null)
 
 defineExpose({ focus: () => buttonRef.value?.focus() })
 
@@ -57,7 +57,7 @@ function handleClick() {
 </script>
 
 <template>
-  <AgDSButton
+  <AGDSButton
     ref="buttonRef"
     type="button"
     :size="props.size"
@@ -68,10 +68,10 @@ function handleClick() {
     @click="handleClick"
   >
     <template #iconBefore>
-      <AgDSIcon :name="iconName" aria-hidden="true" />
+      <AGDSIcon :name="iconName" aria-hidden="true" />
     </template>
     <template v-if="!props.hiddenLabel" #default>
       {{ resolvedLabel }}
     </template>
-  </AgDSButton>
+  </AGDSButton>
 </template>

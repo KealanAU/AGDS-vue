@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`. The field renders with a search icon, standard label, hint, and error message layout.
 
 ::doc-preview
-<AgDSSearchInput label="Search" required />
+<AGDSSearchInput label="Search" required />
 ::
 
 ```vue
@@ -21,7 +21,7 @@ const query = ref('')
 </script>
 
 <template>
-  <AgDSSearchInput v-model="query" label="Search" required />
+  <AGDSSearchInput v-model="query" label="Search" required />
 </template>
 ```
 
@@ -30,12 +30,12 @@ const query = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AgDSSearchInput label="Search legislation" hint="Enter an act name, number, or keyword" required />
+<AGDSSearchInput label="Search legislation" hint="Enter an act name, number, or keyword" required />
 ::
 
 ```vue
 <template>
-  <AgDSSearchInput
+  <AGDSSearchInput
     v-model="query"
     label="Search legislation"
     hint="Enter an act name, number, or keyword"
@@ -49,12 +49,12 @@ Use the `hint` prop to provide additional guidance beneath the label.
 Set `invalid` and `message` together to render the error treatment. The message is linked via `aria-describedby`.
 
 ::doc-preview{label="Invalid"}
-<AgDSSearchInput label="Search" :invalid="true" message="Enter a search term to continue" required />
+<AGDSSearchInput label="Search" :invalid="true" message="Enter a search term to continue" required />
 ::
 
 ```vue
 <template>
-  <AgDSSearchInput
+  <AGDSSearchInput
     v-model="query"
     label="Search"
     :invalid="hasError"
@@ -67,12 +67,12 @@ Set `invalid` and `message` together to render the error treatment. The message 
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AgDSSearchInput label="Search" disabled required />
+<AGDSSearchInput label="Search" disabled required />
 ::
 
 ```vue
 <template>
-  <AgDSSearchInput v-model="query" label="Search" disabled required />
+  <AGDSSearchInput v-model="query" label="Search" disabled required />
 </template>
 ```
 
@@ -81,14 +81,14 @@ Set `invalid` and `message` together to render the error treatment. The message 
 Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to `md`.
 
 ::doc-preview{label="Max widths"}
-<AgDSSearchInput label="Medium (default)" max-width="md" required />
-<AgDSSearchInput label="Large" max-width="lg" required />
-<AgDSSearchInput label="Extra large" max-width="xl" required />
+<AGDSSearchInput label="Medium (default)" max-width="md" required />
+<AGDSSearchInput label="Large" max-width="lg" required />
+<AGDSSearchInput label="Extra large" max-width="xl" required />
 ::
 
 ```vue
 <template>
-  <AgDSSearchInput v-model="query" label="Search" max-width="lg" required />
+  <AGDSSearchInput v-model="query" label="Search" max-width="lg" required />
 </template>
 ```
 
@@ -97,12 +97,12 @@ Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to
 Set `block` to stretch the input to the full width of its container. Overrides `maxWidth`.
 
 ::doc-preview{label="Block"}
-<AgDSSearchInput label="Search" block required />
+<AGDSSearchInput label="Search" block required />
 ::
 
 ```vue
 <template>
-  <AgDSSearchInput v-model="query" label="Search" block required />
+  <AGDSSearchInput v-model="query" label="Search" block required />
 </template>
 ```
 
@@ -113,7 +113,7 @@ A clear button appears automatically when the input has a value. Clicking it cle
 The clear button is a `<div role="button">` intentionally excluded from the Tab order — keyboard users clear via the `Escape` key, keeping the Tab sequence uncluttered.
 
 ::doc-preview{label="Clear button visible"}
-<AgDSSearchInput label="Search" :model-value="'climate change'" required />
+<AGDSSearchInput label="Search" :model-value="'climate change'" required />
 ::
 
 ```vue
@@ -128,7 +128,7 @@ function onClear() {
 </script>
 
 <template>
-  <AgDSSearchInput
+  <AGDSSearchInput
     v-model="query"
     label="Filter results"
     required
@@ -142,10 +142,10 @@ function onClear() {
 | | `SearchInput` | `SearchBox` |
 |---|---|---|
 | Purpose | Filter / search-as-you-type within page content | Sitewide or section search bar in a header |
-| Layout | `AgDSField` wrapper — label, hint, error message | Composable — `Input` + `Button` components |
-| Submit | No submit button — reacts to input events | Paired with `AgDSSearchBoxButton` (`type="submit"`) |
+| Layout | `AGDSField` wrapper — label, hint, error message | Composable — `Input` + `Button` components |
+| Submit | No submit button — reacts to input events | Paired with `AGDSSearchBoxButton` (`type="submit"`) |
 | Clear | `Escape` key + non-Tab-focusable `div[role="button"]` | Tab-focusable `<button>` |
-| Search landmark | Not required | Provided by `AgDSSearchBox` (`role="search"`) |
+| Search landmark | Not required | Provided by `AGDSSearchBox` (`role="search"`) |
 
 ---
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { AgDSSideNav } from 'agds-vue'
+import { AGDSSideNav } from 'agds-vue'
 import type { SideNavItem } from 'agds-vue'
 
 const props = defineProps<{
@@ -36,7 +36,7 @@ const subLevelVisible = computed(() => (props.variant === 'always' ? 'always' : 
 
 <template>
   <div style="max-width: 320px">
-    <AgDSSideNav
+    <AGDSSideNav
       :active-path="activePath"
       title="Services"
       title-link="/services"

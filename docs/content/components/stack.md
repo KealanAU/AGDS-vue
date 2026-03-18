@@ -1,29 +1,29 @@
 ---
 title: Stack
-description: A vertical flex layout primitive. Renders a column flex container — a shorthand for AgDSFlex with flex-direction set to column.
+description: A vertical flex layout primitive. Renders a column flex container — a shorthand for AGDSFlex with flex-direction set to column.
 category: Foundations
 status: stable
 ---
 
 ## Usage
 
-`AgDSStack` renders a `<div>` as a vertical flex column. Use it to stack children with consistent spacing.
+`AGDSStack` renders a `<div>` as a vertical flex column. Use it to stack children with consistent spacing.
 
 ::doc-preview
-<AgDSStack gap="3">
+<AGDSStack gap="3">
   <span>First</span>
   <span>Second</span>
   <span>Third</span>
-</AgDSStack>
+</AGDSStack>
 ::
 
 ```vue
 <template>
-  <AgDSStack gap="3">
+  <AGDSStack gap="3">
     <span>First</span>
     <span>Second</span>
     <span>Third</span>
-  </AgDSStack>
+  </AGDSStack>
 </template>
 ```
 
@@ -32,18 +32,18 @@ status: stable
 Use `alignItems` to align children on the cross axis.
 
 ::doc-preview{label="Centred items"}
-<AgDSStack gap="2" alignItems="center">
+<AGDSStack gap="2" alignItems="center">
   <span>Short</span>
   <span>A longer item</span>
-</AgDSStack>
+</AGDSStack>
 ::
 
 ```vue
 <template>
-  <AgDSStack gap="2" alignItems="center">
+  <AGDSStack gap="2" alignItems="center">
     <span>Short</span>
     <span>A longer item</span>
-  </AgDSStack>
+  </AGDSStack>
 </template>
 ```
 
@@ -54,15 +54,15 @@ Numeric values for `gap` and padding props map to `var(--agds-space-{n})`.
 ```vue
 <template>
   <!-- gap="4" → var(--agds-space-4) -->
-  <AgDSStack gap="4" paddingX="6">
+  <AGDSStack gap="4" paddingX="6">
     <span>Item</span>
-  </AgDSStack>
+  </AGDSStack>
 </template>
 ```
 
 ## Props
 
-`AgDSStack` extends all `AgDSFlex` props except `flexDirection` and `inline`. The direction is always `column`.
+`AGDSStack` extends all `AGDSFlex` props except `flexDirection` and `inline`. The direction is always `column`.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -82,10 +82,10 @@ Numeric values for `gap` and padding props map to `var(--agds-space-{n})`.
 
 ## Accessibility
 
-`AgDSStack` is a transparent layout primitive with no implicit ARIA role. Use the `as` prop to render a semantically appropriate element where needed.
+`AGDSStack` is a transparent layout primitive with no implicit ARIA role. Use the `as` prop to render a semantically appropriate element where needed.
 
 ## Changelog
 
 ### 0.1.0
 
-- Initial release — vertical flex column shorthand over `AgDSFlex`
+- Initial release — vertical flex column shorthand over `AGDSFlex`

@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import AgDSIcon from '../icon/AGDSIcon.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const props = withDefaults(defineProps(), {
     disabled: false,
     loading: false,
@@ -84,7 +84,7 @@ __VLS_asFunctionalElement1(__VLS_intrinsics.span, __VLS_intrinsics.span)({
 /** @type {__VLS_StyleScopedClasses['agds-cta__label']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-cta__label--hidden']} */ ;
 var __VLS_0 = {};
-const __VLS_2 = AgDSIcon;
+const __VLS_2 = AGDSIcon;
 // @ts-ignore
 const __VLS_3 = __VLS_asFunctionalComponent1(__VLS_2, new __VLS_2({
     name: "mdi:chevron-right",

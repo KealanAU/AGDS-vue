@@ -1,1 +1,75 @@
-import{AgDSFilterSidebar as c}from"./CQR9mWth.js";import{e as d,k as l,o as b,c as p,b as m,w as u,a as e,d as a,u as y}from"./Czyq2uHh.js";const f={style:{"max-width":"320px"}},v=d({__name:"FilterSidebarDemo",props:{variant:{}},setup(o){const t=o,r=l(t.variant==="active"?3:0),n=l(t.variant==="clear"||t.variant==="active");function s(){r.value=0}return(g,i)=>(b(),p("div",f,[m(y(c),{"active-filters-count":r.value,"show-clear-filters":n.value,background:o.variant==="bodyAlt"?"bodyAlt":"body",onClearFilters:s},{default:u(()=>[...i[0]||(i[0]=[e("fieldset",{style:{border:"none",padding:"0",margin:"0"}},[e("legend",{style:{"font-weight":"bold","margin-bottom":"8px"}},"Category"),e("label",{style:{display:"block","margin-bottom":"4px"}},[e("input",{type:"checkbox"}),a(" News ")]),e("label",{style:{display:"block","margin-bottom":"4px"}},[e("input",{type:"checkbox"}),a(" Grants ")]),e("label",{style:{display:"block"}},[e("input",{type:"checkbox"}),a(" Publications ")])],-1)])]),_:1},8,["active-filters-count","show-clear-filters","background"])]))}}),h=Object.assign(v,{__name:"FilterSidebarDemo"});export{h as default};
+import { AgDSFilterSidebar as c } from './CQR9mWth.js'
+import {
+  e as d,
+  k as l,
+  o as b,
+  c as p,
+  b as m,
+  w as u,
+  a as e,
+  d as a,
+  u as y,
+} from './Czyq2uHh.js'
+const f = { style: { 'max-width': '320px' } },
+  v = d({
+    __name: 'FilterSidebarDemo',
+    props: { variant: {} },
+    setup(o) {
+      const t = o,
+        r = l(t.variant === 'active' ? 3 : 0),
+        n = l(t.variant === 'clear' || t.variant === 'active')
+      function s() {
+        r.value = 0
+      }
+      return (g, i) => (
+        b(),
+        p('div', f, [
+          m(
+            y(c),
+            {
+              'active-filters-count': r.value,
+              'show-clear-filters': n.value,
+              background: o.variant === 'bodyAlt' ? 'bodyAlt' : 'body',
+              onClearFilters: s,
+            },
+            {
+              default: u(() => [
+                ...(i[0] ||
+                  (i[0] = [
+                    e(
+                      'fieldset',
+                      { style: { border: 'none', padding: '0', margin: '0' } },
+                      [
+                        e(
+                          'legend',
+                          { style: { 'font-weight': 'bold', 'margin-bottom': '8px' } },
+                          'Category',
+                        ),
+                        e('label', { style: { display: 'block', 'margin-bottom': '4px' } }, [
+                          e('input', { type: 'checkbox' }),
+                          a(' News '),
+                        ]),
+                        e('label', { style: { display: 'block', 'margin-bottom': '4px' } }, [
+                          e('input', { type: 'checkbox' }),
+                          a(' Grants '),
+                        ]),
+                        e('label', { style: { display: 'block' } }, [
+                          e('input', { type: 'checkbox' }),
+                          a(' Publications '),
+                        ]),
+                      ],
+                      -1,
+                    ),
+                  ])),
+              ]),
+              _: 1,
+            },
+            8,
+            ['active-filters-count', 'show-clear-filters', 'background'],
+          ),
+        ])
+      )
+    },
+  }),
+  h = Object.assign(v, { __name: 'FilterSidebarDemo' })
+export { h as default }

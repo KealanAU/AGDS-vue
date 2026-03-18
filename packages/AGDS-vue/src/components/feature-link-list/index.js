@@ -1,2 +1,2 @@
-export { default as AgDSFeatureLinkList } from './AGDSFeatureLinkList.vue';
-export { default as AgDSFeatureLinkListItem } from './AGDSFeatureLinkListItem.vue';
+export { default as AGDSFeatureLinkList } from './AGDSFeatureLinkList.vue';
+export { default as AGDSFeatureLinkListItem } from './AGDSFeatureLinkListItem.vue';

@@ -2,11 +2,11 @@
 import { getCurrentInstance } from 'vue'
 import { useDropdownMenuContext } from './dropdownMenuContext'
 
-export interface AgDSDropdownMenuGroupProps {
+export interface AGDSDropdownMenuGroupProps {
   label: string
 }
 
-defineProps<AgDSDropdownMenuGroupProps>()
+defineProps<AGDSDropdownMenuGroupProps>()
 
 const { menuId } = useDropdownMenuContext()
 const uid = getCurrentInstance()?.uid ?? 0

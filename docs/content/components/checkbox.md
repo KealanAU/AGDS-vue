@@ -1,6 +1,6 @@
 ---
 title: Checkbox
-description: A styled checkbox input with support for v-model, indeterminate state, validation, and grouping. Can be used standalone or inside AgDSCheckboxGroup.
+description: A styled checkbox input with support for v-model, indeterminate state, validation, and grouping. Can be used standalone or inside AGDSCheckboxGroup.
 category: Forms
 status: stable
 ---
@@ -16,9 +16,9 @@ const agreed = ref(false)
 </script>
 
 <template>
-  <AgDSCheckbox v-model="agreed">
+  <AGDSCheckbox v-model="agreed">
     I agree to the terms and conditions
-  </AgDSCheckbox>
+  </AGDSCheckbox>
 </template>
 ```
 
@@ -26,9 +26,9 @@ const agreed = ref(false)
 
 ```vue
 <template>
-  <AgDSCheckbox :model-value="true" disabled>
+  <AGDSCheckbox :model-value="true" disabled>
     Subscribed (cannot be changed)
-  </AgDSCheckbox>
+  </AGDSCheckbox>
 </template>
 ```
 
@@ -53,13 +53,13 @@ function toggleAll() {
 </script>
 
 <template>
-  <AgDSCheckbox
+  <AGDSCheckbox
     :model-value="allChecked"
     :indeterminate="isIndeterminate"
     @update:model-value="toggleAll"
   >
     Select all
-  </AgDSCheckbox>
+  </AGDSCheckbox>
 </template>
 ```
 
@@ -67,14 +67,14 @@ function toggleAll() {
 
 ```vue
 <template>
-  <AgDSCheckbox size="sm">Small checkbox</AgDSCheckbox>
-  <AgDSCheckbox size="md">Medium checkbox (default)</AgDSCheckbox>
+  <AGDSCheckbox size="sm">Small checkbox</AGDSCheckbox>
+  <AGDSCheckbox size="md">Medium checkbox (default)</AGDSCheckbox>
 </template>
 ```
 
 ## Group
 
-Use `AgDSCheckboxGroup` to wrap related checkboxes with a shared legend, hint, and error message. Props like `name`, `invalid`, `required`, and `disabled` cascade to all child checkboxes via context.
+Use `AGDSCheckboxGroup` to wrap related checkboxes with a shared legend, hint, and error message. Props like `name`, `invalid`, `required`, and `disabled` cascade to all child checkboxes via context.
 
 ```vue
 <script setup>
@@ -88,11 +88,11 @@ const selected = ref({
 </script>
 
 <template>
-  <AgDSCheckboxGroup legend="Select topics" name="topics">
-    <AgDSCheckbox v-model="selected.finance" value="finance">Finance</AgDSCheckbox>
-    <AgDSCheckbox v-model="selected.health" value="health">Health</AgDSCheckbox>
-    <AgDSCheckbox v-model="selected.education" value="education">Education</AgDSCheckbox>
-  </AgDSCheckboxGroup>
+  <AGDSCheckboxGroup legend="Select topics" name="topics">
+    <AGDSCheckbox v-model="selected.finance" value="finance">Finance</AGDSCheckbox>
+    <AGDSCheckbox v-model="selected.health" value="health">Health</AGDSCheckbox>
+    <AGDSCheckbox v-model="selected.education" value="education">Education</AGDSCheckbox>
+  </AGDSCheckboxGroup>
 </template>
 ```
 
@@ -102,7 +102,7 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
 
 ```vue
 <template>
-  <AgDSCheckboxGroup
+  <AGDSCheckboxGroup
     legend="Select at least one topic"
     name="topics"
     :invalid="true"
@@ -111,13 +111,13 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
     <template #message>
       <span id="topics-error">Please select at least one topic.</span>
     </template>
-    <AgDSCheckbox>Finance</AgDSCheckbox>
-    <AgDSCheckbox>Health</AgDSCheckbox>
-  </AgDSCheckboxGroup>
+    <AGDSCheckbox>Finance</AGDSCheckbox>
+    <AGDSCheckbox>Health</AGDSCheckbox>
+  </AGDSCheckboxGroup>
 </template>
 ```
 
-## Props — AgDSCheckbox
+## Props — AGDSCheckbox
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -131,7 +131,7 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
 | `required` | `boolean` | `false` | Marks the input as required (inherited from group if not set) |
 | `size` | `'sm' \| 'md'` | `'md'` | Size of the control |
 
-## Events — AgDSCheckbox
+## Events — AGDSCheckbox
 
 | Event | Payload | Description |
 |-------|---------|-------------|
@@ -140,7 +140,7 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
 | `focus` | `FocusEvent` | Emitted when the input gains focus |
 | `blur` | `FocusEvent` | Emitted when the input loses focus |
 
-## Props — AgDSCheckboxGroup
+## Props — AGDSCheckboxGroup
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -151,7 +151,7 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
 | `required` | `boolean` | `false` | Marks all checkboxes as required |
 | `messageId` | `string` | — | `id` of the error message element — passed as `aria-describedby` on each checkbox when invalid |
 
-## Slots — AgDSCheckboxGroup
+## Slots — AGDSCheckboxGroup
 
 | Slot | Description |
 |------|-------------|
@@ -165,7 +165,7 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
 - The hidden native `<input type="checkbox">` carries all semantics — no custom ARIA roles needed
 - `indeterminate` sets `aria-checked="mixed"` as required by WCAG 4.1.2
 - `invalid` sets `aria-invalid="true"` on the input
-- `AgDSCheckboxGroup` uses `<fieldset>` + `<legend>` to group related controls (WCAG 1.3.1)
+- `AGDSCheckboxGroup` uses `<fieldset>` + `<legend>` to group related controls (WCAG 1.3.1)
 - When `invalid`, each checkbox's `aria-describedby` points to the `messageId` element so the error is announced in context
 - Focus ring is shown on the visual indicator box when the hidden input receives keyboard focus
 
@@ -173,4 +173,4 @@ Set `invalid` on the group to show an error state on all checkboxes and reveal t
 
 ### 0.1.0
 
-- Initial release — `AgDSCheckbox` (modelValue, disabled, indeterminate, invalid, required, size), `AgDSCheckboxGroup` (legend, name, disabled, invalid, required, messageId, hint/message slots)
+- Initial release — `AGDSCheckbox` (modelValue, disabled, indeterminate, invalid, required, size), `AGDSCheckboxGroup` (legend, name, disabled, invalid, required, messageId, hint/message slots)

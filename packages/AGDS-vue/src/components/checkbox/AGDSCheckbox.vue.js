@@ -13,7 +13,7 @@ const emit = defineEmits();
 let _idCounter = 0;
 const autoId = `agds-checkbox-${++_idCounter}`;
 const inputId = computed(() => props.id ?? autoId);
-// ── Group context (provided by AgDSCheckboxGroup) ──────────────────────────
+// ── Group context (provided by AGDSCheckboxGroup) ──────────────────────────
 const group = inject(CHECKBOX_GROUP_KEY, null);
 const resolvedName = computed(() => props.name ?? group?.name ?? undefined);
 const resolvedInvalid = computed(() => typeof props.invalid === 'boolean' && props.invalid

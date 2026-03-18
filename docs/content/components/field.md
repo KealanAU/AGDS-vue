@@ -10,20 +10,20 @@ status: stable
 Use the scoped slot to receive the accessibility props and pass them directly to your input element.
 
 ::doc-preview
-<AgDSField label="Email address" hint="We will only use this to contact you about your application.">
+<AGDSField label="Email address" hint="We will only use this to contact you about your application.">
   <template #default="{ id, 'aria-required': ariaRequired, 'aria-invalid': ariaInvalid, 'aria-describedby': ariaDescribedby }">
     <input type="email" :id="id" :aria-required="ariaRequired" :aria-invalid="ariaInvalid" :aria-describedby="ariaDescribedby" />
   </template>
-</AgDSField>
+</AGDSField>
 ::
 
 ```vue
 <template>
-  <AgDSField label="Email address" hint="We will only use this to contact you.">
+  <AGDSField label="Email address" hint="We will only use this to contact you.">
     <template #default="slotProps">
       <input type="email" v-bind="slotProps" />
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 ```
 
@@ -32,20 +32,20 @@ Use the scoped slot to receive the accessibility props and pass them directly to
 Set `required` to mark the field as required and remove the "(optional)" suffix from the label.
 
 ::doc-preview{label="Required"}
-<AgDSField label="Full name" required>
+<AGDSField label="Full name" required>
   <template #default="slotProps">
     <input type="text" v-bind="slotProps" />
   </template>
-</AgDSField>
+</AGDSField>
 ::
 
 ```vue
 <template>
-  <AgDSField label="Full name" required>
+  <AGDSField label="Full name" required>
     <template #default="slotProps">
       <input type="text" v-bind="slotProps" />
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 ```
 
@@ -54,20 +54,20 @@ Set `required` to mark the field as required and remove the "(optional)" suffix 
 Set `invalid` and `message` to show the error state. The field container gains a left border, and the error message is announced by screen readers.
 
 ::doc-preview{label="Invalid"}
-<AgDSField label="Date of birth" invalid message="Enter a valid date of birth">
+<AGDSField label="Date of birth" invalid message="Enter a valid date of birth">
   <template #default="slotProps">
     <input type="text" v-bind="slotProps" />
   </template>
-</AgDSField>
+</AGDSField>
 ::
 
 ```vue
 <template>
-  <AgDSField label="Date of birth" :invalid="hasError" :message="errorMessage">
+  <AGDSField label="Date of birth" :invalid="hasError" :message="errorMessage">
     <template #default="slotProps">
       <input type="text" v-bind="slotProps" />
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 ```
 
@@ -78,11 +78,11 @@ Use `maxWidth` to constrain the input to a character-appropriate width.
 ```vue
 <template>
   <!-- xs=10ch, sm=20ch, md=30ch, lg=40ch, xl=60ch -->
-  <AgDSField label="Postcode" max-width="xs">
+  <AGDSField label="Postcode" max-width="xs">
     <template #default="slotProps">
       <input type="text" inputmode="numeric" v-bind="slotProps" />
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 ```
 
@@ -90,10 +90,10 @@ Use `maxWidth` to constrain the input to a character-appropriate width.
 
 The following sub-components are exported individually for advanced composition:
 
-- `AgDSFieldLabel` — label with optional/required suffix and `for` linking
-- `AgDSFieldHint` — muted hint text
-- `AgDSFieldMessage` — error message with icon and `role="alert"`
-- `AgDSFieldContainer` — wrapper that adds the invalid left-border treatment
+- `AGDSFieldLabel` — label with optional/required suffix and `for` linking
+- `AGDSFieldHint` — muted hint text
+- `AGDSFieldMessage` — error message with icon and `role="alert"`
+- `AGDSFieldContainer` — wrapper that adds the invalid left-border treatment
 
 ## Props
 

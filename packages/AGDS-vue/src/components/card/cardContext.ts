@@ -8,4 +8,4 @@ export interface CardContext {
   shadow: boolean
 }
 
-export const CARD_CONTEXT_KEY: InjectionKey<CardContext> = Symbol('AgDSCard')
+export const CARD_CONTEXT_KEY: InjectionKey<CardContext> = Symbol('AGDSCard')

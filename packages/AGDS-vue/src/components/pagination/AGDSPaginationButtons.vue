@@ -3,7 +3,7 @@ import { computed, getCurrentInstance, ref, watch, nextTick } from 'vue'
 import { usePagination, separatorAriaLabel } from './usePagination'
 import type { PaginationItem } from './usePagination'
 
-export interface AgDSPaginationButtonsProps {
+export interface AGDSPaginationButtonsProps {
   /** Describes the navigation landmark to assistive technologies */
   ariaLabel?: string
   /** The current page number */
@@ -20,7 +20,7 @@ export interface AgDSPaginationButtonsProps {
   windowLimit?: number
 }
 
-const props = withDefaults(defineProps<AgDSPaginationButtonsProps>(), {
+const props = withDefaults(defineProps<AGDSPaginationButtonsProps>(), {
   ariaLabel: 'Pagination',
   windowLimit: 3,
   itemsPerPageOptions: () => [10, 20, 50, 100],

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSField from './AGDSField.vue'
+import AGDSField from './AGDSField.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -10,7 +10,7 @@ const AXE_OPTS = {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function renderField(props: Record<string, unknown> = {}, slotContent = '<input v-bind="slotProps" />') {
-  return render(AgDSField, {
+  return render(AGDSField, {
     props: { label: 'Full name', ...props },
     slots: {
       default: `<template #default="slotProps">${slotContent}</template>`,
@@ -20,7 +20,7 @@ function renderField(props: Record<string, unknown> = {}, slotContent = '<input 
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSField — rendering', () => {
+describe('AGDSField — rendering', () => {
   it('renders a label', () => {
     const { getByText } = renderField()
     expect(getByText('Full name')).toBeTruthy()
@@ -76,7 +76,7 @@ describe('AgDSField — rendering', () => {
 
 // ─── Slot props (a11y props) ──────────────────────────────────────────────────
 
-describe('AgDSField — slot a11y props', () => {
+describe('AGDSField — slot a11y props', () => {
   it('passes aria-required=true when required', () => {
     const { container } = renderField({ required: true })
     const input = container.querySelector('input')
@@ -112,7 +112,7 @@ describe('AgDSField — slot a11y props', () => {
 
 // ─── Invalid state ────────────────────────────────────────────────────────────
 
-describe('AgDSField — invalid state', () => {
+describe('AGDSField — invalid state', () => {
   it('applies the invalid CSS modifier to the container', () => {
     const { container } = renderField({ invalid: true })
     expect(container.querySelector('.agds-field-container--invalid')).toBeTruthy()
@@ -126,7 +126,7 @@ describe('AgDSField — invalid state', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSField — axe accessibility', () => {
+describe('AGDSField — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderField()
     await runAxe(container, AXE_OPTS)

@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSPagination from './AGDSPagination.vue'
-import AgDSPaginationButtons from './AGDSPaginationButtons.vue'
+import AGDSPagination from './AGDSPagination.vue'
+import AGDSPaginationButtons from './AGDSPaginationButtons.vue'
 import { usePagination } from './usePagination'
 
 const AXE_OPTS = {
@@ -67,12 +67,12 @@ describe('usePagination', () => {
   })
 })
 
-// ─── AgDSPagination helpers ─────────────────────────────────────────────────
+// ─── AGDSPagination helpers ─────────────────────────────────────────────────
 
 const generateHref = (page: number) => `/items?page=${page}`
 
 function renderPagination(props: Record<string, unknown> = {}) {
-  return render(AgDSPagination, {
+  return render(AGDSPagination, {
     props: {
       currentPage: 3,
       totalPages: 10,
@@ -82,9 +82,9 @@ function renderPagination(props: Record<string, unknown> = {}) {
   })
 }
 
-// ─── AgDSPagination — rendering ────────────────────────────────────────────
+// ─── AGDSPagination — rendering ────────────────────────────────────────────
 
-describe('AgDSPagination — rendering', () => {
+describe('AGDSPagination — rendering', () => {
   it('renders a <nav> element', () => {
     const { getByRole } = renderPagination()
     expect(getByRole('navigation')).toBeTruthy()
@@ -146,9 +146,9 @@ describe('AgDSPagination — rendering', () => {
   })
 })
 
-// ─── AgDSPagination — secondary controls ───────────────────────────────────
+// ─── AGDSPagination — secondary controls ───────────────────────────────────
 
-describe('AgDSPagination — secondary controls', () => {
+describe('AGDSPagination — secondary controls', () => {
   it('does not render the secondary area by default', () => {
     const { queryByRole } = renderPagination()
     expect(queryByRole('status')).toBeNull()
@@ -194,9 +194,9 @@ describe('AgDSPagination — secondary controls', () => {
   })
 })
 
-// ─── AgDSPagination — axe ───────────────────────────────────────────────────
+// ─── AGDSPagination — axe ───────────────────────────────────────────────────
 
-describe('AgDSPagination — axe accessibility', () => {
+describe('AGDSPagination — axe accessibility', () => {
   it('has no violations on page 1 of 5', async () => {
     const { container } = renderPagination({ currentPage: 1, totalPages: 5 })
     await runAxe(container, AXE_OPTS)
@@ -232,10 +232,10 @@ describe('AgDSPagination — axe accessibility', () => {
   })
 })
 
-// ─── AgDSPaginationButtons helpers ─────────────────────────────────────────
+// ─── AGDSPaginationButtons helpers ─────────────────────────────────────────
 
 function renderPaginationButtons(props: Record<string, unknown> = {}) {
-  return render(AgDSPaginationButtons, {
+  return render(AGDSPaginationButtons, {
     props: {
       currentPage: 3,
       totalPages: 10,
@@ -244,9 +244,9 @@ function renderPaginationButtons(props: Record<string, unknown> = {}) {
   })
 }
 
-// ─── AgDSPaginationButtons — rendering ─────────────────────────────────────
+// ─── AGDSPaginationButtons — rendering ─────────────────────────────────────
 
-describe('AgDSPaginationButtons — rendering', () => {
+describe('AGDSPaginationButtons — rendering', () => {
   it('renders a <nav> element', () => {
     const { getByRole } = renderPaginationButtons()
     expect(getByRole('navigation')).toBeTruthy()
@@ -279,9 +279,9 @@ describe('AgDSPaginationButtons — rendering', () => {
   })
 })
 
-// ─── AgDSPaginationButtons — events ────────────────────────────────────────
+// ─── AGDSPaginationButtons — events ────────────────────────────────────────
 
-describe('AgDSPaginationButtons — events', () => {
+describe('AGDSPaginationButtons — events', () => {
   it('emits change with the correct page number when a page button is clicked', async () => {
     const { getAllByRole, emitted } = renderPaginationButtons({
       currentPage: 1,
@@ -319,9 +319,9 @@ describe('AgDSPaginationButtons — events', () => {
   })
 })
 
-// ─── AgDSPaginationButtons — axe ───────────────────────────────────────────
+// ─── AGDSPaginationButtons — axe ───────────────────────────────────────────
 
-describe('AgDSPaginationButtons — axe accessibility', () => {
+describe('AGDSPaginationButtons — axe accessibility', () => {
   it('has no violations on page 1 of 5', async () => {
     const { container } = renderPaginationButtons({ currentPage: 1, totalPages: 5 })
     await runAxe(container, AXE_OPTS)

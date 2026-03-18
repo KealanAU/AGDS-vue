@@ -1,2 +1,2 @@
-export { default as AgDSDrawer } from './AGDSDrawer.vue'
-export type { AgDSDrawerProps, DrawerWidth } from './AGDSDrawer.vue'
+export { default as AGDSDrawer } from './AGDSDrawer.vue'
+export type { AGDSDrawerProps, DrawerWidth } from './AGDSDrawer.vue'

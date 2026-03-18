@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 import type { Direction } from './AGDSDirectionLink.vue'
 
-export interface AgDSDirectionButtonProps {
+export interface AGDSDirectionButtonProps {
   /** Arrow direction displayed alongside the button text */
   direction: Direction
   /** Disables the button, preventing interaction */
@@ -22,7 +22,7 @@ export interface AgDSDirectionButtonProps {
   focusRingFor?: 'keyboard' | 'all'
 }
 
-const props = withDefaults(defineProps<AgDSDirectionButtonProps>(), {
+const props = withDefaults(defineProps<AGDSDirectionButtonProps>(), {
   disabled: false,
   loading: false,
   loadingLabel: 'Loading',
@@ -76,7 +76,7 @@ const ICON_MAP: Record<Direction, string> = {
     @blur="emit('blur', $event)"
     @keydown="emit('keydown', $event)"
   >
-    <AgDSIcon
+    <AGDSIcon
       v-if="props.direction === 'left'"
       :name="ICON_MAP[props.direction]"
       size="sm"
@@ -91,7 +91,7 @@ const ICON_MAP: Record<Direction, string> = {
       <slot />
     </span>
 
-    <AgDSIcon
+    <AGDSIcon
       v-if="props.direction !== 'left'"
       :name="ICON_MAP[props.direction]"
       size="sm"

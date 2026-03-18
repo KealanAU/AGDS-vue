@@ -11,7 +11,7 @@ Provide at minimum a `heading` (the service name). The heading renders as a link
 
 ```vue
 <template>
-  <AgDSHeader heading="My Government Service" />
+  <AGDSHeader heading="My Government Service" />
 </template>
 ```
 
@@ -21,11 +21,11 @@ Use the `logo` slot to insert an image or SVG.
 
 ```vue
 <template>
-  <AgDSHeader heading="My Government Service" href="/">
+  <AGDSHeader heading="My Government Service" href="/">
     <template #logo>
       <img src="/logo.svg" alt="Department of Agriculture, Fisheries and Forestry" width="200" height="65" />
     </template>
-  </AgDSHeader>
+  </AGDSHeader>
 </template>
 ```
 
@@ -35,7 +35,7 @@ Use `secondHref` and the `secondLogo` slot for a co-branded header. Use `divider
 
 ```vue
 <template>
-  <AgDSHeader
+  <AGDSHeader
     heading="My Service"
     href="/"
     second-href="https://partner.gov.au"
@@ -47,7 +47,7 @@ Use `secondHref` and the `secondLogo` slot for a co-branded header. Use `divider
     <template #secondLogo>
       <img src="/partner-logo.svg" alt="Partner Agency" width="120" height="65" />
     </template>
-  </AgDSHeader>
+  </AGDSHeader>
 </template>
 ```
 
@@ -57,11 +57,11 @@ Use the `rightContent` slot for secondary actions such as search or a sign-in li
 
 ```vue
 <template>
-  <AgDSHeader heading="My Government Service">
+  <AGDSHeader heading="My Government Service">
     <template #rightContent>
       <a href="/signin">Sign in</a>
     </template>
-  </AgDSHeader>
+  </AGDSHeader>
 </template>
 ```
 
@@ -71,7 +71,7 @@ Use `badgeLabel` to indicate a pre-release state (e.g. "Beta").
 
 ```vue
 <template>
-  <AgDSHeader heading="My Service" badge-label="Beta" />
+  <AGDSHeader heading="My Service" badge-label="Beta" />
 </template>
 ```
 
@@ -81,7 +81,7 @@ Use `subline` to add a short description beneath the heading.
 
 ```vue
 <template>
-  <AgDSHeader
+  <AGDSHeader
     heading="My Government Service"
     subline="Helping Australians access what they need"
   />
@@ -94,7 +94,7 @@ Use `subline` to add a short description beneath the heading.
 
 ```vue
 <template>
-  <AgDSHeader heading="My Service" size="sm" />
+  <AGDSHeader heading="My Service" size="sm" />
 </template>
 ```
 

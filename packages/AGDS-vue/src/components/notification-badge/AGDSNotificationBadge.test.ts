@@ -1,19 +1,19 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSNotificationBadge from './AGDSNotificationBadge.vue'
+import AGDSNotificationBadge from './AGDSNotificationBadge.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
 } as const
 
 function renderBadge(props: Record<string, unknown> = {}) {
-  return render(AgDSNotificationBadge, { props })
+  return render(AGDSNotificationBadge, { props })
 }
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSNotificationBadge — rendering', () => {
+describe('AGDSNotificationBadge — rendering', () => {
   it('renders the value as text', () => {
     renderBadge({ value: 5, tone: 'action' })
     expect(screen.getByText('5')).toBeTruthy()
@@ -37,7 +37,7 @@ describe('AgDSNotificationBadge — rendering', () => {
 
 // ─── max prop ────────────────────────────────────────────────────────────────
 
-describe('AgDSNotificationBadge — max prop', () => {
+describe('AGDSNotificationBadge — max prop', () => {
   it('shows the exact value when value <= max', () => {
     renderBadge({ value: 5, max: 99, tone: 'action' })
     expect(screen.getByText('5')).toBeTruthy()
@@ -61,9 +61,9 @@ describe('AgDSNotificationBadge — max prop', () => {
 
 // ─── aria-hidden passthrough ─────────────────────────────────────────────────
 
-describe('AgDSNotificationBadge — aria-hidden passthrough', () => {
+describe('AGDSNotificationBadge — aria-hidden passthrough', () => {
   it('passes aria-hidden="true" to the root element', () => {
-    const { container } = render(AgDSNotificationBadge, {
+    const { container } = render(AGDSNotificationBadge, {
       props: { value: 3, tone: 'action' },
       attrs: { 'aria-hidden': 'true' },
     })
@@ -74,7 +74,7 @@ describe('AgDSNotificationBadge — aria-hidden passthrough', () => {
 
 // ─── Accessibility ───────────────────────────────────────────────────────────
 
-describe('AgDSNotificationBadge — axe', () => {
+describe('AGDSNotificationBadge — axe', () => {
   it('neutral tone has no violations', async () => {
     const { container } = renderBadge({ value: 5, tone: 'neutral' })
     await runAxe(container, AXE_OPTS)

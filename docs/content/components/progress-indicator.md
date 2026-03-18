@@ -15,7 +15,7 @@ Pass `items` — each with a `label` and a `status`. Use `activePath` to highlig
 
 ```vue
 <template>
-  <AgDSProgressIndicator
+  <AGDSProgressIndicator
     active-path="/apply/personal"
     :items="[
       { label: 'Eligibility check',   status: 'done',    href: '/apply/eligibility' },
@@ -44,7 +44,7 @@ Pass `items` — each with a `label` and a `status`. Use `activePath` to highlig
 
 ```vue
 <template>
-  <AgDSProgressIndicator
+  <AGDSProgressIndicator
     active-path="In progress step"
     :items="[
       { label: 'Completed step',   status: 'done'    },
@@ -68,7 +68,7 @@ function goToStep(step) { /* navigate programmatically */ }
 </script>
 
 <template>
-  <AgDSProgressIndicator
+  <AGDSProgressIndicator
     :items="[
       { label: 'Details', status: 'done',    onClick: () => goToStep('details') },
       { label: 'Review',  status: 'started', onClick: () => goToStep('review')  },
@@ -87,7 +87,7 @@ Add `items` to a link step to show a nested sub-step for the active item. Sub-st
 
 ```vue
 <template>
-  <AgDSProgressIndicator
+  <AGDSProgressIndicator
     active-path="/apply/contact/address"
     :items="[
       { label: 'Personal details', status: 'done', href: '/apply/personal' },
@@ -112,7 +112,7 @@ By default a subtitle shows "X of Y steps completed" below the mobile toggle. Se
 
 ```vue
 <template>
-  <AgDSProgressIndicator
+  <AGDSProgressIndicator
     hide-subtitle
     :items="[
       { label: 'Details', status: 'done'    },
@@ -132,7 +132,7 @@ Use `background="bodyAlt"` when the component sits on a `--agds-color-bg-subtle`
 
 ```vue
 <template>
-  <AgDSProgressIndicator
+  <AGDSProgressIndicator
     background="bodyAlt"
     active-path="/apply/personal"
     :items="items"

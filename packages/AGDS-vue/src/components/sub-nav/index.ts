@@ -1,6 +1,6 @@
-export { default as AgDSSubNav } from './AGDSSubNav.vue'
+export { default as AGDSSubNav } from './AGDSSubNav.vue'
 export type {
-  AgDSSubNavProps,
+  AGDSSubNavProps,
   SubNavBackground,
   SubNavLink,
 } from './AGDSSubNav.vue'

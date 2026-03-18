@@ -1,8 +1,8 @@
-export { default as AgDSCheckbox } from './AGDSCheckbox.vue'
-export type { AgDSCheckboxProps, CheckboxSize } from './AGDSCheckbox.vue'
+export { default as AGDSCheckbox } from './AGDSCheckbox.vue'
+export type { AGDSCheckboxProps, CheckboxSize } from './AGDSCheckbox.vue'
 
-export { default as AgDSCheckboxGroup } from './AGDSCheckboxGroup.vue'
-export type { AgDSCheckboxGroupProps } from './AGDSCheckboxGroup.vue'
+export { default as AGDSCheckboxGroup } from './AGDSCheckboxGroup.vue'
+export type { AGDSCheckboxGroupProps } from './AGDSCheckboxGroup.vue'
 
 export { CHECKBOX_GROUP_KEY } from './checkboxGroupContext'
 export type { CheckboxGroupContext } from './checkboxGroupContext'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AgDSBreadcrumbs } from 'agds-vue'
+import { AGDSBreadcrumbs } from 'agds-vue'
 
 const props = defineProps<{
   /** 'basic' | 'collapsed' */
@@ -24,5 +24,5 @@ const links = computed(() => (props.variant === 'collapsed' ? collapsedLinks : b
 </script>
 
 <template>
-  <AgDSBreadcrumbs :links="links" />
+  <AGDSBreadcrumbs :links="links" />
 </template>

@@ -12,13 +12,13 @@ import {
   ComboboxTrigger,
   ComboboxViewport,
 } from 'reka-ui'
-import AgDSField from '../field/AGDSField.vue'
+import AGDSField from '../field/AGDSField.vue'
 import { filterOptions } from './comboboxUtils'
 import type { DefaultComboboxOption, ComboboxMaxWidth } from './comboboxUtils'
 
 export type { DefaultComboboxOption, ComboboxMaxWidth }
 
-export interface AgDSComboboxMultiProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
+export interface AGDSComboboxMultiProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
   /** Describes the purpose of the field. */
   label: string
   /** Defines an identifier (ID) which must be unique. Auto-generated when omitted. */
@@ -53,7 +53,7 @@ export interface AgDSComboboxMultiProps<O extends DefaultComboboxOption = Defaul
   emptyResultsMessage?: string
 }
 
-const props = withDefaults(defineProps<AgDSComboboxMultiProps<TOption>>(), {
+const props = withDefaults(defineProps<AGDSComboboxMultiProps<TOption>>(), {
   invalid: false,
   required: false,
   disabled: false,
@@ -119,7 +119,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
 </script>
 
 <template>
-  <AgDSField
+  <AGDSField
     :label="label"
     :id="inputId"
     :label-id="labelId"
@@ -266,7 +266,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
         {{ statusMessage }}
       </div>
     </template>
-  </AgDSField>
+  </AGDSField>
 </template>
 
 <style scoped>

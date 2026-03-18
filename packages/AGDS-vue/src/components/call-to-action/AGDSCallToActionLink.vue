@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
-export interface AgDSCallToActionLinkProps {
+export interface AGDSCallToActionLinkProps {
   /** URL the link navigates to */
   href: string
   /** Opens link in a new tab. Automatically appends accessible offscreen text. */
@@ -14,7 +14,7 @@ export interface AgDSCallToActionLinkProps {
   focusRingFor?: 'keyboard' | 'all'
 }
 
-withDefaults(defineProps<AgDSCallToActionLinkProps>(), {
+withDefaults(defineProps<AGDSCallToActionLinkProps>(), {
   external: false,
   focusRingFor: 'keyboard',
 })
@@ -41,7 +41,7 @@ defineEmits<{
   >
     <slot />
 
-    <AgDSIcon
+    <AGDSIcon
       name="mdi:chevron-right"
       size="sm"
       class="agds-cta__icon"

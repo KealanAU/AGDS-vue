@@ -1,2 +1,2 @@
-export { default as AgDSFormStack } from './AGDSFormStack.vue'
-export type { AgDSFormStackProps } from './AGDSFormStack.vue'
+export { default as AGDSFormStack } from './AGDSFormStack.vue'
+export type { AGDSFormStackProps } from './AGDSFormStack.vue'

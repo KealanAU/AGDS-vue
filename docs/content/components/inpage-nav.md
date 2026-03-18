@@ -11,7 +11,7 @@ Pass `links` — each with a `label` and an anchor `href` pointing to an `id` on
 
 ```vue
 <template>
-  <AgDSInpageNav
+  <AGDSInpageNav
     :links="[
       { label: 'Introduction', href: '#introduction' },
       { label: 'Eligibility', href: '#eligibility' },
@@ -28,7 +28,7 @@ Add `title` to render a heading above the link list.
 
 ```vue
 <template>
-  <AgDSInpageNav
+  <AGDSInpageNav
     title="On this page"
     :links="[
       { label: 'Introduction', href: '#introduction' },
@@ -44,7 +44,7 @@ Override the default `'In page'` label when the page has multiple navigations.
 
 ```vue
 <template>
-  <AgDSInpageNav
+  <AGDSInpageNav
     aria-label="Page sections"
     :links="[
       { label: 'Introduction', href: '#introduction' },

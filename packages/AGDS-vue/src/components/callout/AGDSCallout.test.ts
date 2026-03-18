@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
-import AgDSCallout from './AGDSCallout.vue'
+import AGDSCallout from './AGDSCallout.vue'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -13,7 +13,7 @@ function renderCallout(
   props: Record<string, unknown> = {},
   slot = '<p>Callout content</p>',
 ) {
-  return render(AgDSCallout, {
+  return render(AGDSCallout, {
     props,
     slots: { default: slot },
   })
@@ -21,7 +21,7 @@ function renderCallout(
 
 // ─── Rendering ───────────────────────────────────────────────────────────────
 
-describe('AgDSCallout — rendering', () => {
+describe('AGDSCallout — rendering', () => {
   it('renders a <div> by default', () => {
     const { container } = renderCallout()
     expect(container.querySelector('div.agds-callout')).toBeTruthy()
@@ -45,7 +45,7 @@ describe('AgDSCallout — rendering', () => {
 
 // ─── Props: as ───────────────────────────────────────────────────────────────
 
-describe('AgDSCallout — as prop', () => {
+describe('AGDSCallout — as prop', () => {
   it('renders as <aside> when as="aside"', () => {
     const { container } = renderCallout({ as: 'aside' })
     expect(container.querySelector('aside.agds-callout')).toBeTruthy()
@@ -59,7 +59,7 @@ describe('AgDSCallout — as prop', () => {
 
 // ─── Props: tone ─────────────────────────────────────────────────────────────
 
-describe('AgDSCallout — tone prop', () => {
+describe('AGDSCallout — tone prop', () => {
   it('defaults to neutral tone', () => {
     const { container } = renderCallout()
     expect(container.querySelector('.agds-callout--neutral')).toBeTruthy()
@@ -86,7 +86,7 @@ describe('AgDSCallout — tone prop', () => {
 
 // ─── Props: variant ───────────────────────────────────────────────────────────
 
-describe('AgDSCallout — variant prop', () => {
+describe('AGDSCallout — variant prop', () => {
   it('defaults to regular variant', () => {
     const { container } = renderCallout()
     expect(container.querySelector('.agds-callout--regular')).toBeTruthy()
@@ -103,7 +103,7 @@ describe('AgDSCallout — variant prop', () => {
 
 // ─── Props: onBodyAlt ─────────────────────────────────────────────────────────
 
-describe('AgDSCallout — onBodyAlt prop', () => {
+describe('AGDSCallout — onBodyAlt prop', () => {
   it('applies body-alt class when onBodyAlt=true and tone=neutral', () => {
     const { container } = renderCallout({ tone: 'neutral', onBodyAlt: true })
     expect(container.querySelector('.agds-callout--body-alt')).toBeTruthy()
@@ -127,9 +127,9 @@ describe('AgDSCallout — onBodyAlt prop', () => {
 
 // ─── Slots ────────────────────────────────────────────────────────────────────
 
-describe('AgDSCallout — icon slot', () => {
+describe('AGDSCallout — icon slot', () => {
   it('renders a custom icon slot', () => {
-    const { container } = render(AgDSCallout, {
+    const { container } = render(AGDSCallout, {
       props: { tone: 'neutral' },
       slots: {
         default: '<p>Content</p>',
@@ -140,7 +140,7 @@ describe('AgDSCallout — icon slot', () => {
   })
 
   it('uses the custom icon slot instead of the default info icon', () => {
-    const { container } = render(AgDSCallout, {
+    const { container } = render(AGDSCallout, {
       props: { tone: 'info' },
       slots: {
         default: '<p>Content</p>',
@@ -155,7 +155,7 @@ describe('AgDSCallout — icon slot', () => {
 
 // ─── Info icon accessibility ──────────────────────────────────────────────────
 
-describe('AgDSCallout — info icon a11y', () => {
+describe('AGDSCallout — info icon a11y', () => {
   it('info icon has role="img" and aria-label="Information"', () => {
     const { container } = renderCallout({ tone: 'info' })
     const icon = container.querySelector('[role="img"]')
@@ -172,7 +172,7 @@ describe('AgDSCallout — info icon a11y', () => {
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
-describe('AgDSCallout — axe accessibility', () => {
+describe('AGDSCallout — axe accessibility', () => {
   it('has no violations: tone=neutral, variant=regular', async () => {
     const { container } = renderCallout({ tone: 'neutral', variant: 'regular' })
     await runAxe(container, AXE_OPTS)

@@ -7,89 +7,89 @@ status: stable
 
 ## Unordered list
 
-Use `AgDSUnorderedList` with `AgDSListItem` to render a bulleted list.
+Use `AGDSUnorderedList` with `AGDSListItem` to render a bulleted list.
 
 ::doc-preview
-<AgDSUnorderedList>
-  <AgDSListItem>Australian citizen or permanent resident</AgDSListItem>
-  <AgDSListItem>Aged 18 or over</AgDSListItem>
-  <AgDSListItem>Not currently receiving another benefit</AgDSListItem>
-</AgDSUnorderedList>
+<AGDSUnorderedList>
+  <AGDSListItem>Australian citizen or permanent resident</AGDSListItem>
+  <AGDSListItem>Aged 18 or over</AGDSListItem>
+  <AGDSListItem>Not currently receiving another benefit</AGDSListItem>
+</AGDSUnorderedList>
 ::
 
 ```vue
 <template>
-  <AgDSUnorderedList>
-    <AgDSListItem>Australian citizen or permanent resident</AgDSListItem>
-    <AgDSListItem>Aged 18 or over</AgDSListItem>
-    <AgDSListItem>Not currently receiving another benefit</AgDSListItem>
-  </AgDSUnorderedList>
+  <AGDSUnorderedList>
+    <AGDSListItem>Australian citizen or permanent resident</AGDSListItem>
+    <AGDSListItem>Aged 18 or over</AGDSListItem>
+    <AGDSListItem>Not currently receiving another benefit</AGDSListItem>
+  </AGDSUnorderedList>
 </template>
 ```
 
 ## Ordered list
 
-Use `AgDSOrderedList` for step-by-step or ranked content.
+Use `AGDSOrderedList` for step-by-step or ranked content.
 
 ::doc-preview
-<AgDSOrderedList>
-  <AgDSListItem>Create a myGov account</AgDSListItem>
-  <AgDSListItem>Verify your identity online</AgDSListItem>
-  <AgDSListItem>Link your government services</AgDSListItem>
-</AgDSOrderedList>
+<AGDSOrderedList>
+  <AGDSListItem>Create a myGov account</AGDSListItem>
+  <AGDSListItem>Verify your identity online</AGDSListItem>
+  <AGDSListItem>Link your government services</AGDSListItem>
+</AGDSOrderedList>
 ::
 
 ```vue
 <template>
-  <AgDSOrderedList>
-    <AgDSListItem>Create a myGov account</AgDSListItem>
-    <AgDSListItem>Verify your identity online</AgDSListItem>
-    <AgDSListItem>Link your government services</AgDSListItem>
-  </AgDSOrderedList>
+  <AGDSOrderedList>
+    <AGDSListItem>Create a myGov account</AGDSListItem>
+    <AGDSListItem>Verify your identity online</AGDSListItem>
+    <AGDSListItem>Link your government services</AGDSListItem>
+  </AGDSOrderedList>
 </template>
 ```
 
 ## Nested lists
 
-Lists can be nested inside `AgDSListItem`. Nesting depth is tracked automatically via `provide`/`inject` and additional top margin is applied from the second level down.
+Lists can be nested inside `AGDSListItem`. Nesting depth is tracked automatically via `provide`/`inject` and additional top margin is applied from the second level down.
 
 ::doc-preview{label="Nested"}
-<AgDSUnorderedList>
-  <AgDSListItem>
+<AGDSUnorderedList>
+  <AGDSListItem>
     Required documents
-    <AgDSUnorderedList>
-      <AgDSListItem>Passport or birth certificate</AgDSListItem>
-      <AgDSListItem>Proof of address</AgDSListItem>
-    </AgDSUnorderedList>
-  </AgDSListItem>
-  <AgDSListItem>Application form</AgDSListItem>
-</AgDSUnorderedList>
+    <AGDSUnorderedList>
+      <AGDSListItem>Passport or birth certificate</AGDSListItem>
+      <AGDSListItem>Proof of address</AGDSListItem>
+    </AGDSUnorderedList>
+  </AGDSListItem>
+  <AGDSListItem>Application form</AGDSListItem>
+</AGDSUnorderedList>
 ::
 
 ```vue
 <template>
-  <AgDSUnorderedList>
-    <AgDSListItem>
+  <AGDSUnorderedList>
+    <AGDSListItem>
       Required documents
-      <AgDSUnorderedList>
-        <AgDSListItem>Passport or birth certificate</AgDSListItem>
-        <AgDSListItem>Proof of address</AgDSListItem>
-      </AgDSUnorderedList>
-    </AgDSListItem>
-    <AgDSListItem>Application form</AgDSListItem>
-  </AgDSUnorderedList>
+      <AGDSUnorderedList>
+        <AGDSListItem>Passport or birth certificate</AGDSListItem>
+        <AGDSListItem>Proof of address</AGDSListItem>
+      </AGDSUnorderedList>
+    </AGDSListItem>
+    <AGDSListItem>Application form</AGDSListItem>
+  </AGDSUnorderedList>
 </template>
 ```
 
 ## Props
 
-`AgDSUnorderedList`, `AgDSOrderedList`, and `AgDSListItem` have no props. All content is passed via the default slot.
+`AGDSUnorderedList`, `AGDSOrderedList`, and `AGDSListItem` have no props. All content is passed via the default slot.
 
 ## Slots
 
 | Slot | Description |
 |------|-------------|
-| `default` | List items (`AgDSListItem`) or nested lists |
+| `default` | List items (`AGDSListItem`) or nested lists |
 
 ## Accessibility
 
@@ -100,4 +100,4 @@ Lists can be nested inside `AgDSListItem`. Nesting depth is tracked automaticall
 
 ### 0.1.0
 
-- Initial release — `AgDSUnorderedList`, `AgDSOrderedList`, `AgDSListItem`; automatic nested spacing
+- Initial release — `AGDSUnorderedList`, `AGDSOrderedList`, `AGDSListItem`; automatic nested spacing

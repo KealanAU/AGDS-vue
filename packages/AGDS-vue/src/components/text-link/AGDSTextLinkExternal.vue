@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import AgDSTextLink from './AGDSTextLink.vue'
-import type { AgDSTextLinkProps } from './AGDSTextLink.vue'
-import AgDSExternalLinkCallout from '../visually-hidden/AGDSExternalLinkCallout.vue'
-import AgDSIcon from '../icon/AGDSIcon.vue'
+import AGDSTextLink from './AGDSTextLink.vue'
+import type { AGDSTextLinkProps } from './AGDSTextLink.vue'
+import AGDSExternalLinkCallout from '../visually-hidden/AGDSExternalLinkCallout.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
-export interface AgDSTextLinkExternalProps extends Omit<AgDSTextLinkProps, 'focusRingFor'> {
+export interface AGDSTextLinkExternalProps extends Omit<AGDSTextLinkProps, 'focusRingFor'> {
   /** When to show the focus ring. */
-  focusRingFor?: AgDSTextLinkProps['focusRingFor']
+  focusRingFor?: AGDSTextLinkProps['focusRingFor']
 }
 
-withDefaults(defineProps<AgDSTextLinkExternalProps>(), {
+withDefaults(defineProps<AGDSTextLinkExternalProps>(), {
   focusRingFor: 'keyboard',
 })
 
@@ -21,7 +21,7 @@ defineEmits<{
 </script>
 
 <template>
-  <AgDSTextLink
+  <AGDSTextLink
     :href="href"
     :focus-ring-for="focusRingFor"
     rel="noopener noreferrer"
@@ -31,14 +31,14 @@ defineEmits<{
     @blur="$emit('blur', $event)"
   >
     <slot />
-    <AgDSExternalLinkCallout />
-    <AgDSIcon
+    <AGDSExternalLinkCallout />
+    <AGDSIcon
       name="mdi:open-in-new"
       size="sm"
       class="agds-text-link-external__icon"
       aria-hidden="true"
     />
-  </AgDSTextLink>
+  </AGDSTextLink>
 </template>
 
 <style scoped>

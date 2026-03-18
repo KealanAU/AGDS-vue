@@ -10,7 +10,7 @@ status: stable
 Bind `v-model` to receive the selected `{ label, value }` option, or `null` when nothing is selected.
 
 ::doc-preview
-<AgDSTimePicker label="Appointment time" />
+<AGDSTimePicker label="Appointment time" />
 ::
 
 ```vue
@@ -22,7 +22,7 @@ const time = ref<DefaultComboboxOption | null>(null)
 </script>
 
 <template>
-  <AgDSTimePicker
+  <AGDSTimePicker
     v-model="time"
     label="Appointment time"
     required
@@ -37,7 +37,7 @@ Generate options at a different step (in minutes). The default is every 15 minut
 ```vue
 <template>
   <!-- Options every 30 minutes -->
-  <AgDSTimePicker
+  <AGDSTimePicker
     v-model="time"
     label="Meeting time"
     :interval="30"
@@ -51,7 +51,7 @@ Use `min` and `max` to restrict the generated options to business hours.
 
 ```vue
 <template>
-  <AgDSTimePicker
+  <AGDSTimePicker
     v-model="time"
     label="Office appointment"
     min="09:00"
@@ -65,7 +65,7 @@ Use `min` and `max` to restrict the generated options to business hours.
 
 ```vue
 <template>
-  <AgDSTimePicker
+  <AGDSTimePicker
     v-model="time"
     label="Departure time"
     time-format="HH:mm"
@@ -77,7 +77,7 @@ Use `min` and `max` to restrict the generated options to business hours.
 
 ```vue
 <template>
-  <AgDSTimePicker
+  <AGDSTimePicker
     v-model="time"
     label="Start time"
     required
@@ -93,7 +93,7 @@ Show a loading indicator while options are being fetched asynchronously.
 
 ```vue
 <template>
-  <AgDSTimePicker
+  <AGDSTimePicker
     v-model="time"
     label="Available slots"
     :loading="isLoading"
@@ -103,7 +103,7 @@ Show a loading indicator while options are being fetched asynchronously.
 
 ## How it works
 
-`AgDSTimePicker` wraps Reka UI's `ComboboxRoot` inside an `AgDSField`. Options are generated at mount time from the `min`, `max`, and `interval` props. As the user types, options are filtered by matching the raw digit string, the `HH:mm` value, or the display label. Selecting an item sets the `v-model` to `{ label, value }` where `value` is the `HH:mm` string. The dropdown is teleported to `<body>` via `ComboboxPortal` to avoid overflow clipping.
+`AGDSTimePicker` wraps Reka UI's `ComboboxRoot` inside an `AGDSField`. Options are generated at mount time from the `min`, `max`, and `interval` props. As the user types, options are filtered by matching the raw digit string, the `HH:mm` value, or the display label. Selecting an item sets the `v-model` to `{ label, value }` where `value` is the `HH:mm` string. The dropdown is teleported to `<body>` via `ComboboxPortal` to avoid overflow clipping.
 
 ## Props
 
@@ -163,7 +163,7 @@ Show a loading indicator while options are being fetched asynchronously.
 ## Accessibility
 
 - Renders a native `<input>` with `role="combobox"` and a connected `role="listbox"` — managed by Reka UI
-- `aria-required`, `aria-invalid`, and `aria-describedby` are wired automatically via the `AgDSField` slot
+- `aria-required`, `aria-invalid`, and `aria-describedby` are wired automatically via the `AGDSField` slot
 - The dropdown is keyboard-navigable: Arrow keys move through options, Enter selects, Escape closes
 - The trigger chevron is `aria-hidden="true"` — the input itself opens the dropdown on interaction
 - Focus indicator meets WCAG 2.2 focus-appearance requirements
