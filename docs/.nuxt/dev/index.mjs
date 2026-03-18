@@ -2687,7 +2687,7 @@ async function decompressSQLDump(base64Str, compressionType = "gzip") {
 }
 
 const checksums = {
-  "components": "v3.5.0--516FiztZaYHjGvK4M7aYrZClqFFOOIoq8cZBA9jBkh4"
+  "components": "v3.5.0--jNSC88lF9xzrPvKmA9YNnCgJEZhOj-u24m790yfWZV4"
 };
 const checksumsStructure = {
   "components": "FCjwvVSaUjepqCJdfBYOmdCqf6anFubtn4rV-MkRft0"

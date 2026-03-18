@@ -12,6 +12,7 @@
     "test": "pnpm --filter agds-vue test",
     "test:coverage": "pnpm --filter agds-vue test:coverage",
     "lint": "pnpm -r lint",
+    "prepare:docs": "pnpm --filter docs prepare",
     "type-check": "pnpm -r type-check"
   },
   "engines": {

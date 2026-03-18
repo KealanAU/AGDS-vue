@@ -9,6 +9,10 @@ status: stable
 
 Use `AGDSTag` for a single tag, or `AGDSTags` to render a managed list from an `items` array.
 
+::doc-preview
+<TagsDemo />
+::
+
 ```vue
 <template>
   <AGDSTag label="Finance" />
@@ -19,6 +23,10 @@ Use `AGDSTag` for a single tag, or `AGDSTags` to render a managed list from an `
 
 Provide `href` to make the tag label an anchor.
 
+::doc-preview{label="Linked tag"}
+<TagsDemo variant="linked" />
+::
+
 ```vue
 <template>
   <AGDSTag label="Finance" href="/topics/finance" />
@@ -28,6 +36,10 @@ Provide `href` to make the tag label an anchor.
 ## Removable tag
 
 Set `removable` to show a remove button. Handle the `remove` event to update your state.
+
+::doc-preview{label="Removable tags"}
+<TagsDemo variant="removable" />
+::
 
 ```vue
 <script setup>
@@ -55,6 +67,10 @@ function removeTag(label) {
 ## AGDSTags — list
 
 `AGDSTags` renders an `items` array into a `<ul>` list and manages focus when a tag is removed (focus moves to the previous remove button).
+
+::doc-preview{label="Tags list"}
+<TagsDemo variant="list" />
+::
 
 ```vue
 <script setup>

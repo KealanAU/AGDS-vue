@@ -10,9 +10,7 @@ status: stable
 Provide a `tone` and a required `title`. Optionally add body content via the default slot.
 
 ::doc-preview
-<AGDSSectionAlert tone="errorHigh" title="Unable to save changes">
-  <p>Check the highlighted fields and try again.</p>
-</AGDSSectionAlert>
+<SectionAlertDemo />
 ::
 
 ```vue
@@ -37,10 +35,7 @@ The `tone` prop drives the background, border colour, icon shape, and screen-rea
 `errorLow`, `successLow`, `infoLow`, `warningLow`, `cannotStartLow`, `inProgressLow`, `notStartedLow`, `pausedLow`, `unknownLow`
 
 ::doc-preview{label="Selected tones"}
-<AGDSSectionAlert tone="errorHigh" title="Error — High" />
-<AGDSSectionAlert tone="successMedium" title="Success — Medium" />
-<AGDSSectionAlert tone="infoLow" title="Info — Low" />
-<AGDSSectionAlert tone="inProgressLow" title="In progress" />
+<SectionAlertDemo variant="tones" />
 ::
 
 ```vue
@@ -57,7 +52,7 @@ The `tone` prop drives the background, border colour, icon shape, and screen-rea
 Pass an `onClose` handler to render a close button.
 
 ::doc-preview{label="Dismissible"}
-<AGDSSectionAlert tone="infoMedium" title="Your draft has been saved" :on-close="() => {}" />
+<SectionAlertDemo variant="dismissible" />
 ::
 
 ```vue

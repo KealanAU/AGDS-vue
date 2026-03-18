@@ -27,7 +27,10 @@ export const PaginationDemo: typeof import("../app/components/content/Pagination
 export const ProgressIndicatorDemo: typeof import("../app/components/content/ProgressIndicatorDemo.vue")['default']
 export const PropsTable: typeof import("../app/components/content/PropsTable.vue")['default']
 export const ProsePre: typeof import("../app/components/content/ProsePre.vue")['default']
+export const SectionAlertDemo: typeof import("../app/components/content/SectionAlertDemo.vue")['default']
 export const SideNavDemo: typeof import("../app/components/content/SideNavDemo.vue")['default']
+export const SkipLinksDemo: typeof import("../app/components/content/SkipLinksDemo.vue")['default']
+export const TagsDemo: typeof import("../app/components/content/TagsDemo.vue")['default']
 export const DocsLayout: typeof import("../app/components/DocsLayout.vue")['default']
 export const ProseA: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']
 export const ProseBlockquote: typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']
@@ -364,7 +367,10 @@ export const LazyPaginationDemo: LazyComponent<typeof import("../app/components/
 export const LazyProgressIndicatorDemo: LazyComponent<typeof import("../app/components/content/ProgressIndicatorDemo.vue")['default']>
 export const LazyPropsTable: LazyComponent<typeof import("../app/components/content/PropsTable.vue")['default']>
 export const LazyProsePre: LazyComponent<typeof import("../app/components/content/ProsePre.vue")['default']>
+export const LazySectionAlertDemo: LazyComponent<typeof import("../app/components/content/SectionAlertDemo.vue")['default']>
 export const LazySideNavDemo: LazyComponent<typeof import("../app/components/content/SideNavDemo.vue")['default']>
+export const LazySkipLinksDemo: LazyComponent<typeof import("../app/components/content/SkipLinksDemo.vue")['default']>
+export const LazyTagsDemo: LazyComponent<typeof import("../app/components/content/TagsDemo.vue")['default']>
 export const LazyDocsLayout: LazyComponent<typeof import("../app/components/DocsLayout.vue")['default']>
 export const LazyProseA: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']>
 export const LazyProseBlockquote: LazyComponent<typeof import("../../node_modules/.pnpm/@nuxtjs+mdc@0.20.2_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']>

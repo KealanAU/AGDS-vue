@@ -10,7 +10,7 @@ status: stable
 Place `AGDSSkipLinks` as the very first element inside `<body>` (or the app root), before any navigation. Each link targets an anchor on the page.
 
 ::doc-preview
-<AGDSSkipLinks :links="[{ label: 'Skip to main content', href: '#main-content' }]" />
+<SkipLinksDemo />
 ::
 
 ```vue

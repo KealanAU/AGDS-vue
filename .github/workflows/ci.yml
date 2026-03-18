@@ -25,6 +25,8 @@ jobs:
 
       - run: pnpm build:lib
 
+      - run: pnpm prepare:docs
+
       - run: pnpm type-check
 
       - run: pnpm test
