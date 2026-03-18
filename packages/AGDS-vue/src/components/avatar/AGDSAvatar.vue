@@ -69,7 +69,7 @@ const ariaLabel = computed(() => {
   justify-content: center;
   flex-shrink: 0;
 
-  background-color: var(--agds-color-bg);
+  background-color: var(--agds-color-bg-muted);
   border-radius: var(--agds-radius-full);
   border-style: solid;
   border-width: var(--agds-border-width-sm);
