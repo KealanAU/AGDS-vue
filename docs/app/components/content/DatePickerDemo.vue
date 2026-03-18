@@ -18,49 +18,54 @@ const maxDate = new Date()
 
 <template>
   <!-- default: basic single date picker -->
-  <AGDSDatePicker
-    v-if="!variant || variant === 'default'"
-    v-model="date"
-    label="Date of birth"
-    :required="true"
-  />
+  <div v-if="!variant || variant === 'default'" style="min-height: 380px">
+    <AGDSDatePicker
+      v-model="date"
+      label="Date of birth"
+      :required="true"
+    />
+  </div>
 
   <!-- range: date range picker -->
-  <AGDSDatePicker
-    v-else-if="variant === 'range'"
-    v-model="range"
-    range
-    label="Employment period"
-    from-label="Start date"
-    to-label="End date"
-  />
+  <div v-else-if="variant === 'range'" style="min-height: 380px">
+    <AGDSDatePicker
+      v-model="range"
+      range
+      label="Employment period"
+      from-label="Start date"
+      to-label="End date"
+    />
+  </div>
 
   <!-- hint-validation: hint text and error state -->
-  <AGDSDatePicker
-    v-else-if="variant === 'hint-validation'"
-    v-model="hintDate"
-    label="Application date"
-    hint="Enter the date you submitted your application"
-    :invalid="true"
-    message="Enter a valid date"
-  />
+  <div v-else-if="variant === 'hint-validation'" style="min-height: 380px">
+    <AGDSDatePicker
+      v-model="hintDate"
+      label="Application date"
+      hint="Enter the date you submitted your application"
+      :invalid="true"
+      message="Enter a valid date"
+    />
+  </div>
 
   <!-- min-max: restricted date range -->
-  <AGDSDatePicker
-    v-else-if="variant === 'min-max'"
-    v-model="minMaxDate"
-    label="Date issued"
-    :min-date="minDate"
-    :max-date="maxDate"
-    hint="Must be between 1 January 2020 and today"
-  />
+  <div v-else-if="variant === 'min-max'" style="min-height: 380px">
+    <AGDSDatePicker
+      v-model="minMaxDate"
+      label="Date issued"
+      :min-date="minDate"
+      :max-date="maxDate"
+      hint="Must be between 1 January 2020 and today"
+    />
+  </div>
 
   <!-- year-range: year dropdown in calendar header -->
-  <AGDSDatePicker
-    v-else-if="variant === 'year-range'"
-    v-model="yearRangeDate"
-    label="Date of birth"
-    :year-range="{ from: 1920, to: new Date().getFullYear() - 18 }"
-    hint="You must be 18 or older"
-  />
+  <div v-else-if="variant === 'year-range'" style="min-height: 380px">
+    <AGDSDatePicker
+      v-model="yearRangeDate"
+      label="Date of birth"
+      :year-range="{ from: 1920, to: new Date().getFullYear() - 18 }"
+      hint="You must be 18 or older"
+    />
+  </div>
 </template>

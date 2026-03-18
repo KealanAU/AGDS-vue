@@ -714,18 +714,28 @@ const hasNextMonth = computed(() => {
   width: 100%;
 }
 
+/* Reset any prose/doc-page table styles that leak in */
+.agds-calendar__grid th,
+.agds-calendar__grid td {
+  padding: 0;
+  text-align: center;
+  border: none;
+  background: none;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 /* ── Weekday header ──────────────────────────────────────────────────────── */
 
 .agds-calendar__weekday {
   width: 2.75rem;
   height: 2.75rem;
-  padding: 0;
   font-family: var(--agds-font-family-body);
   font-size: var(--agds-font-size-sm);
   font-weight: var(--agds-font-weight-normal);
   color: var(--agds-color-text-muted);
-  text-align: center;
-  vertical-align: middle;
 }
 
 /* ── Day cells ───────────────────────────────────────────────────────────── */
@@ -734,9 +744,10 @@ const hasNextMonth = computed(() => {
   position: relative;
   width: 2.75rem;
   height: 2.75rem;
-  padding: 0;
-  text-align: center;
-  vertical-align: middle;
+  /* Use flex on the td to reliably centre content — avoids height:100% issues on child spans */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--agds-radius-md);
   box-sizing: border-box;
   cursor: pointer;
@@ -820,11 +831,6 @@ const hasNextMonth = computed(() => {
 }
 
 .agds-calendar__day-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
   user-select: none;
 }
