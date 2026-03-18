@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
 
-
   // Enable Nuxt 4 directory layout — source lives in app/
   future: {
     compatibilityVersion: 4,
@@ -10,11 +9,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  vite: {
-    optimizeDeps: {
-      exclude: ['#app-manifest'],
-    },
-  },
+  appManifest: false,
 
   nitro: {
     prerender: {
@@ -22,9 +17,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['agds-vue/styles'],
-
-  modules: ['@nuxt/content', './modules/agds-components'],
+  modules: ['@nuxt/content', 'agds-vue/nuxt'],
 
   content: {
     // @ts-ignore — highlight is a valid runtime option; @nuxt/content types lag behind
@@ -41,7 +34,8 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'description',
-          content: 'Accessible Vue 3 components for the Agriculture Design System (AgDS) — Department of Agriculture, Fisheries and Forestry',
+          content:
+            'Accessible Vue 3 components for the Agriculture Design System (AgDS) — Department of Agriculture, Fisheries and Forestry',
         },
       ],
     },

@@ -58,10 +58,10 @@ describe('AGDSPasswordInput — rendering', () => {
     expect(label?.textContent?.replace(/\s+/g, ' ').trim()).toMatch(/Password/)
   })
 
-  it('renders the "Show password" checkbox', () => {
+  it('renders the show/hide toggle button', () => {
     const { getByRole } = renderInput()
-    const checkbox = getByRole('checkbox', { name: /show password/i })
-    expect(checkbox).toBeTruthy()
+    const button = getByRole('button', { name: /show password/i })
+    expect(button).toBeTruthy()
   })
 
   it('renders hint text when provided', () => {
@@ -99,25 +99,43 @@ describe('AGDSPasswordInput — rendering', () => {
 // ─── Show/hide toggle ─────────────────────────────────────────────────────────
 
 describe('AGDSPasswordInput — show/hide toggle', () => {
-  it('toggles input type to text when "Show password" is checked', async () => {
+  it('toggles input type to text when the toggle button is clicked', async () => {
     const { getByLabelText, getByRole } = renderInput({ required: true })
     const input = getByLabelText('Password') as HTMLInputElement
-    const checkbox = getByRole('checkbox', { name: /show password/i }) as HTMLInputElement
+    const button = getByRole('button', { name: /show password/i })
 
     expect(input.type).toBe('password')
 
-    await fireEvent.click(checkbox)
+    await fireEvent.click(button)
     expect(input.type).toBe('text')
 
-    await fireEvent.click(checkbox)
+    await fireEvent.click(getByRole('button', { name: /hide password/i }))
     expect(input.type).toBe('password')
   })
 
-  it('checkbox has aria-controls pointing to the input id', () => {
+  it('toggle button label changes between "Show password" and "Hide password"', async () => {
+    const { getByRole } = renderInput({ required: true })
+    const button = getByRole('button', { name: /show password/i })
+
+    await fireEvent.click(button)
+    expect(getByRole('button', { name: /hide password/i })).toBeTruthy()
+  })
+
+  it('toggle button has aria-controls pointing to the input id', () => {
     const { getByRole, getByLabelText } = renderInput({ required: true, id: 'pwd' })
     const input = getByLabelText('Password') as HTMLInputElement
-    const checkbox = getByRole('checkbox', { name: /show password/i })
-    expect(checkbox.getAttribute('aria-controls')).toBe(input.id)
+    const button = getByRole('button', { name: /show password/i })
+    expect(button.getAttribute('aria-controls')).toBe(input.id)
+  })
+
+  it('toggle button has aria-pressed reflecting visibility state', async () => {
+    const { getByRole } = renderInput({ required: true })
+    const button = getByRole('button', { name: /show password/i })
+
+    expect(button.getAttribute('aria-pressed')).toBe('false')
+
+    await fireEvent.click(button)
+    expect(getByRole('button', { name: /hide password/i }).getAttribute('aria-pressed')).toBe('true')
   })
 })
 
@@ -130,10 +148,10 @@ describe('AGDSPasswordInput — disabled prop', () => {
     expect(input.disabled).toBe(true)
   })
 
-  it('disables the "Show password" checkbox', () => {
+  it('disables the toggle button', () => {
     const { getByRole } = renderInput({ disabled: true })
-    const checkbox = getByRole('checkbox', { name: /show password/i }) as HTMLInputElement
-    expect(checkbox.disabled).toBe(true)
+    const button = getByRole('button', { name: /show password/i }) as HTMLButtonElement
+    expect(button.disabled).toBe(true)
   })
 })
 

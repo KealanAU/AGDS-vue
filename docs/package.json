@@ -9,6 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "prepare": "nuxt prepare",
+    "clean:content": "rm -rf .nuxt/content",
     "type-check": "nuxt typecheck"
   },
   "dependencies": {

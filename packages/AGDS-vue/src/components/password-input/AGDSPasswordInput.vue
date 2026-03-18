@@ -2,8 +2,7 @@
 import { computed, getCurrentInstance, ref } from 'vue'
 import AGDSField from '../field/AGDSField.vue'
 import type { FieldMaxWidth } from '../field/AGDSField.vue'
-import AGDSCheckbox from '../checkbox/AGDSCheckbox.vue'
-import AGDSStack from '../stack/AGDSStack.vue'
+import AGDSIcon from '../icon/AGDSIcon.vue'
 
 export interface AGDSPasswordInputProps {
   /** Describes the purpose of the field */
@@ -69,18 +68,21 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 </script>
 
 <template>
-  <AGDSStack :gap="1">
-    <AGDSField
-      :label="props.label"
-      :id="inputId"
-      :hint="props.hint"
-      :invalid="props.invalid"
-      :message="props.message"
-      :required="props.required"
-      :hide-optional-label="props.hideOptionalLabel"
-      :max-width="props.maxWidth"
-    >
-      <template #default="slotProps">
+  <AGDSField
+    :label="props.label"
+    :id="inputId"
+    :hint="props.hint"
+    :invalid="props.invalid"
+    :message="props.message"
+    :required="props.required"
+    :hide-optional-label="props.hideOptionalLabel"
+    :max-width="props.maxWidth"
+  >
+    <template #default="slotProps">
+      <div
+        class="agds-password-input__wrapper"
+        :class="{ 'agds-password-input__wrapper--block': props.block }"
+      >
         <input
           ref="inputRef"
           v-bind="slotProps"
@@ -101,26 +103,45 @@ defineExpose({ focus: () => inputRef.value?.focus() })
           @focus="emit('focus', $event)"
           @blur="emit('blur', $event)"
         />
-      </template>
-    </AGDSField>
-
-    <AGDSCheckbox
-      v-model="showPassword"
-      :aria-controls="inputId"
-      :disabled="props.disabled"
-      size="sm"
-    >
-      Show password
-    </AGDSCheckbox>
-  </AGDSStack>
+        <button
+          type="button"
+          class="agds-password-input__toggle"
+          :aria-label="showPassword ? 'Hide password' : 'Show password'"
+          :aria-controls="inputId"
+          :aria-pressed="showPassword"
+          :disabled="props.disabled"
+          @click="showPassword = !showPassword"
+        >
+          <AGDSIcon
+            :name="showPassword ? 'mdi:eye-off' : 'mdi:eye'"
+            size="md"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+    </template>
+  </AGDSField>
 </template>
 
 <style scoped>
+/* ── Wrapper ─────────────────────────────────────────────── */
+
+.agds-password-input__wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 30ch;
+}
+
+.agds-password-input__wrapper--block {
+  width: 100%;
+}
+
 /* ── Input ──────────────────────────────────────────────── */
 
 .agds-password-input__input {
   display: block;
-  width: 30ch;
+  width: 100%;
   box-sizing: border-box;
   font-family: var(--agds-font-family-body);
   font-size: var(--agds-font-size-md);
@@ -130,6 +151,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
   border: var(--agds-border-width-md) solid var(--agds-color-border);
   border-radius: var(--agds-border-radius, 4px);
   padding: var(--agds-space-1) var(--agds-space-2);
+  padding-inline-end: calc(var(--agds-space-2) * 2 + var(--agds-icon-size-md, 1.25rem));
   transition: border-color var(--agds-transition-fast, 100ms ease);
 }
 
@@ -160,6 +182,38 @@ defineExpose({ focus: () => inputRef.value?.focus() })
   width: 100%;
 }
 
+/* ── Toggle button ──────────────────────────────────────── */
+
+.agds-password-input__toggle {
+  position: absolute;
+  inset-inline-end: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--agds-space-2) * 2 + var(--agds-icon-size-md, 1.25rem));
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--agds-color-text);
+  cursor: pointer;
+}
+
+.agds-password-input__toggle:focus-visible {
+  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline-offset: 2px;
+  border-radius: var(--agds-border-radius, 4px);
+}
+
+.agds-password-input__toggle:hover:not(:disabled) {
+  color: var(--agds-color-action-primary);
+}
+
+.agds-password-input__toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Forced colours (Windows High Contrast) */
 @media (forced-colors: active) {
   .agds-password-input__input {
@@ -174,6 +228,10 @@ defineExpose({ focus: () => inputRef.value?.focus() })
   .agds-password-input__input:disabled {
     border-color: GrayText;
     color: GrayText;
+  }
+
+  .agds-password-input__toggle {
+    forced-color-adjust: none;
   }
 }
 </style>

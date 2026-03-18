@@ -347,6 +347,8 @@ let __VLS_directives;
 /** @type {__VLS_StyleScopedClasses['agds-calendar__nav-btn']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-calendar__nav-btn']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-calendar__select']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-calendar__grid']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-calendar__grid']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-calendar__cell']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-calendar__cell']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-calendar__cell--today']} */ ;

@@ -23,12 +23,13 @@ export default defineConfig({
       fileName: 'AGDS-vue',
     },
     rollupOptions: {
-      external: ['vue', 'reka-ui'],
+      external: ['vue', 'reka-ui', '@iconify/vue'],
       output: {
         exports: 'named',
         globals: {
           vue: 'Vue',
           'reka-ui': 'RekaUI',
+          '@iconify/vue': 'IconifyVue',
         },
       },
     },

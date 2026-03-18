@@ -1,7 +1,6 @@
 import { computed, getCurrentInstance, ref } from 'vue';
 import AGDSField from '../field/AGDSField.vue';
-import AGDSCheckbox from '../checkbox/AGDSCheckbox.vue';
-import AGDSStack from '../stack/AGDSStack.vue';
+import AGDSIcon from '../icon/AGDSIcon.vue';
 const props = withDefaults(defineProps(), {
     invalid: false,
     required: false,
@@ -45,45 +44,46 @@ let __VLS_directives;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input--invalid']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-password-input__toggle']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-password-input__toggle']} */ ;
+/** @type {__VLS_StyleScopedClasses['agds-password-input__toggle']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
 /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
-const __VLS_0 = AGDSStack || AGDSStack;
+/** @type {__VLS_StyleScopedClasses['agds-password-input__toggle']} */ ;
+const __VLS_0 = AGDSField || AGDSField;
 // @ts-ignore
 const __VLS_1 = __VLS_asFunctionalComponent1(__VLS_0, new __VLS_0({
-    gap: (1),
+    label: (props.label),
+    id: (__VLS_ctx.inputId),
+    hint: (props.hint),
+    invalid: (props.invalid),
+    message: (props.message),
+    required: (props.required),
+    hideOptionalLabel: (props.hideOptionalLabel),
+    maxWidth: (props.maxWidth),
 }));
 const __VLS_2 = __VLS_1({
-    gap: (1),
+    label: (props.label),
+    id: (__VLS_ctx.inputId),
+    hint: (props.hint),
+    invalid: (props.invalid),
+    message: (props.message),
+    required: (props.required),
+    hideOptionalLabel: (props.hideOptionalLabel),
+    maxWidth: (props.maxWidth),
 }, ...__VLS_functionalComponentArgsRest(__VLS_1));
 var __VLS_5 = {};
 const { default: __VLS_6 } = __VLS_3.slots;
-const __VLS_7 = AGDSField || AGDSField;
-// @ts-ignore
-const __VLS_8 = __VLS_asFunctionalComponent1(__VLS_7, new __VLS_7({
-    label: (props.label),
-    id: (__VLS_ctx.inputId),
-    hint: (props.hint),
-    invalid: (props.invalid),
-    message: (props.message),
-    required: (props.required),
-    hideOptionalLabel: (props.hideOptionalLabel),
-    maxWidth: (props.maxWidth),
-}));
-const __VLS_9 = __VLS_8({
-    label: (props.label),
-    id: (__VLS_ctx.inputId),
-    hint: (props.hint),
-    invalid: (props.invalid),
-    message: (props.message),
-    required: (props.required),
-    hideOptionalLabel: (props.hideOptionalLabel),
-    maxWidth: (props.maxWidth),
-}, ...__VLS_functionalComponentArgsRest(__VLS_8));
-const { default: __VLS_12 } = __VLS_10.slots;
 {
-    const { default: __VLS_13 } = __VLS_10.slots;
-    const [slotProps] = __VLS_vSlot(__VLS_13);
+    const { default: __VLS_7 } = __VLS_3.slots;
+    const [slotProps] = __VLS_vSlot(__VLS_7);
+    __VLS_asFunctionalElement1(__VLS_intrinsics.div, __VLS_intrinsics.div)({
+        ...{ class: "agds-password-input__wrapper" },
+        ...{ class: ({ 'agds-password-input__wrapper--block': props.block }) },
+    });
+    /** @type {__VLS_StyleScopedClasses['agds-password-input__wrapper']} */ ;
+    /** @type {__VLS_StyleScopedClasses['agds-password-input__wrapper--block']} */ ;
     __VLS_asFunctionalElement1(__VLS_intrinsics.input)({
         ...{ onInput: (...[$event]) => {
                 __VLS_ctx.emit('update:modelValue', $event.target.value);
@@ -123,30 +123,35 @@ const { default: __VLS_12 } = __VLS_10.slots;
     /** @type {__VLS_StyleScopedClasses['agds-password-input__input']} */ ;
     /** @type {__VLS_StyleScopedClasses['agds-password-input__input--invalid']} */ ;
     /** @type {__VLS_StyleScopedClasses['agds-password-input__input--block']} */ ;
+    __VLS_asFunctionalElement1(__VLS_intrinsics.button, __VLS_intrinsics.button)({
+        ...{ onClick: (...[$event]) => {
+                __VLS_ctx.showPassword = !__VLS_ctx.showPassword;
+                // @ts-ignore
+                [inputType, showPassword, showPassword,];
+            } },
+        type: "button",
+        ...{ class: "agds-password-input__toggle" },
+        'aria-label': (__VLS_ctx.showPassword ? 'Hide password' : 'Show password'),
+        'aria-controls': (__VLS_ctx.inputId),
+        'aria-pressed': (__VLS_ctx.showPassword),
+        disabled: (props.disabled),
+    });
+    /** @type {__VLS_StyleScopedClasses['agds-password-input__toggle']} */ ;
+    const __VLS_8 = AGDSIcon;
     // @ts-ignore
-    [inputType,];
+    const __VLS_9 = __VLS_asFunctionalComponent1(__VLS_8, new __VLS_8({
+        name: (__VLS_ctx.showPassword ? 'mdi:eye-off' : 'mdi:eye'),
+        size: "md",
+        'aria-hidden': "true",
+    }));
+    const __VLS_10 = __VLS_9({
+        name: (__VLS_ctx.showPassword ? 'mdi:eye-off' : 'mdi:eye'),
+        size: "md",
+        'aria-hidden': "true",
+    }, ...__VLS_functionalComponentArgsRest(__VLS_9));
+    // @ts-ignore
+    [inputId, showPassword, showPassword, showPassword,];
 }
-// @ts-ignore
-[];
-var __VLS_10;
-const __VLS_14 = AGDSCheckbox || AGDSCheckbox;
-// @ts-ignore
-const __VLS_15 = __VLS_asFunctionalComponent1(__VLS_14, new __VLS_14({
-    modelValue: (__VLS_ctx.showPassword),
-    'aria-controls': (__VLS_ctx.inputId),
-    disabled: (props.disabled),
-    size: "sm",
-}));
-const __VLS_16 = __VLS_15({
-    modelValue: (__VLS_ctx.showPassword),
-    'aria-controls': (__VLS_ctx.inputId),
-    disabled: (props.disabled),
-    size: "sm",
-}, ...__VLS_functionalComponentArgsRest(__VLS_15));
-const { default: __VLS_19 } = __VLS_17.slots;
-// @ts-ignore
-[inputId, showPassword,];
-var __VLS_17;
 // @ts-ignore
 [];
 var __VLS_3;
