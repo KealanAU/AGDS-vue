@@ -1,0 +1,3 @@
+# Nuxt build output — generated at build/dev time, never commit
+.nuxt/
+.output/
