@@ -142,13 +142,12 @@ const AGDS_COMPONENTS = [
   'AgDSVisuallyHidden',
 ]
 
-// MDC runs component names through the HTML parser which lowercases all tag
-// names, then capitalises only the first character. So <AgDSAccordionItem>
-// becomes "agdsaccordionitem" → "Agdsaccordionitem". We must register each
-// component under that normalised name as well so the MDC resolver finds it.
+// MDC normalises PascalCase component names by lowercasing any uppercase letter
+// that is immediately followed by an uppercase+lowercase pair (e.g. the "S" in
+// "AgDSAvatar" precedes "Av", so it becomes "s" → "AgDsAvatar"). We register
+// each component under that normalised name so the MDC resolver finds it.
 function mdcName(name: string): string {
-  const lower = name.toLowerCase()
-  return lower.charAt(0).toUpperCase() + lower.slice(1)
+  return name.replace(/([A-Z])(?=[A-Z][a-z])/g, c => c.toLowerCase())
 }
 
 export default defineNuxtModule({

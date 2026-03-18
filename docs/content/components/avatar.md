@@ -10,7 +10,7 @@ status: stable
 Pass a `name` and the component derives initials automatically. Up to two initials are shown — first letter of the first and last words.
 
 ::doc-preview
-<AgDSAvatar name="Jordan Lee" />
+<AvatarDemo />
 ::
 
 ```vue
@@ -24,12 +24,7 @@ Pass a `name` and the component derives initials automatically. Up to two initia
 Use the `size` prop to scale the avatar. The default is `md`.
 
 ::doc-preview{label="All sizes"}
-<AgDSAvatar name="Alex Smith" size="sm" />
-<AgDSAvatar name="Alex Smith" size="md" />
-<AgDSAvatar name="Alex Smith" size="lg" />
-<AgDSAvatar name="Alex Smith" size="xl" />
-<AgDSAvatar name="Alex Smith" size="xxl" />
-<AgDSAvatar name="Alex Smith" size="xxxl" />
+<AvatarDemo variant="sizes" />
 ::
 
 ```vue
@@ -48,8 +43,7 @@ Use the `size` prop to scale the avatar. The default is `md`.
 Use the `tone` prop to change the colour. `neutral` (default) uses muted text; `action` uses the primary brand colour.
 
 ::doc-preview{label="Tones"}
-<AgDSAvatar name="Sam Taylor" tone="neutral" />
-<AgDSAvatar name="Sam Taylor" tone="action" />
+<AvatarDemo variant="tones" />
 ::
 
 ```vue

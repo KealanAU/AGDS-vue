@@ -23,6 +23,7 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../../node_modules/.pnpm/@nuxt+devtools@3.2.2_vite@7.3.1_@types+node@24.12.0_jiti@2.6.1_terser@5.46.0_yaml@2.8.2__vue@3.5.29_typescript@5.9.3_/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js")> &
   InjectionType<typeof import("../../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/plugins/warn.dev.server.js")> &
   InjectionType<typeof import("../../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/app/plugins/check-if-layout-used.js")> &
+  InjectionType<typeof import("../../app/plugins/agds")> &
   InjectionType<typeof import("../../../node_modules/.pnpm/nuxt@3.21.1_@parcel+watcher@2.5.6_@types+node@24.12.0_@vue+compiler-sfc@3.5.29_better-s_8c323be4ace4b7004f42fd86bae437ff/node_modules/nuxt/dist/pages/runtime/plugins/prerender.server.js")>
 
 declare module '#app' {
