@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.5.1",
-    "@vue/repl": "^4.5.0",
     "agds-vue": "workspace:*",
     "better-sqlite3": "^12.6.2",
     "nuxt": "^3.17.3",
