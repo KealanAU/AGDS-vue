@@ -1,15 +1,5 @@
 <script setup lang="ts">
-import type { BackgroundVariant } from '../../core'
-
-export type { BackgroundVariant as AppLayoutFooterBackground }
-export type AppLayoutFooterMaxWidth = 'container' | 'containerLg'
-
-export interface AGDSAppLayoutFooterProps {
-  /** Background colour of the footer surface. */
-  background?: BackgroundVariant
-  /** Maximum width of the inner content container. */
-  maxWidth?: AppLayoutFooterMaxWidth
-}
+import type { AGDSAppLayoutFooterProps } from './appLayoutTypes'
 
 withDefaults(defineProps<AGDSAppLayoutFooterProps>(), {
   background: 'body',

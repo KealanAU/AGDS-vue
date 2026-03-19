@@ -11,54 +11,8 @@ import {
   ComboboxViewport,
 } from 'reka-ui'
 import AGDSField from '../field/AGDSField.vue'
-import type { DefaultComboboxOption, ComboboxMaxWidth } from './comboboxUtils'
-
-export type { DefaultComboboxOption, ComboboxMaxWidth }
-
-export interface AGDSComboboxAsyncProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
-  /** Async function called on each debounced keystroke to load matching options */
-  fetchOptions: (query: string) => Promise<O[]>
-  /** Visible label text for the input */
-  label: string
-  /** HTML id for the input — auto-generated when omitted */
-  id?: string
-  /** Id placed on the <label> element, for use with aria-labelledby */
-  labelId?: string
-  /** Hint text shown below the label */
-  hint?: string
-  /** If true, the invalid state will be rendered */
-  invalid?: boolean
-  /** Validation message — only shown when invalid is true */
-  message?: string
-  /** If false, "(optional)" is appended to the label */
-  required?: boolean
-  /** Suppresses "(optional)" even when required is false */
-  hideOptionalLabel?: boolean
-  /** Text prepended to the secondary label */
-  secondaryLabel?: string
-  /** Placeholder text */
-  placeholder?: string
-  /** Name attribute for form serialisation */
-  name?: string
-  /** Disables the input */
-  disabled?: boolean
-  /** External loading state — adds aria-busy and spinner */
-  loading?: boolean
-  /** Screen reader text while loading. Default 'Loading' */
-  loadingLabel?: string
-  /** Message displayed when the fetch returns no results */
-  emptyResultsMessage?: string
-  /** Show a chevron button that opens/closes the dropdown. Default true */
-  showDropdownTrigger?: boolean
-  /** Show a × button to clear the current selection. Default false */
-  clearable?: boolean
-  /** Debounce delay in ms before fetchOptions is called. Default 300 */
-  debounce?: number
-  /** If true, the field stretches to fill its container */
-  block?: boolean
-  /** The maximum width of the field */
-  maxWidth?: ComboboxMaxWidth
-}
+import type { DefaultComboboxOption } from './comboboxUtils'
+import type { AGDSComboboxAsyncProps } from './comboboxTypes'
 
 const props = withDefaults(defineProps<AGDSComboboxAsyncProps<Option>>(), {
   invalid: false,

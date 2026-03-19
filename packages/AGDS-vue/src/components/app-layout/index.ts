@@ -19,7 +19,7 @@ export type {
   AGDSAppLayoutFooterProps,
   AppLayoutFooterBackground,
   AppLayoutFooterMaxWidth,
-} from './AGDSAppLayoutFooter.vue'
+} from './appLayoutTypes'
 
 export { default as AGDSAppLayoutFooterDivider } from './AGDSAppLayoutFooterDivider.vue'
 

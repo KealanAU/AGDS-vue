@@ -14,44 +14,8 @@ import {
 } from 'reka-ui'
 import AGDSField from '../field/AGDSField.vue'
 import { filterOptions } from './comboboxUtils'
-import type { DefaultComboboxOption, ComboboxMaxWidth } from './comboboxUtils'
-
-export type { DefaultComboboxOption, ComboboxMaxWidth }
-
-export interface AGDSComboboxMultiProps<O extends DefaultComboboxOption = DefaultComboboxOption> {
-  /** Describes the purpose of the field. */
-  label: string
-  /** Defines an identifier (ID) which must be unique. Auto-generated when omitted. */
-  id?: string
-  /** An id placed on the <label> element itself, for use with aria-labelledby. */
-  labelId?: string
-  /** Provides extra information about the field. */
-  hint?: string
-  /** If true, the invalid state will be rendered. */
-  invalid?: boolean
-  /** Message to show when the field is invalid. */
-  message?: string
-  /** If false, "(optional)" will be appended to the label. */
-  required?: boolean
-  /** If true, "(optional)" will never be appended to the label. */
-  hideOptionalLabel?: boolean
-  /** Text to prepend to the default secondary label. */
-  secondaryLabel?: string
-  /** The list of options to show in the dropdown. */
-  options: O[]
-  /** Placeholder text shown when no items are selected. */
-  placeholder?: string
-  /** Name attribute for form serialisation. */
-  name?: string
-  /** If true, the field will not be interactive. */
-  disabled?: boolean
-  /** If true, the field stretches to fill its container. */
-  block?: boolean
-  /** The maximum width of the field. */
-  maxWidth?: ComboboxMaxWidth
-  /** Message shown when no options match the search term. */
-  emptyResultsMessage?: string
-}
+import type { DefaultComboboxOption } from './comboboxUtils'
+import type { AGDSComboboxMultiProps } from './comboboxTypes'
 
 const props = withDefaults(defineProps<AGDSComboboxMultiProps<TOption>>(), {
   invalid: false,

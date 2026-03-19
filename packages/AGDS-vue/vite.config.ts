@@ -8,6 +8,7 @@ export default defineConfig({
     vue(),
     dts({
       include: ['src/**/*.ts', 'src/**/*.vue'],
+      exclude: ['src/nuxt.ts'],
       tsconfigPath: './tsconfig.json',
     }),
   ],

@@ -3,6 +3,16 @@ import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as AppLayoutBackground }
 
+export type AppLayoutFooterBackground = BackgroundVariant
+export type AppLayoutFooterMaxWidth = 'container' | 'containerLg'
+
+export interface AGDSAppLayoutFooterProps {
+  /** Background colour of the footer surface. */
+  background?: BackgroundVariant
+  /** Maximum width of the inner content container. */
+  maxWidth?: AppLayoutFooterMaxWidth
+}
+
 export type AppLayoutSubLevelVisible = 'always' | 'whenActive'
 
 export interface AppLayoutNavLinkItem {

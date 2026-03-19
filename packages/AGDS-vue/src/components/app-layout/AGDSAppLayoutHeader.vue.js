@@ -1,6 +1,6 @@
 import { useAppLayoutContext } from './appLayoutContext';
 import AGDSHeaderBrand from '../header/AGDSHeaderBrand.vue';
-const props = withDefaults(defineProps(), {
+const __VLS_props = withDefaults(defineProps(), {
     href: '/',
     background: 'body',
     dividerPosition: 'after',

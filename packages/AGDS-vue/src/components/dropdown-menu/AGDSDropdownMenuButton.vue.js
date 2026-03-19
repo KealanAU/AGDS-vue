@@ -1,6 +1,6 @@
 import { ref, onMounted } from 'vue';
 import { useDropdownMenuContext } from './dropdownMenuContext';
-const props = withDefaults(defineProps(), {
+const __VLS_props = withDefaults(defineProps(), {
     variant: 'text',
     size: 'md',
     block: false,

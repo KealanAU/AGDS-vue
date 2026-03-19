@@ -3,4 +3,4 @@ export type {
   AGDSDatePickerProps,
   DatePickerSingleValue,
   DatePickerRangeValue,
-} from './AGDSDatePicker.vue'
+} from './datePickerTypes'

@@ -28,7 +28,7 @@ export interface AGDSAppLayoutHeaderProps {
   size?: HeaderSize
 }
 
-const props = withDefaults(defineProps<AGDSAppLayoutHeaderProps>(), {
+withDefaults(defineProps<AGDSAppLayoutHeaderProps>(), {
   href: '/',
   background: 'body',
   dividerPosition: 'after',

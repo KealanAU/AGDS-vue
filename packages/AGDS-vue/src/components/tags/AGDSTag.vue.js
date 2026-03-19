@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import AGDSIcon from '../icon/AGDSIcon.vue';
-const props = withDefaults(defineProps(), {
+const __VLS_props = withDefaults(defineProps(), {
     removable: false,
 });
 const emit = defineEmits();

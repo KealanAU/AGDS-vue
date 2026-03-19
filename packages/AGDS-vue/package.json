@@ -1,6 +1,6 @@
 {
   "name": "agds-vue",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Agriculture Design System (AgDS) — accessible Vue 3 components for the Department of Agriculture, Fisheries and Forestry",
   "keywords": [
@@ -8,14 +8,17 @@
     "australia",
     "government",
     "design-system",
-    "accessibility"
+    "accessibility",
+    "agriculture"
   ],
   "author": "kealanc",
   "license": "MIT",
   "main": "./dist/AGDS-vue.umd.cjs",
   "module": "./dist/AGDS-vue.js",
   "types": "./dist/index.d.ts",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -52,9 +55,15 @@
     "vue": ">=3.5.0"
   },
   "peerDependenciesMeta": {
-    "@iconify/vue": { "optional": true },
-    "@nuxt/kit": { "optional": true },
-    "nuxt": { "optional": true }
+    "@iconify/vue": {
+      "optional": true
+    },
+    "@nuxt/kit": {
+      "optional": true
+    },
+    "nuxt": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@iconify/vue": "^5.0.0",

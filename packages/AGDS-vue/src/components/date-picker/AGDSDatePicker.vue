@@ -10,11 +10,7 @@ import {
 } from 'vue'
 import { PopoverRoot, PopoverPortal, PopoverContent, PopoverAnchor } from 'reka-ui'
 import AGDSDatePickerCalendar from './AGDSDatePickerCalendar.vue'
-
-// ── Types ────────────────────────────────────────────────────────────────────
-
-export type DatePickerSingleValue = Date | null
-export type DatePickerRangeValue = { from: Date | null; to: Date | null }
+import type { DatePickerSingleValue, DatePickerRangeValue, AGDSDatePickerProps } from './datePickerTypes'
 
 // ── Date utilities ───────────────────────────────────────────────────────────
 
@@ -126,60 +122,6 @@ function getCalendarDefaultMonth(
 }
 
 // ── Props ────────────────────────────────────────────────────────────────────
-
-export interface AGDSDatePickerProps {
-  /**
-   * When `true`, the component shows two date inputs (start + end) and
-   * `modelValue` must be `{ from: Date | null; to: Date | null }`.
-   * When `false` (default), `modelValue` is `Date | null`.
-   */
-  range?: boolean
-  /**
-   * The selected date (single mode) or date range (range mode).
-   * Use `v-model` for two-way binding.
-   */
-  modelValue?: DatePickerSingleValue | DatePickerRangeValue
-  /** Visible label for the field (single) or fieldset legend (range). */
-  label?: string
-  /** Visible label for the start-date input (range mode only). Default: "Start date" */
-  fromLabel?: string
-  /** Visible label for the end-date input (range mode only). Default: "End date" */
-  toLabel?: string
-  /** HTML `id` for the primary input. Auto-generated if omitted. */
-  id?: string
-  /** Hint text shown below the label. */
-  hint?: string
-  /** Validation message shown when the field is invalid. */
-  message?: string
-  /** If true, the field is rendered in an error state. */
-  invalid?: boolean
-  /** If true, the start-date input is invalid (range mode only). */
-  fromInvalid?: boolean
-  /** If true, the end-date input is invalid (range mode only). */
-  toInvalid?: boolean
-  /** Disables all inputs. */
-  disabled?: boolean
-  /** Marks the field as required; appends "(optional)" to the label when false. */
-  required?: boolean
-  /**
-   * When true, the "(optional)" suffix is never appended even when `required` is false.
-   */
-  hideOptionalLabel?: boolean
-  /** Days before this date cannot be selected. */
-  minDate?: Date
-  /** Days after this date cannot be selected. */
-  maxDate?: Date
-  /**
-   * Range of years shown in the year dropdown.
-   * When omitted, a ±10 year range from today is used and no dropdown is shown.
-   */
-  yearRange?: { from: number; to: number }
-  /**
-   * Date format used for the text input and example label.
-   * Supported: `'dd/MM/yyyy'` (default) or `'MM/dd/yyyy'`.
-   */
-  dateFormat?: string
-}
 
 const props = withDefaults(defineProps<AGDSDatePickerProps>(), {
   range: false,

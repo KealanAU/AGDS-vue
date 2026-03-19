@@ -9,7 +9,7 @@ export interface AGDSDropdownMenuButtonProps {
   disabled?: boolean
 }
 
-const props = withDefaults(defineProps<AGDSDropdownMenuButtonProps>(), {
+withDefaults(defineProps<AGDSDropdownMenuButtonProps>(), {
   variant: 'text',
   size: 'md',
   block: false,

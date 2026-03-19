@@ -1,6 +1,7 @@
 <!-- Internal calendar grid used by AGDSDatePicker — not exported from the library -->
 <script setup lang="ts">
 import { ref, computed, nextTick, onMounted } from 'vue'
+import type { CalendarProps } from './datePickerTypes'
 
 // ── Date utilities ───────────────────────────────────────────────────────────
 
@@ -53,27 +54,6 @@ function toDateKey(d: Date): string {
 }
 
 // ── Props ────────────────────────────────────────────────────────────────────
-
-interface CalendarProps {
-  /** 'single' for a date picker, 'range' for a date range picker */
-  mode: 'single' | 'range'
-  /** Selected date (single mode) */
-  selectedDate?: Date | null
-  /** Range start date (range mode) */
-  selectedFrom?: Date | null
-  /** Range end date (range mode) */
-  selectedTo?: Date | null
-  /** Which range input triggered the calendar (range mode) */
-  inputMode?: 'from' | 'to'
-  minDate?: Date
-  maxDate?: Date
-  /** Month to open to initially */
-  defaultMonth?: Date
-  /** Number of calendar months to display side by side */
-  numberOfMonths?: 1 | 2
-  /** If provided, year dropdown is shown with this range */
-  yearRange?: { from: number; to: number }
-}
 
 const props = withDefaults(defineProps<CalendarProps>(), {
   mode: 'single',

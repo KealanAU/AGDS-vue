@@ -11,7 +11,7 @@ export interface AGDSTagProps {
   removable?: boolean
 }
 
-const props = withDefaults(defineProps<AGDSTagProps>(), {
+withDefaults(defineProps<AGDSTagProps>(), {
   removable: false,
 })
 
