@@ -1,6 +1,6 @@
 {
   "name": "agds-vue",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Agriculture Design System (AgDS) — accessible Vue 3 components for the Department of Agriculture, Fisheries and Forestry",
   "keywords": [
