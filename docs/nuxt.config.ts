@@ -7,23 +7,11 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
+  ssr: false,
+
   devtools: { enabled: true },
 
-  appManifest: false,
-
-  nitro: {
-    prerender: {
-      failOnError: false,
-    },
-  },
-
   modules: ['@nuxt/content', 'agds-vue/nuxt'],
-
-  vite: {
-    build: {
-      sourcemap: false,
-    },
-  },
 
   content: {
     // @ts-ignore — highlight is a valid runtime option; @nuxt/content types lag behind

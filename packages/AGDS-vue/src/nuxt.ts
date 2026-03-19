@@ -1,5 +1,4 @@
-import { defineNuxtModule, addComponent, addImports } from '@nuxt/kit'
-import { componentNames } from './componentNames'
+import { defineNuxtModule, addComponentsDir, addImports, createResolver } from '@nuxt/kit'
 
 export default defineNuxtModule({
   meta: {
@@ -8,18 +7,19 @@ export default defineNuxtModule({
     compatibility: { nuxt: '>=3.0.0' },
   },
   setup(_options, nuxt) {
-    // Inject styles — consumers don't need css: ['agds-vue/styles']
-    nuxt.options.css.push('agds-vue/styles')
+    const resolver = createResolver(import.meta.url)
 
-    // Register all components globally (works with Nuxt Content MDC renderer too)
-    for (const name of componentNames) {
-      addComponent({
-        name,
-        export: name,
-        filePath: 'agds-vue',
-        global: true,
-      })
-    }
+    // Inject base styles — consumers don't need to manually import CSS
+    nuxt.options.css.push('agds-vue/styles/tokens')
+    nuxt.options.css.push('agds-vue/styles/base')
+
+    // Register all components globally — Nuxt scans the components directory
+    // and only bundles what is actually used (proper tree-shaking)
+    addComponentsDir({
+      path: resolver.resolve('components'),
+      pathPrefix: false,
+      global: true,
+    })
 
     // Auto-import composables so consumers use them without manual imports
     addImports([
