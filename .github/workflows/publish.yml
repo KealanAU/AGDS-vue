@@ -27,11 +27,11 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm type-check
+      - run: pnpm build:lib
+
+      - run: pnpm --filter agds-vue type-check
 
       - run: pnpm test
-
-      - run: pnpm build:lib
 
       - run: pnpm publish --filter agds-vue --no-git-checks --provenance
         env:
