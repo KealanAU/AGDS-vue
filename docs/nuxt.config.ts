@@ -19,6 +19,12 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/content', 'agds-vue/nuxt'],
 
+  vite: {
+    build: {
+      sourcemap: false,
+    },
+  },
+
   content: {
     // @ts-ignore — highlight is a valid runtime option; @nuxt/content types lag behind
     highlight: {
