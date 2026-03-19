@@ -13,9 +13,6 @@ importers:
       '@nuxt/content':
         specifier: ^3.5.1
         version: 3.12.0(better-sqlite3@12.6.2)(magicast@0.5.2)
-      '@vue/repl':
-        specifier: ^4.5.0
-        version: 4.7.1
       agds-vue:
         specifier: workspace:*
         version: link:../packages/AGDS-vue
@@ -1904,9 +1901,6 @@ packages:
 
   '@vue/reactivity@3.5.29':
     resolution: {integrity: sha512-zcrANcrRdcLtmGZETBxWqIkoQei8HaFpZWx/GHKxx79JZsiZ8j1du0VUJtu4eJjgFvU/iKL5lRXFXksVmI+5DA==}
-
-  '@vue/repl@4.7.1':
-    resolution: {integrity: sha512-8w5Z3cyqBJ5ufzXO2eut2stzb7aX/ZnSva2d3ee8eEINEB7FG2JYwc14eAHHHGGuoXOGN5v4cyb5ti/YZGcwlg==}
 
   '@vue/runtime-core@3.5.29':
     resolution: {integrity: sha512-8DpW2QfdwIWOLqtsNcds4s+QgwSaHSJY/SUe04LptianUQ/0xi6KVsu/pYVh+HO3NTVvVJjIPL2t6GdeKbS4Lg==}
@@ -7250,8 +7244,6 @@ snapshots:
   '@vue/reactivity@3.5.29':
     dependencies:
       '@vue/shared': 3.5.29
-
-  '@vue/repl@4.7.1': {}
 
   '@vue/runtime-core@3.5.29':
     dependencies:

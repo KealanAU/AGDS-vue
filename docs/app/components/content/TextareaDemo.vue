@@ -32,7 +32,6 @@ const value = ref('')
   <!-- disabled -->
   <AGDSTextarea
     v-else-if="variant === 'disabled'"
-    v-model="value"
     label="Biography"
     model-value="Some existing content"
     disabled
