@@ -9,27 +9,27 @@ const props = defineProps<{
 }>()
 
 const items: SideNavItem[] = [
-  { href: '/services', label: 'All services' },
+  { href: '#', label: 'All services' },
   {
-    href: '/services/health',
+    href: '#health',
     label: 'Health',
     items: [
-      { href: '/services/health/medicare', label: 'Medicare' },
-      { href: '/services/health/aged-care', label: 'Aged care' },
+      { href: '#medicare', label: 'Medicare' },
+      { href: '#aged-care', label: 'Aged care' },
     ],
   },
   {
-    href: '/services/education',
+    href: '#education',
     label: 'Education',
     items: [
-      { href: '/services/education/schools', label: 'Schools' },
-      { href: '/services/education/higher', label: 'Higher education' },
+      { href: '#schools', label: 'Schools' },
+      { href: '#higher', label: 'Higher education' },
     ],
   },
-  { href: '/services/contact', label: 'Contact' },
+  { href: '#contact', label: 'Contact' },
 ]
 
-const activePath = ref('/services/health')
+const activePath = ref('#health')
 
 const subLevelVisible = computed(() => (props.variant === 'always' ? 'always' : 'whenActive'))
 </script>
@@ -39,7 +39,7 @@ const subLevelVisible = computed(() => (props.variant === 'always' ? 'always' : 
     <AGDSSideNav
       :active-path="activePath"
       title="Services"
-      title-link="/services"
+      title-link="#"
       :items="items"
       :sub-level-visible="subLevelVisible"
     />

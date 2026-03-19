@@ -9,6 +9,10 @@ status: stable
 
 Wrap `AGDSTabList` and `AGDSTabPanel` inside `AGDSTabs`. Each `AGDSTab` must have a `value` that matches the `value` on its corresponding `AGDSTabPanel`.
 
+::doc-preview
+:tabs-demo
+::
+
 ```vue
 <template>
   <AGDSTabs default-value="overview">
@@ -57,6 +61,10 @@ const activeTab = ref('overview')
 
 Use `background="bodyAlt"` when the tabs sit on an off-white (`bodyAlt`) background.
 
+::doc-preview{label="bodyAlt background"}
+:tabs-demo{variant="body-alt"}
+::
+
 ```vue
 <template>
   <AGDSTabs default-value="a" background="bodyAlt">
@@ -74,6 +82,10 @@ Use `background="bodyAlt"` when the tabs sit on an off-white (`bodyAlt`) backgro
 
 By default, tab panels have a border and padding that visually contain the content. Set `contained="false"` to remove this styling when the panel content provides its own layout.
 
+::doc-preview{label="Uncontained panels"}
+:tabs-demo{variant="uncontained"}
+::
+
 ```vue
 <template>
   <AGDSTabs default-value="a" :contained="false">
@@ -90,6 +102,10 @@ By default, tab panels have a border and padding that visually contain the conte
 ## Disabled tab
 
 Use the `disabled` prop on `AGDSTab` to prevent a tab from being selected.
+
+::doc-preview{label="Disabled tabs"}
+:tabs-demo{variant="disabled"}
+::
 
 ```vue
 <template>

@@ -10,11 +10,7 @@ status: stable
 `AGDSFlex` renders a `<div>` with `display: flex`. Use it anywhere you need a flex container without setting `display` manually.
 
 ::doc-preview
-<AGDSFlex gap="3">
-  <span>Item one</span>
-  <span>Item two</span>
-  <span>Item three</span>
-</AGDSFlex>
+:flex-demo
 ::
 
 ```vue
@@ -32,11 +28,7 @@ status: stable
 Use `flexDirection` to arrange children in a row or column. Defaults to `row`.
 
 ::doc-preview{label="Column direction"}
-<AGDSFlex flexDirection="column" gap="2">
-  <span>First</span>
-  <span>Second</span>
-  <span>Third</span>
-</AGDSFlex>
+:flex-demo{variant="column"}
 ::
 
 ```vue
@@ -54,9 +46,7 @@ Use `flexDirection` to arrange children in a row or column. Defaults to `row`.
 Use `alignItems` and `justifyContent` to align children on the cross and main axes.
 
 ::doc-preview{label="Centred content"}
-<AGDSFlex alignItems="center" justifyContent="center" gap="4" style="height: 6rem; border: 1px dashed currentColor;">
-  <span>Centred</span>
-</AGDSFlex>
+:flex-demo{variant="centered"}
 ::
 
 ```vue
@@ -73,7 +63,7 @@ Use `alignItems` and `justifyContent` to align children on the cross and main ax
 Set `inline` to render `display: inline-flex` instead of `display: flex`.
 
 ::doc-preview{label="Inline flex"}
-<p>Text before <AGDSFlex inline gap="1" alignItems="center"><span>inline</span><span>flex</span></AGDSFlex> text after.</p>
+:flex-demo{variant="inline"}
 ::
 
 ```vue

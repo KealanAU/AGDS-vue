@@ -10,14 +10,7 @@ status: stable
 Wrap any raw HTML content in `AGDSProse` to apply the AGDS typography system automatically.
 
 ::doc-preview
-<AGDSProse>
-  <h2>Section heading</h2>
-  <p>This paragraph is inside a prose container. Links, <strong>bold text</strong>, and <em>italics</em> are all styled automatically.</p>
-  <ul>
-    <li>Bullet one</li>
-    <li>Bullet two</li>
-  </ul>
-</AGDSProse>
+:prose-demo
 ::
 
 ```vue

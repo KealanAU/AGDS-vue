@@ -10,7 +10,7 @@ status: stable
 Use `AGDSTextLink` for internal navigation. Pass the destination via `href` and the link text via the default slot.
 
 ::doc-preview
-<p>Read the <AGDSTextLink href="/guides/getting-started">getting started guide</AGDSTextLink> before continuing.</p>
+:text-link-demo
 ::
 
 ```vue
@@ -32,7 +32,7 @@ Use `AGDSTextLinkExternal` for links that open in a new tab. It automatically ad
 - Visually hidden text `", opens in a new tab"` for screen readers (WCAG 2.4.4)
 
 ::doc-preview{label="External link"}
-<p>Visit the <AGDSTextLinkExternal href="https://www.australia.gov.au">australia.gov.au</AGDSTextLinkExternal> website for more information.</p>
+:text-link-demo{variant="external"}
 ::
 
 ```vue
@@ -52,12 +52,7 @@ Use `AGDSTextLinkExternal` for links that open in a new tab. It automatically ad
 Text links are designed to sit within a sentence or paragraph. They inherit the font size and line height of their surrounding text.
 
 ::doc-preview{label="In context"}
-<AGDSText as="p" font-size="md">
-  You must
-  <AGDSTextLink href="/eligibility">check your eligibility</AGDSTextLink>
-  before submitting. For help, contact
-  <AGDSTextLinkExternal href="https://www.servicesaustralia.gov.au">Services Australia</AGDSTextLinkExternal>.
-</AGDSText>
+:text-link-demo{variant="in-context"}
 ::
 
 ---

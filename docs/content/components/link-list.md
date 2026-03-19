@@ -10,11 +10,7 @@ status: stable
 Compose `AGDSLinkList` with `AGDSLinkListItem` children.
 
 ::doc-preview
-<AGDSLinkList>
-  <AGDSLinkListItem href="/" label="Home" />
-  <AGDSLinkListItem href="/about" label="About us" />
-  <AGDSLinkListItem href="/contact" label="Contact" />
-</AGDSLinkList>
+:link-list-demo
 ::
 
 ```vue
@@ -32,11 +28,7 @@ Compose `AGDSLinkList` with `AGDSLinkListItem` children.
 Use the `horizontal` prop to lay links out in a row.
 
 ::doc-preview{label="Horizontal"}
-<AGDSLinkList horizontal>
-  <AGDSLinkListItem href="/privacy" label="Privacy" />
-  <AGDSLinkListItem href="/accessibility" label="Accessibility" />
-  <AGDSLinkListItem href="/sitemap" label="Sitemap" />
-</AGDSLinkList>
+:link-list-demo{variant="horizontal"}
 ::
 
 ```vue
@@ -54,10 +46,7 @@ Use the `horizontal` prop to lay links out in a row.
 Set `target="_blank"` on an item. The component automatically adds `rel="noopener noreferrer"` and a visually-hidden ", opens in a new tab" announcement for screen readers.
 
 ::doc-preview{label="New tab"}
-<AGDSLinkList>
-  <AGDSLinkListItem href="https://www.apsjobs.gov.au" label="APS Jobs" target="_blank" />
-  <AGDSLinkListItem href="https://my.gov.au" label="My Gov" target="_blank" />
-</AGDSLinkList>
+:link-list-demo{variant="new-tab"}
 ::
 
 ```vue

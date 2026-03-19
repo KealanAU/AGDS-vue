@@ -10,9 +10,7 @@ status: stable
 `AGDSContent` renders a full-width band with no vertical padding. It centres its content within the standard container max-width.
 
 ::doc-preview
-<AGDSContent>
-  <p>Page content goes here.</p>
-</AGDSContent>
+:content-demo
 ::
 
 ```vue
@@ -28,10 +26,7 @@ status: stable
 Use `AGDSPageContent` for the main readable area of a page. It applies the standard page-level vertical padding.
 
 ::doc-preview{label="PageContent"}
-<AGDSPageContent>
-  <h1>Page heading</h1>
-  <p>This content has top and bottom page padding applied.</p>
-</AGDSPageContent>
+:content-demo{variant="page"}
 ::
 
 ```vue
@@ -48,10 +43,7 @@ Use `AGDSPageContent` for the main readable area of a page. It applies the stand
 Use `AGDSSectionContent` for thematic sections within a page. It renders as a `<section>` by default and applies section-level vertical padding.
 
 ::doc-preview{label="SectionContent"}
-<AGDSSectionContent>
-  <h2>Section heading</h2>
-  <p>This content has section vertical padding applied.</p>
-</AGDSSectionContent>
+:content-demo{variant="section"}
 ::
 
 ```vue
@@ -71,12 +63,7 @@ Use the `background` prop on any content component to set the background colour 
 - `bodyAlt` — sets `--agds-color-bg-subtle`
 
 ::doc-preview{label="Background variants"}
-<AGDSSectionContent background="body">
-  <p>Body background</p>
-</AGDSSectionContent>
-<AGDSSectionContent background="bodyAlt">
-  <p>Body alt background</p>
-</AGDSSectionContent>
+:content-demo{variant="background"}
 ::
 
 ```vue
@@ -118,13 +105,7 @@ Use `visible` to control bleed responsively:
 - `{ md: false }` — no bleed on desktop only
 
 ::doc-preview{label="ContentBleed"}
-<AGDSSectionContent>
-  <AGDSContentBleed>
-    <div style="background: var(--agds-color-bg-subtle); padding: 1rem;">
-      This element bleeds to the edges of the section band.
-    </div>
-  </AGDSContentBleed>
-</AGDSSectionContent>
+:content-demo{variant="bleed"}
 ::
 
 ```vue

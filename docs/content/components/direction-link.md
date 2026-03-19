@@ -10,7 +10,7 @@ status: stable
 Use `AGDSDirectionLink` when the destination is a URL. Use `AGDSDirectionButton` when the action is triggered by JavaScript (e.g. moving through a multi-step form).
 
 ::doc-preview
-<AGDSDirectionLink href="#" direction="right">Next step</AGDSDirectionLink>
+:direction-link-demo
 ::
 
 ```vue
@@ -29,10 +29,7 @@ Use the `direction` prop to control which arrow is shown and where it appears.
 - `down` — arrow after the label (expand / scroll down)
 
 ::doc-preview{label="All directions"}
-<AGDSDirectionLink href="#" direction="left">Back</AGDSDirectionLink>
-<AGDSDirectionLink href="#" direction="right">Forward</AGDSDirectionLink>
-<AGDSDirectionLink href="#" direction="up">Top of page</AGDSDirectionLink>
-<AGDSDirectionLink href="#" direction="down">See more</AGDSDirectionLink>
+:direction-link-demo{variant="directions"}
 ::
 
 ```vue
@@ -49,7 +46,7 @@ Use the `direction` prop to control which arrow is shown and where it appears.
 Set `external` to open the link in a new tab. Screen reader users hear ", opens in a new tab" appended automatically.
 
 ::doc-preview{label="External link"}
-<AGDSDirectionLink href="https://www.australia.gov.au" direction="right" external>australia.gov.au</AGDSDirectionLink>
+:direction-link-demo{variant="external"}
 ::
 
 ```vue
@@ -65,8 +62,7 @@ Set `external` to open the link in a new tab. Screen reader users hear ", opens 
 Use `AGDSDirectionButton` when there is no URL destination. It supports `disabled` and `loading` states.
 
 ::doc-preview{label="Button variant"}
-<AGDSDirectionButton direction="right">Next step</AGDSDirectionButton>
-<AGDSDirectionButton direction="left">Previous</AGDSDirectionButton>
+:direction-link-demo{variant="button"}
 ::
 
 ```vue
@@ -79,7 +75,7 @@ Use `AGDSDirectionButton` when there is no URL destination. It supports `disable
 ## Disabled
 
 ::doc-preview{label="Disabled button"}
-<AGDSDirectionButton direction="right" disabled>Next step</AGDSDirectionButton>
+:direction-link-demo{variant="disabled"}
 ::
 
 ```vue
@@ -91,7 +87,7 @@ Use `AGDSDirectionButton` when there is no URL destination. It supports `disable
 ## Loading
 
 ::doc-preview{label="Loading button"}
-<AGDSDirectionButton direction="right" loading>Saving…</AGDSDirectionButton>
+:direction-link-demo{variant="loading"}
 ::
 
 ```vue

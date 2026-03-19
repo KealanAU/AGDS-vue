@@ -10,7 +10,7 @@ status: stable
 Use `AGDSCallToActionLink` when the destination is a URL. Use `AGDSCallToActionButton` when the action is triggered by JavaScript.
 
 ::doc-preview
-<AGDSCallToActionLink href="#">Get started</AGDSCallToActionLink>
+:call-to-action-demo
 ::
 
 ```vue
@@ -24,7 +24,7 @@ Use `AGDSCallToActionLink` when the destination is a URL. Use `AGDSCallToActionB
 Use `AGDSCallToActionButton` when there is no URL — for example, advancing a multi-step form or triggering a modal.
 
 ::doc-preview{label="Button variant"}
-<AGDSCallToActionButton>Apply now</AGDSCallToActionButton>
+:call-to-action-demo{variant="button"}
 ::
 
 ```vue
@@ -38,7 +38,7 @@ Use `AGDSCallToActionButton` when there is no URL — for example, advancing a m
 Set `external` to open the link in a new tab. Screen reader users hear ", opens in a new tab" appended automatically.
 
 ::doc-preview{label="External link"}
-<AGDSCallToActionLink href="https://www.australia.gov.au" external>australia.gov.au</AGDSCallToActionLink>
+:call-to-action-demo{variant="external"}
 ::
 
 ```vue
@@ -52,7 +52,7 @@ Set `external` to open the link in a new tab. Screen reader users hear ", opens 
 ## Disabled
 
 ::doc-preview{label="Disabled button"}
-<AGDSCallToActionButton disabled>Apply now</AGDSCallToActionButton>
+:call-to-action-demo{variant="disabled"}
 ::
 
 ```vue
@@ -64,7 +64,7 @@ Set `external` to open the link in a new tab. Screen reader users hear ", opens 
 ## Loading
 
 ::doc-preview{label="Loading button"}
-<AGDSCallToActionButton loading>Submitting…</AGDSCallToActionButton>
+:call-to-action-demo{variant="loading"}
 ::
 
 ```vue

@@ -10,10 +10,7 @@ status: stable
 `AGDSBox` renders a `<div>` by default. Use its props to apply display, flex, gap, and padding values without writing inline styles.
 
 ::doc-preview
-<AGDSBox padding="4" display="flex" gap="2">
-  <AGDSBox padding="2">Item A</AGDSBox>
-  <AGDSBox padding="2">Item B</AGDSBox>
-</AGDSBox>
+:box-demo
 ::
 
 ```vue
@@ -43,10 +40,7 @@ Use the `as` prop to change the rendered HTML element or pass a Vue component.
 Numeric values for `gap`, `padding`, and related props map to `var(--agds-space-{n})`. Pass a string to use any valid CSS value verbatim.
 
 ::doc-preview{label="Spacing tokens"}
-<AGDSBox display="flex" gap="4" padding="4">
-  <AGDSBox paddingX="3" paddingY="2">Horizontal + vertical</AGDSBox>
-  <AGDSBox padding="2">Shorthand</AGDSBox>
-</AGDSBox>
+:box-demo{variant="spacing"}
 ::
 
 ```vue
@@ -64,11 +58,7 @@ Numeric values for `gap`, `padding`, and related props map to `var(--agds-space-
 Set `display="flex"` and use `flexDirection`, `alignItems`, and `justifyContent` to build flex containers. For a dedicated flex component see `AGDSFlex`.
 
 ::doc-preview{label="Flex row"}
-<AGDSBox display="flex" flexDirection="row" alignItems="center" gap="3">
-  <AGDSBox>Left</AGDSBox>
-  <AGDSBox>Centre</AGDSBox>
-  <AGDSBox>Right</AGDSBox>
-</AGDSBox>
+:box-demo{variant="flex"}
 ::
 
 ```vue

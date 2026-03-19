@@ -10,11 +10,7 @@ status: stable
 `AGDSStack` renders a `<div>` as a vertical flex column. Use it to stack children with consistent spacing.
 
 ::doc-preview
-<AGDSStack gap="3">
-  <span>First</span>
-  <span>Second</span>
-  <span>Third</span>
-</AGDSStack>
+:stack-demo
 ::
 
 ```vue
@@ -32,10 +28,7 @@ status: stable
 Use `alignItems` to align children on the cross axis.
 
 ::doc-preview{label="Centred items"}
-<AGDSStack gap="2" alignItems="center">
-  <span>Short</span>
-  <span>A longer item</span>
-</AGDSStack>
+:stack-demo{variant="alignment"}
 ::
 
 ```vue

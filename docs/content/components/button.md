@@ -10,7 +10,7 @@ status: stable
 Use the default slot to set the label of the Button.
 
 ::doc-preview
-<AGDSButton>Submit application</AGDSButton>
+:button-demo
 ::
 
 ```vue
@@ -28,9 +28,7 @@ Use the `variant` prop to change the visual style of the Button.
 - `tertiary` — low-emphasis link-style action
 
 ::doc-preview{label="All variants"}
-<AGDSButton variant="primary">Primary</AGDSButton>
-<AGDSButton variant="secondary">Secondary</AGDSButton>
-<AGDSButton variant="tertiary">Tertiary</AGDSButton>
+:button-demo{variant="variants"}
 ::
 
 ```vue
@@ -46,9 +44,7 @@ Use the `variant` prop to change the visual style of the Button.
 Use the `size` prop to change the size of the Button. The default is `md`.
 
 ::doc-preview{label="All sizes"}
-<AGDSButton size="sm">Small</AGDSButton>
-<AGDSButton size="md">Medium</AGDSButton>
-<AGDSButton size="lg">Large</AGDSButton>
+:button-demo{variant="sizes"}
 ::
 
 ```vue
@@ -64,8 +60,7 @@ Use the `size` prop to change the size of the Button. The default is `md`.
 Use the `disabled` prop to prevent interaction. The native `disabled` attribute is set, removing the button from the tab order. `aria-disabled="true"` is also set.
 
 ::doc-preview{label="Disabled"}
-<AGDSButton disabled>Can't click me</AGDSButton>
-<AGDSButton variant="secondary" disabled>Secondary</AGDSButton>
+:button-demo{variant="disabled"}
 ::
 
 ```vue
@@ -80,8 +75,7 @@ Use the `disabled` prop to prevent interaction. The native `disabled` attribute 
 Use the `loading` prop to show a spinner and disable the button while an async operation is pending. `aria-busy="true"` is set automatically.
 
 ::doc-preview{label="Loading"}
-<AGDSButton loading>Submitting…</AGDSButton>
-<AGDSButton variant="secondary" loading>Saving…</AGDSButton>
+:button-demo{variant="loading"}
 ::
 
 ```vue

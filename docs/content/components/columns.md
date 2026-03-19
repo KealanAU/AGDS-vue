@@ -10,10 +10,7 @@ status: stable
 Wrap `AGDSColumn` children inside `AGDSColumns` to create a grid layout. By default the grid has 12 equal columns.
 
 ::doc-preview
-<AGDSColumns :gap="4">
-  <AGDSColumn :span="6">Left half</AGDSColumn>
-  <AGDSColumn :span="6">Right half</AGDSColumn>
-</AGDSColumns>
+:columns-demo
 ::
 
 ```vue
@@ -30,12 +27,7 @@ Wrap `AGDSColumn` children inside `AGDSColumns` to create a grid layout. By defa
 Use the `cols` prop to change the total number of columns. The default is `12`.
 
 ::doc-preview{label="4-column grid"}
-<AGDSColumns :cols="4" :gap="3">
-  <AGDSColumn>1</AGDSColumn>
-  <AGDSColumn>2</AGDSColumn>
-  <AGDSColumn>3</AGDSColumn>
-  <AGDSColumn>4</AGDSColumn>
-</AGDSColumns>
+:columns-demo{variant="col-count"}
 ::
 
 ```vue
@@ -58,9 +50,7 @@ Control how each `AGDSColumn` occupies the grid using `span`, `start`, and `end`
 - `end` — 1-based grid column end line (exclusive)
 
 ::doc-preview{label="Offset column"}
-<AGDSColumns :gap="3">
-  <AGDSColumn :start="3" :span="8">Centred content</AGDSColumn>
-</AGDSColumns>
+:columns-demo{variant="offset"}
 ::
 
 ```vue
