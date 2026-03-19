@@ -42,7 +42,6 @@ jobs:
         run: pnpm --filter docs generate
         env:
           NUXT_APP_BASE_URL: ${{ steps.pages.outputs.base_path }}
-          NODE_OPTIONS: --max-old-space-size=6144
           NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Upload artifact
