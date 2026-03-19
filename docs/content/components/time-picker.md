@@ -10,7 +10,7 @@ status: stable
 Bind `v-model` to receive the selected `{ label, value }` option, or `null` when nothing is selected.
 
 ::doc-preview
-<AGDSTimePicker label="Appointment time" />
+:time-picker-demo
 ::
 
 ```vue

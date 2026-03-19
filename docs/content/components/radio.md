@@ -29,7 +29,7 @@ const plan = ref('standard')
 A single radio can be used without a group when only one option is needed.
 
 ::doc-preview{label="Standalone"}
-<AGDSRadio :model-value="'yes'" value="yes">Yes, I agree</AGDSRadio>
+:radio-demo{variant="standalone"}
 ::
 
 ```vue
@@ -43,11 +43,7 @@ A single radio can be used without a group when only one option is needed.
 Wrap related radios in `AGDSRadioGroup` to provide a shared `<fieldset>` + `<legend>`. The `name`, `disabled`, `required`, and `invalid` props cascade to all child radios via context.
 
 ::doc-preview{label="Group"}
-<AGDSRadioGroup legend="Preferred contact method" name="contact">
-  <AGDSRadio :model-value="'email'" value="email">Email</AGDSRadio>
-  <AGDSRadio :model-value="'phone'" value="phone">Phone</AGDSRadio>
-  <AGDSRadio :model-value="'post'" value="post">Post</AGDSRadio>
-</AGDSRadioGroup>
+:radio-demo{variant="group"}
 ::
 
 ```vue
@@ -65,12 +61,7 @@ Wrap related radios in `AGDSRadioGroup` to provide a shared `<fieldset>` + `<leg
 Use the `hint` slot to provide guidance beneath the legend.
 
 ::doc-preview{label="With hint"}
-<AGDSRadioGroup legend="Notification frequency" name="frequency">
-  <template #hint>How often would you like to receive updates?</template>
-  <AGDSRadio :model-value="'daily'" value="daily">Daily</AGDSRadio>
-  <AGDSRadio :model-value="'weekly'" value="weekly">Weekly</AGDSRadio>
-  <AGDSRadio :model-value="'never'" value="never">Never</AGDSRadio>
-</AGDSRadioGroup>
+:radio-demo{variant="hint"}
 ::
 
 ```vue
@@ -89,11 +80,7 @@ Use the `hint` slot to provide guidance beneath the legend.
 Set `invalid` and the `message` slot on the group to show the error treatment. Each radio gets `aria-invalid` and `aria-describedby` automatically.
 
 ::doc-preview{label="Invalid"}
-<AGDSRadioGroup legend="Select an option" name="option" :invalid="true" message-id="option-error">
-  <template #message><span id="option-error">Please select an option to continue.</span></template>
-  <AGDSRadio :model-value="''" value="a">Option A</AGDSRadio>
-  <AGDSRadio :model-value="''" value="b">Option B</AGDSRadio>
-</AGDSRadioGroup>
+:radio-demo{variant="invalid"}
 ::
 
 ```vue
@@ -118,23 +105,13 @@ Set `invalid` and the `message` slot on the group to show the error treatment. E
 Disable the entire group or individual radios.
 
 ::doc-preview{label="Disabled group"}
-<AGDSRadioGroup legend="Status" name="status" disabled>
-  <AGDSRadio :model-value="'active'" value="active">Active</AGDSRadio>
-  <AGDSRadio :model-value="'active'" value="inactive">Inactive</AGDSRadio>
-</AGDSRadioGroup>
+:radio-demo{variant="disabled"}
 ::
 
 ## Size
 
 ::doc-preview{label="Sizes"}
-<AGDSRadioGroup legend="Small" name="size-sm">
-  <AGDSRadio size="sm" :model-value="'a'" value="a">Option A</AGDSRadio>
-  <AGDSRadio size="sm" :model-value="'a'" value="b">Option B</AGDSRadio>
-</AGDSRadioGroup>
-<AGDSRadioGroup legend="Medium (default)" name="size-md">
-  <AGDSRadio size="md" :model-value="'a'" value="a">Option A</AGDSRadio>
-  <AGDSRadio size="md" :model-value="'a'" value="b">Option B</AGDSRadio>
-</AGDSRadioGroup>
+:radio-demo{variant="size"}
 ::
 
 ---

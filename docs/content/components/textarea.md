@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`.
 
 ::doc-preview
-<AGDSTextarea label="Biography" required />
+:textarea-demo
 ::
 
 ```vue
@@ -30,7 +30,7 @@ const bio = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AGDSTextarea label="Biography" hint="Max 500 characters" required />
+:textarea-demo{variant="hint"}
 ::
 
 ```vue
@@ -49,7 +49,7 @@ Use the `hint` prop to provide additional guidance beneath the label.
 When `required` is `false` (the default), `"(optional)"` is appended to the label.
 
 ::doc-preview{label="Optional field"}
-<AGDSTextarea label="Additional comments" />
+:textarea-demo{variant="optional"}
 ::
 
 ```vue
@@ -63,7 +63,7 @@ When `required` is `false` (the default), `"(optional)"` is appended to the labe
 Set `invalid` and `message` together to render the error treatment. The message is linked via `aria-describedby`.
 
 ::doc-preview{label="Invalid"}
-<AGDSTextarea label="Notes" :invalid="true" message="Notes cannot be empty" required />
+:textarea-demo{variant="invalid"}
 ::
 
 ```vue
@@ -81,7 +81,7 @@ Set `invalid` and `message` together to render the error treatment. The message 
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AGDSTextarea label="Biography" model-value="Some existing content" disabled required />
+:textarea-demo{variant="disabled"}
 ::
 
 ```vue
@@ -95,7 +95,7 @@ Set `invalid` and `message` together to render the error treatment. The message 
 Use the `rows` prop to control the visible height. The textarea has a minimum height of `6rem` in CSS regardless of `rows`.
 
 ::doc-preview{label="Custom rows"}
-<AGDSTextarea label="Description" :rows="8" required />
+:textarea-demo{variant="rows"}
 ::
 
 ```vue
@@ -109,9 +109,7 @@ Use the `rows` prop to control the visible height. The textarea has a minimum he
 Use `maxWidth` to constrain the field width. Accepts `md`, `lg`, or `xl` (narrower sizes are excluded as they are too narrow for comfortable multi-line text).
 
 ::doc-preview{label="Max widths"}
-<AGDSTextarea label="Medium (default)" max-width="md" required />
-<AGDSTextarea label="Large" max-width="lg" required />
-<AGDSTextarea label="Extra large" max-width="xl" required />
+:textarea-demo{variant="max-widths"}
 ::
 
 ```vue
@@ -125,7 +123,7 @@ Use `maxWidth` to constrain the field width. Accepts `md`, `lg`, or `xl` (narrow
 Set `block` to stretch the textarea to the full width of its container. Overrides `maxWidth`.
 
 ::doc-preview{label="Block"}
-<AGDSTextarea label="Notes" block required />
+:textarea-demo{variant="block"}
 ::
 
 ```vue

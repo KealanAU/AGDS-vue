@@ -10,10 +10,7 @@ status: stable
 Compose `AGDSSearchBox`, `AGDSSearchBoxInput`, and `AGDSSearchBoxButton` together. The form wraps its children in a flex row and carries `role="search"` so screen readers can navigate directly to the search landmark.
 
 ::doc-preview
-<AGDSSearchBox>
-  <AGDSSearchBoxInput />
-  <AGDSSearchBoxButton label="Search" />
-</AGDSSearchBox>
+:search-box-demo
 ::
 
 ```vue
@@ -41,10 +38,7 @@ function onSubmit(event) {
 By default the input label is visually hidden but announced by screen readers. Set `label-visible` to display it above the input — useful when the search box appears outside of a header context.
 
 ::doc-preview{label="Visible label"}
-<AGDSSearchBox>
-  <AGDSSearchBoxInput label="Search the site" label-visible />
-  <AGDSSearchBoxButton label="Search" />
-</AGDSSearchBox>
+:search-box-demo{variant="label-visible"}
 ::
 
 ```vue
@@ -61,10 +55,7 @@ By default the input label is visually hidden but announced by screen readers. S
 Set `icon-only` on `AGDSSearchBoxButton` to show only the search icon. The `label` prop still provides the accessible name via `aria-label`.
 
 ::doc-preview{label="Icon-only button"}
-<AGDSSearchBox>
-  <AGDSSearchBoxInput />
-  <AGDSSearchBoxButton label="Search" icon-only />
-</AGDSSearchBox>
+:search-box-demo{variant="icon-only"}
 ::
 
 ```vue
@@ -81,10 +72,7 @@ Set `icon-only` on `AGDSSearchBoxButton` to show only the search icon. The `labe
 A clear button appears automatically inside `AGDSSearchBoxInput` when the input has a value. It is a native `<button>` so keyboard users can Tab to it and activate it with `Space` or `Enter`.
 
 ::doc-preview{label="Clear button visible"}
-<AGDSSearchBox>
-  <AGDSSearchBoxInput :model-value="'climate change'" />
-  <AGDSSearchBoxButton label="Search" />
-</AGDSSearchBox>
+:search-box-demo{variant="clear"}
 ::
 
 ```vue

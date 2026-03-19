@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`. The field renders with a search icon, standard label, hint, and error message layout.
 
 ::doc-preview
-<AGDSSearchInput label="Search" required />
+:search-input-demo
 ::
 
 ```vue
@@ -30,7 +30,7 @@ const query = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AGDSSearchInput label="Search legislation" hint="Enter an act name, number, or keyword" required />
+:search-input-demo{variant="hint"}
 ::
 
 ```vue
@@ -49,7 +49,7 @@ Use the `hint` prop to provide additional guidance beneath the label.
 Set `invalid` and `message` together to render the error treatment. The message is linked via `aria-describedby`.
 
 ::doc-preview{label="Invalid"}
-<AGDSSearchInput label="Search" :invalid="true" message="Enter a search term to continue" required />
+:search-input-demo{variant="invalid"}
 ::
 
 ```vue
@@ -67,7 +67,7 @@ Set `invalid` and `message` together to render the error treatment. The message 
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AGDSSearchInput label="Search" disabled required />
+:search-input-demo{variant="disabled"}
 ::
 
 ```vue
@@ -81,9 +81,7 @@ Set `invalid` and `message` together to render the error treatment. The message 
 Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to `md`.
 
 ::doc-preview{label="Max widths"}
-<AGDSSearchInput label="Medium (default)" max-width="md" required />
-<AGDSSearchInput label="Large" max-width="lg" required />
-<AGDSSearchInput label="Extra large" max-width="xl" required />
+:search-input-demo{variant="max-widths"}
 ::
 
 ```vue
@@ -97,7 +95,7 @@ Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to
 Set `block` to stretch the input to the full width of its container. Overrides `maxWidth`.
 
 ::doc-preview{label="Block"}
-<AGDSSearchInput label="Search" block required />
+:search-input-demo{variant="block"}
 ::
 
 ```vue
@@ -113,7 +111,7 @@ A clear button appears automatically when the input has a value. Clicking it cle
 The clear button is a `<div role="button">` intentionally excluded from the Tab order — keyboard users clear via the `Escape` key, keeping the Tab sequence uncluttered.
 
 ::doc-preview{label="Clear button visible"}
-<AGDSSearchInput label="Search" :model-value="'climate change'" required />
+:search-input-demo{variant="clear"}
 ::
 
 ```vue

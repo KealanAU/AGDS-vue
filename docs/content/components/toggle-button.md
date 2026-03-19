@@ -10,7 +10,7 @@ status: stable
 Provide `label`, `pressed-label`, and bind the state with `v-model:pressed`.
 
 ::doc-preview
-<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" />
+:toggle-button-demo
 ::
 
 ```vue
@@ -31,7 +31,7 @@ const flagged = ref(false)
 ## Pressed state
 
 ::doc-preview{label="Pressed"}
-<AGDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" />
+:toggle-button-demo{variant="pressed"}
 ::
 
 ## Star icon
@@ -39,8 +39,7 @@ const flagged = ref(false)
 Use `icon-type="star"` to switch to a star icon pair.
 
 ::doc-preview{label="Star — unpressed and pressed"}
-<AGDSToggleButton :pressed="false" label="Save" pressed-label="Saved" icon-type="star" />
-<AGDSToggleButton :pressed="true" label="Save" pressed-label="Saved" icon-type="star" />
+:toggle-button-demo{variant="star"}
 ::
 
 ```vue
@@ -59,10 +58,7 @@ Use `icon-type="star"` to switch to a star icon pair.
 Set `hidden-label` to show only the icon. The `label` and `pressed-label` are still announced by screen readers via `aria-label`.
 
 ::doc-preview{label="Icon only"}
-<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" hidden-label />
-<AGDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" hidden-label />
-<AGDSToggleButton :pressed="false" label="Save" pressed-label="Saved" icon-type="star" hidden-label />
-<AGDSToggleButton :pressed="true" label="Save" pressed-label="Saved" icon-type="star" hidden-label />
+:toggle-button-demo{variant="icon-only"}
 ::
 
 ```vue
@@ -81,9 +77,7 @@ Set `hidden-label` to show only the icon. The `label` and `pressed-label` are st
 Accepts the same `variant` and `size` props as `AGDSButton`. Defaults to `variant="text"`.
 
 ::doc-preview{label="Variants"}
-<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="text" />
-<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="tertiary" />
-<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" variant="secondary" />
+:toggle-button-demo{variant="variants"}
 ::
 
 ```vue
@@ -101,8 +95,7 @@ Accepts the same `variant` and `size` props as `AGDSButton`. Defaults to `varian
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AGDSToggleButton :pressed="false" label="Flag" pressed-label="Flagged" disabled />
-<AGDSToggleButton :pressed="true" label="Flag" pressed-label="Flagged" disabled />
+:toggle-button-demo{variant="disabled"}
 ::
 
 ```vue

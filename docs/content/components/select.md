@@ -10,7 +10,7 @@ status: stable
 Provide a `label`, an `options` array, and bind the value with `v-model`.
 
 ::doc-preview
-<AGDSSelect label="Country" :options="[{ label: 'Australia', value: 'au' }, { label: 'New Zealand', value: 'nz' }, { label: 'United Kingdom', value: 'uk' }]" placeholder="Select a country" required />
+:select-demo
 ::
 
 ```vue
@@ -40,7 +40,7 @@ const countryOptions = [
 ## Hint text
 
 ::doc-preview{label="With hint"}
-<AGDSSelect label="State or territory" hint="Select the state where you currently reside" :options="[{ label: 'Australian Capital Territory', value: 'act' }, { label: 'New South Wales', value: 'nsw' }, { label: 'Victoria', value: 'vic' }]" placeholder="Select a state" required />
+:select-demo{variant="hint"}
 ::
 
 ```vue
@@ -61,7 +61,7 @@ const countryOptions = [
 Pass `OptionGroup` items (objects with a nested `options` array) to render `<optgroup>` elements. Flat and grouped items can be mixed freely.
 
 ::doc-preview{label="Grouped options"}
-<AGDSSelect label="Produce" :options="[{ label: 'Fruit', options: [{ label: 'Apple', value: 'apple' }, { label: 'Banana', value: 'banana' }] }, { label: 'Vegetables', options: [{ label: 'Carrot', value: 'carrot' }, { label: 'Broccoli', value: 'broccoli' }] }]" placeholder="Select a item" required />
+:select-demo{variant="grouped"}
 ::
 
 ```vue
@@ -94,7 +94,7 @@ Pass `OptionGroup` items (objects with a nested `options` array) to render `<opt
 ## Invalid state
 
 ::doc-preview{label="Invalid"}
-<AGDSSelect label="Country" :options="[{ label: 'Australia', value: 'au' }]" placeholder="Select a country" :invalid="true" message="Select a country to continue" required />
+:select-demo{variant="invalid"}
 ::
 
 ```vue
@@ -114,7 +114,7 @@ Pass `OptionGroup` items (objects with a nested `options` array) to render `<opt
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AGDSSelect label="Country" :options="[{ label: 'Australia', value: 'au' }]" model-value="au" disabled required />
+:select-demo{variant="disabled"}
 ::
 
 ```vue
@@ -134,10 +134,7 @@ Pass `OptionGroup` items (objects with a nested `options` array) to render `<opt
 Use `maxWidth` to constrain the field width. Defaults to `md`.
 
 ::doc-preview{label="Max widths"}
-<AGDSSelect label="Small" max-width="sm" :options="[{ label: 'Option 1', value: '1' }]" required />
-<AGDSSelect label="Medium (default)" max-width="md" :options="[{ label: 'Option 1', value: '1' }]" required />
-<AGDSSelect label="Large" max-width="lg" :options="[{ label: 'Option 1', value: '1' }]" required />
-<AGDSSelect label="Extra large" max-width="xl" :options="[{ label: 'Option 1', value: '1' }]" required />
+:select-demo{variant="max-widths"}
 ::
 
 ```vue
@@ -157,7 +154,7 @@ Use `maxWidth` to constrain the field width. Defaults to `md`.
 Set `block` to stretch the select to the full width of its container.
 
 ::doc-preview{label="Block"}
-<AGDSSelect label="Country" :options="[{ label: 'Australia', value: 'au' }, { label: 'New Zealand', value: 'nz' }]" block required />
+:select-demo{variant="block"}
 ::
 
 ```vue

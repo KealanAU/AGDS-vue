@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`.
 
 ::doc-preview
-<AGDSTextInput label="Full name" required />
+:text-input-demo
 ::
 
 ```vue
@@ -30,7 +30,7 @@ const name = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AGDSTextInput label="Email address" type="email" hint="We'll only use this to send your confirmation" required />
+:text-input-demo{variant="hint"}
 ::
 
 ```vue
@@ -50,7 +50,7 @@ Use the `hint` prop to provide additional guidance beneath the label.
 When `required` is `false` (the default), `"(optional)"` is appended to the label. Suppress it with `hideOptionalLabel`.
 
 ::doc-preview{label="Optional field"}
-<AGDSTextInput label="Middle name" />
+:text-input-demo{variant="optional"}
 ::
 
 ```vue
@@ -64,7 +64,7 @@ When `required` is `false` (the default), `"(optional)"` is appended to the labe
 Set `invalid` and `message` together to render the error treatment. The message is linked via `aria-describedby`.
 
 ::doc-preview{label="Invalid"}
-<AGDSTextInput label="Email address" type="email" :invalid="true" message="Enter a valid email address" required />
+:text-input-demo{variant="invalid"}
 ::
 
 ```vue
@@ -83,7 +83,7 @@ Set `invalid` and `message` together to render the error treatment. The message 
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AGDSTextInput label="Full name" model-value="Jane Smith" disabled required />
+:text-input-demo{variant="disabled"}
 ::
 
 ```vue
@@ -97,11 +97,7 @@ Set `invalid` and `message` together to render the error treatment. The message 
 Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to `md`.
 
 ::doc-preview{label="Max widths"}
-<AGDSTextInput label="Extra small" max-width="xs" required />
-<AGDSTextInput label="Small" max-width="sm" required />
-<AGDSTextInput label="Medium (default)" max-width="md" required />
-<AGDSTextInput label="Large" max-width="lg" required />
-<AGDSTextInput label="Extra large" max-width="xl" required />
+:text-input-demo{variant="max-widths"}
 ::
 
 ```vue
@@ -115,7 +111,7 @@ Use `maxWidth` to constrain the field to a comfortable reading size. Defaults to
 Set `block` to stretch the input to the full width of its container. Overrides `maxWidth`.
 
 ::doc-preview{label="Block"}
-<AGDSTextInput label="Full name" block required />
+:text-input-demo{variant="block"}
 ::
 
 ```vue
@@ -129,10 +125,7 @@ Set `block` to stretch the input to the full width of its container. Overrides `
 Pass any valid `<input>` type via the `type` prop.
 
 ::doc-preview{label="Input types"}
-<AGDSTextInput label="Email" type="email" required />
-<AGDSTextInput label="Phone number" type="tel" required />
-<AGDSTextInput label="Website" type="url" required />
-<AGDSTextInput label="Age" type="number" required />
+:text-input-demo{variant="types"}
 ::
 
 ```vue

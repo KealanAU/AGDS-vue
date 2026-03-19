@@ -10,7 +10,7 @@ status: stable
 Use `v-model` to bind the on/off state. Pass the visible label via the default slot.
 
 ::doc-preview
-<AGDSSwitch>Enable notifications</AGDSSwitch>
+:switch-demo
 ::
 
 ```vue
@@ -27,14 +27,13 @@ const enabled = ref(false)
 ## Checked state
 
 ::doc-preview{label="Checked"}
-<AGDSSwitch :model-value="true">Dark mode</AGDSSwitch>
+:switch-demo{variant="checked"}
 ::
 
 ## Disabled
 
 ::doc-preview{label="Disabled states"}
-<AGDSSwitch disabled>Disabled off</AGDSSwitch>
-<AGDSSwitch :model-value="true" disabled>Disabled on</AGDSSwitch>
+:switch-demo{variant="disabled"}
 ::
 
 ```vue
@@ -48,7 +47,7 @@ const enabled = ref(false)
 Use `invalid` to indicate a validation error — for example, when a required setting has not been acknowledged.
 
 ::doc-preview{label="Invalid"}
-<AGDSSwitch :invalid="true">I accept the terms and conditions</AGDSSwitch>
+:switch-demo{variant="invalid"}
 ::
 
 ```vue
@@ -62,8 +61,7 @@ Use `invalid` to indicate a validation error — for example, when a required se
 ## Size
 
 ::doc-preview{label="Sizes"}
-<AGDSSwitch size="sm">Small</AGDSSwitch>
-<AGDSSwitch size="md">Medium (default)</AGDSSwitch>
+:switch-demo{variant="size"}
 ::
 
 ```vue

@@ -10,7 +10,7 @@ status: stable
 Bind `v-model` to receive a `TimeValue` object `{ value: string; formatted?: string }` where `value` is always in `HH:mm`.
 
 ::doc-preview
-<AGDSTimeInput label="Appointment time" />
+:time-input-demo
 ::
 
 ```vue
