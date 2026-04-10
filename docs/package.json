@@ -13,6 +13,7 @@
     "type-check": "nuxt typecheck"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@nuxt/content": "^3.5.1",
     "agds-vue": "workspace:*",
     "better-sqlite3": "^12.6.2",

@@ -120,12 +120,16 @@ const navSections = [
 /* ── Skip link ───────────────────────────────────────────── */
 
 .skip-link {
-  position: fixed;
-  top: -100%;
-  left: var(--agds-space-4);
-  background-color: var(--agds-color-bg);
-  padding: var(--agds-space-2) var(--agds-space-4);
-  border: 2px solid var(--agds-color-brand);
+  /* Visually hidden — only revealed on keyboard focus */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
   border-radius: var(--agds-radius-md);
   font-weight: var(--agds-font-weight-semibold);
   text-decoration: none;
@@ -133,8 +137,18 @@ const navSections = [
   z-index: var(--agds-z-toast);
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
+  position: fixed;
   top: var(--agds-space-4);
+  left: var(--agds-space-4);
+  width: auto;
+  height: auto;
+  padding: var(--agds-space-2) var(--agds-space-4);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  background-color: var(--agds-color-bg);
+  border: 2px solid var(--agds-color-brand);
 }
 
 /* ── Mobile header ───────────────────────────────────────── */

@@ -19,6 +19,7 @@ const nested = computed(() => depth > 1)
 
 <style scoped>
 .agds-unordered-list {
+  list-style: disc;
   margin-bottom: 0;
   padding-left: var(--agds-space-6);
 }

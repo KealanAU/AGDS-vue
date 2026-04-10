@@ -10,9 +10,7 @@ status: stable
 Set `label` to the visible trigger text. The default slot receives the hidden content.
 
 ::doc-preview
-<AGDSDetails label="What documents do I need?">
-  <p>You will need to provide two forms of identification, including one government-issued photo ID such as a passport or driver's licence.</p>
-</AGDSDetails>
+<DetailsDemo />
 ::
 
 ```vue
@@ -28,9 +26,7 @@ Set `label` to the visible trigger text. The default slot receives the hidden co
 Use `iconBefore` to show an info icon before the label — useful when the context needs a visual cue that the section is informational.
 
 ::doc-preview{label="With icon"}
-<AGDSDetails label="Privacy information" icon-before>
-  <p>We collect your personal information to process your application in accordance with the Privacy Act 1988.</p>
-</AGDSDetails>
+<DetailsDemo variant="icon-before" />
 ::
 
 ```vue
@@ -59,15 +55,7 @@ Use `onBodyAlt` when the details component sits on an off-white (`bodyAlt`) surf
 Use several `AGDSDetails` components independently. Unlike `AGDSAccordion`, each operates autonomously — opening one does not close another.
 
 ::doc-preview{label="Multiple"}
-<AGDSDetails label="Eligibility criteria">
-  <p>You must be an Australian citizen, permanent resident, or eligible visa holder.</p>
-</AGDSDetails>
-<AGDSDetails label="How to apply">
-  <p>Complete the online form and attach supporting documents before the closing date.</p>
-</AGDSDetails>
-<AGDSDetails label="After you apply">
-  <p>You will receive a confirmation email within 2 business days of submitting your application.</p>
-</AGDSDetails>
+<DetailsDemo variant="multiple" />
 ::
 
 ```vue
