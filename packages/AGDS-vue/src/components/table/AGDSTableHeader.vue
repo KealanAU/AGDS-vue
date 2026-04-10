@@ -45,6 +45,7 @@ const props = withDefaults(defineProps<AGDSTableHeaderProps>(), {
   font-weight: var(--agds-font-weight-bold);
   color: var(--agds-color-text);
   vertical-align: bottom;
+  border-bottom: var(--agds-table-header-border-bottom) solid var(--agds-table-border-color);
 }
 
 .agds-table-header:focus-visible {

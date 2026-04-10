@@ -39,13 +39,6 @@ defineProps<{
 .doc-preview__canvas {
   padding: var(--agds-space-8) var(--agds-space-6);
   background-color: var(--agds-color-bg);
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--agds-color-bg-subtle) 0px,
-    var(--agds-color-bg-subtle) 2px,
-    transparent 2px,
-    transparent 12px
-  );
   border-radius: 0 0 var(--agds-radius-lg) var(--agds-radius-lg);
   /* When there is no label the canvas is the only child — round all corners */
 }

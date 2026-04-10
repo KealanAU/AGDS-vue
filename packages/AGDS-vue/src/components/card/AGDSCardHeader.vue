@@ -40,7 +40,7 @@ const props = defineProps<AGDSCardHeaderProps>()
   background-color: var(--agds-color-bg);
 }
 
-.agds-card-header--body-alt {
+.agds-card-header--bodyAlt {
   background-color: var(--agds-color-bg-subtle);
 }
 
@@ -53,11 +53,11 @@ const props = defineProps<AGDSCardHeaderProps>()
 .agds-card-header__title {
   font-weight: var(--agds-font-weight-bold);
   font-size: var(--agds-font-size-md);
-  color: var(--agds-color-foreground-text);
+  color: var(--agds-color-text);
 }
 
 .agds-card-header__subtitle {
   font-size: var(--agds-font-size-sm);
-  color: var(--agds-color-foreground-muted);
+  color: var(--agds-color-text-muted);
 }
 </style>

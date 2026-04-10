@@ -10,9 +10,7 @@ status: stable
 Use the default slot for body content. A `title` can be added to provide a heading.
 
 ::doc-preview
-<AGDSCallout title="Important notice">
-  <p>Your application must be submitted before 5pm AEST on the closing date.</p>
-</AGDSCallout>
+:callout-demo
 ::
 
 ```vue
@@ -28,12 +26,7 @@ Use the default slot for body content. A `title` can be added to provide a headi
 Use the `tone` prop to change the visual meaning. `neutral` (default) is for general callouts; `info` is for informational messages and includes an info icon automatically.
 
 ::doc-preview{label="Tones"}
-<AGDSCallout tone="neutral" title="Neutral">
-  <p>This is a neutral callout for general supplementary information.</p>
-</AGDSCallout>
-<AGDSCallout tone="info" title="Information">
-  <p>This is an informational callout. An info icon is shown automatically.</p>
-</AGDSCallout>
+:callout-demo{variant="tones"}
 ::
 
 ```vue
@@ -52,15 +45,7 @@ Use the `tone` prop to change the visual meaning. `neutral` (default) is for gen
 Use the `variant` prop to change padding and layout. `compact` suits dense UIs; `regular` (default) is for standard page content; `feature` is for prominent promotional callouts.
 
 ::doc-preview{label="Variants"}
-<AGDSCallout variant="compact" title="Compact">
-  <p>Compact variant for inline or dense contexts.</p>
-</AGDSCallout>
-<AGDSCallout variant="regular" title="Regular">
-  <p>Regular variant — the standard choice for page content.</p>
-</AGDSCallout>
-<AGDSCallout variant="feature" title="Feature">
-  <p>Feature variant for high-visibility callouts.</p>
-</AGDSCallout>
+:callout-demo{variant="variants"}
 ::
 
 ```vue
@@ -89,6 +74,10 @@ Replace the default info icon with a custom one using the `icon` slot.
 ## bodyAlt background
 
 Use `onBodyAlt` when the callout sits on an off-white (`bodyAlt`) background so the background colour remains distinct.
+
+::doc-preview{label="On bodyAlt"}
+:callout-demo{variant="on-body-alt"}
+::
 
 ```vue
 <template>

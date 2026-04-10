@@ -101,7 +101,7 @@ const styledClasses = computed(() => [
 /* ── Backgrounds — also carry border, radius, overflow ───── */
 
 .agds-card--body,
-.agds-card--body-alt {
+.agds-card--bodyAlt {
   border: var(--agds-card-border-width) solid var(--agds-card-border-color);
   border-radius: var(--agds-card-border-radius);
   overflow: hidden; /* clip children to rounded corners */
@@ -112,7 +112,7 @@ const styledClasses = computed(() => [
   background-color: var(--agds-color-bg);
 }
 
-.agds-card--body-alt {
+.agds-card--bodyAlt {
   background-color: var(--agds-color-bg-subtle);
 }
 

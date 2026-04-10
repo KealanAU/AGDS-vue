@@ -80,7 +80,7 @@ const isSorted = computed(() => Boolean(props.sort))
 
 .agds-table-header-sortable {
   padding: 0;
-  border-bottom: none; /* button carries the padding; border managed by thead */
+  border-bottom: var(--agds-table-header-border-bottom) solid var(--agds-table-border-color);
 }
 
 .agds-table-header-sortable--active {

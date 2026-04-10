@@ -10,9 +10,11 @@ status: stable
 Use `AGDSHeading` to render a heading with the correct font size for its level. The default level is `h2`.
 
 ::doc-preview
-<AGDSHeading type="h1">Page title</AGDSHeading>
-<AGDSHeading type="h2">Section heading</AGDSHeading>
-<AGDSHeading type="h3">Subsection heading</AGDSHeading>
+<AGDSStack :gap="3">
+  <AGDSHeading type="h1">Page title</AGDSHeading>
+  <AGDSHeading type="h2">Section heading</AGDSHeading>
+  <AGDSHeading type="h3">Subsection heading</AGDSHeading>
+</AGDSStack>
 ::
 
 ```vue

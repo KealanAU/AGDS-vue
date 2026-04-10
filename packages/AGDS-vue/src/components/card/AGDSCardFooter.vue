@@ -56,7 +56,7 @@ const context = inject(CARD_CONTEXT_KEY)
   background-color: var(--agds-color-bg);
 }
 
-.agds-card-footer--body-alt {
+.agds-card-footer--bodyAlt {
   background-color: var(--agds-color-bg-subtle);
 }
 </style>
