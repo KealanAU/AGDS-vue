@@ -23,6 +23,11 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      # setup-node writes _authToken= (empty) into .npmrc which npm uses instead
+      # of doing the OIDC exchange — delete it so OIDC kicks in
+      - run: npm config delete //registry.npmjs.org/:_authToken
 
       - run: pnpm install --frozen-lockfile
 
