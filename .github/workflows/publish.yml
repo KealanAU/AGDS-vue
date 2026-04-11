@@ -25,10 +25,6 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
-      # setup-node writes _authToken= (empty) into .npmrc which npm uses instead
-      # of doing the OIDC exchange — delete it so OIDC kicks in
-      - run: npm config delete //registry.npmjs.org/:_authToken
-
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm build:lib
@@ -37,8 +33,15 @@ jobs:
 
       - run: pnpm test
 
-      - run: npm publish --provenance --access public
-        working-directory: packages/AGDS-vue
+      - name: Publish
+        run: |
+          OIDC_TOKEN=$(curl -fsSL \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=npm" \
+            | jq -r '.value')
+          echo "::add-mask::$OIDC_TOKEN"
+          cd packages/AGDS-vue
+          NODE_AUTH_TOKEN="$OIDC_TOKEN" npm publish --provenance --access public
 
       - name: Create GitHub Release
         env:
