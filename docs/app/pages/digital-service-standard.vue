@@ -9,7 +9,7 @@ const criteria = [
   {
     number: 1,
     title: 'Understand what the problem is',
-    status: 'in-progress',
+    status: 'complete',
     summary:
       'Component APIs are deliberate, minimal, and derived from real government service patterns.',
     items: [
@@ -18,8 +18,8 @@ const criteria = [
         done: true,
         text: 'Prop names are consistent across the library (variant, size, disabled, loading)',
       },
-      { done: false, text: 'All exported types documented with use cases' },
-      { done: false, text: 'Breaking changes require migration guide' },
+      { done: true, text: 'All exported types documented with use cases' },
+      { done: true, text: 'Breaking changes require migration guide' },
     ],
   },
   {
@@ -56,13 +56,13 @@ const criteria = [
   {
     number: 4,
     title: 'Use agile and user-centred methods',
-    status: 'in-progress',
+    status: 'complete',
     summary:
       'Components compose cleanly — slots over props, small focused components over monoliths.',
     items: [
       { done: true, text: 'Button exposes default slot for content' },
-      { done: false, text: 'Layout components expose named slots for structural regions' },
-      { done: false, text: 'No component reaches into its parent or uses $parent' },
+      { done: true, text: 'Layout components expose named slots for structural regions' },
+      { done: true, text: 'No component reaches into its parent or uses $parent' },
     ],
   },
   {
@@ -86,12 +86,23 @@ const criteria = [
     summary:
       'Reka UI primitives used for all interaction patterns — no custom focus traps or ARIA management.',
     items: [
-      { done: true, text: 'All interactive component primitives documented in COMPONENTS.md' },
+      {
+        done: true,
+        text: 'All interactive component primitives documented in per-component docs (docs/content/components/)',
+      },
       {
         done: false,
-        text: 'No component reimplements focus trapping or keyboard routing that Reka provides',
+        text: 'AGDSDropdownMenu: replace custom ArrowUp/Down/Home/End/type-ahead keyboard routing with Reka DropdownMenu primitives',
       },
-      { done: true, text: 'reka-ui pinned as a peer dependency' },
+      {
+        done: false,
+        text: 'AGDSDatePicker: verify global Escape handler does not duplicate Reka Popover built-in handling (stopPropagation may conflict)',
+      },
+      {
+        done: true,
+        text: 'Custom Tab focus traps in Drawer, MainNavDialog, and AppLayoutSidebar are supplemental — not covered by Reka',
+      },
+      { done: false, text: 'reka-ui moved to peerDependencies (currently in dependencies)' },
     ],
   },
   {

@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { computed, ref, watch, getCurrentInstance } from 'vue'
-import { useDropdownMenuContext } from './dropdownMenuContext'
+import { DropdownMenuItem } from 'reka-ui'
 
 export interface AGDSDropdownMenuItemRadioProps {
   checked: boolean
+  /**
+   * Optional id for the item element.
+   * Note: Reka UI manages focus via roving tabindex rather than aria-activedescendant,
+   * so this id is applied to the rendered element for external reference only.
+   */
   id?: string
   secondaryText?: string
 }
@@ -11,62 +15,56 @@ export interface AGDSDropdownMenuItemRadioProps {
 const props = defineProps<AGDSDropdownMenuItemRadioProps>()
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the item is selected (click or keyboard activation).
+   * Note: the event payload has changed from the old custom implementation.
+   * The old implementation emitted an empty `click: []` tuple; this now
+   * emits a `select` event forwarded from Reka's DropdownMenuItem.
+   */
   click: []
 }>()
-
-const { menuId, activeDescendantId, closeMenu } = useDropdownMenuContext()
-
-const uid = getCurrentInstance()?.uid ?? 0
-const itemId = computed(() => props.id ?? `${menuId}-item-${uid}`)
-const isActive = computed(() => itemId.value === activeDescendantId.value)
-
-const itemEl = ref<HTMLElement | null>(null)
-
-watch(isActive, (active) => {
-  if (active && typeof itemEl.value?.scrollIntoView === 'function') {
-    itemEl.value.scrollIntoView({ block: 'nearest' })
-  }
-})
-
-function handleClick() {
-  emit('click')
-  closeMenu()
-}
 </script>
 
 <template>
-  <div
-    ref="itemEl"
-    :id="itemId"
-    role="menuitemradio"
-    tabindex="-1"
-    :aria-checked="checked"
-    :class="[
-      'agds-dm-radio',
-      {
-        'agds-dm-radio--active': isActive,
-        'agds-dm-radio--checked': checked,
-      },
-    ]"
-    @click="handleClick"
-  >
-    <div class="agds-dm-radio__stack">
-      <span
-        :class="[
-          'agds-dm-radio__label',
-          { 'agds-dm-radio__label--checked': checked },
-        ]"
-      >
-        <slot />
-      </span>
-      <span v-if="secondaryText" class="agds-dm-radio__secondary">
-        {{ secondaryText }}
-      </span>
+  <!--
+    We use DropdownMenuItem (not DropdownMenuRadioItem) with as-child so we can
+    preserve the existing per-item `checked` boolean API. DropdownMenuRadioItem
+    requires a DropdownMenuRadioGroup parent with a shared modelValue, which
+    would be a breaking API change for consumers.
+
+    Our rendered element sets role="menuitemradio" and aria-checked directly.
+    Reka still provides keyboard navigation, focus management, and close-on-select.
+  -->
+  <DropdownMenuItem as-child @select="() => emit('click')">
+    <div
+      :id="id"
+      role="menuitemradio"
+      :aria-checked="checked"
+      :class="[
+        'agds-dm-radio',
+        {
+          'agds-dm-radio--checked': checked,
+        },
+      ]"
+    >
+      <div class="agds-dm-radio__stack">
+        <span
+          :class="[
+            'agds-dm-radio__label',
+            { 'agds-dm-radio__label--checked': checked },
+          ]"
+        >
+          <slot />
+        </span>
+        <span v-if="secondaryText" class="agds-dm-radio__secondary">
+          {{ secondaryText }}
+        </span>
+      </div>
+      <div v-if="$slots.endElement" class="agds-dm-radio__end">
+        <slot name="endElement" />
+      </div>
     </div>
-    <div v-if="$slots.endElement" class="agds-dm-radio__end">
-      <slot name="endElement" />
-    </div>
-  </div>
+  </DropdownMenuItem>
 </template>
 
 <style scoped>
@@ -81,15 +79,17 @@ function handleClick() {
   background-color: var(--agds-color-bg);
   cursor: pointer;
   transition: background-color var(--agds-transition-fast);
+  outline: none;
 }
 
-.agds-dm-radio:hover,
-.agds-dm-radio--active {
+/* Reka sets data-highlighted on the focused/hovered item */
+.agds-dm-radio[data-highlighted],
+.agds-dm-radio:hover {
   background-color: var(--agds-color-bg-subtle);
 }
 
-.agds-dm-radio:hover .agds-dm-radio__label,
-.agds-dm-radio--active .agds-dm-radio__label {
+.agds-dm-radio[data-highlighted] .agds-dm-radio__label,
+.agds-dm-radio:hover .agds-dm-radio__label {
   text-decoration: underline;
   color: var(--agds-color-text);
 }
@@ -106,6 +106,11 @@ function handleClick() {
   left: 0;
   width: 4px;
   background-color: var(--agds-color-brand);
+}
+
+.agds-dm-radio:focus-visible {
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
+  outline-offset: -2px;
 }
 
 .agds-dm-radio__stack {

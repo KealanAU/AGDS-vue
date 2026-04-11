@@ -24,6 +24,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     },
+    "./styles": "./src/styles/styles.css",
     "./styles/tokens": "./src/styles/tokens.css",
     "./styles/base": "./src/styles/base.css",
     "./nuxt": {
@@ -43,13 +44,11 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },
-  "dependencies": {
-    "reka-ui": "^2.9.0"
-  },
   "peerDependencies": {
     "@iconify/vue": ">=5.0.0",
     "@nuxt/kit": ">=3.0.0",
     "nuxt": ">=3.0.0",
+    "reka-ui": "^2.9.0",
     "vue": ">=3.5.0"
   },
   "peerDependenciesMeta": {
@@ -65,6 +64,7 @@
   },
   "devDependencies": {
     "@iconify/vue": "^5.0.0",
+    "reka-ui": "^2.9.0",
     "@nuxt/kit": "^3.21.1",
     "@testing-library/user-event": "^14.6.1",
     "@testing-library/vue": "^8.1.0",

@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { computed, ref, watch, getCurrentInstance } from 'vue'
-import { useDropdownMenuContext } from './dropdownMenuContext'
+import { computed } from 'vue'
+import { DropdownMenuItem } from 'reka-ui'
 import type { Component } from 'vue'
 
 export interface AGDSDropdownMenuItemLinkProps {
   href: string
+  /**
+   * Optional id for the item element.
+   * Note: Reka UI manages focus via roving tabindex rather than aria-activedescendant,
+   * so this id is applied to the rendered element for external reference only.
+   */
   id?: string
   icon?: Component
   target?: '_blank' | '_self' | '_parent' | '_top'
@@ -13,41 +18,25 @@ export interface AGDSDropdownMenuItemLinkProps {
 const props = defineProps<AGDSDropdownMenuItemLinkProps>()
 
 const emit = defineEmits<{
-  click: [event: MouseEvent]
+  click: [event: Event]
 }>()
 
-const { menuId, activeDescendantId, closeMenu } = useDropdownMenuContext()
-
-const uid = getCurrentInstance()?.uid ?? 0
-const itemId = computed(() => props.id ?? `${menuId}-item-${uid}`)
-const isActive = computed(() => itemId.value === activeDescendantId.value)
 const isExternal = computed(() => props.target === '_blank')
-
-const itemEl = ref<HTMLElement | null>(null)
-
-watch(isActive, (active) => {
-  if (active && typeof itemEl.value?.scrollIntoView === 'function') {
-    itemEl.value.scrollIntoView({ block: 'nearest' })
-  }
-})
-
-function handleClick(event: MouseEvent) {
-  emit('click', event)
-  closeMenu()
-}
 </script>
 
 <template>
-  <a
-    ref="itemEl"
-    :id="itemId"
+  <!--
+    DropdownMenuItem with as="a" renders an <a> element so link semantics are preserved.
+    Reka wires role="menuitem", keyboard activation, close-on-select, and roving tabindex.
+  -->
+  <DropdownMenuItem
+    :id="id"
+    as="a"
     :href="href"
     :target="target"
     :rel="isExternal ? 'noopener noreferrer' : undefined"
-    role="menuitem"
-    tabindex="-1"
-    :class="['agds-dm-item', { 'agds-dm-item--active': isActive }]"
-    @click="handleClick"
+    class="agds-dm-item"
+    @select="(e: Event) => emit('click', e)"
   >
     <div class="agds-dm-item__content">
       <component
@@ -64,7 +53,7 @@ function handleClick(event: MouseEvent) {
     <div v-if="$slots.endElement" class="agds-dm-item__end">
       <slot name="endElement" />
     </div>
-  </a>
+  </DropdownMenuItem>
 </template>
 
 <style scoped>
@@ -80,16 +69,23 @@ function handleClick(event: MouseEvent) {
   text-decoration: none;
   color: var(--agds-color-action-primary);
   transition: background-color var(--agds-transition-fast);
+  outline: none;
 }
 
-.agds-dm-item:hover,
-.agds-dm-item--active {
+/* Reka sets data-highlighted on the focused/hovered item */
+.agds-dm-item[data-highlighted],
+.agds-dm-item:hover {
   background-color: var(--agds-color-bg-subtle);
 }
 
-.agds-dm-item:hover .agds-dm-item__label,
-.agds-dm-item--active .agds-dm-item__label {
+.agds-dm-item[data-highlighted] .agds-dm-item__label,
+.agds-dm-item:hover .agds-dm-item__label {
   text-decoration: underline;
+}
+
+.agds-dm-item:focus-visible {
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
+  outline-offset: -2px;
 }
 
 .agds-dm-item__content {

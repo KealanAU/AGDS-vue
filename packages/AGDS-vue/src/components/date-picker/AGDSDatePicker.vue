@@ -275,19 +275,6 @@ watch(isOpen, (open) => {
   }
 })
 
-// Escape key to close calendar (PopoverContent handles this via Reka UI but we
-// also want to return focus to the trigger rather than leaving it on the content root)
-function onKeydown(e: KeyboardEvent) {
-  if (isOpen.value && e.key === 'Escape') {
-    e.preventDefault()
-    e.stopPropagation()
-    closeAndReturnFocus()
-  }
-}
-
-onMounted(() => window.addEventListener('keydown', onKeydown, { capture: true }))
-onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown, { capture: true }))
-
 // ── Responsive: number of months for range mode ───────────────────────────────
 
 const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 0)
@@ -530,7 +517,7 @@ defineExpose({
             :aria-label="label ? `Choose ${label.toLowerCase()}` : 'Choose date'"
             aria-modal="true"
             @open-auto-focus.prevent
-            @escape-key-down.prevent
+            @escape-key-down.prevent="closeAndReturnFocus"
           >
             <AGDSDatePickerCalendar
               ref="calendarRef"
@@ -701,7 +688,7 @@ defineExpose({
           aria-label="Choose date range"
           aria-modal="true"
           @open-auto-focus.prevent
-          @escape-key-down.prevent
+          @escape-key-down.prevent="closeAndReturnFocus"
         >
           <AGDSDatePickerCalendar
             ref="calendarRef"
@@ -817,7 +804,7 @@ defineExpose({
 }
 
 .agds-datepicker__input-row--highlighted {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -846,7 +833,7 @@ defineExpose({
 
 .agds-datepicker__input:focus {
   border-color: var(--agds-color-action-primary);
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 0;
 }
 
@@ -890,7 +877,7 @@ defineExpose({
 }
 
 .agds-datepicker__trigger:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   z-index: 1;
 }
@@ -969,10 +956,35 @@ defineExpose({
 @media (forced-colors: active) {
   .agds-datepicker__input {
     border-color: ButtonText;
+    background: Field;
+    color: FieldText;
+    forced-color-adjust: none;
+  }
+
+  .agds-datepicker__input:focus {
+    outline-color: Highlight;
+  }
+
+  .agds-datepicker__input:disabled {
+    border-color: GrayText;
+    color: GrayText;
   }
 
   .agds-datepicker__trigger {
     border-color: ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+    forced-color-adjust: none;
+  }
+
+  .agds-datepicker__trigger:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  .agds-datepicker__trigger:disabled {
+    border-color: GrayText;
+    color: GrayText;
   }
 }
 </style>
