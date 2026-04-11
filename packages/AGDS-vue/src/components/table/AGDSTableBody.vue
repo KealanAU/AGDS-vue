@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/** Wraps the body rows of an `AGDSTable` in a `<tbody>` element. */
 export interface AGDSTableBodyProps {}
 </script>
 

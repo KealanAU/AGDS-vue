@@ -2,6 +2,10 @@
 import { computed, inject, provide } from 'vue'
 import { LIST_DEPTH_KEY } from './listContext'
 
+/**
+ * Renders a disc-bulleted unordered list (`<ul>`).
+ * Use `AGDSListItem` for each item. Nest another `AGDSUnorderedList` inside an `AGDSListItem` for sub-lists.
+ */
 export interface AGDSUnorderedListProps {}
 
 const currentDepth = inject(LIST_DEPTH_KEY, 0)

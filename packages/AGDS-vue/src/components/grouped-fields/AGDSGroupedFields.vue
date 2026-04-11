@@ -20,6 +20,8 @@ export interface AGDSGroupedFieldsProps {
   id?: string
   /** Message to show when either field is invalid. */
   message?: string
+  /** Marks the group as required. When false, "(optional)" is appended to the legend. */
+  required?: boolean
   /** If true, the legend is hidden from sighted users but remains visible to screen readers. */
   visuallyHideLegend?: boolean
 }
@@ -28,6 +30,7 @@ const props = withDefaults(defineProps<AGDSGroupedFieldsProps>(), {
   field1Invalid: false,
   field2Invalid: false,
   hideOptionalLabel: false,
+  required: false,
   visuallyHideLegend: false,
 })
 
@@ -62,7 +65,7 @@ const field2Props = computed(() => ({
         as="legend"
         :class="{ 'agds-grouped-fields__legend--hidden': visuallyHideLegend }"
         :hide-optional-label="hideOptionalLabel"
-        :required="false"
+        :required="props.required"
       >
         {{ legend }}
       </AGDSFieldLabel>

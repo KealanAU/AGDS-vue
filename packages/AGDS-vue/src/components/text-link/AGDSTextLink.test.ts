@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/vue'
+import { render, screen, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSTextLink from './AGDSTextLink.vue'
 import AGDSTextLinkExternal from './AGDSTextLinkExternal.vue'
@@ -12,6 +12,57 @@ describe('AGDSTextLink', () => {
     })
     const link = screen.getByRole('link', { name: 'About us' })
     expect(link.getAttribute('href')).toBe('/about')
+  })
+
+  it('applies agds-text-link class', () => {
+    render(AGDSTextLink, {
+      props: { href: '/about' },
+      slots: { default: 'About us' },
+    })
+    expect(screen.getByRole('link').className).toContain('agds-text-link')
+  })
+
+  it('does not apply focus-all class when focusRingFor is "keyboard" (default)', () => {
+    render(AGDSTextLink, {
+      props: { href: '/about' },
+      slots: { default: 'About us' },
+    })
+    expect(screen.getByRole('link').className).not.toContain('agds-text-link--focus-all')
+  })
+
+  it('applies focus-all class when focusRingFor="all"', () => {
+    render(AGDSTextLink, {
+      props: { href: '/about', focusRingFor: 'all' },
+      slots: { default: 'About us' },
+    })
+    expect(screen.getByRole('link').className).toContain('agds-text-link--focus-all')
+  })
+
+  it('emits click when clicked', async () => {
+    const { emitted } = render(AGDSTextLink, {
+      props: { href: '/about' },
+      slots: { default: 'About us' },
+    })
+    await fireEvent.click(screen.getByRole('link'))
+    expect(emitted().click).toHaveLength(1)
+  })
+
+  it('emits focus when focused', async () => {
+    const { emitted } = render(AGDSTextLink, {
+      props: { href: '/about' },
+      slots: { default: 'About us' },
+    })
+    await fireEvent.focus(screen.getByRole('link'))
+    expect(emitted().focus).toHaveLength(1)
+  })
+
+  it('emits blur when blurred', async () => {
+    const { emitted } = render(AGDSTextLink, {
+      props: { href: '/about' },
+      slots: { default: 'About us' },
+    })
+    await fireEvent.blur(screen.getByRole('link'))
+    expect(emitted().blur).toHaveLength(1)
   })
 
   it('has no axe violations', async () => {
@@ -46,6 +97,33 @@ describe('AGDSTextLinkExternal', () => {
       slots: { default: 'Example' },
     })
     expect(screen.getByText(/opens in a new tab/i)).toBeTruthy()
+  })
+
+  it('emits click when clicked', async () => {
+    const { emitted } = render(AGDSTextLinkExternal, {
+      props: { href: 'https://example.com' },
+      slots: { default: 'Example' },
+    })
+    await fireEvent.click(screen.getByRole('link', { name: /Example/ }))
+    expect(emitted().click).toHaveLength(1)
+  })
+
+  it('emits focus when focused', async () => {
+    const { emitted } = render(AGDSTextLinkExternal, {
+      props: { href: 'https://example.com' },
+      slots: { default: 'Example' },
+    })
+    await fireEvent.focus(screen.getByRole('link', { name: /Example/ }))
+    expect(emitted().focus).toHaveLength(1)
+  })
+
+  it('emits blur when blurred', async () => {
+    const { emitted } = render(AGDSTextLinkExternal, {
+      props: { href: 'https://example.com' },
+      slots: { default: 'Example' },
+    })
+    await fireEvent.blur(screen.getByRole('link', { name: /Example/ }))
+    expect(emitted().blur).toHaveLength(1)
   })
 
   it('has no axe violations', async () => {

@@ -4,6 +4,7 @@ import { DropdownMenuItem } from 'reka-ui'
 import type { Component } from 'vue'
 
 export interface AGDSDropdownMenuItemLinkProps {
+  /** URL the item navigates to. */
   href: string
   /**
    * Optional id for the item element.
@@ -11,13 +12,21 @@ export interface AGDSDropdownMenuItemLinkProps {
    * so this id is applied to the rendered element for external reference only.
    */
   id?: string
+  /** Optional icon component rendered to the left of the label. */
   icon?: Component
+  /**
+   * Browsing context for the link.
+   *
+   * - `'_blank'` — Opens in a new tab. Adds `rel="noopener noreferrer"` and a screen-reader hint automatically.
+   * - `'_self'` — Opens in the same frame (default browser behaviour).
+   */
   target?: '_blank' | '_self' | '_parent' | '_top'
 }
 
 const props = defineProps<AGDSDropdownMenuItemLinkProps>()
 
 const emit = defineEmits<{
+  /** Emitted when the link item is activated via click or keyboard (Enter/Space). The menu closes automatically. */
   click: [event: Event]
 }>()
 

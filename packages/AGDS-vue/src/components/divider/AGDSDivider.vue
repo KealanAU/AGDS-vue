@@ -84,6 +84,9 @@ const hasText = computed(() => !!slots.default)
 /* ── With-text wrapper ───────────────────────────────────── */
 
 .agds-divider--with-text {
+  /* Reset <hr>-specific styles inherited from .agds-divider */
+  height: auto;
+  border: none;
   display: grid;
   align-items: center;
   gap: var(--agds-divider-gap);

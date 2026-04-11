@@ -19,6 +19,7 @@ export interface AGDSModalProps {
 const props = defineProps<AGDSModalProps>()
 
 const emit = defineEmits<{
+  /** Emitted when the modal open state changes — use with v-model for two-way binding. */
   'update:modelValue': [value: boolean]
 }>()
 
@@ -28,6 +29,29 @@ const titleRef = useTemplateRef('titleRef')
 function onOpenAutoFocus(e: Event) {
   e.preventDefault()
   ;(titleRef.value as { $el: HTMLElement } | null)?.$el?.focus()
+}
+
+// Track the element that had focus before the modal opened so it can be
+// restored when the modal closes (WCAG 2.4.3 — focus order).
+let _priorFocus: HTMLElement | null = null
+
+watch(
+  () => props.modelValue,
+  (open) => {
+    if (typeof document === 'undefined') return
+    if (open) {
+      _priorFocus = document.activeElement as HTMLElement | null
+    }
+  },
+)
+
+function onCloseAutoFocus(e: Event) {
+  if (_priorFocus) {
+    // Prevent Reka UI's default (return focus to <body>) and restore to trigger.
+    e.preventDefault()
+    _priorFocus.focus()
+    _priorFocus = null
+  }
 }
 
 // Lock body scroll while the modal is open.
@@ -46,7 +70,7 @@ watch(
   <DialogRoot :open="props.modelValue" @update:open="(open) => emit('update:modelValue', open)">
     <DialogPortal force-mount>
       <DialogOverlay class="agds-modal__overlay" />
-      <DialogContent class="agds-modal__dialog" @open-auto-focus="onOpenAutoFocus">
+      <DialogContent class="agds-modal__dialog" @open-auto-focus="onOpenAutoFocus" @close-auto-focus="onCloseAutoFocus">
         <!--
           Close button first in DOM: it becomes the first Tab stop after focus
           lands on the title, so users can dismiss immediately.
@@ -154,7 +178,7 @@ watch(
 }
 
 .agds-modal__close:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -176,7 +200,7 @@ watch(
 
 /* Show focus ring when title is programmatically focused on open */
 .agds-modal__title:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: var(--agds-radius-sm);
 }
@@ -215,6 +239,30 @@ watch(
   @keyframes agds-modal-slide-in {
     from { opacity: 0; transform: translateX(-50%) translateY(1rem); }
     to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-modal__overlay {
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  .agds-modal__dialog {
+    border: 2px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .agds-modal__close:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  .agds-modal__title:focus {
+    outline: 3px solid Highlight;
   }
 }
 </style>

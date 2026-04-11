@@ -3,7 +3,15 @@ import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as AppLayoutBackground }
 
+/** Background colour of the app layout footer. Alias of `BackgroundVariant`. */
 export type AppLayoutFooterBackground = BackgroundVariant
+
+/**
+ * Maximum width preset for the app layout footer's inner content container.
+ *
+ * - `'container'` — Standard container width (`--agds-max-width`).
+ * - `'containerLg'` — Wider container (`--agds-max-width-lg`).
+ */
 export type AppLayoutFooterMaxWidth = 'container' | 'containerLg'
 
 export interface AGDSAppLayoutFooterProps {
@@ -13,10 +21,19 @@ export interface AGDSAppLayoutFooterProps {
   maxWidth?: AppLayoutFooterMaxWidth
 }
 
+/**
+ * Controls when nested (level-2+) navigation items are visible in the app-layout sidebar.
+ *
+ * - `'always'` — Sub-items are always expanded and visible.
+ * - `'whenActive'` — Sub-items are only shown when their parent item is on the active path.
+ */
 export type AppLayoutSubLevelVisible = 'always' | 'whenActive'
 
+/** A nav item rendered as an `<a>` anchor. May contain nested `items` for multi-level trees. */
 export interface AppLayoutNavLinkItem {
+  /** Visible link text. */
   label: string
+  /** URL the link points to. */
   href: string
   /** Icon component (displayed at level-1 only). */
   icon?: Component
@@ -24,17 +41,27 @@ export interface AppLayoutNavLinkItem {
   items?: AppLayoutNavLinkItem[]
 }
 
+/** A nav item rendered as a `<button>` — use when the action does not navigate to a URL. */
 export interface AppLayoutNavButtonItem {
+  /** Visible button text. */
   label: string
   onClick?: (e: MouseEvent) => void
   /** Icon component (displayed at level-1 only). */
   icon?: Component
 }
 
+/** A non-interactive nav item rendered as plain text; useful for section headings. */
 export interface AppLayoutNavTextItem {
+  /** Visible text. */
   label: string
 }
 
+/**
+ * A single item in the app-layout sidebar navigation. The union is discriminated structurally:
+ * presence of `href` → {@link AppLayoutNavLinkItem},
+ * presence of `onClick` → {@link AppLayoutNavButtonItem},
+ * otherwise → {@link AppLayoutNavTextItem}.
+ */
 export type AppLayoutNavItem =
   | AppLayoutNavLinkItem
   | AppLayoutNavButtonItem

@@ -2,6 +2,7 @@
 import { DropdownMenuItem } from 'reka-ui'
 
 export interface AGDSDropdownMenuItemRadioProps {
+  /** Whether this item is currently selected. Sets aria-checked and applies the active visual style. */
   checked: boolean
   /**
    * Optional id for the item element.
@@ -9,6 +10,7 @@ export interface AGDSDropdownMenuItemRadioProps {
    * so this id is applied to the rendered element for external reference only.
    */
   id?: string
+  /** Optional supplementary text shown below the main label — useful for descriptions or counts. */
   secondaryText?: string
 }
 

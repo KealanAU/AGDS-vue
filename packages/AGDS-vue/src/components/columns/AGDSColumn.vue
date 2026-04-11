@@ -3,7 +3,16 @@ import { computed, useAttrs } from 'vue'
 import type { Component } from 'vue'
 import type { ColumnRange } from './AGDSColumns.vue'
 
+/**
+ * CSS `align-self` value for a single column within a flex/grid row.
+ * Overrides the parent `Columns` component's `alignItems` for this column only.
+ */
 export type ColumnAlignSelf = 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
+
+/**
+ * CSS `justify-self` value for a single column.
+ * Controls the inline (horizontal) placement of this column's content within its grid cell.
+ */
 export type ColumnJustifySelf = 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch'
 
 export interface AGDSColumnProps {

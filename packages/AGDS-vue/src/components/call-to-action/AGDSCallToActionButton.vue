@@ -28,15 +28,22 @@ const props = withDefaults(defineProps<AGDSCallToActionButtonProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the button is clicked. Not emitted when disabled or loading. */
   click: [event: MouseEvent]
+  /** Emitted when the button receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the button loses focus. */
   blur: [event: FocusEvent]
+  /** Emitted on every keydown event while the button has focus. */
   keydown: [event: KeyboardEvent]
 }>()
 
 const buttonRef = ref<HTMLButtonElement | null>(null)
 
-defineExpose({ focus: () => buttonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the button. */
+  focus: () => buttonRef.value?.focus(),
+})
 
 function handleClick(event: MouseEvent) {
   // Safari does not focus <button> elements on click — do it manually so
@@ -131,7 +138,7 @@ function handleClick(event: MouseEvent) {
 
 .agds-cta:focus-visible,
 .agds-cta--focus-all:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -194,6 +201,14 @@ function handleClick(event: MouseEvent) {
 
 @keyframes agds-cta-spin {
   to { transform: rotate(360deg); }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-cta__spinner {
+    animation: none;
+  }
 }
 
 .sr-only {

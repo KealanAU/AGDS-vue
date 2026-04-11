@@ -17,7 +17,10 @@ withDefaults(defineProps<AGDSBreadcrumbsItemProps>(), {
 
 const linkRef = ref<HTMLAnchorElement | null>(null)
 
-defineExpose({ focus: () => linkRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the breadcrumb link. Called by the parent after expanding on mobile. */
+  focus: () => linkRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -63,7 +66,7 @@ defineExpose({ focus: () => linkRef.value?.focus() })
 }
 
 .agds-breadcrumbs__link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }

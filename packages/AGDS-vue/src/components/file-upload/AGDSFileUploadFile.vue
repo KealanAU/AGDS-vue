@@ -164,6 +164,14 @@ const sizeText = computed(() =>
   to { transform: rotate(360deg); }
 }
 
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-file-upload-file__spinner {
+    animation: none;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

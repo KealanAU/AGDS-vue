@@ -2,6 +2,12 @@
 import { computed } from 'vue'
 import AGDSIcon from '../icon/AGDSIcon.vue'
 
+/**
+ * Active sort direction for a sortable table column.
+ *
+ * - `'ASC'` — Ascending order (A → Z, oldest → newest, lowest → highest).
+ * - `'DESC'` — Descending order (Z → A, newest → oldest, highest → lowest).
+ */
 export type TableSortDirection = 'ASC' | 'DESC'
 
 export interface AGDSTableHeaderSortableProps {
@@ -20,6 +26,7 @@ const props = withDefaults(defineProps<AGDSTableHeaderSortableProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the sort button is clicked. Toggle between `'ASC'` → `'DESC'` → unsorted in the handler. */
   click: [event: MouseEvent]
 }>()
 
@@ -44,7 +51,7 @@ const isSorted = computed(() => Boolean(props.sort))
     :class="isSorted && 'agds-table-header-sortable--active'"
     scope="col"
     :aria-sort="ariaSort"
-    :colSpan="props.colSpan"
+    :colspan="props.colSpan"
     :style="props.width ? { width: props.width } : undefined"
   >
     <button
@@ -121,7 +128,7 @@ const isSorted = computed(() => Boolean(props.sort))
 }
 
 .agds-table-header-sortable__button:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

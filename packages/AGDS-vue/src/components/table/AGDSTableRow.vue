@@ -28,6 +28,10 @@ const props = withDefaults(defineProps<AGDSTableRowProps>(), {
 })
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the row is clicked, but only when `clickable` is true.
+   * Not fired if the click lands on an interactive element (link, button, input, etc.) inside a cell.
+   */
   click: [event: MouseEvent]
 }>()
 

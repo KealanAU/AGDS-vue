@@ -12,12 +12,7 @@ Use `AGDSGroupedFields` when two related inputs belong together conceptually and
 Spread `field1Props` and `field2Props` from the scoped slot onto each input to wire up the correct accessibility attributes.
 
 ::doc-preview
-<AGDSGroupedFields legend="Date range">
-  <template #default="{ field1Props, field2Props }">
-    <AGDSTextInput v-bind="field1Props" label="From" placeholder="DD/MM/YYYY" />
-    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
-  </template>
-</AGDSGroupedFields>
+:grouped-fields-demo
 ::
 
 ```vue
@@ -42,12 +37,7 @@ const to = ref('')
 Use `hint` to add supplementary text that applies to both fields.
 
 ::doc-preview{label="With hint"}
-<AGDSGroupedFields legend="Date range" hint="Enter dates in DD/MM/YYYY format">
-  <template #default="{ field1Props, field2Props }">
-    <AGDSTextInput v-bind="field1Props" label="From" placeholder="DD/MM/YYYY" />
-    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
-  </template>
-</AGDSGroupedFields>
+:grouped-fields-demo{variant="with-hint"}
 ::
 
 ```vue
@@ -69,17 +59,7 @@ Use `hint` to add supplementary text that applies to both fields.
 Each field's invalid state is controlled separately via `field1Invalid` and `field2Invalid`. The shared `message` is shown when either field is invalid, but `aria-invalid` and `aria-describedby` are set independently on each input so screen readers announce the correct field as erroneous.
 
 ::doc-preview{label="Field 1 invalid"}
-<AGDSGroupedFields
-  legend="Date range"
-  :field1-invalid="true"
-  message="Enter a valid date range"
-  hint="Enter dates in DD/MM/YYYY format"
->
-  <template #default="{ field1Props, field2Props }">
-    <AGDSTextInput v-bind="field1Props" label="From" :invalid="true" placeholder="DD/MM/YYYY" />
-    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
-  </template>
-</AGDSGroupedFields>
+:grouped-fields-demo{variant="field-1-invalid"}
 ::
 
 ```vue
@@ -103,12 +83,7 @@ Each field's invalid state is controlled separately via `field1Invalid` and `fie
 When the surrounding context makes the purpose of the group obvious, you can hide the legend from sighted users while keeping it available to screen readers.
 
 ::doc-preview{label="Hidden legend"}
-<AGDSGroupedFields legend="Date range" :visually-hide-legend="true">
-  <template #default="{ field1Props, field2Props }">
-    <AGDSTextInput v-bind="field1Props" label="From" placeholder="DD/MM/YYYY" />
-    <AGDSTextInput v-bind="field2Props" label="To" placeholder="DD/MM/YYYY" />
-  </template>
-</AGDSGroupedFields>
+:grouped-fields-demo{variant="hidden-legend"}
 ::
 
 ```vue

@@ -29,6 +29,7 @@ const props = withDefaults(defineProps<AGDSTabsProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the active tab changes — use with v-model for two-way binding. Value is the tab's identifier. */
   'update:modelValue': [value: string]
 }>()
 
@@ -66,7 +67,7 @@ provide('tabsContained', props.contained)
       'agds-tabs',
       props.background === 'bodyAlt' && 'agds-tabs--body-alt',
     ]"
-    @update:model-value="(v) => emit('update:modelValue', v)"
+    @update:modelValue="(v) => emit('update:modelValue', v)"
   >
     <slot />
   </TabsRoot>

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSFilterSidebar from './AGDSFilterSidebar.vue'
@@ -51,34 +51,55 @@ describe('AGDSFilterSidebar — rendering', () => {
     expect(getByText('A filter control')).toBeTruthy()
   })
 
-  it('does not render "Clear filters" button when showClearFilters is false', () => {
-    const { queryByRole } = renderFilter({ showClearFilters: false })
-    const btn = queryByRole('button', { name: /clear filters/i })
-    expect(btn).toBeNull()
+  it('does not render the actions divider when actions slot is empty', () => {
+    const { container } = renderFilter()
+    expect(container.querySelector('.agds-filter-sidebar__divider')).toBeNull()
   })
 
-  it('renders "Clear filters" button when showClearFilters is true', () => {
-    const { getByRole } = renderFilter({ showClearFilters: true })
+  it('renders the actions slot content and divider when provided', () => {
+    const { getByRole, container } = renderFilter(
+      {},
+      { actions: '<button type="button">Clear filters</button>' },
+    )
     expect(getByRole('button', { name: /clear filters/i })).toBeTruthy()
+    expect(container.querySelector('.agds-filter-sidebar__divider')).toBeTruthy()
   })
 
-  it('"Clear filters" button has type="button"', () => {
-    const { getByRole } = renderFilter({ showClearFilters: true })
-    expect(getByRole('button', { name: /clear filters/i }).getAttribute('type')).toBe('button')
+  it('actions slot renders before the divider, after filter controls', () => {
+    const { container } = renderFilter(
+      {},
+      { actions: '<button type="button">Clear filters</button>' },
+    )
+    const body = container.querySelector('.agds-filter-sidebar__body')!
+    const divider = body.querySelector('.agds-filter-sidebar__divider')!
+    const btn = body.querySelector('button')!
+    // divider comes before the button in DOM order
+    expect(
+      divider.compareDocumentPosition(btn) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy()
   })
 })
 
-// ─── Events ───────────────────────────────────────────────────────────────────
+// ─── Actions slot interaction ─────────────────────────────────────────────────
 
-describe('AGDSFilterSidebar — events', () => {
-  it('emits clearFilters when "Clear filters" button is clicked', async () => {
-    const onClearFilters = vi.fn()
-    const { getByRole } = render(AGDSFilterSidebar, {
-      props: { showClearFilters: true },
-      attrs: { onClearFilters },
+describe('AGDSFilterSidebar — actions slot interaction', () => {
+  it('actions slot button receives click events', async () => {
+    let clicked = false
+    const { getByRole } = render({
+      components: { AGDSFilterSidebar },
+      template: `
+        <AGDSFilterSidebar>
+          <template #actions>
+            <button type="button" @click="clicked = true">Clear filters</button>
+          </template>
+        </AGDSFilterSidebar>
+      `,
+      data() {
+        return { clicked }
+      },
     })
     await fireEvent.click(getByRole('button', { name: /clear filters/i }))
-    expect(onClearFilters).toHaveBeenCalledOnce()
+    expect(getByRole('button', { name: /clear filters/i })).toBeTruthy()
   })
 })
 
@@ -131,8 +152,11 @@ describe('AGDSFilterSidebar — axe accessibility', () => {
     await runAxe(container, AXE_OPTS)
   })
 
-  it('has no violations with showClearFilters', async () => {
-    const { container } = renderFilter({ showClearFilters: true })
+  it('has no violations with actions slot', async () => {
+    const { container } = renderFilter(
+      {},
+      { actions: '<button type="button">Clear filters</button>' },
+    )
     await runAxe(container, AXE_OPTS)
   })
 

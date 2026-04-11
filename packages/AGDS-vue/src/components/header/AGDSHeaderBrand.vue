@@ -169,7 +169,7 @@ withDefaults(defineProps<AGDSHeaderBrandProps>(), {
 }
 
 .agds-header-brand--single:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -398,7 +398,7 @@ withDefaults(defineProps<AGDSHeaderBrandProps>(), {
 }
 
 .agds-header-brand__logo-link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -433,7 +433,7 @@ withDefaults(defineProps<AGDSHeaderBrandProps>(), {
 }
 
 .agds-header-brand__heading-link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

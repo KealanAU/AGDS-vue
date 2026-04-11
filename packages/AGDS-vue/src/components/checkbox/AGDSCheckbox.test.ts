@@ -192,6 +192,58 @@ describe('AGDSCheckbox — events', () => {
   })
 })
 
+// ─── CheckboxGroup — group-level props ───────────────────────────────────────
+
+describe('AGDSCheckboxGroup — group-level props', () => {
+  it('renders without a legend when legend prop is omitted', () => {
+    const { container } = render({
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
+      template: `
+        <AGDSCheckboxGroup>
+          <AGDSCheckbox id="c1">Option A</AGDSCheckbox>
+        </AGDSCheckboxGroup>
+      `,
+    })
+    expect(container.querySelector('legend')).toBeNull()
+  })
+
+  it('shows required indicator when required=true', () => {
+    const { container } = render({
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
+      template: `
+        <AGDSCheckboxGroup legend="Colours" :required="true">
+          <AGDSCheckbox id="c1">Red</AGDSCheckbox>
+        </AGDSCheckboxGroup>
+      `,
+    })
+    expect(container.querySelector('.agds-checkbox-group__required')).toBeTruthy()
+  })
+
+  it('shows hint text when hint prop is provided', () => {
+    const { getByText } = render({
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
+      template: `
+        <AGDSCheckboxGroup legend="Colours" hint="Select all that apply">
+          <AGDSCheckbox id="c1">Red</AGDSCheckbox>
+        </AGDSCheckboxGroup>
+      `,
+    })
+    expect(getByText('Select all that apply')).toBeTruthy()
+  })
+
+  it('shows error message via message prop when invalid', () => {
+    const { getByText } = render({
+      components: { AGDSCheckboxGroup, AGDSCheckbox },
+      template: `
+        <AGDSCheckboxGroup legend="Colours" :invalid="true" message="Select at least one colour">
+          <AGDSCheckbox id="c1">Red</AGDSCheckbox>
+        </AGDSCheckboxGroup>
+      `,
+    })
+    expect(getByText('Select at least one colour')).toBeTruthy()
+  })
+})
+
 // ─── Group context ───────────────────────────────────────────────────────────
 
 describe('AGDSCheckbox — inside AGDSCheckboxGroup', () => {

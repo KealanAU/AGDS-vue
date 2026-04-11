@@ -237,15 +237,11 @@ describe('AGDSSearchBox — axe accessibility', () => {
   })
 
   it('has a violation when the input has no accessible name', async () => {
-    // Intentional bad case — verifies the axe helper catches real failures
+    // Intentional bad case — verifies the axe helper catches real failures.
+    // AGDSSearchBoxInput always renders an associated <label>, so we render a
+    // raw unlabelled <input type="search"> to guarantee axe detects the violation.
     const { container } = render({
-      components: { AGDSSearchBox, AGDSSearchBoxInput, AGDSSearchBoxButton },
-      template: `
-        <AGDSSearchBox>
-          <AGDSSearchBoxInput label="" />
-          <AGDSSearchBoxButton label="Search" />
-        </AGDSSearchBox>
-      `,
+      template: `<div><input type="search" /></div>`,
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
   })

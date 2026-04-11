@@ -25,7 +25,10 @@ const props = withDefaults(defineProps<AGDSAppLayoutSidebarNavProps>(), {
   background: 'bodyAlt',
 })
 
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{
+  /** Emitted when a nav item is activated on mobile — the parent uses this to close the slide-in dialog. */
+  close: []
+}>()
 
 // Normalise groups into arrays of items + divider metadata
 const groups = computed(() =>

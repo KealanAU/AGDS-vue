@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import AGDSCollapsingSideBar from '../collapsing-side-bar/AGDSCollapsingSideBar.vue'
 import type { CollapsingSideBarBackground } from '../collapsing-side-bar/AGDSCollapsingSideBar.vue'
 
@@ -11,20 +11,14 @@ export interface AGDSFilterSidebarProps {
    * Passed through to the inner CollapsingSideBar.
    */
   background?: CollapsingSideBarBackground
-  /** When true, renders a "Clear filters" button at the bottom of the body. */
-  showClearFilters?: boolean
 }
 
 const props = withDefaults(defineProps<AGDSFilterSidebarProps>(), {
   activeFiltersCount: 0,
   background: 'body',
-  showClearFilters: false,
 })
 
-const emit = defineEmits<{
-  /** Emitted when the user clicks the "Clear filters" button. */
-  clearFilters: []
-}>()
+const slots = useSlots()
 
 /** Visible title: "Filters" or "Filters (3)" */
 const title = computed(() =>
@@ -54,21 +48,12 @@ const ariaLabel = computed(() =>
       <slot />
 
       <!--
-        Clear filters button.
-        Rendered only when showClearFilters is true.
-        Uses a plain <button> styled as a text link (no external dependency).
-        WCAG 2.1.1 – keyboard operable via Enter/Space.
-        WCAG 4.1.2 – button role + accessible name from text content.
+        Optional actions region (e.g. a "Clear filters" button).
+        A divider is rendered automatically when the slot has content.
       -->
-      <template v-if="props.showClearFilters">
+      <template v-if="slots.actions">
         <hr class="agds-filter-sidebar__divider" aria-hidden="true" />
-        <button
-          type="button"
-          class="agds-filter-sidebar__clear-btn"
-          @click="emit('clearFilters')"
-        >
-          Clear filters
-        </button>
+        <slot name="actions" />
       </template>
     </div>
   </AGDSCollapsingSideBar>
@@ -103,38 +88,4 @@ const ariaLabel = computed(() =>
   margin: 0;
 }
 
-/* ── Clear filters button ────────────────────────────────── */
-
-.agds-filter-sidebar__clear-btn {
-  align-self: center;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: var(--agds-font-family-body);
-  font-size: var(--agds-font-size-sm);
-  font-weight: var(--agds-font-weight-bold);
-  color: var(--agds-color-action-primary);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-align: left;
-}
-
-.agds-filter-sidebar__clear-btn:hover {
-  color: var(--agds-color-action-primary-hover);
-}
-
-/* WCAG 2.4.7 – keyboard-only focus ring */
-.agds-filter-sidebar__clear-btn:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
-  outline-offset: 2px;
-  border-radius: var(--agds-radius-sm);
-  text-decoration: none;
-}
-
-@media (min-width: 768px) {
-  .agds-filter-sidebar__clear-btn {
-    align-self: flex-start;
-  }
-}
 </style>

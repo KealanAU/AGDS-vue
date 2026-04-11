@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
 import AGDSModal from './AGDSModal.vue'
 
@@ -151,6 +151,59 @@ describe('AGDSModal — open/close behaviour', () => {
   it('does not set body overflow when initially closed', () => {
     renderModal({ initialOpen: false })
     expect(document.body.style.overflow).toBe('')
+  })
+
+  it('returns focus to the trigger element after close button click', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    const open = ref(false)
+    render({
+      components: { AGDSModal },
+      template: `<AGDSModal v-model="open" title="Focus return test">Content</AGDSModal>`,
+      setup: () => ({ open }),
+    })
+
+    // Simulate trigger being focused before opening the modal.
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    open.value = true
+    await nextTick()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+
+    await fireEvent.click(screen.getByRole('button', { name: 'Close modal' }))
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(trigger)
+    })
+
+    document.body.removeChild(trigger)
+  })
+
+  it('returns focus to the trigger element after Escape key', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    const open = ref(false)
+    render({
+      components: { AGDSModal },
+      template: `<AGDSModal v-model="open" title="Focus return test">Content</AGDSModal>`,
+      setup: () => ({ open }),
+    })
+
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    open.value = true
+    await nextTick()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+
+    await fireEvent.keyDown(document.body, { key: 'Escape', code: 'Escape' })
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(trigger)
+    })
+
+    document.body.removeChild(trigger)
   })
 })
 

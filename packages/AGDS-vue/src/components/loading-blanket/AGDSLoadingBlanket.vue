@@ -130,4 +130,13 @@ const dotSize = computed(() => (props.fullScreen ? 'lg' : 'md'))
   line-height: var(--agds-line-height-tight);
   color: currentColor;
 }
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-loading-dots__dot {
+    animation: none;
+    opacity: 1;
+  }
+}
 </style>

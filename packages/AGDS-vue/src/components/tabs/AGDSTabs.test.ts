@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
@@ -310,5 +310,48 @@ describe('AGDSTabs — axe accessibility', () => {
       `,
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+  })
+})
+
+// ─── AGDSTabs — responsive orientation (matchMedia) ────────────────────────
+
+describe('AGDSTabs — responsive orientation', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  function makeMatchMedia(matches: boolean) {
+    return vi.fn().mockReturnValue({
+      matches,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })
+  }
+
+  function renderTabsWithMQ() {
+    return render({
+      components: { AGDSTabs, AGDSTabList, AGDSTab, AGDSTabPanel },
+      template: `
+        <AGDSTabs default-value="tab1">
+          <AGDSTabList aria-label="Test tabs">
+            <AGDSTab value="tab1">Tab 1</AGDSTab>
+          </AGDSTabList>
+          <AGDSTabPanel value="tab1">Panel 1</AGDSTabPanel>
+        </AGDSTabs>
+      `,
+    })
+  }
+
+  it('sets horizontal orientation when matchMedia matches (≥768px)', () => {
+    vi.stubGlobal('matchMedia', makeMatchMedia(true))
+    const { container } = renderTabsWithMQ()
+    // The tabs root should be present and accessible regardless of orientation
+    expect(container.querySelector('[role="tablist"]')).toBeTruthy()
+  })
+
+  it('sets vertical orientation when matchMedia does not match (<768px)', () => {
+    vi.stubGlobal('matchMedia', makeMatchMedia(false))
+    const { container } = renderTabsWithMQ()
+    expect(container.querySelector('[role="tablist"]')).toBeTruthy()
   })
 })

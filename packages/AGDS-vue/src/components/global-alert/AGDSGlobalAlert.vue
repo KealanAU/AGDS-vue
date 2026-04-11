@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * Colour tone of the global alert banner.
+ *
+ * - `'info'` — Blue; use for neutral informational announcements (e.g. scheduled maintenance).
+ * - `'warning'` — Amber; use for cautions or service disruptions that require user attention.
+ */
 export type GlobalAlertTone = 'info' | 'warning'
 
 export interface AGDSGlobalAlertProps {
@@ -10,6 +16,19 @@ export interface AGDSGlobalAlertProps {
   tone?: GlobalAlertTone
   /** Called when the close button is pressed. Omit to hide the close button. */
   onClose?: () => void
+  /**
+   * ARIA role for the root `<section>`. The element is already an implicit
+   * `region` landmark (it carries an accessible name via `aria-label`).
+   * Set to `"alert"` for dynamically-injected urgent banners so that screen
+   * readers announce the content without requiring focus movement.
+   */
+  role?: string
+  /**
+   * `aria-live` value. Use `"polite"` for non-urgent banners (e.g. info) and
+   * `"assertive"` for critical ones (e.g. warning). Omit when the alert is
+   * present on page load and does not need automatic announcement.
+   */
+  ariaLive?: 'polite' | 'assertive' | 'off'
 }
 
 const props = withDefaults(defineProps<AGDSGlobalAlertProps>(), {
@@ -26,6 +45,8 @@ const sectionAriaLabel = computed(() => props.title || toneAriaLabel.value)
   <section
     :class="['agds-global-alert', `agds-global-alert--${props.tone}`]"
     :aria-label="sectionAriaLabel"
+    :role="props.role || undefined"
+    :aria-live="props.ariaLive"
   >
     <!--
       Toned icon strip (aria-hidden: tone is communicated by the section's aria-label).

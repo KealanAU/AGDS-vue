@@ -1,3 +1,16 @@
+/**
+ * Display format string for a time value (Unicode CLDR / date-fns conventions).
+ *
+ * | Value         | Example   | Notes                                        |
+ * |---------------|-----------|----------------------------------------------|
+ * | `'h:mm aaa'`  | `9:30 am` | 12-hour, single-digit hour, lowercase am/pm  |
+ * | `'h:mm aa'`   | `9:30 AM` | 12-hour, single-digit hour, uppercase AM/PM  |
+ * | `'HH:mm'`     | `09:30`   | 24-hour, zero-padded hour                    |
+ * | `'hh:mm aaa'` | `09:30 am`| 12-hour, zero-padded hour, lowercase am/pm   |
+ * | `'hh:mm aa'`  | `09:30 AM`| 12-hour, zero-padded hour, uppercase AM/PM   |
+ *
+ * Stored values (model/prop) should always be in `HH:mm` (24-hour) format.
+ */
 export type TimeFormat = 'h:mm aaa' | 'h:mm aa' | 'HH:mm' | 'hh:mm aaa' | 'hh:mm aa'
 
 export const acceptedTimeFormats: TimeFormat[] = [

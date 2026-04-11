@@ -22,8 +22,11 @@ withDefaults(defineProps<AGDSButtonLinkProps>(), {
 })
 
 defineEmits<{
+  /** Emitted when the link is clicked. */
   click: [event: MouseEvent]
+  /** Emitted when the link receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the link loses focus. */
   blur: [event: FocusEvent]
 }>()
 </script>
@@ -163,7 +166,7 @@ defineEmits<{
 }
 
 .agds-button:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

@@ -9,12 +9,14 @@ export interface AGDSDropdownMenuItemProps {
    * so this id is applied to the rendered element for external reference only.
    */
   id?: string
+  /** Optional icon component rendered to the left of the label. */
   icon?: Component
 }
 
 const props = defineProps<AGDSDropdownMenuItemProps>()
 
 const emit = defineEmits<{
+  /** Emitted when the item is selected via click or keyboard (Enter/Space). The menu closes automatically. */
   click: [event: Event]
 }>()
 </script>

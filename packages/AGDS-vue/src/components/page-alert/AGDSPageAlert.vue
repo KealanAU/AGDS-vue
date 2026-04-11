@@ -3,6 +3,14 @@ import { computed, getCurrentInstance, onMounted, ref, useSlots, watch } from 'v
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
+/**
+ * Colour tone of the page-level alert, communicating the nature of the message.
+ *
+ * - `'info'` — Blue; neutral information (e.g. a hint or system note).
+ * - `'success'` — Green; a completed action or positive outcome.
+ * - `'warning'` — Amber; a caution or potential issue that needs attention.
+ * - `'error'` — Red; a validation failure or blocking problem that must be resolved.
+ */
 export type PageAlertTone = 'info' | 'success' | 'warning' | 'error'
 
 // ── Props ──────────────────────────────────────────────────────────────────────
@@ -37,13 +45,23 @@ export interface AGDSPageAlertProps {
    * @deprecated Use `onClose` instead.
    */
   onDismiss?: () => void
+  /**
+   * `aria-live` value for the root element. Use `"assertive"` (or set
+   * `role="alert"`) for error/critical alerts injected after page load;
+   * use `"polite"` for non-urgent updates. Omit when using `focusOnMount`
+   * or `focusOnUpdate` instead.
+   */
+  ariaLive?: 'polite' | 'assertive' | 'off'
 }
 
 const props = withDefaults(defineProps<AGDSPageAlertProps>(), {
   role: 'region',
 })
 
-defineExpose({ focus: () => alertRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the alert element — useful after dynamic insertion to announce the message to screen readers. */
+  focus: () => alertRef.value?.focus(),
+})
 
 // ── IDs ────────────────────────────────────────────────────────────────────────
 
@@ -132,6 +150,7 @@ const closeHandler = computed(() => props.onClose ?? props.onDismiss ?? null)
     :style="toneStyle"
     :role="props.role"
     :aria-labelledby="ariaLabelledBy"
+    :aria-live="props.ariaLive"
     :tabindex="resolvedTabIndex"
   >
     <!--

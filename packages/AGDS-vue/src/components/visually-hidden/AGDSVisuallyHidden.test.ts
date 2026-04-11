@@ -57,6 +57,22 @@ describe('AGDSExternalLinkCallout — rendering', () => {
     await runAxe(container, AXE_OPTS)
   })
 
+  it('passes axe when used as the accessible name of an icon-only button', async () => {
+    // Common pattern: decorative SVG icon + AGDSVisuallyHidden provides the button label.
+    const { container } = render({
+      template: `
+        <button type="button">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <AGDSVisuallyHidden>Add item</AGDSVisuallyHidden>
+        </button>
+      `,
+      components: { AGDSVisuallyHidden },
+    })
+    await runAxe(container, AXE_OPTS)
+  })
+
   it('intentionally fails axe when link has no accessible name (verifies helper)', async () => {
     const { container } = render({
       template: `<a href="/page"><img src="x.png" /></a>`,

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSLoadingBlanket from './AGDSLoadingBlanket.vue'
+import loadingBlanketSrc from './AGDSLoadingBlanket.vue?raw'
 
 const AXE_OPTS = {
   rules: { 'color-contrast': { enabled: false } },
@@ -107,6 +108,41 @@ describe('AGDSLoadingBlanket — dots animation', () => {
     dots.forEach((dot, i) => {
       expect((dot as HTMLElement).style.animationDelay).toBe(`${i * 100}ms`)
     })
+  })
+})
+
+// ─── prefers-reduced-motion ───────────────────────────────────────────────────
+
+describe('AGDSLoadingBlanket — prefers-reduced-motion CSS', () => {
+  // jsdom cannot evaluate CSS @media queries, so we inspect the raw source
+  // to verify the correct reduced-motion rules ship with the component.
+
+  function getReducedMotionBlocks(source: string): string {
+    const re = /@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)\s*\{/g
+    const blocks: string[] = []
+    let match: RegExpExecArray | null
+    while ((match = re.exec(source)) !== null) {
+      let depth = 1
+      let i = re.lastIndex
+      while (i < source.length && depth > 0) {
+        if (source[i] === '{') depth++
+        else if (source[i] === '}') depth--
+        i++
+      }
+      blocks.push(source.slice(match.index, i))
+    }
+    return blocks.join('\n')
+  }
+
+  it('sets animation: none on dots', () => {
+    const block = getReducedMotionBlocks(loadingBlanketSrc)
+    expect(block).toContain('.agds-loading-dots__dot')
+    expect(block).toContain('animation: none')
+  })
+
+  it('makes dots visible (opacity: 1) so loading state is still perceivable', () => {
+    const block = getReducedMotionBlocks(loadingBlanketSrc)
+    expect(block).toContain('opacity: 1')
   })
 })
 

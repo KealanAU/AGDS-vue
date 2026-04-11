@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * HTML heading level — controls both the rendered element (`<h1>`–`<h6>`) and the default font size.
+ * Follow the document outline: use `h1` once per page for the main title, then nest `h2`–`h6` in order.
+ * To decouple visual size from semantic level, combine `type` (semantic) with `as` (rendered element).
+ */
 export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export interface AGDSHeadingProps {

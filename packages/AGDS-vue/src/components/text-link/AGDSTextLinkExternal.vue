@@ -14,8 +14,11 @@ withDefaults(defineProps<AGDSTextLinkExternalProps>(), {
 })
 
 defineEmits<{
+  /** Emitted when the external link is clicked. */
   click: [event: MouseEvent]
+  /** Emitted when the link receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the link loses focus. */
   blur: [event: FocusEvent]
 }>()
 </script>

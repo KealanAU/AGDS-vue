@@ -23,10 +23,7 @@ Wrap any text in `AGDSVisuallyHidden` to remove it from the visible layout while
 When an icon button has no visible label, use `AGDSVisuallyHidden` to provide a text alternative for screen readers.
 
 ::doc-preview{label="Icon button with hidden label"}
-<AGDSButton>
-  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="2"/></svg>
-  <AGDSVisuallyHidden>Add item</AGDSVisuallyHidden>
-</AGDSButton>
+:visually-hidden-demo{variant="icon-button"}
 ::
 
 ```vue
@@ -75,10 +72,7 @@ Use the `as` prop to render a block-level element when the visually hidden conte
 `AGDSExternalLinkCallout` is a zero-configuration component that renders the visually hidden text ", opens in a new tab". Attach it to any link that opens in a new tab so screen reader users are informed without cluttering the visible interface.
 
 ::doc-preview{label="External link callout"}
-<a href="https://example.com" target="_blank" rel="noopener noreferrer">
-  Agriculture Design System
-  <AGDSExternalLinkCallout />
-</a>
+:visually-hidden-demo{variant="external-link"}
 ::
 
 ```vue

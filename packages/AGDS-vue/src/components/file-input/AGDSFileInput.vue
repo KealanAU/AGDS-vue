@@ -62,6 +62,12 @@ export interface AGDSFileInputProps {
   hideOptionalLabel?: boolean
   /** Size of the trigger button */
   buttonSize?: ButtonSize
+  /**
+   * Read-only v-model binding — receives the selected file names reactively.
+   * Browsers prevent programmatic file input values, so setting this has no effect.
+   * Bind with `v-model` to reactively receive selected file names.
+   */
+  modelValue?: string[]
 }
 
 const props = withDefaults(defineProps<AGDSFileInputProps>(), {
@@ -75,9 +81,14 @@ const props = withDefaults(defineProps<AGDSFileInputProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the native change event fires (user selects files). */
   change: [event: Event]
+  /** Emitted when the trigger button receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the trigger button loses focus. */
   blur: [event: FocusEvent]
+  /** Emitted with the new list of selected file names — use with v-model. */
+  'update:modelValue': [files: string[]]
 }>()
 
 // ── IDs ──────────────────────────────────────────────────────────────────────
@@ -96,6 +107,7 @@ function handleChange(event: Event) {
   const target = event.target as HTMLInputElement
   if (target.files) {
     fileNames.value = Array.from(target.files).map((f) => f.name)
+    emit('update:modelValue', fileNames.value)
   }
   emit('change', event)
 }
@@ -180,7 +192,10 @@ const buttonDescribedBy = computed<string | undefined>(() => {
 const hiddenInputRef   = ref<HTMLInputElement | null>(null)
 const visibleButtonRef = ref<InstanceType<typeof AGDSButton> | null>(null)
 
-defineExpose({ focus: () => visibleButtonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the visible file input button. */
+  focus: () => visibleButtonRef.value?.focus(),
+})
 
 onMounted(() => {
   if (props.autoFocus) visibleButtonRef.value?.focus()

@@ -21,7 +21,7 @@ const context = inject(CARD_CONTEXT_KEY)
     v-if="context?.footerOutside"
     :class="[
       'agds-card-footer agds-card-footer--outside',
-      props.background && `agds-card-footer--${props.background}`,
+      props.background && (props.background === 'bodyAlt' ? 'agds-card-footer--body-alt' : 'agds-card-footer--body'),
     ]"
   >
     <slot />
@@ -32,7 +32,7 @@ const context = inject(CARD_CONTEXT_KEY)
     v-else
     :class="[
       'agds-card-footer',
-      props.background && `agds-card-footer--${props.background}`,
+      props.background && (props.background === 'bodyAlt' ? 'agds-card-footer--body-alt' : 'agds-card-footer--body'),
     ]"
   >
     <slot />
@@ -56,7 +56,7 @@ const context = inject(CARD_CONTEXT_KEY)
   background-color: var(--agds-color-bg);
 }
 
-.agds-card-footer--bodyAlt {
+.agds-card-footer--body-alt {
   background-color: var(--agds-color-bg-subtle);
 }
 </style>

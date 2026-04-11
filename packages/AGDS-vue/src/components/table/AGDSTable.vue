@@ -2,6 +2,13 @@
 import { provide, reactive } from 'vue'
 import { TABLE_CONTEXT_KEY } from './tableContext'
 
+/**
+ * CSS `table-layout` algorithm used for column sizing.
+ *
+ * - `'auto'` — Browser distributes column widths based on content (default). Best for most tables.
+ * - `'fixed'` — Columns are sized equally, ignoring content. Required for `position:relative` row
+ *   effects (hover/selected outlines) in Chrome and Firefox.
+ */
 export type TableLayout = 'auto' | 'fixed'
 
 export interface AGDSTableProps {
@@ -11,6 +18,7 @@ export interface AGDSTableProps {
   tabIndex?: number
   /** CSS table-layout algorithm. */
   tableLayout?: TableLayout
+  /** HTML id attribute — required when using aria-labelledby to associate an external heading. */
   id?: string
   // aria-labelledby, aria-describedby, aria-rowcount and other HTML attributes
   // pass through automatically via inheritAttrs to the <table> element.
@@ -69,7 +77,7 @@ provide(
 }
 
 .agds-table:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 </style>

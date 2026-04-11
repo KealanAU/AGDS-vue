@@ -16,12 +16,16 @@ withDefaults(defineProps<AGDSTagProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the remove button is clicked. Handle by removing this tag from the list. */
   remove: [event: MouseEvent]
 }>()
 
 const removeButtonRef = ref<HTMLButtonElement | null>(null)
 
-defineExpose({ focusRemoveButton: () => removeButtonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the remove button. Called by AGDSTags after a sibling tag is removed. */
+  focusRemoveButton: () => removeButtonRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -97,7 +101,7 @@ defineExpose({ focusRemoveButton: () => removeButtonRef.value?.focus() })
 
 /* WCAG 2.4.7: keyboard-only focus ring on the link. */
 .agds-tag__label--link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   text-decoration: none;
   border-radius: 1px;
@@ -134,7 +138,7 @@ defineExpose({ focusRemoveButton: () => removeButtonRef.value?.focus() })
 
 /* WCAG 2.4.7: keyboard-only focus ring on the remove button. */
 .agds-tag__remove:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

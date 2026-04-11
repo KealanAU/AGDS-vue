@@ -3,8 +3,28 @@ import AGDSHeaderBrand from './AGDSHeaderBrand.vue'
 import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as HeaderBackground }
+/**
+ * Maximum width preset for the header's inner content container.
+ *
+ * - `'container'` — Standard container width (`--agds-max-width`); suitable for most services.
+ * - `'containerLg'` — Wider container (`--agds-max-width-lg`); for full-bleed or wide-layout services.
+ */
 export type HeaderMaxWidth = 'container' | 'containerLg'
+
+/**
+ * Vertical size of the header, controlling logo/brand area height and padding.
+ *
+ * - `'sm'` — Compact header; used in app-layout where vertical space is at a premium.
+ * - `'md'` — Default; standard marketing/service header height.
+ */
 export type HeaderSize = 'sm' | 'md'
+
+/**
+ * Position of the vertical divider line when two logos are shown.
+ *
+ * - `'between'` — Divider sits between the two logo images.
+ * - `'after'` — Divider sits after both logos, before the navigation content.
+ */
 export type HeaderDividerPosition = 'after' | 'between'
 
 export interface AGDSHeaderProps {

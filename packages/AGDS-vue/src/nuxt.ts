@@ -19,6 +19,7 @@ export default defineNuxtModule({
       path: resolver.resolve('components'),
       pathPrefix: false,
       global: true,
+      pattern: '**/AGDS*.{vue,mjs}',
     })
 
     // Auto-import composables so consumers use them without manual imports

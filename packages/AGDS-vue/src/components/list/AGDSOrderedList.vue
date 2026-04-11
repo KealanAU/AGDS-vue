@@ -2,6 +2,10 @@
 import { computed, inject, provide } from 'vue'
 import { LIST_DEPTH_KEY } from './listContext'
 
+/**
+ * Renders a numbered ordered list (`<ol>`).
+ * Use `AGDSListItem` for each item. Nest another `AGDSOrderedList` inside an `AGDSListItem` for sub-lists.
+ */
 export interface AGDSOrderedListProps {}
 
 const currentDepth = inject(LIST_DEPTH_KEY, 0)

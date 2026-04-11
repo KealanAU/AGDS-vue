@@ -22,7 +22,10 @@ const props = defineProps<{
   background: AppLayoutBackground
 }>()
 
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{
+  /** Emitted when the item (or any sub-item) is activated — bubbles up to close the mobile dialog. */
+  close: []
+}>()
 
 const isLink = computed(() => isNavLinkItem(props.item))
 const isButton = computed(() => isNavButtonItem(props.item))
@@ -186,7 +189,7 @@ const hoverBg = computed(() =>
 
 .agds-alsnav-item__link:focus-visible,
 .agds-alsnav-item__button:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
   z-index: 1;
 }

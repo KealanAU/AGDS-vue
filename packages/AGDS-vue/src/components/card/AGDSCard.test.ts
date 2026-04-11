@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { h } from 'vue'
 import { render } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSCard from './AGDSCard.vue'
@@ -53,11 +54,14 @@ describe('AGDSCard — background prop', () => {
     expect(container.querySelector('.agds-card--body')).toBeTruthy()
   })
 
-  it.each(['body', 'bodyAlt'] as const)(
-    'applies agds-card--%s class for background="%s"',
-    (background) => {
+  it.each([
+    ['body', 'agds-card--body'],
+    ['bodyAlt', 'agds-card--body-alt'],
+  ] as const)(
+    'applies the correct class for background="%s"',
+    (background, expectedClass) => {
       const { container } = renderCard({ background })
-      expect(container.querySelector(`.agds-card--${background}`)).toBeTruthy()
+      expect(container.querySelector(`.${expectedClass}`)).toBeTruthy()
     },
   )
 })
@@ -127,8 +131,8 @@ describe('AGDSCard — footerOutside prop', () => {
     })
     const root = container.querySelector('.agds-card--footer-outside')!
     const wrap = container.querySelector('.agds-card__wrap')!
-    expect(root.classList.contains('agds-card--bodyAlt')).toBe(false)
-    expect(wrap.classList.contains('agds-card--bodyAlt')).toBe(true)
+    expect(root.classList.contains('agds-card--body-alt')).toBe(false)
+    expect(wrap.classList.contains('agds-card--body-alt')).toBe(true)
     expect(wrap.classList.contains('agds-card--shadow')).toBe(true)
   })
 })
@@ -179,7 +183,15 @@ describe('AGDSCardHeader', () => {
       props: { background: 'bodyAlt' },
       slots: { default: '<p>H</p>' },
     })
-    expect(container.querySelector('.agds-card-header--bodyAlt')).toBeTruthy()
+    expect(container.querySelector('.agds-card-header--body-alt')).toBeTruthy()
+  })
+
+  it('applies body modifier when background="body"', () => {
+    const { container } = render(AGDSCardHeader, {
+      props: { background: 'body' },
+      slots: { default: '<p>H</p>' },
+    })
+    expect(container.querySelector('.agds-card-header--body')).toBeTruthy()
   })
 
   it('does not apply a background modifier by default', () => {
@@ -187,6 +199,32 @@ describe('AGDSCardHeader', () => {
       slots: { default: '<p>H</p>' },
     })
     expect(container.querySelector('[class*="--body"]')).toBeNull()
+  })
+
+  it('renders title prop in the default content area', () => {
+    const { getByText } = render(AGDSCardHeader, {
+      props: { title: 'Card title' },
+    })
+    expect(getByText('Card title')).toBeTruthy()
+  })
+
+  it('renders subtitle prop below the title', () => {
+    const { getByText } = render(AGDSCardHeader, {
+      props: { title: 'Title', subtitle: 'Sub' },
+    })
+    expect(getByText('Sub')).toBeTruthy()
+  })
+
+  it('renders subtitle without title', () => {
+    const { getByText } = render(AGDSCardHeader, {
+      props: { subtitle: 'Only subtitle' },
+    })
+    expect(getByText('Only subtitle')).toBeTruthy()
+  })
+
+  it('does not render content wrapper when neither title nor subtitle provided and slot is empty', () => {
+    const { container } = render(AGDSCardHeader)
+    expect(container.querySelector('.agds-card-header__content')).toBeNull()
   })
 })
 
@@ -207,16 +245,53 @@ describe('AGDSCardFooter', () => {
     expect(getByText('Footer text')).toBeTruthy()
   })
 
+  it('applies bodyAlt background on the inner footer', () => {
+    const { container } = render(AGDSCardFooter, {
+      props: { background: 'bodyAlt' },
+      slots: { default: '<p>Footer</p>' },
+    })
+    expect(container.querySelector('.agds-card-footer--body-alt')).toBeTruthy()
+  })
+
+  it('applies body background on the inner footer', () => {
+    const { container } = render(AGDSCardFooter, {
+      props: { background: 'body' },
+      slots: { default: '<p>Footer</p>' },
+    })
+    expect(container.querySelector('.agds-card-footer--body')).toBeTruthy()
+  })
+
   it('applies outside modifier when rendered inside a footerOutside card', () => {
     const { container } = render(AGDSCard, {
       props: { footerOutside: true },
       slots: {
         default: '<p>Body</p>',
-        // Using raw component in slot would need defineComponent — use wrapper approach
-        footer: '<div class="agds-card-footer agds-card-footer--outside">Footer</div>',
+        footer: () => h(AGDSCardFooter, null, { default: () => 'Footer' }),
       },
     })
     expect(container.querySelector('.agds-card-footer--outside')).toBeTruthy()
+  })
+
+  it('applies bodyAlt background on an outside footer', () => {
+    const { container } = render(AGDSCard, {
+      props: { footerOutside: true },
+      slots: {
+        default: '<p>Body</p>',
+        footer: () => h(AGDSCardFooter, { background: 'bodyAlt' }, { default: () => 'Footer' }),
+      },
+    })
+    expect(container.querySelector('.agds-card-footer--outside.agds-card-footer--body-alt')).toBeTruthy()
+  })
+
+  it('applies body background on an outside footer', () => {
+    const { container } = render(AGDSCard, {
+      props: { footerOutside: true },
+      slots: {
+        default: '<p>Body</p>',
+        footer: () => h(AGDSCardFooter, { background: 'body' }, { default: () => 'Footer' }),
+      },
+    })
+    expect(container.querySelector('.agds-card-footer--outside.agds-card-footer--body')).toBeTruthy()
   })
 })
 
@@ -287,6 +362,16 @@ describe('AGDSCardLink', () => {
     })
     // This verifies clickable class is on card; CardLink context test is below
     expect(container.querySelector('.agds-card--clickable')).toBeTruthy()
+  })
+
+  it('applies agds-card-link--clickable when AGDSCardLink is rendered inside a clickable AGDSCard', () => {
+    const { container } = render(AGDSCard, {
+      props: { clickable: true },
+      slots: {
+        default: () => h(AGDSCardLink, { href: '/destination' }, { default: () => 'Read more' }),
+      },
+    })
+    expect(container.querySelector('.agds-card-link--clickable')).toBeTruthy()
   })
 })
 

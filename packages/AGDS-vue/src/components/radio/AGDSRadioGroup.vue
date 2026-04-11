@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from 'vue'
+import { computed, getCurrentInstance, provide } from 'vue'
 import { RADIO_GROUP_KEY } from './radioGroupContext'
 
 export interface AGDSRadioGroupProps {
@@ -13,11 +13,15 @@ export interface AGDSRadioGroupProps {
   disabled?: boolean
   /**
    * The `id` of the element that describes the group error/hint.
-   * Passed as `aria-describedby` on each radio when invalid.
+   * Auto-generated if not provided — only override when you need a specific id.
    */
   messageId?: string
   /** Accessible label for the group — used on the fieldset legend */
   legend?: string
+  /** Hint text displayed below the legend */
+  hint?: string
+  /** Error message displayed when `invalid` is true */
+  message?: string
 }
 
 const props = withDefaults(defineProps<AGDSRadioGroupProps>(), {
@@ -26,12 +30,15 @@ const props = withDefaults(defineProps<AGDSRadioGroupProps>(), {
   disabled: false,
 })
 
+const uid = getCurrentInstance()?.uid ?? Math.random().toString(36).slice(2)
+const resolvedMessageId = computed(() => props.messageId ?? `agds-radio-group-msg-${uid}`)
+
 provide(RADIO_GROUP_KEY, {
   get name() { return props.name },
   get invalid() { return props.invalid },
   get required() { return props.required },
   get disabled() { return props.disabled },
-  get messageId() { return props.messageId },
+  get messageId() { return resolvedMessageId.value },
 })
 </script>
 
@@ -46,18 +53,23 @@ provide(RADIO_GROUP_KEY, {
       <span v-if="props.required" class="agds-radio-group__required" aria-hidden="true"> *</span>
     </legend>
 
-    <div v-if="$slots.hint" class="agds-radio-group__hint">
-      <slot name="hint" />
+    <!-- Hint / description — prop or slot -->
+    <div v-if="props.hint || $slots.hint" class="agds-radio-group__hint">
+      <slot name="hint">{{ props.hint }}</slot>
     </div>
 
+    <!--
+      Error message — carries the auto-generated id so each radio's
+      aria-describedby points here. Shown when invalid + message/slot present.
+    -->
     <div
-      v-if="props.invalid && $slots.message"
-      :id="props.messageId"
+      v-if="props.invalid && (props.message || $slots.message)"
+      :id="resolvedMessageId"
       class="agds-radio-group__message"
       role="alert"
       aria-live="assertive"
     >
-      <slot name="message" />
+      <slot name="message">{{ props.message }}</slot>
     </div>
 
     <div class="agds-radio-group__items">

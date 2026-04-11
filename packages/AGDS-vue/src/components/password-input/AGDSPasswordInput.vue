@@ -44,9 +44,13 @@ const props = withDefaults(defineProps<AGDSPasswordInputProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted on every keystroke — use with v-model for two-way binding. */
   'update:modelValue': [value: string]
+  /** Emitted when the native change event fires (typically on blur). */
   change: [event: Event]
+  /** Emitted when the input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -64,7 +68,10 @@ const inputType = computed(() => (showPassword.value ? 'text' : 'password'))
 
 const inputRef = ref<HTMLInputElement | null>(null)
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the password input. */
+  focus: () => inputRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -156,7 +163,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-password-input__input:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -200,7 +207,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-password-input__toggle:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: var(--agds-border-radius, 4px);
 }

@@ -3,6 +3,14 @@ import { computed, getCurrentInstance, ref } from 'vue'
 import AGDSField from '../field/AGDSField.vue'
 import type { FieldMaxWidth } from '../field/AGDSField.vue'
 
+/**
+ * Maximum width of the search input field.
+ * Subset of `FieldMaxWidth` — narrower sizes are excluded because search fields typically need room.
+ *
+ * - `'md'` — ~30 ch; compact search bars in navigation or sidebars.
+ * - `'lg'` — ~40 ch; standard page-level search.
+ * - `'xl'` — ~60 ch; prominent full-width search patterns.
+ */
 export type SearchInputMaxWidth = Extract<FieldMaxWidth, 'md' | 'lg' | 'xl'>
 
 export interface AGDSSearchInputProps {
@@ -45,11 +53,15 @@ const props = withDefaults(defineProps<AGDSSearchInputProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted on every keystroke — use with v-model for two-way binding. */
   'update:modelValue': [value: string]
-  /** Fired when the input is explicitly cleared (Escape or clear button click) */
+  /** Fired when the input is explicitly cleared (Escape or clear button click). */
   clear: []
+  /** Emitted when the native change event fires. */
   change: [event: Event]
+  /** Emitted when the input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -103,7 +115,10 @@ const containerStyle = computed(() =>
 
 // ── Expose ────────────────────────────────────────────────────────────────────
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the search input. */
+  focus: () => inputRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -269,7 +284,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-search-input__input:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

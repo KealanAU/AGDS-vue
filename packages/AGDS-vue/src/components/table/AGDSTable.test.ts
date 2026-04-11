@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSTable from './AGDSTable.vue'
@@ -164,6 +164,30 @@ describe('AGDSTableHeader — rendering', () => {
     expect(ths.length).toBeGreaterThan(0)
     ths.forEach((th) => expect(th.getAttribute('scope')).toBe('col'))
   })
+
+  it('applies inline width style when width prop is set', () => {
+    const { container } = render({
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
+      template: `
+        <AGDSTable>
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader width="10rem">Name</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
+      `,
+    })
+    const th = container.querySelector('th')!
+    expect(th.style.width).toBe('10rem')
+  })
+
+  it('does not apply inline width when width prop is not set', () => {
+    const { container } = renderBasicTable()
+    const th = container.querySelector('th')!
+    expect(th.style.width).toBe('')
+  })
 })
 
 // ─── AGDSTableHeaderSortable — rendering & interaction ─────────────────────
@@ -221,6 +245,164 @@ describe('AGDSTableHeaderSortable — rendering', () => {
     await fireEvent.click(btn)
     expect(emitted().click).toHaveLength(1)
     expect(emitted().click[0][0]).toBeInstanceOf(MouseEvent)
+  })
+})
+
+// ─── AGDSTableRow — props and interaction ────────────────────────────────────
+
+describe('AGDSTableRow — selected prop', () => {
+  function renderRow(rowProps: Record<string, unknown> = {}, cellContent = 'Alice') {
+    return render({
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
+      template: `
+        <AGDSTable>
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader>Name</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow v-bind="rowProps"><AGDSTableCell>{{ cell }}</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
+      `,
+      data() { return { rowProps, cell: cellContent } },
+    })
+  }
+
+  it('applies selected class and aria-selected when selected=true', () => {
+    const { container } = renderRow({ selected: true })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--selected')).toBe(true)
+    expect(row.getAttribute('aria-selected')).toBe('true')
+  })
+
+  it('does not apply selected class when selected=false', () => {
+    const { container } = renderRow()
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--selected')).toBe(false)
+    expect(row.getAttribute('aria-selected')).toBeNull()
+  })
+
+  it('applies invalid class when invalid=true', () => {
+    const { container } = renderRow({ invalid: true })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--invalid')).toBe(true)
+  })
+
+  it('applies background class when background prop is set', () => {
+    const { container } = renderRow({ background: 'bodyAlt' })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--bg-bodyAlt')).toBe(true)
+  })
+
+  it('sets data-has-background when background is set', () => {
+    const { container } = renderRow({ background: 'body' })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.getAttribute('data-has-background')).toBe('true')
+  })
+
+  it('sets data-has-background when invalid=true', () => {
+    const { container } = renderRow({ invalid: true })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.getAttribute('data-has-background')).toBe('true')
+  })
+
+  it('does not set data-has-background by default', () => {
+    const { container } = renderRow()
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.getAttribute('data-has-background')).toBeNull()
+  })
+})
+
+describe('AGDSTableRow — clickable prop and handleClick', () => {
+  function renderClickableRow(rowProps: Record<string, unknown> = {}) {
+    const clicks: MouseEvent[] = []
+    const result = render({
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
+      template: `
+        <AGDSTable>
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader>Name</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow v-bind="rowProps" @click="onRowClick"><AGDSTableCell>Cell</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
+      `,
+      data() { return { rowProps } },
+      methods: { onRowClick(e: MouseEvent) { clicks.push(e) } },
+    })
+    return { ...result, clicks }
+  }
+
+  it('applies clickable class when clickable=true', () => {
+    const { container } = renderClickableRow({ clickable: true })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--clickable')).toBe(true)
+  })
+
+  it('does not apply clickable class by default', () => {
+    const { container } = renderClickableRow()
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--clickable')).toBe(false)
+  })
+
+  it('emits click when a plain cell is clicked on a clickable row', async () => {
+    const { container, clicks } = renderClickableRow({ clickable: true })
+    const cell = container.querySelector('tbody td')!
+    await fireEvent.click(cell)
+    expect(clicks.length).toBe(1)
+  })
+
+  it('does not emit click when row is not clickable', async () => {
+    const { container, clicks } = renderClickableRow({ clickable: false })
+    const cell = container.querySelector('tbody td')!
+    await fireEvent.click(cell)
+    expect(clicks.length).toBe(0)
+  })
+
+  it('does not emit click when clicking a button inside the row', async () => {
+    const rowClickSpy = vi.fn()
+    const { container } = render({
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
+      template: `
+        <AGDSTable>
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader>Action</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow :clickable="true" @click="rowClickSpy">
+              <AGDSTableCell><button type="button" id="inner-btn">Delete</button></AGDSTableCell>
+            </AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
+      `,
+      setup() {
+        return { rowClickSpy }
+      },
+    })
+    const innerBtn = container.querySelector('#inner-btn')!
+    await fireEvent.click(innerBtn)
+    expect(rowClickSpy).not.toHaveBeenCalled()
+  })
+})
+
+describe('AGDSTableRow — inside fixed table', () => {
+  it('applies fixed class when inside a table with tableLayout="fixed"', () => {
+    const { container } = render({
+      components: { AGDSTable, AGDSTableHead, AGDSTableBody, AGDSTableRow, AGDSTableHeader, AGDSTableCell },
+      template: `
+        <AGDSTable table-layout="fixed">
+          <AGDSTableHead>
+            <AGDSTableRow><AGDSTableHeader>Name</AGDSTableHeader></AGDSTableRow>
+          </AGDSTableHead>
+          <AGDSTableBody>
+            <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell></AGDSTableRow>
+          </AGDSTableBody>
+        </AGDSTable>
+      `,
+    })
+    const row = container.querySelectorAll('tbody tr')[0]
+    expect(row.classList.contains('agds-table-row--fixed')).toBe(true)
   })
 })
 

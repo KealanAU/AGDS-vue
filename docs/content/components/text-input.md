@@ -176,7 +176,7 @@ Pass any valid `<input>` type via the `type` prop.
 - `required` sets `aria-required="true"` on the native input
 - `invalid` sets `aria-invalid="true"` and links the error message via `aria-describedby` — satisfies WCAG 4.1.3
 - `disabled` uses `opacity: 0.5` — state is not conveyed by colour alone (WCAG 1.4.1)
-- Focus ring uses `--agds-color-focus` and `--agds-color-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
+- Focus ring uses `--agds-color-focus` and `--agds-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
 - `defineExpose({ focus })` is provided for programmatic focus management
 
 ## Changelog

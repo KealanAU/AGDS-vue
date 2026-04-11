@@ -37,13 +37,23 @@ export interface AGDSSectionAlertProps {
    * @deprecated Use `onClose` instead.
    */
   onDismiss?: () => void
+  /**
+   * `aria-live` value for the root element. Use `"assertive"` (or set
+   * `role="alert"`) for error/critical alerts injected after page load;
+   * use `"polite"` for non-urgent updates. Omit when using `focusOnMount`
+   * or `focusOnUpdate` instead.
+   */
+  ariaLive?: 'polite' | 'assertive' | 'off'
 }
 
 const props = withDefaults(defineProps<AGDSSectionAlertProps>(), {
   role: 'region',
 })
 
-defineExpose({ focus: () => alertRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the alert element — useful after dynamic insertion to announce the message to screen readers. */
+  focus: () => alertRef.value?.focus(),
+})
 
 // ── IDs ───────────────────────────────────────────────────────────────────────
 
@@ -108,6 +118,7 @@ const closeHandler = computed(() => props.onClose ?? props.onDismiss ?? null)
     :style="toneStyle"
     :role="props.role"
     :aria-labelledby="ariaLabelledBy"
+    :aria-live="props.ariaLive"
     :tabindex="resolvedTabIndex"
   >
     <!--

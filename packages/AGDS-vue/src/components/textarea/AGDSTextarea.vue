@@ -3,6 +3,14 @@ import { computed, getCurrentInstance, ref } from 'vue'
 import AGDSField from '../field/AGDSField.vue'
 import type { FieldMaxWidth } from '../field/AGDSField.vue'
 
+/**
+ * Maximum width of the textarea field.
+ * Subset of `FieldMaxWidth` — narrower sizes are excluded because textarea content typically requires more space.
+ *
+ * - `'md'` — ~30 ch; short free-text answers.
+ * - `'lg'` — ~40 ch; default for most textareas.
+ * - `'xl'` — ~60 ch; longer responses such as descriptions or addresses.
+ */
 export type TextareaMaxWidth = Extract<FieldMaxWidth, 'md' | 'lg' | 'xl'>
 
 export interface AGDSTextareaProps {
@@ -47,9 +55,13 @@ const props = withDefaults(defineProps<AGDSTextareaProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted on every keystroke — use with v-model for two-way binding. */
   'update:modelValue': [value: string]
+  /** Emitted when the native change event fires (typically on blur). */
   change: [event: Event]
+  /** Emitted when the textarea receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the textarea loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -87,7 +99,10 @@ const containerStyle = computed(() =>
 
 // ── Expose ────────────────────────────────────────────────────────────────────
 
-defineExpose({ focus: () => textareaRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the textarea. */
+  focus: () => textareaRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -159,7 +174,7 @@ defineExpose({ focus: () => textareaRef.value?.focus() })
 }
 
 .agds-textarea:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

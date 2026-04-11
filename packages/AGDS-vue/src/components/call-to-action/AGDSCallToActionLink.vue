@@ -20,8 +20,11 @@ withDefaults(defineProps<AGDSCallToActionLinkProps>(), {
 })
 
 defineEmits<{
+  /** Emitted when the call-to-action link is clicked. */
   click: [event: MouseEvent]
+  /** Emitted when the link receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the link loses focus. */
   blur: [event: FocusEvent]
 }>()
 </script>
@@ -81,7 +84,7 @@ defineEmits<{
 
 .agds-cta:focus-visible,
 .agds-cta--focus-all:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }

@@ -9,6 +9,10 @@ status: stable
 
 `AGDSFooter` is a layout shell — place your own content inside its default slot.
 
+::doc-preview
+:footer-demo
+::
+
 ```vue
 <template>
   <AGDSFooter>
@@ -24,7 +28,11 @@ status: stable
 
 ## With a divider
 
-Use `AGDSFooterDivider` to separate footer sections visually.
+Use `AGDSFooterDivider` to separate footer sections visually. The default `color="accent"` renders using the brand colour.
+
+::doc-preview{label="With divider"}
+:footer-demo{variant="with-divider"}
+::
 
 ```vue
 <template>
@@ -46,6 +54,10 @@ Use `AGDSFooterDivider` to separate footer sections visually.
 ## bodyAlt background
 
 Use `background="bodyAlt"` when the footer sits on an off-white surface.
+
+::doc-preview{label="bodyAlt background"}
+:footer-demo{variant="body-alt"}
+::
 
 ```vue
 <template>

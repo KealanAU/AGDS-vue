@@ -1,6 +1,3 @@
-import './styles/tokens.css'
-import './styles/base.css'
-
 // Core — theming, tokens, and provider
 import { AGDSCore, AGDSCoreProvider } from './core'
 import {

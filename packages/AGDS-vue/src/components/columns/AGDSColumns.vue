@@ -2,8 +2,16 @@
 import { computed, useAttrs } from 'vue'
 import type { Component } from 'vue'
 
+/**
+ * Number of grid columns — valid span values for column layout (1–12).
+ * Passed to `AGDSColumns` as `cols` to define the grid, or to `AGDSColumn` as `span` to occupy that many columns.
+ */
 export type ColumnRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
+/**
+ * CSS `align-items` value applied to all columns in the row.
+ * Controls how columns are aligned along the cross (vertical) axis.
+ */
 export type ColumnsAlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
 
 export interface AGDSColumnsProps {

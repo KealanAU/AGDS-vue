@@ -68,9 +68,13 @@ const props = withDefaults(defineProps<AGDSFileUploadProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the file list changes (files added or removed) — use with v-model. */
   'update:modelValue': [value: FileWithStatus[]]
+  /** Emitted when the user removes an already-uploaded existing file. Handle by deleting it server-side. */
   'remove-existing-file': [file: ExistingFile]
+  /** Emitted when the trigger button receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the trigger button loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -288,7 +292,10 @@ const buttonAriaLabel = computed(() =>
 
 // ── Expose ────────────────────────────────────────────────────────────────────
 
-defineExpose({ focus: () => triggerButtonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the file upload trigger button. */
+  focus: () => triggerButtonRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -595,7 +602,7 @@ defineExpose({ focus: () => triggerButtonRef.value?.focus() })
 }
 
 .agds-file-upload__error-close:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

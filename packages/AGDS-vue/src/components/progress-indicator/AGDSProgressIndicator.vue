@@ -1,6 +1,17 @@
 <script lang="ts">
 import type { BackgroundVariant } from '../../core'
 
+/**
+ * Completion state of a single step in the progress indicator.
+ *
+ * - `'blocked'` — Cannot be started; a prerequisite step must be completed first.
+ * - `'todo'` — Not yet started.
+ * - `'doing'` — Currently active / in progress (also used as the legacy auto-active marker).
+ * - `'started'` — User has begun this step but has not finished it.
+ * - `'saved'` — Step data has been saved as a draft but not yet submitted.
+ * - `'done'` — Step completed successfully.
+ * - `'error'` — Step was completed but validation failed; user action required.
+ */
 export type ProgressIndicatorItemStatus =
   | 'blocked'
   | 'doing'
@@ -185,7 +196,7 @@ const processedItems = computed((): ProcessedProgressIndicatorItem[] => {
 }
 
 .agds-progress-indicator__toggle:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

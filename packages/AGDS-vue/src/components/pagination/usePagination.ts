@@ -1,3 +1,11 @@
+/**
+ * A single rendered element in the pagination control. Discriminated on `type`.
+ *
+ * - `'direction'` — Previous/next arrow. `direction` is `'left'` (previous) or `'right'` (next);
+ *   `pageNumber` is the target page.
+ * - `'page'` — A numbered page button or link. `isActive` is `true` for the currently selected page.
+ * - `'separator'` — A `…` ellipsis representing skipped pages. `pageNumber` is always `0`.
+ */
 export type PaginationItem =
   | { type: 'direction'; direction: 'left' | 'right'; pageNumber: number }
   | { type: 'page'; pageNumber: number; isActive: boolean }

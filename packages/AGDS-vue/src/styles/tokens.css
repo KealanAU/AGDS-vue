@@ -10,6 +10,7 @@
   --agds-color-brand-active:    #004260;
   --agds-color-brand-muted:     #e0f0f5;
   --agds-color-brand-muted-fg:  #003d54;
+  --agds-color-accent:          var(--agds-color-brand);
 
   /* ── Colour: Text ──────────────────────────────────────── */
   --agds-color-text:            #313131;
@@ -24,13 +25,13 @@
   --agds-color-overlay:         rgb(0 0 0 / 0.6);
 
   /* ── Colour: Border ────────────────────────────────────── */
-  --agds-color-border:          #d3d3d3;
+  --agds-color-border:          #767676;
   --agds-color-border-strong:   #313131;
   --agds-color-border-brand:    #00698f;
 
   /* ── Colour: Focus ─────────────────────────────────────── */
   --agds-color-focus:           #9263de;
-  --agds-color-focus-width:     3px;
+  --agds-focus-width:     3px;
 
   /* ── Colour: Status ────────────────────────────────────── */
   --agds-color-success:         #0b7e00;
@@ -318,4 +319,25 @@
   --agds-badge-min-width:   1.5rem;                       /* keeps single-digit badges circular */
   --agds-badge-padding-x:   var(--agds-space-2);        /* 8px  */
   --agds-badge-font-size:   var(--agds-font-size-sm);   /* 14px */
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────────── */
+/* Zero all transition tokens so every component inheriting them is covered.   */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --agds-transition-fast:    0ms;
+    --agds-transition-normal:  0ms;
+    --agds-transition-slow:    0ms;
+  }
+}
+
+/* ── Reduced-motion: zero all token-based transitions & animations ── */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --agds-transition-fast:    0ms;
+    --agds-transition-normal:  0ms;
+    --agds-transition-slow:    0ms;
+  }
 }

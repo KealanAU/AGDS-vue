@@ -192,7 +192,7 @@ function onClear() {
 - The clear button is excluded from Tab order; `Escape` is the keyboard-accessible clear mechanism, following the [ARIA SearchField pattern](https://react-spectrum.adobe.com/react-spectrum/SearchField.html)
 - The browser's webkit search cancel button is suppressed to prevent a duplicate interactive element
 - `disabled` uses `opacity: 0.5` — state is not conveyed by colour alone (WCAG 1.4.1)
-- Focus ring uses `--agds-color-focus` and `--agds-color-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
+- Focus ring uses `--agds-color-focus` and `--agds-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
 
 ## Changelog
 

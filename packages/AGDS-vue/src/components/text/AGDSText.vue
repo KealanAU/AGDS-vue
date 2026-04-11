@@ -1,10 +1,49 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * Semantic text colour, resolved to a `--agds-color-*` token.
+ *
+ * - `'text'` — Default body text colour.
+ * - `'muted'` — Subdued/secondary text (hints, captions, metadata).
+ * - `'inverse'` — Light text for use on dark/coloured backgrounds.
+ * - `'disabled'` — Greyed-out text for inactive elements.
+ */
 export type TextColor = 'text' | 'muted' | 'inverse' | 'disabled'
+
+/**
+ * Font family token.
+ *
+ * - `'body'` — Default sans-serif body font.
+ * - `'heading'` — Display/heading font (may differ from body).
+ * - `'mono'` — Monospace; for code, IDs, or tabular data.
+ */
 export type TextFamily = 'body' | 'heading' | 'mono'
+
+/**
+ * Font size from the type scale, resolving to `--agds-font-size-*` tokens.
+ * Sizes run from `'xs'` (smallest) to `'4xl'` (largest).
+ */
 export type TextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+
+/**
+ * Font weight, resolving to `--agds-font-weight-*` tokens.
+ *
+ * - `'normal'` — Regular weight for body text.
+ * - `'medium'` — Slightly emphasised; use for labels or subheadings.
+ * - `'semibold'` — Strong emphasis without full bold.
+ * - `'bold'` — Maximum emphasis; headings and key callouts.
+ */
 export type TextWeight = 'normal' | 'medium' | 'semibold' | 'bold'
+
+/**
+ * Line height (leading), resolving to `--agds-line-height-*` tokens.
+ *
+ * - `'tight'` — For headings and short display text.
+ * - `'snug'` — Slightly condensed; for UI labels and secondary text.
+ * - `'normal'` — Default for body copy.
+ * - `'relaxed'` — Open/airy; for introductory paragraphs or long-form prose.
+ */
 export type TextLeading = 'tight' | 'snug' | 'normal' | 'relaxed'
 
 export interface AGDSTextProps {

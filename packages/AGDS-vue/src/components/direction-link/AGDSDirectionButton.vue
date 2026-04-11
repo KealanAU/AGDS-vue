@@ -31,15 +31,22 @@ const props = withDefaults(defineProps<AGDSDirectionButtonProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the button is clicked. Not emitted when disabled or loading. */
   click: [event: MouseEvent]
+  /** Emitted when the button receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the button loses focus. */
   blur: [event: FocusEvent]
+  /** Emitted on every keydown event while the button has focus. */
   keydown: [event: KeyboardEvent]
 }>()
 
 const buttonRef = ref<HTMLButtonElement | null>(null)
 
-defineExpose({ focus: () => buttonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the button. */
+  focus: () => buttonRef.value?.focus(),
+})
 
 function handleClick(event: MouseEvent) {
   buttonRef.value?.focus()
@@ -146,7 +153,7 @@ const ICON_MAP: Record<Direction, string> = {
 
 .agds-direction-link:focus-visible,
 .agds-direction-link--focus-all:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -209,6 +216,14 @@ const ICON_MAP: Record<Direction, string> = {
 
 @keyframes agds-direction-spin {
   to { transform: rotate(360deg); }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-direction-link__spinner {
+    animation: none;
+  }
 }
 
 .sr-only {

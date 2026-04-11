@@ -234,7 +234,7 @@ const borderColorValue = computed(() => {
 }
 
 .agds-main-nav__hamburger:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

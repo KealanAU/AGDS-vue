@@ -10,27 +10,7 @@ status: stable
 Compose `AGDSTable` with the standard sub-components to build a data table.
 
 ::doc-preview
-<AGDSTable>
-  <AGDSTableHead>
-    <AGDSTableRow>
-      <AGDSTableHeader>Name</AGDSTableHeader>
-      <AGDSTableHeader>Department</AGDSTableHeader>
-      <AGDSTableHeader>Status</AGDSTableHeader>
-    </AGDSTableRow>
-  </AGDSTableHead>
-  <AGDSTableBody>
-    <AGDSTableRow>
-      <AGDSTableCell>Alice Smith</AGDSTableCell>
-      <AGDSTableCell>Finance</AGDSTableCell>
-      <AGDSTableCell>Active</AGDSTableCell>
-    </AGDSTableRow>
-    <AGDSTableRow>
-      <AGDSTableCell>Bob Jones</AGDSTableCell>
-      <AGDSTableCell>HR</AGDSTableCell>
-      <AGDSTableCell>Inactive</AGDSTableCell>
-    </AGDSTableRow>
-  </AGDSTableBody>
-</AGDSTable>
+:table-demo
 ::
 
 ```vue
@@ -72,19 +52,7 @@ Use `AGDSTableCaption` to provide an accessible table title. Place it as the fir
 Use the `striped` prop to apply alternating row backgrounds.
 
 ::doc-preview{label="Striped"}
-<AGDSTable striped>
-  <AGDSTableHead>
-    <AGDSTableRow>
-      <AGDSTableHeader>Name</AGDSTableHeader>
-      <AGDSTableHeader>Role</AGDSTableHeader>
-    </AGDSTableRow>
-  </AGDSTableHead>
-  <AGDSTableBody>
-    <AGDSTableRow><AGDSTableCell>Alice</AGDSTableCell><AGDSTableCell>Admin</AGDSTableCell></AGDSTableRow>
-    <AGDSTableRow><AGDSTableCell>Bob</AGDSTableCell><AGDSTableCell>Editor</AGDSTableCell></AGDSTableRow>
-    <AGDSTableRow><AGDSTableCell>Carol</AGDSTableCell><AGDSTableCell>Viewer</AGDSTableCell></AGDSTableRow>
-  </AGDSTableBody>
-</AGDSTable>
+:table-demo{variant="striped"}
 ::
 
 ```vue

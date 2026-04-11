@@ -5,6 +5,16 @@ import AGDSFieldLabel from './AGDSFieldLabel.vue'
 import AGDSFieldHint from './AGDSFieldHint.vue'
 import AGDSFieldMessage from './AGDSFieldMessage.vue'
 
+/**
+ * Constrains the maximum width of a form field to a character-count-based preset.
+ * Match to the expected length of the answer — wider inputs imply a longer response is expected.
+ *
+ * - `'xs'` — ~10 ch; short codes, postcodes, 2–4 digit numbers.
+ * - `'sm'` — ~20 ch; short text such as a first name or suburb.
+ * - `'md'` — ~30 ch; default for most text inputs (e.g. full name, email).
+ * - `'lg'` — ~40 ch; longer text such as a street address.
+ * - `'xl'` — ~60 ch; free-text that warrants a wider field.
+ */
 export type FieldMaxWidth = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export interface AGDSFieldProps {

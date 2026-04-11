@@ -27,7 +27,9 @@ const props = withDefaults(defineProps<AGDSComboboxAsyncProps<Option>>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the combobox input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the combobox input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -169,7 +171,10 @@ onUnmounted(() => {
   if (debounceTimer) clearTimeout(debounceTimer)
 })
 
-defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the combobox input. */
+  focus: () => getAnchorEl()?.querySelector('input')?.focus(),
+})
 </script>
 
 <template>
@@ -390,7 +395,7 @@ defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
 
 .agds-combobox-async__control:focus-within {
   border-color: var(--agds-color-focus);
-  outline: var(--agds-color-focus-width, 3px) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width, 3px) solid var(--agds-color-focus);
   outline-offset: 0;
 }
 
@@ -439,6 +444,14 @@ defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
 @keyframes agds-combobox-async-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-combobox-async__spinner {
+    animation: none;
   }
 }
 
@@ -543,6 +556,22 @@ defineExpose({ focus: () => getAnchorEl()?.querySelector('input')?.focus() })
 .agds-combobox-async__status--error {
   color: var(--agds-color-error);
   font-style: normal;
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-combobox-async__listbox {
+    box-shadow: none;
+    border-color: ButtonText;
+  }
+
+  /* Background highlight is stripped; use Highlight system colour instead. */
+  .agds-combobox-async__option[data-highlighted] {
+    background-color: Highlight;
+    color: HighlightText;
+    outline: none;
+  }
 }
 
 /* ── sr-only utility ─────────────────────────────────────── */

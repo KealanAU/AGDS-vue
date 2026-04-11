@@ -10,11 +10,7 @@ status: stable
 Wrap form controls in `AGDSFormStack` to apply a consistent vertical gap (`var(--agds-space-2)`) between each child.
 
 ::doc-preview
-<AGDSFormStack>
-  <input type="text" placeholder="First name" />
-  <input type="text" placeholder="Last name" />
-  <input type="email" placeholder="Email address" />
-</AGDSFormStack>
+:form-stack-demo
 ::
 
 ```vue

@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<AGDSSearchBoxProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the search form is submitted (user clicks the search button or presses Enter). */
   submit: [event: SubmitEvent]
 }>()
 </script>

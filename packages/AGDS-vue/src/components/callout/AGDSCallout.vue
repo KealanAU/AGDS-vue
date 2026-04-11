@@ -1,7 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * Background and border colour tone for the callout.
+ *
+ * - `'neutral'` — Default; uses the body-alt background. Suitable for general notes.
+ * - `'info'` — Blue-tinted; use for informational supplementary content.
+ */
 export type CalloutTone = 'neutral' | 'info'
+
+/**
+ * Layout variant controlling padding, gap, and visual weight.
+ *
+ * - `'compact'` — Minimal padding; suitable for dense contexts or inline notes.
+ * - `'regular'` — Standard padding; default for most callout uses.
+ * - `'feature'` — Generous padding with a larger visual footprint; for highlighted content blocks.
+ */
 export type CalloutVariant = 'compact' | 'regular' | 'feature'
 
 export interface AGDSCalloutProps {

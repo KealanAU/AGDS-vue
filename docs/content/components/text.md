@@ -10,7 +10,7 @@ status: stable
 Wrap text in `AGDSText` to apply typographic styles. The default renders a `<span>` with `sm` size and `body` font family.
 
 ::doc-preview
-<AGDSText>Default text</AGDSText>
+:text-demo
 ::
 
 ```vue
@@ -24,11 +24,7 @@ Wrap text in `AGDSText` to apply typographic styles. The default renders a `<spa
 Use `fontSize` to set a size from the type scale.
 
 ::doc-preview{label="All sizes"}
-<AGDSText as="p" font-size="xs">xs — Extra small</AGDSText>
-<AGDSText as="p" font-size="sm">sm — Small (default)</AGDSText>
-<AGDSText as="p" font-size="md">md — Medium</AGDSText>
-<AGDSText as="p" font-size="lg">lg — Large</AGDSText>
-<AGDSText as="p" font-size="xl">xl — Extra large</AGDSText>
+:text-demo{variant="sizes"}
 ::
 
 ```vue
@@ -46,9 +42,7 @@ Use `fontSize` to set a size from the type scale.
 Use `color` to apply a semantic text colour token.
 
 ::doc-preview{label="Colors"}
-<AGDSText as="p" color="text">text — Primary text</AGDSText>
-<AGDSText as="p" color="muted">muted — Secondary / helper text</AGDSText>
-<AGDSText as="p" color="disabled">disabled — Disabled state</AGDSText>
+:text-demo{variant="colors"}
 ::
 
 ```vue

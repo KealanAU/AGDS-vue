@@ -1,4 +1,13 @@
 <script lang="ts">
+/**
+ * Named size preset for the icon, mapping to `--agds-icon-size-*` design tokens.
+ * A raw CSS length string or pixel number can also be passed to `size` for one-off sizes.
+ *
+ * - `'sm'` — Small inline icon (e.g. 16 px); use alongside caption-size text.
+ * - `'md'` — Default (e.g. 20 px); suits body-text line height.
+ * - `'lg'` — Large icon (e.g. 24 px); use in list items or headings.
+ * - `'xl'` — Extra-large (e.g. 32 px); use for illustrative or standalone icons.
+ */
 export type IconSize = 'sm' | 'md' | 'lg' | 'xl'
 
 export interface AGDSIconProps {

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSBreadcrumbs from './AGDSBreadcrumbs.vue'
+import AGDSBreadcrumbsItem from './AGDSBreadcrumbsItem.vue'
 import type { BreadcrumbLink } from './AGDSBreadcrumbs.vue'
 
 const AXE_OPTS = {
@@ -178,5 +179,34 @@ describe('AGDSBreadcrumbs — axe accessibility', () => {
       props: { links: [{ href: '/', label: '' }, { href: '/about', label: '' }] },
     })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+  })
+})
+
+// ─── AGDSBreadcrumbsItem — no-href rendering ─────────────────────────────────
+
+describe('AGDSBreadcrumbsItem — no href', () => {
+  it('renders as a <span> when href is not provided', () => {
+    const { container } = render(AGDSBreadcrumbsItem, {
+      props: { label: 'Current page' },
+    })
+    expect(container.querySelector('span.agds-breadcrumbs__text')).toBeTruthy()
+    expect(container.querySelector('a.agds-breadcrumbs__link')).toBeNull()
+  })
+
+  it('renders text label without href', () => {
+    const { container } = render(AGDSBreadcrumbsItem, {
+      props: { label: 'No link here' },
+    })
+    expect(container.querySelector('.agds-breadcrumbs__text')?.textContent?.trim()).toContain('No link here')
+  })
+
+  it('renders via breadcrumbs with a link that has no href', () => {
+    const links: BreadcrumbLink[] = [
+      { href: '/', label: 'Home' },
+      { label: 'Current page' },
+    ]
+    const { container } = renderBreadcrumbs(links)
+    // The last item with no href should render as span not anchor
+    expect(container.querySelector('span.agds-breadcrumbs__text')).toBeTruthy()
   })
 })

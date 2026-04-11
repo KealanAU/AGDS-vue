@@ -284,7 +284,7 @@ const allCategories = categories.map((c) => c.name)
 }
 
 .components-page__search-input:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-color: var(--agds-color-brand);
 }
@@ -321,7 +321,7 @@ const allCategories = categories.map((c) => c.name)
 }
 
 .components-page__filter-btn:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -375,7 +375,7 @@ const allCategories = categories.map((c) => c.name)
 }
 
 .component-card--linked:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

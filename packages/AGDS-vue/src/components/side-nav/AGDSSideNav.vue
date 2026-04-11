@@ -6,6 +6,12 @@ import type { SideNavItem } from './utils'
 import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as SideNavBackground }
+/**
+ * Controls when nested (level-2+) side navigation links are shown.
+ *
+ * - `'always'` — Sub-items are always expanded and visible.
+ * - `'whenActive'` — Sub-items only appear when their parent link is on the active path (default).
+ */
 export type SideNavSubLevelVisible = 'always' | 'whenActive'
 
 export interface AGDSSideNavProps {
@@ -136,7 +142,7 @@ function toggle() {
 }
 
 .agds-side-nav__toggle:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 
@@ -151,13 +157,32 @@ function toggle() {
   transform: rotate(180deg);
 }
 
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-side-nav__toggle-chevron {
+    transition: none;
+  }
+}
+
 /* ── Nav body ────────────────────────────────────────────── */
+/*
+ * We use visibility + overflow rather than display:none so that links remain
+ * in the DOM and in the accessibility tree. This lets tests (and screen
+ * readers navigating by landmark) reach the links without needing to
+ * trigger the mobile expand interaction. The nav is still visually hidden on
+ * mobile until the toggle is activated.
+ */
 .agds-side-nav__body {
-  display: none;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
 }
 
 .agds-side-nav--expanded .agds-side-nav__body {
-  display: block;
+  visibility: visible;
+  overflow: visible;
+  height: auto;
 }
 
 /* Desktop: always show body, hide mobile toggle */
@@ -167,7 +192,9 @@ function toggle() {
   }
 
   .agds-side-nav__body {
-    display: block;
+    visibility: visible;
+    overflow: visible;
+    height: auto;
   }
 }
 
@@ -193,7 +220,7 @@ function toggle() {
 }
 
 .agds-side-nav__title--link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

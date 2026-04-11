@@ -190,6 +190,89 @@ describe('AGDSDrawer — open/close behaviour', () => {
     renderDrawer({ initialOpen: false })
     expect(document.body.style.overflow).toBe('')
   })
+
+  it('returns focus to the trigger element after close button click', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    const open = ref(false)
+    render({
+      components: { AGDSDrawer },
+      template: `<AGDSDrawer v-model="open" title="Focus return test">Content</AGDSDrawer>`,
+      setup: () => ({ open }),
+    })
+
+    // Simulate trigger being focused before opening the drawer.
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    open.value = true
+    await nextTick()
+    await nextTick()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+
+    await fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(trigger)
+    })
+
+    document.body.removeChild(trigger)
+  })
+
+  it('returns focus to the trigger element after Escape key', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    const open = ref(false)
+    render({
+      components: { AGDSDrawer },
+      template: `<AGDSDrawer v-model="open" title="Focus return test">Content</AGDSDrawer>`,
+      setup: () => ({ open }),
+    })
+
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    open.value = true
+    await nextTick()
+    await nextTick()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+
+    const dialog = screen.getByRole('dialog')
+    await fireEvent.keyDown(dialog, { key: 'Escape' })
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(trigger)
+    })
+
+    document.body.removeChild(trigger)
+  })
+
+  it('returns focus to elementToFocusOnClose instead of the trigger', async () => {
+    const trigger = document.createElement('button')
+    const customTarget = document.createElement('button')
+    document.body.appendChild(trigger)
+    document.body.appendChild(customTarget)
+    const open = ref(false)
+    render({
+      components: { AGDSDrawer },
+      template: `<AGDSDrawer v-model="open" title="Focus return test" :element-to-focus-on-close="customTarget">Content</AGDSDrawer>`,
+      setup: () => ({ open, customTarget }),
+    })
+
+    trigger.focus()
+    open.value = true
+    await nextTick()
+    await nextTick()
+
+    await fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(customTarget)
+    })
+
+    document.body.removeChild(trigger)
+    document.body.removeChild(customTarget)
+  })
 })
 
 // ── Focus trap ────────────────────────────────────────────────────────────────

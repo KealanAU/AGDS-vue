@@ -141,7 +141,7 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .agds-main-nav__link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   z-index: 1;
 }

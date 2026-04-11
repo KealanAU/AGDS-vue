@@ -350,7 +350,10 @@ function focusInitialDay() {
 
 onMounted(focusInitialDay)
 
-defineExpose({ focusInitialDay })
+defineExpose({
+  /** Moves keyboard focus to the initially selected or today's day cell — sets up the keyboard navigation entry point when the calendar opens. */
+  focusInitialDay,
+})
 
 // ── Template helpers ─────────────────────────────────────────────────────────
 
@@ -624,7 +627,7 @@ const hasNextMonth = computed(() => {
 }
 
 .agds-calendar__nav-btn:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -671,7 +674,7 @@ const hasNextMonth = computed(() => {
 }
 
 .agds-calendar__select:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -740,7 +743,7 @@ const hasNextMonth = computed(() => {
 }
 
 .agds-calendar__cell:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   z-index: 1;
 }

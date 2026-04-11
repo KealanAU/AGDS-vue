@@ -25,8 +25,11 @@ const props = withDefaults(defineProps<AGDSSearchBoxInputProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted on every keystroke — use with v-model for two-way binding. */
   'update:modelValue': [value: string]
+  /** Emitted when the input loses focus. */
   blur: [event: FocusEvent]
+  /** Emitted when the input receives focus. */
   focus: [event: FocusEvent]
 }>()
 
@@ -58,7 +61,10 @@ function clearInput() {
   inputRef.value?.focus()
 }
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the search input. */
+  focus: () => inputRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -170,7 +176,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-search-box__input:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -203,7 +209,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-search-box__clear:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

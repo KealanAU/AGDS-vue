@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import AGDSIcon from '../icon/AGDSIcon.vue'
 
+/**
+ * Arrow direction displayed alongside a direction link or button.
+ *
+ * - `'up'` / `'down'` — Navigating between vertically ordered steps or sections.
+ * - `'left'` — "Back" / "Previous" navigation.
+ * - `'right'` — "Next" / "Continue" navigation.
+ */
 export type Direction = 'up' | 'right' | 'down' | 'left'
 
 export interface AGDSDirectionLinkProps {
@@ -24,8 +31,11 @@ withDefaults(defineProps<AGDSDirectionLinkProps>(), {
 })
 
 defineEmits<{
+  /** Emitted when the direction link is clicked. */
   click: [event: MouseEvent]
+  /** Emitted when the link receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the link loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -99,7 +109,7 @@ const ICON_MAP: Record<Direction, string> = {
 
 .agds-direction-link:focus-visible,
 .agds-direction-link--focus-all:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }

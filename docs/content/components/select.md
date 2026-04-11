@@ -210,7 +210,7 @@ type Options = (Option | OptionGroup)[]
 - `invalid` sets `aria-invalid="true"` and links the error message via `aria-describedby` — satisfies WCAG 4.1.3
 - `appearance: none` removes the browser's native chevron; a custom SVG chevron is positioned absolutely so the indicator is consistent across browsers while remaining purely decorative (`aria-hidden="true"`)
 - The chevron fades to 30% opacity when disabled — state is not conveyed by colour alone (WCAG 1.4.1)
-- Focus ring uses `--agds-color-focus` and `--agds-color-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
+- Focus ring uses `--agds-color-focus` and `--agds-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
 
 ## Changelog
 

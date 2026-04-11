@@ -171,7 +171,7 @@ Set `block` to stretch the textarea to the full width of its container. Override
 - `invalid` sets `aria-invalid="true"` and links the error message via `aria-describedby` — satisfies WCAG 4.1.3
 - `disabled` uses `opacity: 0.5` and `cursor: not-allowed` — state is not conveyed by colour alone (WCAG 1.4.1)
 - `resize: vertical` by default; `resize: none` when disabled to prevent interaction
-- Focus ring uses `--agds-color-focus` and `--agds-color-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
+- Focus ring uses `--agds-color-focus` and `--agds-focus-width` tokens, visible on `:focus-visible` (WCAG 2.4.7)
 - `defineExpose({ focus })` is provided for programmatic focus management
 
 ## Changelog

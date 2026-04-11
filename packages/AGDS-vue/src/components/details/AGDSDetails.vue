@@ -126,7 +126,7 @@ withDefaults(defineProps<AGDSDetailsProps>(), {
 
 /* Focus ring — keyboard navigation only (WCAG 2.4.7). */
 .agds-details__summary:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   text-decoration: none;
 }

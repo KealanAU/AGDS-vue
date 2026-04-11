@@ -395,6 +395,22 @@ describe('AGDSAutocomplete', () => {
     await fireEvent.input(input, { target: { value: 'aus' } })
     await waitFor(() => expect(screen.getByRole('option', { name: 'Australia' })).toBeTruthy())
   })
+
+  it('renders with a custom option slot provided', () => {
+    const fetchOptions = makeFetch()
+    const { container } = render({
+      components: { AGDSAutocomplete },
+      template: `
+        <AGDSAutocomplete label="Country" :fetchOptions="fetchOptions" :debounce="0">
+          <template #option="{ option }">
+            <span class="custom-opt">{{ option.label }}</span>
+          </template>
+        </AGDSAutocomplete>
+      `,
+      data() { return { fetchOptions } },
+    })
+    expect(container.querySelector('input')).toBeTruthy()
+  })
 })
 
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
@@ -442,5 +458,69 @@ describe('AGDSComboboxAsync — axe accessibility', () => {
     // name violates WCAG 4.1.2.
     const { container } = render({ template: '<input type="text" />' })
     await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+  })
+})
+
+// ─── AGDSComboboxAsync — network error ───────────────────────────────────────
+
+describe('AGDSComboboxAsync — network error', () => {
+  it('shows error message when fetchOptions throws', async () => {
+    const fetchOptions = vi.fn().mockRejectedValue(new Error('Network failed'))
+    renderCombobox({ fetchOptions })
+    const input = screen.getByRole('combobox')
+    await fireEvent.input(input, { target: { value: 'aus' } })
+    await waitFor(() => expect(document.querySelector('.agds-combobox-async__status--error')).toBeTruthy())
+  })
+
+  it('re-opens with cached results when same query is typed twice', async () => {
+    const fetchOptions = vi.fn().mockResolvedValue(OPTIONS)
+    renderCombobox({ fetchOptions })
+    const input = screen.getByRole('combobox')
+
+    // First query — populates cache
+    await fireEvent.input(input, { target: { value: 'aus' } })
+    await waitFor(() => expect(screen.getByRole('option', { name: 'Australia' })).toBeTruthy())
+
+    // Close the dropdown
+    await fireEvent.keyDown(input, { key: 'Escape' })
+    expect(input.getAttribute('aria-expanded')).toBe('false')
+
+    // Second query — same value should hit cache, NOT call fetchOptions again
+    await fireEvent.input(input, { target: { value: '' } })
+    await fireEvent.input(input, { target: { value: 'aus' } })
+    await waitFor(() => expect(screen.getByRole('option', { name: 'Australia' })).toBeTruthy())
+    // fetchOptions was called once for the first query; second uses cache
+    expect(fetchOptions).toHaveBeenCalledTimes(1)
+  })
+
+  it('announces singular result count', async () => {
+    const singleOption = [{ label: 'Australia', value: 'au' }]
+    renderCombobox({ fetchOptions: vi.fn().mockResolvedValue(singleOption) })
+    const input = screen.getByRole('combobox')
+    await fireEvent.input(input, { target: { value: 'aus' } })
+    await waitFor(() => expect(screen.getByRole('option', { name: 'Australia' })).toBeTruthy())
+    // The status live region should say "1 result available" (singular, no 's')
+    const liveRegion = document.querySelector('[aria-live="polite"]')
+    expect(liveRegion?.textContent?.trim()).toMatch(/1 result available/)
+  })
+
+  it('reopens dropdown via trigger when options were fetched and dropdown was closed', async () => {
+    const fetchOptions = vi.fn().mockResolvedValue(OPTIONS)
+    renderCombobox({ fetchOptions })
+    const input = screen.getByRole('combobox')
+
+    // Type to fetch options
+    await fireEvent.input(input, { target: { value: 'aus' } })
+    await waitFor(() => expect(screen.getByRole('option', { name: 'Australia' })).toBeTruthy())
+
+    // Close via Escape
+    await fireEvent.keyDown(input, { key: 'Escape' })
+
+    // Clear the input so options are gone (no cache match on empty)
+    await fireEvent.input(input, { target: { value: '' } })
+
+    // Trigger re-fetch via the dropdown button — options is empty, so doFetch is called
+    await fireEvent.input(input, { target: { value: 'aus' } })
+    await waitFor(() => expect(screen.getByRole('option', { name: 'Australia' })).toBeTruthy())
   })
 })

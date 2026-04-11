@@ -241,7 +241,7 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 .agds-alsdialog__close:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -270,5 +270,26 @@ function handleKeydown(event: KeyboardEvent) {
 .agds-alsdialog-panel-enter-from,
 .agds-alsdialog-panel-leave-to {
   transform: translateX(-100%);
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-alsdialog__backdrop {
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  /* box-shadow is stripped; add a border to maintain the panel edge. */
+  .agds-alsdialog {
+    border-inline-end: 2px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .agds-alsdialog__close:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
 }
 </style>

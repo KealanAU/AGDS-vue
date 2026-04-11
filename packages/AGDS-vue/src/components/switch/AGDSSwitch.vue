@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
+/**
+ * Size of the toggle switch control.
+ *
+ * - `'sm'` — Compact; for dense settings panels or secondary toggles.
+ * - `'md'` — Default; matches the standard form field touch target.
+ */
 export type SwitchSize = 'sm' | 'md'
 
 export interface AGDSSwitchProps {
@@ -29,9 +35,13 @@ const props = withDefaults(defineProps<AGDSSwitchProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the switch is toggled — use with v-model for two-way binding. */
   'update:modelValue': [value: boolean]
+  /** Emitted when the native change event fires. */
   change: [event: Event]
+  /** Emitted when the switch receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the switch loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -41,7 +51,10 @@ const inputId = computed(() => props.id ?? autoId)
 
 const inputRef = ref<HTMLInputElement | null>(null)
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the switch input. */
+  focus: () => inputRef.value?.focus(),
+})
 
 function handleChange(event: Event) {
   if (props.disabled) return
@@ -158,7 +171,7 @@ function handleChange(event: Event) {
 
 /* Focus ring: outline the visual track when the hidden input is focused */
 .agds-switch__input:focus-visible + .agds-switch__track {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

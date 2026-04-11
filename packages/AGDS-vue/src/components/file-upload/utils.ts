@@ -1,18 +1,40 @@
 // ── File status ───────────────────────────────────────────────────────────────
 
+/**
+ * Upload lifecycle state for a {@link FileWithStatus}.
+ *
+ * - `'none'` — File selected but upload has not started.
+ * - `'uploading'` — Upload is in progress; show a loading indicator.
+ * - `'success'` — Upload completed successfully; show a success state.
+ */
 export type FileStatus = 'none' | 'uploading' | 'success'
 
+/**
+ * A browser `File` augmented with optional upload-state metadata.
+ * Attach `status` to drive per-file UI feedback during upload flows.
+ * Set `href` / `download` when the uploaded file is also available as a download link.
+ */
 export type FileWithStatus = File & {
   status?: FileStatus
   href?: string
   download?: boolean | string
 }
 
+/**
+ * A single validation error returned for a rejected file.
+ * `code` identifies the error programmatically; `message` is the human-readable description.
+ *
+ * Built-in codes: `'file-too-large'`, `'file-invalid-type'`, `'too-many-files'`.
+ */
 export type FileError = {
   code: string
   message: string
 }
 
+/**
+ * A file that failed validation, paired with the list of reasons it was rejected.
+ * Returned via the `FileInput` component's `reject` event.
+ */
 export type RejectedFile = {
   file: File
   errors: FileError[]

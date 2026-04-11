@@ -145,9 +145,11 @@ const props = withDefaults(defineProps<AGDSDatePickerProps>(), {
 })
 
 const emit = defineEmits<{
-  /** Emits `Date | null` in single mode or `{ from, to }` in range mode. */
+  /** Emits `Date | null` in single mode or `{ from, to }` in range mode. Use with v-model. */
   'update:modelValue': [value: DatePickerSingleValue | DatePickerRangeValue]
+  /** Emitted when the date input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the date input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -426,6 +428,10 @@ function buttonLabel(rangeName?: 'start' | 'end', inputText?: string): string {
 // ── Expose ────────────────────────────────────────────────────────────────────
 
 defineExpose({
+  /**
+   * Moves keyboard focus to the date input. In range mode, focuses the "from" input.
+   * Useful when you need to programmatically direct attention to this field.
+   */
   focus: () => {
     if (props.range) fromTriggerRef.value?.focus()
     else singleTriggerRef.value?.focus()

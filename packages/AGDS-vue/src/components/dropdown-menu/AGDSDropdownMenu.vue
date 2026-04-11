@@ -30,6 +30,7 @@ const props = withDefaults(defineProps<AGDSDropdownMenuProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted whenever the open state changes — use with v-model:open for controlled mode. */
   'update:open': [value: boolean]
 }>()
 

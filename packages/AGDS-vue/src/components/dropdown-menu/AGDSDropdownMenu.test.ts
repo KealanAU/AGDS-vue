@@ -273,6 +273,31 @@ describe('AGDSDropdownMenuItemRadio', () => {
     expect(radioA?.getAttribute('aria-checked')).toBe('true')
     expect(radioB?.getAttribute('aria-checked')).toBe('false')
   })
+
+  it('renders secondaryText when provided', async () => {
+    const comp = defineComponent({
+      setup() {
+        return () =>
+          h(AGDSDropdownMenu, null, {
+            default: () => [
+              h(AGDSDropdownMenuButton, null, { default: () => 'Options' }),
+              h(AGDSDropdownMenuPanel, null, {
+                default: () => [
+                  h(
+                    AGDSDropdownMenuItemRadio,
+                    { id: 'radio-sec', checked: false, secondaryText: '3 items' },
+                    { default: () => 'Category' },
+                  ),
+                ],
+              }),
+            ],
+          })
+      },
+    })
+    const { getByRole } = render(comp)
+    await openDropdown(getByRole('button', { name: 'Options' }))
+    expect(screen.getByText('3 items')).toBeTruthy()
+  })
 })
 
 // ─── DropdownMenuGroup ────────────────────────────────────────────────────────

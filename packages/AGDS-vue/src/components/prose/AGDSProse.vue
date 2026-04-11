@@ -67,7 +67,7 @@ withDefaults(defineProps<AGDSProseProps>(), {
 }
 
 .agds-prose a:not([class]):not(.agds-prose-unset *):focus-visible {
-  outline: var(--agds-color-focus-width, 3px) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width, 3px) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: var(--agds-radius-sm);
 }
@@ -76,7 +76,7 @@ withDefaults(defineProps<AGDSProseProps>(), {
 
 .agds-prose [tabindex="0"]:focus-visible,
 .agds-prose :target {
-  outline: var(--agds-color-focus-width, 3px) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width, 3px) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

@@ -3,18 +3,30 @@ import { computed, getCurrentInstance, ref } from 'vue'
 import AGDSField from '../field/AGDSField.vue'
 import type { FieldMaxWidth } from '../field/AGDSField.vue'
 
+/**
+ * A single `<option>` element. `value` is the machine-readable string submitted
+ * with the form; `label` is the human-readable display text.
+ */
 export type Option = {
   label: string
   value: string
   disabled?: boolean
 }
 
+/**
+ * An `<optgroup>` that groups related {@link Option}s under a shared heading.
+ * Setting `disabled` on the group disables every child option inside it.
+ */
 export type OptionGroup = {
   label: string
   disabled?: boolean
   options: Option[]
 }
 
+/**
+ * The full list of items passed to `AGDSSelect`.
+ * Flat {@link Option}s and {@link OptionGroup}s can be freely mixed.
+ */
 export type Options = (Option | OptionGroup)[]
 
 export type SelectMaxWidth = Extract<FieldMaxWidth, 'sm' | 'md' | 'lg' | 'xl'>
@@ -61,9 +73,13 @@ const props = withDefaults(defineProps<AGDSSelectProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the selected option changes — use with v-model for two-way binding. */
   'update:modelValue': [value: string]
+  /** Emitted when the native change event fires. */
   change: [event: Event]
+  /** Emitted when the select receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the select loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -76,7 +92,10 @@ const selectId = computed(() => props.id ?? `select-${uid}`)
 
 const selectRef = ref<HTMLSelectElement | null>(null)
 
-defineExpose({ focus: () => selectRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the select element. */
+  focus: () => selectRef.value?.focus(),
+})
 
 // ── Container max-width ───────────────────────────────────────────────────────
 
@@ -244,7 +263,7 @@ function handleChange(event: Event) {
 }
 
 .agds-select:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

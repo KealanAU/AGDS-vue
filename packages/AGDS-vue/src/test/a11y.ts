@@ -10,10 +10,10 @@ import { expect } from 'vitest'
  *   await runAxe(container)
  */
 export async function runAxe(
-  container: HTMLElement,
+  container: Element,
   options?: axe.RunOptions,
 ): Promise<void> {
-  const results = await axe.run(container, {
+  const results = await axe.run(container as HTMLElement, {
     // Ensures rules are evaluated against the actual DOM context
     runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'] },
     ...options,

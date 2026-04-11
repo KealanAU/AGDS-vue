@@ -10,11 +10,7 @@ status: stable
 Use `AGDSUnorderedList` with `AGDSListItem` to render a bulleted list.
 
 ::doc-preview
-<AGDSUnorderedList>
-  <AGDSListItem>Australian citizen or permanent resident</AGDSListItem>
-  <AGDSListItem>Aged 18 or over</AGDSListItem>
-  <AGDSListItem>Not currently receiving another benefit</AGDSListItem>
-</AGDSUnorderedList>
+:list-demo
 ::
 
 ```vue
@@ -31,12 +27,8 @@ Use `AGDSUnorderedList` with `AGDSListItem` to render a bulleted list.
 
 Use `AGDSOrderedList` for step-by-step or ranked content.
 
-::doc-preview
-<AGDSOrderedList>
-  <AGDSListItem>Create a myGov account</AGDSListItem>
-  <AGDSListItem>Verify your identity online</AGDSListItem>
-  <AGDSListItem>Link your government services</AGDSListItem>
-</AGDSOrderedList>
+::doc-preview{label="Ordered"}
+:list-demo{variant="ordered"}
 ::
 
 ```vue
@@ -54,16 +46,7 @@ Use `AGDSOrderedList` for step-by-step or ranked content.
 Lists can be nested inside `AGDSListItem`. Nesting depth is tracked automatically via `provide`/`inject` and additional top margin is applied from the second level down.
 
 ::doc-preview{label="Nested"}
-<AGDSUnorderedList>
-  <AGDSListItem>
-    Required documents
-    <AGDSUnorderedList>
-      <AGDSListItem>Passport or birth certificate</AGDSListItem>
-      <AGDSListItem>Proof of address</AGDSListItem>
-    </AGDSUnorderedList>
-  </AGDSListItem>
-  <AGDSListItem>Application form</AGDSListItem>
-</AGDSUnorderedList>
+:list-demo{variant="nested"}
 ::
 
 ```vue

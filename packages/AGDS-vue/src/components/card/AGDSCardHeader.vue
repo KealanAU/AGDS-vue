@@ -15,7 +15,7 @@ const props = defineProps<AGDSCardHeaderProps>()
   <div
     :class="[
       'agds-card-header',
-      props.background && `agds-card-header--${props.background}`,
+      props.background && (props.background === 'bodyAlt' ? 'agds-card-header--body-alt' : 'agds-card-header--body'),
     ]"
   >
     <slot>
@@ -40,7 +40,7 @@ const props = defineProps<AGDSCardHeaderProps>()
   background-color: var(--agds-color-bg);
 }
 
-.agds-card-header--bodyAlt {
+.agds-card-header--body-alt {
   background-color: var(--agds-color-bg-subtle);
 }
 

@@ -181,7 +181,7 @@ function hasSubIndicator(item: SideNavItem): boolean {
 
 /* Focus */
 .agds-side-nav__link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 
@@ -204,5 +204,17 @@ function hasSubIndicator(item: SideNavItem): boolean {
 
 .agds-side-nav__chevron--open {
   transform: rotate(90deg);
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-side-nav__link {
+    transition: none;
+  }
+
+  .agds-side-nav__chevron {
+    transition: none;
+  }
 }
 </style>

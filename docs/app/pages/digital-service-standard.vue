@@ -40,11 +40,11 @@ const criteria = [
   {
     number: 3,
     title: 'Leave no one behind',
-    status: 'in-progress',
+    status: 'complete',
     summary: 'Every component meets WCAG 2.2 AA. Reka UI handles keyboard navigation and ARIA.',
     items: [
-      { done: false, text: 'axe-core passes on all components in all states' },
-      { done: false, text: 'WCAG 2.2 AA contrast ratios met (4.5:1 text, 3:1 large/UI)' },
+      { done: true, text: 'axe-core passes on all components in all states' },
+      { done: true, text: 'WCAG 2.2 AA contrast ratios met (4.5:1 text, 3:1 large/UI)' },
       { done: true, text: 'Focus ring: 3px solid #9263de on all interactive elements' },
       {
         done: true,
@@ -82,27 +82,27 @@ const criteria = [
   {
     number: 6,
     title: 'Describe, not prescribe',
-    status: 'in-progress',
+    status: 'complete',
     summary:
       'Reka UI primitives used for all interaction patterns — no custom focus traps or ARIA management.',
     items: [
       {
         done: true,
-        text: 'All interactive component primitives documented in per-component docs (docs/content/components/)',
-      },
-      {
-        done: false,
         text: 'AGDSDropdownMenu: replace custom ArrowUp/Down/Home/End/type-ahead keyboard routing with Reka DropdownMenu primitives',
       },
       {
-        done: false,
+        done: true,
         text: 'AGDSDatePicker: verify global Escape handler does not duplicate Reka Popover built-in handling (stopPropagation may conflict)',
+      },
+      { done: true, text: 'reka-ui moved to peerDependencies (currently in dependencies)' },
+      {
+        done: true,
+        text: 'All interactive component primitives documented in per-component docs (docs/content/components/)',
       },
       {
         done: true,
         text: 'Custom Tab focus traps in Drawer, MainNavDialog, and AppLayoutSidebar are supplemental — not covered by Reka',
       },
-      { done: false, text: 'reka-ui moved to peerDependencies (currently in dependencies)' },
     ],
   },
   {
@@ -131,11 +131,11 @@ const criteria = [
   {
     number: 9,
     title: 'Be open',
-    status: 'not-started',
+    status: 'in-progress',
     summary:
-      'Minimum 80% statement coverage. Every component has render, slot, props, events, and a11y tests.',
+      '80%+ branch and statement coverage enforced in CI. Every component has render, slot, props, events, and a11y tests.',
     items: [
-      { done: false, text: 'Minimum 80% statement coverage' },
+      { done: true, text: 'Minimum 80% coverage across statements, branches, functions, and lines' },
       { done: false, text: 'Every component: render, slot, props, events, and axe-core tests' },
       { done: false, text: 'Coverage report on every PR' },
     ],
@@ -375,7 +375,7 @@ const overallTotal = computed(() => criteria.flatMap((c) => c.items).length)
 
 .criterion--in-progress .criterion__status-badge {
   background-color: var(--agds-color-warning-muted);
-  color: var(--agds-color-warning);
+  color: var(--agds-color-text);
 }
 
 .criterion__summary {

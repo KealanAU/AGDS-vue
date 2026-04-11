@@ -165,6 +165,58 @@ describe('AGDSRadio — events', () => {
   })
 })
 
+// ─── RadioGroup — group-level props ──────────────────────────────────────────
+
+describe('AGDSRadioGroup — group-level props', () => {
+  it('renders without a legend when legend prop is omitted', () => {
+    const { container } = render({
+      components: { AGDSRadioGroup, AGDSRadio },
+      template: `
+        <AGDSRadioGroup>
+          <AGDSRadio id="r1" value="a">Option A</AGDSRadio>
+        </AGDSRadioGroup>
+      `,
+    })
+    expect(container.querySelector('legend')).toBeNull()
+  })
+
+  it('shows required indicator when required=true', () => {
+    const { container } = render({
+      components: { AGDSRadioGroup, AGDSRadio },
+      template: `
+        <AGDSRadioGroup legend="Choices" :required="true">
+          <AGDSRadio id="r1" value="a">Option A</AGDSRadio>
+        </AGDSRadioGroup>
+      `,
+    })
+    expect(container.querySelector('.agds-radio-group__required')).toBeTruthy()
+  })
+
+  it('shows hint text when hint prop is provided', () => {
+    const { getByText } = render({
+      components: { AGDSRadioGroup, AGDSRadio },
+      template: `
+        <AGDSRadioGroup legend="Choices" hint="Choose one option">
+          <AGDSRadio id="r1" value="a">Option A</AGDSRadio>
+        </AGDSRadioGroup>
+      `,
+    })
+    expect(getByText('Choose one option')).toBeTruthy()
+  })
+
+  it('shows error message via message prop when invalid', () => {
+    const { getByText } = render({
+      components: { AGDSRadioGroup, AGDSRadio },
+      template: `
+        <AGDSRadioGroup legend="Choices" :invalid="true" message="Please select an option">
+          <AGDSRadio id="r1" value="a">Option A</AGDSRadio>
+        </AGDSRadioGroup>
+      `,
+    })
+    expect(getByText('Please select an option')).toBeTruthy()
+  })
+})
+
 // ─── Group context ───────────────────────────────────────────────────────────
 
 describe('AGDSRadio — inside AGDSRadioGroup', () => {

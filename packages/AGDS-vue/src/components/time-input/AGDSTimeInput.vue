@@ -60,9 +60,13 @@ const props = withDefaults(defineProps<AGDSTimeInputProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted on blur when a valid time is entered — use with v-model for two-way binding. */
   'update:modelValue': [value: TimeValue]
+  /** Emitted alongside update:modelValue when the input loses focus and a time value is parsed. */
   change: [value: TimeValue]
+  /** Emitted when the input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the input loses focus (after time parsing and normalisation). */
   blur: [event: FocusEvent]
 }>()
 
@@ -125,7 +129,10 @@ const containerStyle = computed(() =>
 
 // ── Expose ────────────────────────────────────────────────────────────────────
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the time input. */
+  focus: () => inputRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -191,7 +198,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-time-input:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

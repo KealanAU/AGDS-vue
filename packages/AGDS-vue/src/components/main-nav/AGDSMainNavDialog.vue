@@ -10,7 +10,10 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{
+  /** Emitted when the mobile nav dialog should be closed (Escape key or close button clicked). */
+  close: []
+}>()
 
 const dialogEl = ref<HTMLElement | null>(null)
 const closeButtonEl = ref<HTMLButtonElement | null>(null)
@@ -240,7 +243,7 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 .agds-main-nav-dialog__close:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -297,7 +300,7 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 .agds-main-nav-dialog__link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 
@@ -332,5 +335,35 @@ function handleKeydown(event: KeyboardEvent) {
 .agds-main-nav-dialog-panel-enter-from,
 .agds-main-nav-dialog-panel-leave-to {
   transform: translateX(-100%);
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-main-nav-dialog__backdrop {
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  /* box-shadow is stripped; add a border to maintain the panel edge. */
+  .agds-main-nav-dialog {
+    border-inline-end: 2px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .agds-main-nav-dialog__close:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  .agds-main-nav-dialog__link:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: -3px;
+  }
+
+  .agds-main-nav-dialog__link--active {
+    border-inline-start-color: Highlight;
+  }
 }
 </style>

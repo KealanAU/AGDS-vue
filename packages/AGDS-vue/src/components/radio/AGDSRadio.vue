@@ -2,6 +2,12 @@
 import { computed, inject } from 'vue'
 import { RADIO_GROUP_KEY } from './radioGroupContext'
 
+/**
+ * Size of the radio control.
+ *
+ * - `'sm'` — Compact; for dense forms or secondary option groups.
+ * - `'md'` — Default; matches the standard form field touch target.
+ */
 export type RadioSize = 'sm' | 'md'
 
 export interface AGDSRadioProps {
@@ -31,9 +37,13 @@ const props = withDefaults(defineProps<AGDSRadioProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when this radio is selected — use with v-model for two-way binding. */
   'update:modelValue': [value: string | number | boolean]
+  /** Emitted when the native change event fires. */
   change: [event: Event]
+  /** Emitted when the radio receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the radio loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -191,7 +201,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 
 /* Focus ring: when the hidden input is focused, outline the indicator */
 .agds-radio__input:focus-visible ~ .agds-radio__indicator {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

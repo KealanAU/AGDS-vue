@@ -34,12 +34,16 @@ const props = withDefaults(defineProps<AGDSToggleButtonProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the toggle is clicked, with the new pressed state. Use with v-model:pressed. */
   'update:pressed': [value: boolean]
 }>()
 
 const buttonRef = ref<InstanceType<typeof AGDSButton> | null>(null)
 
-defineExpose({ focus: () => buttonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the toggle button. */
+  focus: () => buttonRef.value?.focus(),
+})
 
 const resolvedLabel = computed(() =>
   props.pressed ? props.pressedLabel : props.label,

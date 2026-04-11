@@ -5,6 +5,12 @@ import type { HeaderDividerPosition, HeaderSize } from '../header/AGDSHeader.vue
 import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as AppLayoutHeaderBackground }
+/**
+ * Maximum width preset for the app layout header's inner content container.
+ *
+ * - `'container'` — Standard container width (`--agds-max-width`).
+ * - `'containerLg'` — Wider container (`--agds-max-width-lg`).
+ */
 export type AppLayoutHeaderMaxWidth = 'container' | 'containerLg'
 
 export interface AGDSAppLayoutHeaderProps {
@@ -185,7 +191,7 @@ const { focusMode, isMobileMenuOpen, openMobileMenu } = useAppLayoutContext()
 }
 
 .agds-app-layout-header__hamburger:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

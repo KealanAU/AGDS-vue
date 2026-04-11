@@ -10,7 +10,7 @@ status: stable
 Provide a `label` and bind the value with `v-model`. An eye icon button inside the field toggles between `type="password"` (obscured) and `type="text"` (visible). The button label changes from "Show password" to "Hide password" to communicate the current state to screen readers.
 
 ::doc-preview
-<AGDSPasswordInput label="Password" required />
+:password-input-demo
 ::
 
 ```vue
@@ -29,7 +29,7 @@ const password = ref('')
 Use the `hint` prop to provide additional guidance beneath the label.
 
 ::doc-preview{label="With hint"}
-<AGDSPasswordInput label="New password" hint="Must be at least 8 characters and include a number" required />
+:password-input-demo{variant="with-hint"}
 ::
 
 ```vue
@@ -48,7 +48,7 @@ Use the `hint` prop to provide additional guidance beneath the label.
 Set `invalid` and `message` together to render the error treatment.
 
 ::doc-preview{label="Invalid"}
-<AGDSPasswordInput label="Password" :invalid="true" message="Password must be at least 8 characters" required />
+:password-input-demo{variant="invalid"}
 ::
 
 ```vue
@@ -66,7 +66,7 @@ Set `invalid` and `message` together to render the error treatment.
 ## Disabled
 
 ::doc-preview{label="Disabled"}
-<AGDSPasswordInput label="Password" disabled required />
+:password-input-demo{variant="disabled"}
 ::
 
 ```vue
@@ -80,9 +80,7 @@ Set `invalid` and `message` together to render the error treatment.
 Use `maxWidth` to constrain the field width.
 
 ::doc-preview{label="Max widths"}
-<AGDSPasswordInput label="Medium (default)" max-width="md" required />
-<AGDSPasswordInput label="Large" max-width="lg" required />
-<AGDSPasswordInput label="Extra large" max-width="xl" required />
+:password-input-demo{variant="max-widths"}
 ::
 
 ```vue
@@ -96,7 +94,7 @@ Use `maxWidth` to constrain the field width.
 Set `block` to stretch the input to the full width of its container.
 
 ::doc-preview{label="Block"}
-<AGDSPasswordInput label="Password" block required />
+:password-input-demo{variant="block"}
 ::
 
 ---

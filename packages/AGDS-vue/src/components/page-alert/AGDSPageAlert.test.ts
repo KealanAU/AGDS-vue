@@ -90,6 +90,30 @@ describe('AGDSPageAlert — role prop', () => {
   })
 })
 
+// ─── Live region ──────────────────────────────────────────────────────────────
+
+describe('AGDSPageAlert — live region (ariaLive prop)', () => {
+  it('does not set aria-live by default', () => {
+    const { container } = renderAlert()
+    expect(container.querySelector('.agds-page-alert')!.getAttribute('aria-live')).toBeNull()
+  })
+
+  it('sets aria-live="polite" when ariaLive="polite"', () => {
+    const { container } = renderAlert({ ariaLive: 'polite' })
+    expect(container.querySelector('.agds-page-alert')!.getAttribute('aria-live')).toBe('polite')
+  })
+
+  it('sets aria-live="assertive" when ariaLive="assertive"', () => {
+    const { container } = renderAlert({ ariaLive: 'assertive' })
+    expect(container.querySelector('.agds-page-alert')!.getAttribute('aria-live')).toBe('assertive')
+  })
+
+  it('sets aria-live="off" when ariaLive="off"', () => {
+    const { container } = renderAlert({ ariaLive: 'off' })
+    expect(container.querySelector('.agds-page-alert')!.getAttribute('aria-live')).toBe('off')
+  })
+})
+
 // ─── ARIA ─────────────────────────────────────────────────────────────────────
 
 describe('AGDSPageAlert — ARIA', () => {
@@ -247,6 +271,26 @@ describe('AGDSPageAlert — axe accessibility', () => {
 
   it('has no violations with no title', async () => {
     const { container } = renderAlert({ title: undefined }, { default: '<p>Body only.</p>' })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with role="alert"', async () => {
+    const { container } = renderAlert({ tone: 'error', role: 'alert' })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with ariaLive="polite"', async () => {
+    const { container } = renderAlert({ tone: 'info', ariaLive: 'polite' })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with ariaLive="assertive"', async () => {
+    const { container } = renderAlert({ tone: 'error', ariaLive: 'assertive' })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with role="alert" and ariaLive="assertive"', async () => {
+    const { container } = renderAlert({ tone: 'error', role: 'alert', ariaLive: 'assertive' })
     await runAxe(container, AXE_OPTS)
   })
 

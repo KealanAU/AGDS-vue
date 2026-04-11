@@ -49,10 +49,15 @@ provide(
   }),
 )
 
+// Map camelCase prop values to kebab-case CSS classes (BEM convention).
+const bgClass = computed(() =>
+  props.background === 'bodyAlt' ? 'agds-card--body-alt' : 'agds-card--body',
+)
+
 // Classes applied to whichever element carries the card's visual treatment
 // (root when !footerOutside, inner-wrap div when footerOutside).
 const styledClasses = computed(() => [
-  `agds-card--${props.background}`,
+  bgClass.value,
   props.shadow && 'agds-card--shadow',
   props.clickable && 'agds-card--clickable',
 ])
@@ -101,7 +106,7 @@ const styledClasses = computed(() => [
 /* ── Backgrounds — also carry border, radius, overflow ───── */
 
 .agds-card--body,
-.agds-card--bodyAlt {
+.agds-card--body-alt {
   border: var(--agds-card-border-width) solid var(--agds-card-border-color);
   border-radius: var(--agds-card-border-radius);
   overflow: hidden; /* clip children to rounded corners */
@@ -112,7 +117,7 @@ const styledClasses = computed(() => [
   background-color: var(--agds-color-bg);
 }
 
-.agds-card--bodyAlt {
+.agds-card--body-alt {
   background-color: var(--agds-color-bg-subtle);
 }
 
@@ -131,15 +136,25 @@ const styledClasses = computed(() => [
 
 /* Applied when any descendant receives :focus-visible. */
 .agds-card--clickable:has(:focus-visible) {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 3px;
 }
 
 /* Fallback for browsers without :has() support. */
 @supports not selector(:has(*)) {
   .agds-card--clickable:focus-within {
-    outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+    outline: var(--agds-focus-width) solid var(--agds-color-focus);
     outline-offset: 3px;
+  }
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  /* The card border remains visible; suppress the decorative elevation shadow. */
+  .agds-card--shadow,
+  .agds-card--clickable.agds-card--shadow:hover {
+    box-shadow: none;
   }
 }
 </style>

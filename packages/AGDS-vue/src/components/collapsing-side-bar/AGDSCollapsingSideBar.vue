@@ -2,6 +2,14 @@
 import type { BackgroundVariant } from '../../core'
 
 export type { BackgroundVariant as CollapsingSideBarBackground }
+/**
+ * The HTML landmark element rendered as the collapsible sidebar root.
+ *
+ * - `'section'` — Generic section landmark (default). Use when the sidebar groups related content
+ *   without implying a navigation or complementary role.
+ * - `'aside'` — Complementary landmark. Use when the content is tangentially related to the main page content.
+ * - `'nav'` — Navigation landmark. Use when the sidebar contains navigation links.
+ */
 export type CollapsingSideBarAs = 'section' | 'aside' | 'nav'
 
 export interface AGDSCollapsingSideBarProps {
@@ -184,7 +192,7 @@ function toggle() {
 
 /* WCAG 2.4.7 – keyboard-only focus ring */
 .agds-csb__toggle:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

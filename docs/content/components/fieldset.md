@@ -10,11 +10,7 @@ status: stable
 Provide a `legend` to describe the group of controls. All child controls are slotted inside the content area.
 
 ::doc-preview
-<AGDSFieldset legend="Delivery address">
-  <AGDSTextInput label="Street address" />
-  <AGDSTextInput label="City" />
-  <AGDSSelect label="State" :options="[{ label: 'NSW', value: 'nsw' }, { label: 'VIC', value: 'vic' }, { label: 'QLD', value: 'qld' }]" />
-</AGDSFieldset>
+:fieldset-demo
 ::
 
 ```vue
@@ -32,10 +28,7 @@ Provide a `legend` to describe the group of controls. All child controls are slo
 Use `hint` to add supplementary text below the legend. The hint id is wired into `aria-describedby` on the `<fieldset>` automatically.
 
 ::doc-preview{label="With hint"}
-<AGDSFieldset legend="Contact details" hint="We will use these details to send your confirmation.">
-  <AGDSTextInput label="Email address" type="email" />
-  <AGDSTextInput label="Phone number" type="tel" />
-</AGDSFieldset>
+:fieldset-demo{variant="with-hint"}
 ::
 
 ```vue

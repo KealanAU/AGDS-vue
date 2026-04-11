@@ -2,6 +2,14 @@
 import { inject, computed } from 'vue'
 import { CONTENT_SPACING_KEY } from './contentContext'
 
+/**
+ * Controls whether an element visually bleeds to the edges of its parent content band.
+ *
+ * - `true` — Always bleeds (default).
+ * - `false` — Never bleeds; keeps standard content padding on all breakpoints.
+ * - `{ xs?: boolean; md?: boolean }` — Responsive: `xs` applies below the `md` breakpoint,
+ *   `md` applies at `md` (768 px) and above. Omitting a key leaves that breakpoint unchanged.
+ */
 export type ContentBleedVisible = boolean | { xs?: boolean; md?: boolean }
 
 export interface AGDSContentBleedProps {

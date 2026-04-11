@@ -16,7 +16,7 @@ export default defineConfig({
     include: ['src/**/*.test.ts'],
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'lcov', 'html'],
+      reporter: ['text', 'lcov', 'html', 'json-summary', 'json'],
       include: ['src/components/**/*.vue', 'src/components/**/*.ts'],
       exclude: ['src/test/**', 'src/index.ts', 'src/components/**/index.ts'],
       thresholds: {

@@ -1,7 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+/**
+ * Visual prominence level of the button.
+ *
+ * - `'primary'` — Filled, high-contrast. Use once per view for the single most important action.
+ * - `'secondary'` — Outlined. Pair with a primary button for secondary actions.
+ * - `'tertiary'` — No border, underlined text. Lower-priority actions with enough surrounding space.
+ * - `'text'` — Like tertiary but with zero padding; for constrained spaces such as table cells or inline prose.
+ */
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'text'
+
+/**
+ * Physical size of the button — controls height, horizontal padding, and font size.
+ *
+ * - `'sm'` — Compact; for dense UIs or secondary actions in tight layouts.
+ * - `'md'` — Default; suitable for most use cases.
+ * - `'lg'` — Prominent; for hero sections or major calls to action.
+ */
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 export interface AGDSButtonProps {
@@ -39,16 +55,23 @@ const props = withDefaults(defineProps<AGDSButtonProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the button is clicked. Not emitted when disabled or loading. */
   click: [event: MouseEvent]
+  /** Emitted when the button receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the button loses focus. */
   blur: [event: FocusEvent]
+  /** Emitted on every keydown event while the button has focus. */
   keydown: [event: KeyboardEvent]
 }>()
 
 const buttonRef = ref<HTMLButtonElement | null>(null)
 
 // Allow parents to programmatically focus the button (e.g. after routing)
-defineExpose({ focus: () => buttonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the button. */
+  focus: () => buttonRef.value?.focus(),
+})
 
 function handleClick(event: MouseEvent) {
   // Safari does not focus <button> elements on click — do it manually so
@@ -126,6 +149,26 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style scoped>
+/* ── Size tokens ─────────────────────────────────────────── */
+
+.agds-button--sm {
+  --_btn-height:    var(--agds-button-height-sm);
+  --_btn-padding-x: var(--agds-button-padding-x-sm);
+  --_btn-font-size: var(--agds-button-font-size-sm);
+}
+
+.agds-button--md {
+  --_btn-height:    var(--agds-button-height-md);
+  --_btn-padding-x: var(--agds-button-padding-x-md);
+  --_btn-font-size: var(--agds-button-font-size-md);
+}
+
+.agds-button--lg {
+  --_btn-height:    var(--agds-button-height-lg);
+  --_btn-padding-x: var(--agds-button-padding-x-lg);
+  --_btn-font-size: var(--agds-button-font-size-lg);
+}
+
 /* ── Base ────────────────────────────────────────────────── */
 
 .agds-button {
@@ -138,11 +181,11 @@ function handleClick(event: MouseEvent) {
   border-width: var(--agds-button-border-width);
   border-style: solid;
   border-radius: var(--agds-button-border-radius);
-  padding-inline: var(--agds-button-padding-x-md);
-  height: var(--agds-button-height-md);
+  padding-inline: var(--_btn-padding-x);
+  height: var(--_btn-height);
 
   font-family: var(--agds-font-family-body);
-  font-size: var(--agds-button-font-size-md);
+  font-size: var(--_btn-font-size);
   font-weight: var(--agds-button-font-weight);
   line-height: 1;
   text-decoration: none;
@@ -164,20 +207,6 @@ function handleClick(event: MouseEvent) {
 
 .agds-button--block {
   width: 100%;
-}
-
-/* ── Sizes ───────────────────────────────────────────────── */
-
-.agds-button--sm {
-  height: var(--agds-button-height-sm);
-  padding-inline: var(--agds-button-padding-x-sm);
-  font-size: var(--agds-button-font-size-sm);
-}
-
-.agds-button--lg {
-  height: var(--agds-button-height-lg);
-  padding-inline: var(--agds-button-padding-x-lg);
-  font-size: var(--agds-button-font-size-lg);
 }
 
 /* ── Variants ────────────────────────────────────────────── */
@@ -257,7 +286,7 @@ function handleClick(event: MouseEvent) {
 
 .agds-button:focus-visible,
 .agds-button--focus-all:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -332,6 +361,14 @@ function handleClick(event: MouseEvent) {
   to { transform: rotate(360deg); }
 }
 
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-button__spinner {
+    animation: none;
+  }
+}
+
 /* ── Utilities ───────────────────────────────────────────── */
 
 .sr-only {
@@ -344,5 +381,29 @@ function handleClick(event: MouseEvent) {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-button {
+    border: 2px solid ButtonBorder;
+    forced-color-adjust: none;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .agds-button:focus-visible,
+  .agds-button--focus-all:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+  }
+
+  .agds-button:disabled,
+  .agds-button--disabled,
+  .agds-button--loading {
+    color: GrayText;
+    border-color: GrayText;
+  }
 }
 </style>

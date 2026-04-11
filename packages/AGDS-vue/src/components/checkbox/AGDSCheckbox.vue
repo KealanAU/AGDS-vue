@@ -2,6 +2,12 @@
 import { computed, inject, onMounted, ref, watch } from 'vue'
 import { CHECKBOX_GROUP_KEY } from './checkboxGroupContext'
 
+/**
+ * Size of the checkbox control.
+ *
+ * - `'sm'` — Compact; for dense forms or secondary option groups.
+ * - `'md'` — Default; matches the standard form field touch target.
+ */
 export type CheckboxSize = 'sm' | 'md'
 
 export interface AGDSCheckboxProps {
@@ -35,9 +41,13 @@ const props = withDefaults(defineProps<AGDSCheckboxProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the checked state changes — use with v-model for two-way binding. */
   'update:modelValue': [value: boolean]
+  /** Emitted when the native change event fires. */
   change: [event: Event]
+  /** Emitted when the checkbox receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the checkbox loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -242,7 +252,7 @@ function handleChange(event: Event) {
 
 /* Focus ring: when the hidden input is focused, outline the indicator */
 .agds-checkbox__input:focus-visible ~ .agds-checkbox__indicator {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

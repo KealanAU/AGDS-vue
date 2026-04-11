@@ -2,6 +2,7 @@
 import AGDSBreadcrumbsDivider from './AGDSBreadcrumbsDivider.vue'
 
 const emit = defineEmits<{
+  /** Emitted when the "…" toggle button is clicked. The parent uses this to expand hidden middle items. */
   click: [event: MouseEvent]
 }>()
 
@@ -53,7 +54,7 @@ function handleClick(event: MouseEvent) {
 }
 
 .agds-breadcrumbs__toggle:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }

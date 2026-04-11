@@ -27,7 +27,9 @@ const props = withDefaults(defineProps<AGDSPaginationButtonsProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when a page button is clicked. Update currentPage to reflect the new value. */
   change: [pageNumber: number]
+  /** Emitted when the user changes the items-per-page select. Update your page size and reset to page 1. */
   itemsPerPageChange: [itemsPerPage: number]
 }>()
 
@@ -282,7 +284,7 @@ function onPerPageChange(event: Event) {
 }
 
 .agds-pagination__direction:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -338,7 +340,7 @@ function onPerPageChange(event: Event) {
 }
 
 .agds-pagination__page:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -430,7 +432,7 @@ function onPerPageChange(event: Event) {
 }
 
 .agds-pagination__select:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-color: var(--agds-color-focus);
 }

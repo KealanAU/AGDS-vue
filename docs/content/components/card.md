@@ -10,12 +10,7 @@ status: stable
 `AGDSCard` is a composable system. Use `AGDSCardHeader` for the title area, `AGDSCardInner` for body content, and `AGDSCardFooter` for footer actions.
 
 ::doc-preview
-<AGDSCard>
-  <AGDSCardHeader title="Apply for a grant" subtitle="Closes 30 June 2026" />
-  <AGDSCardInner>
-    <p>Funding is available for eligible small businesses in regional areas.</p>
-  </AGDSCardInner>
-</AGDSCard>
+<CardDemo />
 ::
 
 ```vue
@@ -34,16 +29,7 @@ status: stable
 Add `clickable` and include an `AGDSCardLink` inside the header. The link's `::after` pseudo-element stretches to cover the entire card surface, making the whole card interactive while preserving correct semantics for screen readers.
 
 ::doc-preview{label="Clickable"}
-<AGDSCard clickable>
-  <AGDSCardHeader title="Regional business grants">
-    <template #link>
-      <AGDSCardLink href="#">Learn more</AGDSCardLink>
-    </template>
-  </AGDSCardHeader>
-  <AGDSCardInner>
-    <p>Up to $50,000 available for eligible businesses in qualifying regions.</p>
-  </AGDSCardInner>
-</AGDSCard>
+<CardDemo variant="clickable" />
 ::
 
 ```vue
@@ -90,15 +76,7 @@ Use `background="bodyAlt"` when the card sits on an off-white surface so its own
 Use `AGDSCardFooter` for actions or metadata below the body content.
 
 ::doc-preview{label="With footer"}
-<AGDSCard>
-  <AGDSCardHeader title="Environmental grants" />
-  <AGDSCardInner>
-    <p>Grants for sustainability projects in the ACT region.</p>
-  </AGDSCardInner>
-  <AGDSCardFooter>
-    <AGDSButton size="sm">Apply now</AGDSButton>
-  </AGDSCardFooter>
-</AGDSCard>
+<CardDemo variant="footer" />
 ::
 
 ```vue
@@ -108,9 +86,11 @@ Use `AGDSCardFooter` for actions or metadata below the body content.
     <AGDSCardInner>
       <p>Grants for sustainability projects in the ACT region.</p>
     </AGDSCardInner>
-    <AGDSCardFooter>
-      <AGDSButton size="sm">Apply now</AGDSButton>
-    </AGDSCardFooter>
+    <template #footer>
+      <AGDSCardFooter>
+        <AGDSButton size="sm">Apply now</AGDSButton>
+      </AGDSCardFooter>
+    </template>
   </AGDSCard>
 </template>
 ```
@@ -124,9 +104,11 @@ Use `footerOutside` to render the footer below the card border — useful for me
   <AGDSCard footer-outside>
     <AGDSCardHeader title="Service update" />
     <AGDSCardInner><p>Scheduled maintenance on 15 March.</p></AGDSCardInner>
-    <AGDSCardFooter>
-      <span>Last updated: 1 March 2026</span>
-    </AGDSCardFooter>
+    <template #footer>
+      <AGDSCardFooter>
+        <span>Last updated: 1 March 2026</span>
+      </AGDSCardFooter>
+    </template>
   </AGDSCard>
 </template>
 ```

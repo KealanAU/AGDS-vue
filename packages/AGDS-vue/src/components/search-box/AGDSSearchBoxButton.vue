@@ -18,7 +18,10 @@ const props = withDefaults(defineProps<AGDSSearchBoxButtonProps>(), {
 
 const buttonRef = ref<InstanceType<typeof AGDSButton> | null>(null)
 
-defineExpose({ focus: () => buttonRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the search submit button. */
+  focus: () => buttonRef.value?.focus(),
+})
 </script>
 
 <template>

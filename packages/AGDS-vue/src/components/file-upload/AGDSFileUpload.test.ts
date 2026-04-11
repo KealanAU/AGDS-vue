@@ -2,6 +2,9 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSFileUpload from './AGDSFileUpload.vue'
+import AGDSFileUploadFile from './AGDSFileUploadFile.vue'
+import AGDSFileUploadExistingFile from './AGDSFileUploadExistingFile.vue'
+import AGDSFileUploadFileThumbnail from './AGDSFileUploadFileThumbnail.vue'
 import type { FileWithStatus, ExistingFile } from './utils'
 
 const AXE_OPTS = {
@@ -305,5 +308,168 @@ describe('AGDSFileUpload — axe accessibility', () => {
       props: { label: 'Upload', modelValue: [], existingFiles: [{ name: 'server.pdf' }] },
     })
     await runAxe(container, AXE_OPTS)
+  })
+})
+
+// ─── AGDSFileUploadFile — component branches ──────────────────────────────────
+
+describe('AGDSFileUploadFile — status variants', () => {
+  function makeFileWithStatus(name: string, status?: FileWithStatus['status'], extra: Partial<FileWithStatus> = {}): FileWithStatus {
+    const f = new File(['x'], name, { type: 'application/pdf' }) as FileWithStatus
+    if (status) (f as any).status = status
+    Object.assign(f, extra)
+    return f
+  }
+
+  it('renders success icon and success class when status=success', () => {
+    const file = makeFileWithStatus('report.pdf', 'success')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-file--success')).toBeTruthy()
+    expect(container.querySelector('.agds-file-upload-file__success-icon')).toBeTruthy()
+  })
+
+  it('renders shade class when status is not success', () => {
+    const file = makeFileWithStatus('report.pdf', 'none')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-file--shade')).toBeTruthy()
+    expect(container.querySelector('.agds-file-upload-file__success-icon')).toBeNull()
+  })
+
+  it('renders uploading spinner when status=uploading', () => {
+    const file = makeFileWithStatus('report.pdf', 'uploading')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-file__uploading')).toBeTruthy()
+    // Remove button is hidden while uploading
+    expect(container.querySelector('.agds-button')).toBeNull()
+  })
+
+  it('renders a TextLink when file has href', () => {
+    const file = makeFileWithStatus('report.pdf')
+    ;(file as any).href = '/files/report.pdf'
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove: () => {} },
+    })
+    expect(container.querySelector('a[href="/files/report.pdf"]')).toBeTruthy()
+  })
+
+  it('renders file name as plain text when no href', () => {
+    const file = makeFileWithStatus('report.pdf')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-file__name')?.textContent).toContain('report.pdf')
+    expect(container.querySelector('a')).toBeNull()
+  })
+
+  it('hides thumbnail wrapper when hideThumbnails=true', () => {
+    const file = makeFileWithStatus('report.pdf')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, hideThumbnails: true, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-file__thumb-wrapper')).toBeNull()
+  })
+
+  it('shows thumbnail wrapper by default', () => {
+    const file = makeFileWithStatus('report.pdf')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-file__thumb-wrapper')).toBeTruthy()
+  })
+
+  it('calls onRemove when remove button is clicked', async () => {
+    const onRemove = vi.fn()
+    const file = makeFileWithStatus('report.pdf')
+    const { container } = render(AGDSFileUploadFile, {
+      props: { file, onRemove },
+    })
+    const btn = container.querySelector('button')!
+    await fireEvent.click(btn)
+    expect(onRemove).toHaveBeenCalledOnce()
+  })
+})
+
+// ─── AGDSFileUploadExistingFile — component branches ─────────────────────────
+
+describe('AGDSFileUploadExistingFile — variants', () => {
+  const baseFile: ExistingFile = { name: 'existing.pdf' }
+
+  it('renders file name', () => {
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: baseFile, onRemove: () => {} },
+    })
+    expect(container.textContent).toContain('existing.pdf')
+  })
+
+  it('renders a TextLink when file has href', () => {
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: { ...baseFile, href: '/files/existing.pdf' }, onRemove: () => {} },
+    })
+    expect(container.querySelector('a[href="/files/existing.pdf"]')).toBeTruthy()
+  })
+
+  it('renders file name as plain text when no href', () => {
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: baseFile, onRemove: () => {} },
+    })
+    expect(container.querySelector('a')).toBeNull()
+  })
+
+  it('hides thumbnail wrapper when hideThumbnails=true', () => {
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: baseFile, hideThumbnails: true, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-existing-file__thumb-wrapper')).toBeNull()
+  })
+
+  it('shows thumbnail wrapper by default', () => {
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: baseFile, onRemove: () => {} },
+    })
+    expect(container.querySelector('.agds-file-upload-existing-file__thumb-wrapper')).toBeTruthy()
+  })
+
+  it('calls onRemove when remove button is clicked', async () => {
+    const onRemove = vi.fn()
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: baseFile, onRemove },
+    })
+    const btn = container.querySelector('button')!
+    await fireEvent.click(btn)
+    expect(onRemove).toHaveBeenCalledOnce()
+  })
+
+  it('calls onClick when TextLink is clicked', async () => {
+    const onClick = vi.fn()
+    const { container } = render(AGDSFileUploadExistingFile, {
+      props: { file: { ...baseFile, href: '/file', onClick }, onRemove: () => {} },
+    })
+    const link = container.querySelector('a')!
+    await fireEvent.click(link)
+    expect(onClick).toHaveBeenCalled()
+  })
+})
+
+// ─── AGDSFileUploadFileThumbnail — src branch ─────────────────────────────────
+
+describe('AGDSFileUploadFileThumbnail', () => {
+  it('renders image thumbnail when src is provided', () => {
+    const { container } = render(AGDSFileUploadFileThumbnail, {
+      props: { src: 'blob:test' },
+    })
+    expect(container.querySelector('.agds-file-upload-thumbnail--image')).toBeTruthy()
+    expect(container.querySelector('.agds-file-upload-thumbnail--icon')).toBeNull()
+  })
+
+  it('renders icon thumbnail when src is not provided', () => {
+    const { container } = render(AGDSFileUploadFileThumbnail, {})
+    expect(container.querySelector('.agds-file-upload-thumbnail--icon')).toBeTruthy()
+    expect(container.querySelector('.agds-file-upload-thumbnail--image')).toBeNull()
   })
 })

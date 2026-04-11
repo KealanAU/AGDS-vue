@@ -95,7 +95,7 @@ withDefaults(defineProps<AGDSFeatureLinkListItemProps>(), {
 /* ── Focus ────────────────────────────────────────────────── */
 
 .agds-feature-link-list-item__link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

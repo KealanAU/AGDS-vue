@@ -74,7 +74,9 @@ const props = withDefaults(defineProps<AGDSTimePickerProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the time picker input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the time picker input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -118,7 +120,10 @@ const filteredOptions = computed(() => filterOptions(options.value, searchTerm.v
 // ── Expose ────────────────────────────────────────────────────────────────────
 
 const containerRef = ref<HTMLElement | null>(null)
-defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the time picker input. */
+  focus: () => containerRef.value?.querySelector('input')?.focus(),
+})
 </script>
 
 <template>
@@ -261,7 +266,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
 
 .agds-time-picker__control:focus-within {
   border-color: var(--agds-color-focus);
-  outline: var(--agds-color-focus-width, 3px) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width, 3px) solid var(--agds-color-focus);
   outline-offset: 0;
 }
 
@@ -376,5 +381,21 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
   color: var(--agds-color-text-muted);
   font-style: italic;
   font-size: var(--agds-font-size-base);
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-time-picker__listbox {
+    box-shadow: none;
+    border-color: ButtonText;
+  }
+
+  /* Background highlight is stripped; use Highlight system colour instead. */
+  .agds-time-picker__option[data-highlighted] {
+    background-color: Highlight;
+    color: HighlightText;
+    outline: none;
+  }
 }
 </style>

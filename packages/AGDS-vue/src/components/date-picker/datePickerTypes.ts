@@ -1,4 +1,11 @@
+/** The v-model value type for a single-date picker (`range=false`). `null` means no date is selected. */
 export type DatePickerSingleValue = Date | null
+
+/**
+ * The v-model value type for a date-range picker (`range=true`).
+ * Both `from` and `to` are `null` until the user selects a date.
+ * A partially-selected range (only `from` set) is also represented this way during interaction.
+ */
 export type DatePickerRangeValue = { from: Date | null; to: Date | null }
 
 export interface AGDSDatePickerProps {

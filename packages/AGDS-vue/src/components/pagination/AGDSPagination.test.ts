@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
+import { nextTick } from 'vue'
 import { render, fireEvent } from '@testing-library/vue'
 import { runAxe } from '../../test/a11y'
 import AGDSPagination from './AGDSPagination.vue'
@@ -316,6 +317,29 @@ describe('AGDSPaginationButtons — events', () => {
     const select = getByLabelText('Items per page') as HTMLSelectElement
     await fireEvent.change(select, { target: { value: '50' } })
     expect(emitted().itemsPerPageChange?.[0]?.[0]).toBe(50)
+  })
+
+  it('focuses page-1 button when Previous is clicked from page 2 and currentPage prop updates', async () => {
+    // When clicking Previous from page 2 → page 1, the component sets pendingFocusFirst=true
+    // and then the currentPage watcher fires the focus logic (lines 84 and 47-50).
+    const { container } = render({
+      components: { AGDSPaginationButtons },
+      template: `
+        <AGDSPaginationButtons
+          :currentPage="page"
+          :totalPages="5"
+          @change="page = $event"
+        />
+      `,
+      data() { return { page: 2 } },
+    })
+    const prevBtn = container.querySelector('[aria-label="Go to previous page"]') as HTMLElement
+    await fireEvent.click(prevBtn)
+    await nextTick()
+    await nextTick()
+    // After currentPage updates to 1, page 1 becomes current
+    const currentPageBtn = container.querySelector('[aria-current="page"]')
+    expect(currentPageBtn?.getAttribute('aria-label')).toBe('Go to page 1')
   })
 })
 

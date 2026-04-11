@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * Colour tone of the notification badge.
+ *
+ * - `'neutral'` — Muted grey; for low-emphasis or unread counts in subdued contexts.
+ * - `'action'` — Brand/action colour; for prominent unread counts that need attention.
+ */
 export type BadgeTone = 'neutral' | 'action'
 
 export interface AGDSNotificationBadgeProps {

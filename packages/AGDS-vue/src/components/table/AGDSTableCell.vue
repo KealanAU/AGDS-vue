@@ -34,8 +34,8 @@ const props = withDefaults(defineProps<AGDSTableCellProps>(), {
       `agds-table-cell--align-${props.textAlign}`,
       `agds-table-cell--weight-${props.fontWeight}`,
     ]"
-    :colSpan="props.colSpan"
-    :rowSpan="props.rowSpan"
+    :colspan="props.colSpan"
+    :rowspan="props.rowSpan"
     :scope="props.scope"
     :id="props.id"
     :style="{ verticalAlign: props.verticalAlign }"
@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<AGDSTableCellProps>(), {
 }
 
 .agds-table-cell:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

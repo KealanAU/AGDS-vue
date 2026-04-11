@@ -10,17 +10,7 @@ status: stable
 Compose `AGDSSummaryList` with `AGDSSummaryListItem`, `AGDSSummaryListItemTerm`, `AGDSSummaryListItemDescription`, and optionally `AGDSSummaryListItemAction`.
 
 ::doc-preview
-<AGDSSummaryList>
-  <AGDSSummaryListItem>
-    <AGDSSummaryListItemTerm>Full name</AGDSSummaryListItemTerm>
-    <AGDSSummaryListItemDescription>Jane Smith</AGDSSummaryListItemDescription>
-    <AGDSSummaryListItemAction><a href="#">Change</a></AGDSSummaryListItemAction>
-  </AGDSSummaryListItem>
-  <AGDSSummaryListItem>
-    <AGDSSummaryListItemTerm>Date of birth</AGDSSummaryListItemTerm>
-    <AGDSSummaryListItemDescription>1 January 1990</AGDSSummaryListItemDescription>
-  </AGDSSummaryListItem>
-</AGDSSummaryList>
+:summary-list-demo
 ::
 
 ```vue

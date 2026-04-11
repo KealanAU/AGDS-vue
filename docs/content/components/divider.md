@@ -10,7 +10,7 @@ status: stable
 A plain `AGDSDivider` renders a single `<hr>`. It is hidden from assistive technologies by default since dividers are decorative separators.
 
 ::doc-preview
-<AGDSDivider />
+:divider-demo
 ::
 
 ```vue
@@ -24,7 +24,7 @@ A plain `AGDSDivider` renders a single `<hr>`. It is hidden from assistive techn
 Provide content in the default slot to activate the "divider with text" layout — a three-column CSS grid with a line either side of the label.
 
 ::doc-preview{label="With text"}
-<AGDSDivider><span>or</span></AGDSDivider>
+:divider-demo{variant="with-text"}
 ::
 
 ```vue
@@ -38,7 +38,7 @@ Provide content in the default slot to activate the "divider with text" layout �
 Use the `textAlign` prop to pin the label to the left. The default is `center`.
 
 ::doc-preview{label="Left-aligned text"}
-<AGDSDivider text-align="left"><span>Section A</span></AGDSDivider>
+:divider-demo{variant="left-aligned"}
 ::
 
 ```vue
@@ -63,11 +63,7 @@ Set `ariaHidden` to `false` when the divider marks a meaningful structural bound
 A common pattern — use `AGDSDivider` with the "or" label between a primary action and an alternative sign-in method.
 
 ::doc-preview{label="Login form pattern"}
-<div style="display:flex;flex-direction:column;gap:1rem;max-width:24rem">
-  <AGDSButton>Sign in with myGov</AGDSButton>
-  <AGDSDivider><span>or</span></AGDSDivider>
-  <AGDSButton variant="secondary">Continue as guest</AGDSButton>
-</div>
+:divider-demo{variant="login-form"}
 ::
 
 ```vue

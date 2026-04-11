@@ -169,6 +169,43 @@ describe('AGDSAppLayoutHeader', () => {
     expect(getByText('Account')).toBeTruthy()
   })
 
+  it('renders logo slot when provided', () => {
+    const { container } = render(
+      {
+        components: { AGDSAppLayout, AGDSAppLayoutHeader },
+        template: `
+          <AGDSAppLayout>
+            <template #header>
+              <AGDSAppLayoutHeader heading="My Service">
+                <template #logo><img src="/logo.svg" alt="Logo" /></template>
+              </AGDSAppLayoutHeader>
+            </template>
+          </AGDSAppLayout>
+        `,
+      },
+    )
+    expect(container.querySelector('img[alt="Logo"]')).toBeTruthy()
+  })
+
+  it('renders secondLogo slot when both logo and secondLogo are provided', () => {
+    const { container } = render(
+      {
+        components: { AGDSAppLayout, AGDSAppLayoutHeader },
+        template: `
+          <AGDSAppLayout>
+            <template #header>
+              <AGDSAppLayoutHeader heading="My Service">
+                <template #logo><img src="/logo.svg" alt="Logo" /></template>
+                <template #secondLogo><img src="/second-logo.svg" alt="Second Logo" /></template>
+              </AGDSAppLayoutHeader>
+            </template>
+          </AGDSAppLayout>
+        `,
+      },
+    )
+    expect(container.querySelector('img[alt="Second Logo"]')).toBeTruthy()
+  })
+
   it('passes axe', async () => {
     const { container } = render(
       {
@@ -334,6 +371,55 @@ describe('AGDSAppLayoutSidebar mobile dialog', () => {
     await nextTick()
     await nextTick()
     expect(document.body.style.overflow).toBe('')
+  })
+
+  it('Tab from the last focusable element wraps focus to the first', async () => {
+    renderWithLayout()
+    fireEvent.click(screen.getByLabelText('Open menu'))
+    await nextTick()
+    const dialog = screen.getByRole('dialog')
+    const focusable = dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    expect(focusable.length).toBeGreaterThan(1)
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    const firstFocusSpy = vi.spyOn(first, 'focus')
+    last.focus()
+    await fireEvent.keyDown(dialog, { key: 'Tab', shiftKey: false })
+    expect(firstFocusSpy).toHaveBeenCalled()
+  })
+
+  it('Shift+Tab from the first focusable element wraps focus to the last', async () => {
+    renderWithLayout()
+    fireEvent.click(screen.getByLabelText('Open menu'))
+    await nextTick()
+    const dialog = screen.getByRole('dialog')
+    const focusable = dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    const lastFocusSpy = vi.spyOn(last, 'focus')
+    first.focus()
+    await fireEvent.keyDown(dialog, { key: 'Tab', shiftKey: true })
+    expect(lastFocusSpy).toHaveBeenCalled()
+  })
+
+  it('closes dialog when backdrop is clicked', async () => {
+    renderWithLayout()
+    fireEvent.click(screen.getByLabelText('Open menu'))
+    await nextTick()
+    const backdrop = document.querySelector('.agds-alsdialog__backdrop') as HTMLElement
+    fireEvent.click(backdrop)
+    await nextTick()
+    expect(screen.queryByRole('dialog')).toBeFalsy()
+  })
+
+  it('does not trap focus when a non-Tab, non-Escape key is pressed', async () => {
+    renderWithLayout()
+    fireEvent.click(screen.getByLabelText('Open menu'))
+    await nextTick()
+    const dialog = screen.getByRole('dialog')
+    // Pressing Enter (not Tab, not Escape) should not throw and not close
+    await expect(fireEvent.keyDown(dialog, { key: 'Enter' })).resolves.not.toThrow()
+    expect(screen.queryByRole('dialog')).toBeTruthy()
   })
 })
 

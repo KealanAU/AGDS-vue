@@ -5,6 +5,13 @@ export interface DefaultComboboxOption {
   value: string
 }
 
+/**
+ * Maximum width of a combobox/autocomplete field.
+ *
+ * - `'md'` — ~30 ch; short option lists such as a state or country selector.
+ * - `'lg'` — ~40 ch; default for most combobox fields.
+ * - `'xl'` — ~60 ch; wide option lists with long labels.
+ */
 export type ComboboxMaxWidth = 'md' | 'lg' | 'xl'
 
 /**

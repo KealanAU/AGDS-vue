@@ -27,7 +27,9 @@ const props = withDefaults(defineProps<AGDSComboboxProps<TOption>>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the combobox input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the combobox input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -52,7 +54,10 @@ const searchTerm = ref('')
 const filteredOptions = computed(() => filterOptions(props.options, searchTerm.value))
 
 const containerRef = ref<HTMLElement | null>(null)
-defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the combobox input. */
+  focus: () => containerRef.value?.querySelector('input')?.focus(),
+})
 </script>
 
 <template>
@@ -213,7 +218,7 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
 
 .agds-combobox__control:focus-within {
   border-color: var(--agds-color-focus);
-  outline: var(--agds-color-focus-width, 3px) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width, 3px) solid var(--agds-color-focus);
   outline-offset: 0;
 }
 
@@ -329,5 +334,21 @@ defineExpose({ focus: () => containerRef.value?.querySelector('input')?.focus() 
   color: var(--agds-color-text-muted);
   font-style: italic;
   font-size: var(--agds-font-size-base);
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-combobox__listbox {
+    box-shadow: none;
+    border-color: ButtonText;
+  }
+
+  /* Background highlight is stripped; use Highlight system colour instead. */
+  .agds-combobox__option[data-highlighted] {
+    background-color: Highlight;
+    color: HighlightText;
+    outline: none;
+  }
 }
 </style>

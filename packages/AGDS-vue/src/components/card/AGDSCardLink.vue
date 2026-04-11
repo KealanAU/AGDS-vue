@@ -52,7 +52,7 @@ const isClickable = computed(() => !!context?.clickable)
 
 /* Standard focus ring for links in non-clickable cards. */
 .agds-card-link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

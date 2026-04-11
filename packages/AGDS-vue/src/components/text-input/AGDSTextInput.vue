@@ -50,9 +50,13 @@ const props = withDefaults(defineProps<AGDSTextInputProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted on every keystroke — use with v-model for two-way binding. */
   'update:modelValue': [value: string]
+  /** Emitted when the native change event fires (typically on blur or Enter). */
   change: [event: Event]
+  /** Emitted when the input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -92,7 +96,10 @@ const containerStyle = computed(() =>
 
 // ── Expose ────────────────────────────────────────────────────────────────────
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the text input. */
+  focus: () => inputRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -163,7 +170,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 }
 
 .agds-text-input:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

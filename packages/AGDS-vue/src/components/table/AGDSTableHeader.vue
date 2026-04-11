@@ -30,8 +30,8 @@ const props = withDefaults(defineProps<AGDSTableHeaderProps>(), {
     :is="props.as"
     class="agds-table-header"
     :class="`agds-table-header--${props.textAlign}`"
-    :colSpan="props.colSpan"
-    :rowSpan="props.rowSpan"
+    :colspan="props.colSpan"
+    :rowspan="props.rowSpan"
     :scope="props.scope"
     :style="props.width ? { width: props.width } : undefined"
   >
@@ -49,7 +49,7 @@ const props = withDefaults(defineProps<AGDSTableHeaderProps>(), {
 }
 
 .agds-table-header:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

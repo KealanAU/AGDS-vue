@@ -160,6 +160,7 @@ export const statusBadgeToneMap = {
   },
 } as const satisfies Record<string, StatusBadgeToneConfig>
 
+/** All current (non-legacy) tone keys supported by `AGDSStatusBadge`. */
 export type StatusBadgeTones = Exclude<keyof typeof statusBadgeToneMap, 'neutral'>
 
 // ── Legacy tone aliases ───────────────────────────────────────────────────────
@@ -172,20 +173,30 @@ export const statusBadgeLegacyToneMap = {
   warning: 'warningMedium',
 } as const
 
+/** @deprecated Use a `StatusBadgeTones` value instead. Legacy tone keys are mapped at render time. */
 export type StatusBadgeLegacyTone = keyof typeof statusBadgeLegacyToneMap
-export type StatusBadgeTone = StatusBadgeTones | StatusBadgeLegacyTone
+
+/** The full set of accepted `tone` values for `AGDSStatusBadge`, including legacy aliases. */
+export type StatusBadgeTone = StatusBadgeTones | keyof typeof statusBadgeLegacyToneMap
+
+/**
+ * Visual style of the status badge.
+ *
+ * - `'regular'` — Filled background with coloured border; default appearance.
+ * - `'subtle'` — Lighter background, lower contrast; use in dense lists or tables to reduce visual noise.
+ */
 export type StatusBadgeAppearance = 'regular' | 'subtle'
 
 export function getTone(tone: StatusBadgeTone): keyof typeof statusBadgeToneMap {
   if (tone in statusBadgeLegacyToneMap) {
     if (import.meta.env.DEV) {
-      const mapped = statusBadgeLegacyToneMap[tone as StatusBadgeLegacyTone]
+      const mapped = statusBadgeLegacyToneMap[tone as keyof typeof statusBadgeLegacyToneMap]
       const suggestion = tone === 'neutral' ? 'unknownLow' : mapped
       console.warn(
         `[AGDSStatusBadge] tone="${tone}" is deprecated. Use "${suggestion}" instead.`,
       )
     }
-    return statusBadgeLegacyToneMap[tone as StatusBadgeLegacyTone]
+    return statusBadgeLegacyToneMap[tone as keyof typeof statusBadgeLegacyToneMap]
   }
   return tone as StatusBadgeTones
 }

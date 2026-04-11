@@ -118,6 +118,35 @@ describe('AGDSGlobalAlert — onClose prop', () => {
   })
 })
 
+// ─── Live region ─────────────────────────────────────────────────────────────
+
+describe('AGDSGlobalAlert — live region', () => {
+  it('does not set aria-live by default', () => {
+    const { container } = renderAlert()
+    expect(container.querySelector('section')!.getAttribute('aria-live')).toBeNull()
+  })
+
+  it('sets aria-live="polite" when ariaLive="polite"', () => {
+    const { container } = renderAlert({ ariaLive: 'polite' })
+    expect(container.querySelector('section')!.getAttribute('aria-live')).toBe('polite')
+  })
+
+  it('sets aria-live="assertive" when ariaLive="assertive"', () => {
+    const { container } = renderAlert({ ariaLive: 'assertive' })
+    expect(container.querySelector('section')!.getAttribute('aria-live')).toBe('assertive')
+  })
+
+  it('does not set role by default', () => {
+    const { container } = renderAlert()
+    expect(container.querySelector('section')!.getAttribute('role')).toBeNull()
+  })
+
+  it('sets role="alert" when role prop is provided', () => {
+    const { container } = renderAlert({ role: 'alert' })
+    expect(container.querySelector('section')!.getAttribute('role')).toBe('alert')
+  })
+})
+
 // ─── Icon strip accessibility ─────────────────────────────────────────────────
 
 describe('AGDSGlobalAlert — icon strip a11y', () => {
@@ -164,6 +193,21 @@ describe('AGDSGlobalAlert — axe accessibility', () => {
 
   it('has no violations: with title and close button', async () => {
     const { container } = renderAlert({ tone: 'info', title: 'Note', onClose: vi.fn() })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with role="alert"', async () => {
+    const { container } = renderAlert({ tone: 'warning', role: 'alert' })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with ariaLive="polite"', async () => {
+    const { container } = renderAlert({ tone: 'info', ariaLive: 'polite' })
+    await runAxe(container, AXE_OPTS)
+  })
+
+  it('has no violations with ariaLive="assertive"', async () => {
+    const { container } = renderAlert({ tone: 'warning', ariaLive: 'assertive' })
     await runAxe(container, AXE_OPTS)
   })
 

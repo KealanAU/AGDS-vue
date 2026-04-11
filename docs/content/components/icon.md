@@ -10,7 +10,7 @@ status: stable
 Pass an Iconify icon name to the `name` prop. The icon is decorative by default (`aria-hidden="true"`).
 
 ::doc-preview
-<AGDSIcon name="heroicons:home" />
+:icon-demo
 ::
 
 ```vue
@@ -24,10 +24,7 @@ Pass an Iconify icon name to the `name` prop. The icon is decorative by default 
 Use the `size` prop with a named token (`sm`, `md`, `lg`, `xl`) or any CSS length value.
 
 ::doc-preview{label="Named sizes"}
-<AGDSIcon name="heroicons:star" size="sm" />
-<AGDSIcon name="heroicons:star" size="md" />
-<AGDSIcon name="heroicons:star" size="lg" />
-<AGDSIcon name="heroicons:star" size="xl" />
+:icon-demo{variant="sizes"}
 ::
 
 ```vue
@@ -52,8 +49,7 @@ Use the `size` prop with a named token (`sm`, `md`, `lg`, `xl`) or any CSS lengt
 Use the `color` prop to set a CSS color. Without it the icon inherits `currentColor` from the parent.
 
 ::doc-preview{label="Custom color"}
-<AGDSIcon name="heroicons:check-circle" color="#00698f" size="lg" />
-<AGDSIcon name="heroicons:exclamation-circle" color="#d60000" size="lg" />
+:icon-demo{variant="color"}
 ::
 
 ```vue
@@ -66,6 +62,10 @@ Use the `color` prop to set a CSS color. Without it the icon inherits `currentCo
 ## Meaningful icon
 
 Pass `aria-label` to make the icon meaningful to screen readers. The `aria-hidden` attribute is removed and `role="img"` is exposed.
+
+::doc-preview{label="Meaningful icon"}
+:icon-demo{variant="meaningful"}
+::
 
 ```vue
 <template>

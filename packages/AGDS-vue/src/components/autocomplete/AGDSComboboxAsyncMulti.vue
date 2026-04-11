@@ -16,7 +16,9 @@ const props = withDefaults(defineProps<AGDSComboboxAsyncMultiProps<TOption>>(), 
 })
 
 const emit = defineEmits<{
+  /** Emitted when the input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the input loses focus (after a 150 ms delay to allow option clicks to register). */
   blur: [event: FocusEvent]
 }>()
 
@@ -180,7 +182,10 @@ onUnmounted(() => {
   if (debounceTimer) clearTimeout(debounceTimer)
 })
 
-defineExpose({ focus: () => inputRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the search input. */
+  focus: () => inputRef.value?.focus(),
+})
 </script>
 
 <template>
@@ -388,7 +393,7 @@ defineExpose({ focus: () => inputRef.value?.focus() })
 
 .agds-combobox-async-multi__control:focus-within {
   border-color: var(--agds-color-focus);
-  outline: var(--agds-color-focus-width, 3px) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width, 3px) solid var(--agds-color-focus);
   outline-offset: 0;
 }
 
@@ -500,6 +505,14 @@ defineExpose({ focus: () => inputRef.value?.focus() })
   }
 }
 
+/* ── Reduced motion ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .agds-combobox-async-multi__spinner {
+    animation: none;
+  }
+}
+
 /* ── Listbox ─────────────────────────────────────────────── */
 
 .agds-combobox-async-multi__listbox {
@@ -544,6 +557,21 @@ defineExpose({ focus: () => inputRef.value?.focus() })
   color: var(--agds-color-text-muted);
   font-style: italic;
   font-size: var(--agds-font-size-base);
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-combobox-async-multi__listbox {
+    box-shadow: none;
+    border-color: ButtonText;
+  }
+
+  /* Background highlight is stripped; use Highlight system colour instead. */
+  .agds-combobox-async-multi__option--highlighted {
+    background-color: Highlight;
+    color: HighlightText;
+  }
 }
 
 /* ── sr-only utility ─────────────────────────────────────── */

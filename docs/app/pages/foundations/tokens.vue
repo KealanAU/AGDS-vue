@@ -39,7 +39,7 @@ const tokenGroups = [
     description: 'Purple focus ring — meets WCAG 2.2 focus appearance requirements.',
     tokens: [
       { name: '--agds-color-focus', value: '#9263de', type: 'color' },
-      { name: '--agds-color-focus-width', value: '3px', type: 'dimension' },
+      { name: '--agds-focus-width', value: '3px', type: 'dimension' },
     ],
   },
   {

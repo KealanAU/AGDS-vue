@@ -3,6 +3,12 @@ import { provide } from 'vue'
 import { AccordionRoot } from 'reka-ui'
 import type { BackgroundVariant } from '../../core'
 
+/**
+ * Controls how many accordion items can be open at the same time.
+ *
+ * - `'single'` — Only one item can be open at a time; opening another closes the current one.
+ * - `'multiple'` — Any number of items can be open simultaneously (default).
+ */
 export type AccordionType = 'single' | 'multiple'
 export type { BackgroundVariant as AccordionBackground }
 
@@ -44,6 +50,7 @@ const props = withDefaults(defineProps<AGDSAccordionProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the open item(s) change — use with v-model for two-way binding. String for type='single', string[] for type='multiple'. */
   'update:modelValue': [value: string | string[]]
 }>()
 
@@ -58,7 +65,7 @@ provide('accordionBackground', props.background)
     :model-value="props.modelValue"
     :default-value="props.defaultValue"
     class="agds-accordion"
-    @update:model-value="(v) => v !== undefined && emit('update:modelValue', v)"
+    @update:modelValue="(v) => v !== undefined && emit('update:modelValue', v)"
   >
     <slot />
   </AccordionRoot>

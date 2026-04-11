@@ -153,7 +153,7 @@ const indent = inject<boolean>('accordionIndent', false)
 
 /* Focus ring — keyboard only (WCAG 2.4.7) */
 .agds-accordion-item__trigger:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 

@@ -2,7 +2,24 @@
 import { computed, useAttrs } from 'vue'
 import { getInitialsFromName } from './utils'
 
+/**
+ * Colour tone applied to the avatar border and initials text.
+ *
+ * - `'neutral'` — Subdued grey; use when the avatar is decorative or low-emphasis.
+ * - `'action'` — Brand/action colour; use when the avatar represents an interactive subject.
+ */
 export type AvatarTone = 'neutral' | 'action'
+
+/**
+ * Size of the avatar, mapping to design-token diameter/font-size scales.
+ *
+ * - `'sm'`   — 24 px; inline use within dense lists or metadata rows.
+ * - `'md'`   — 32 px; default for most contexts.
+ * - `'lg'`   — 40 px; card headers, user summary sections.
+ * - `'xl'`   — 48 px; profile pages, prominent user cards.
+ * - `'xxl'`  — 64 px; large profile views.
+ * - `'xxxl'` — 80 px; hero/spotlight profile sections.
+ */
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'
 
 export interface AGDSAvatarProps {

@@ -249,7 +249,7 @@ const hasSub = computed(() => !!(props.item.items?.length))
 /* Focus ring */
 .agds-progress-indicator__content:focus-visible,
 .agds-progress-indicator__sub-link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

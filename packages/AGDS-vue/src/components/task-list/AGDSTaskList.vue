@@ -6,6 +6,10 @@ import AGDSText from '../text/AGDSText.vue'
 import AGDSTaskListItem from './AGDSTaskListItem.vue'
 import type { AGDSTaskListItemProps, TaskListItemStatus } from './AGDSTaskListItem.vue'
 
+/**
+ * A single item in a task list — all `AGDSTaskListItemProps` plus a required `label`.
+ * Pass an array of these to the `items` prop of `AGDSTaskList`.
+ */
 export type TaskListItem = AGDSTaskListItemProps & {
   /** Visible label text for the task */
   label: string

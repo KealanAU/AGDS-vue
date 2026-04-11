@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { ref, watch, nextTick, onUnmounted } from 'vue'
 
+/**
+ * Width of the drawer panel (slides in from the right).
+ *
+ * - `'md'` — Default; fits most navigation and filter patterns.
+ * - `'lg'` — Wider; use for content-heavy drawers such as detail views or multi-step forms.
+ */
 export type DrawerWidth = 'md' | 'lg'
 
 export interface AGDSDrawerProps {
@@ -29,6 +35,7 @@ const props = withDefaults(defineProps<AGDSDrawerProps>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the drawer open state changes — use with v-model for two-way binding. */
   'update:modelValue': [value: boolean]
 }>()
 
@@ -246,7 +253,7 @@ function handleKeydown(event: KeyboardEvent) {
 
 /* Show focus ring when title is focused programmatically on open */
 .agds-drawer__title:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: var(--agds-radius-sm);
 }
@@ -276,7 +283,7 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 .agds-drawer__close:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 
@@ -300,7 +307,7 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 .agds-drawer__body:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: -3px;
 }
 
@@ -344,6 +351,34 @@ function handleKeydown(event: KeyboardEvent) {
   .agds-drawer-panel-enter-active,
   .agds-drawer-panel-leave-active {
     transition-duration: 1ms;
+  }
+}
+
+/* ── Forced colours (Windows High Contrast) ──────────────── */
+
+@media (forced-colors: active) {
+  .agds-drawer__overlay {
+    background: Canvas;
+    forced-color-adjust: none;
+  }
+
+  .agds-drawer {
+    border-inline-start: 2px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .agds-drawer__close:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  .agds-drawer__title:focus {
+    outline: 3px solid Highlight;
+  }
+
+  .agds-drawer__body:focus-visible {
+    outline: 3px solid Highlight;
   }
 }
 </style>

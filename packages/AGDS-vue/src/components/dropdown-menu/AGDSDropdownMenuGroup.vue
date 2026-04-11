@@ -6,6 +6,7 @@ import {
 } from 'reka-ui'
 
 export interface AGDSDropdownMenuGroupProps {
+  /** Visible heading for the group, rendered as a small uppercase label above the items. */
   label: string
 }
 

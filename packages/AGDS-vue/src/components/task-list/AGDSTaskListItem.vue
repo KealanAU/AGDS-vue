@@ -3,6 +3,16 @@ import { computed } from 'vue'
 import AGDSIcon from '../icon/AGDSIcon.vue'
 import AGDSVisuallyHidden from '../visually-hidden/AGDSVisuallyHidden.vue'
 
+/**
+ * Completion status of a single task in a task list.
+ *
+ * - `'todo'` — Task has not been started yet.
+ * - `'doing'` — Task is currently in progress.
+ * - `'done'` — Task has been completed.
+ * - `'doneRecently'` — Task was completed in the current session (highlighted as newly done).
+ * - `'blocked'` — Task cannot be started until another task is completed.
+ * - `'notRequired'` — Task does not need to be completed for this service application.
+ */
 export type TaskListItemStatus =
   | 'notRequired'
   | 'blocked'
@@ -33,8 +43,11 @@ const props = withDefaults(defineProps<AGDSTaskListItemProps>(), {
 })
 
 defineEmits<{
+  /** Emitted when the task item is clicked (only when the task is interactive). */
   click: [event: MouseEvent]
+  /** Emitted when the task item receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the task item loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -213,7 +226,7 @@ const statusInfo = computed(() => STATUS_MAP[props.status])
 }
 
 .agds-task-list-item__trigger:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
 }
 

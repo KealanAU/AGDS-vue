@@ -16,13 +16,19 @@ withDefaults(defineProps<AGDSTextLinkProps>(), {
 })
 
 defineEmits<{
+  /** Emitted when the link is clicked. */
   click: [event: MouseEvent]
+  /** Emitted when the link receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the link loses focus. */
   blur: [event: FocusEvent]
 }>()
 
 const anchorEl = ref<HTMLAnchorElement | null>(null)
-defineExpose({ focus: () => anchorEl.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the anchor element. */
+  focus: () => anchorEl.value?.focus(),
+})
 </script>
 
 <template>
@@ -61,7 +67,7 @@ defineExpose({ focus: () => anchorEl.value?.focus() })
 
 .agds-text-link:focus-visible,
 .agds-text-link--focus-all:focus {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }

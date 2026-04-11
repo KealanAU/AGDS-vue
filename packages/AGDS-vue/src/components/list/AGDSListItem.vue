@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * A single item (`<li>`) inside `AGDSUnorderedList` or `AGDSOrderedList`.
+ * Applies body typography tokens and consistent vertical spacing between siblings.
+ */
 export interface AGDSListItemProps {}
 </script>
 

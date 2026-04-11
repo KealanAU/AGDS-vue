@@ -34,8 +34,15 @@ const ICON = {
 
 // ── Tone config types ────────────────────────────────────────────────────────
 
+/**
+ * SVG rendering style for the section alert icon.
+ *
+ * - `'filled'` — Solid filled icon; used for high-severity tones (error, warning).
+ * - `'outline'` — Stroke-only icon; used for lower-severity tones (info, success).
+ */
 export type SectionAlertIconVariant = 'filled' | 'outline'
 
+/** Internal tone configuration resolved from a `SectionAlertTone` key. Not part of the public API. */
 export type ToneConfig = {
   iconPath: string
   iconVariant: SectionAlertIconVariant
@@ -179,6 +186,7 @@ export const sectionAlertToneMap = {
   },
 } as const satisfies Record<string, ToneConfig>
 
+/** All current (non-legacy) tone keys supported by `AGDSSectionAlert`. */
 export type SectionAlertTones = keyof typeof sectionAlertToneMap
 
 // ── Legacy tone aliases ──────────────────────────────────────────────────────
@@ -192,6 +200,7 @@ export const sectionAlertLegacyToneMap = {
 
 type SectionAlertLegacyTone = keyof typeof sectionAlertLegacyToneMap
 
+/** The full set of accepted `tone` values for `AGDSSectionAlert`, including legacy aliases. */
 export type SectionAlertTone = SectionAlertTones | SectionAlertLegacyTone
 
 export function getTone(tone: SectionAlertTone): SectionAlertTones {

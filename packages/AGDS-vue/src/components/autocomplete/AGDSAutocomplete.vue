@@ -11,7 +11,9 @@ const props = withDefaults(defineProps<AGDSAutocompleteProps<TOption>>(), {
 })
 
 const emit = defineEmits<{
+  /** Emitted when the autocomplete input receives focus. */
   focus: [event: FocusEvent]
+  /** Emitted when the autocomplete input loses focus. */
   blur: [event: FocusEvent]
 }>()
 
@@ -19,7 +21,10 @@ const model = defineModel<TOption | null>()
 
 const comboboxRef = ref<{ focus: () => void } | null>(null)
 
-defineExpose({ focus: () => comboboxRef.value?.focus() })
+defineExpose({
+  /** Moves keyboard focus to the autocomplete input. */
+  focus: () => comboboxRef.value?.focus(),
+})
 </script>
 
 <template>

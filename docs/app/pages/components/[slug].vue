@@ -192,7 +192,7 @@ const tocLinks = computed(() => page.value?.body?.toc?.links ?? [])
 }
 
 .comp-page__toc-link:focus-visible {
-  outline: var(--agds-color-focus-width) solid var(--agds-color-focus);
+  outline: var(--agds-focus-width) solid var(--agds-color-focus);
   outline-offset: 2px;
   border-radius: var(--agds-radius-sm);
 }
