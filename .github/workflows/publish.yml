@@ -34,8 +34,6 @@ jobs:
       - run: pnpm test
 
       - run: pnpm publish --filter agds-vue --no-git-checks --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
         env:
