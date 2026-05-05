@@ -161,6 +161,6 @@ describe('AGDSSubNav — axe accessibility', () => {
   it('has a violation when a link has an empty label', async () => {
     const badLinks: SubNavLink[] = [{ href: '/empty', label: '' }]
     const { container } = renderNav({ links: badLinks })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

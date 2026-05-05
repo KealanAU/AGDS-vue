@@ -178,7 +178,7 @@ describe('AGDSBreadcrumbs — axe accessibility', () => {
     const { container } = render(AGDSBreadcrumbs, {
       props: { links: [{ href: '/', label: '' }, { href: '/about', label: '' }] },
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })
 

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
-import { runAxe } from '../../test/a11y'
+import { runAxe, axe } from '../../test/a11y'
 import AGDSButton from './AGDSButton.vue'
 
 // jsdom has no computed styles, so colour-contrast checks will always fail.
@@ -198,47 +198,47 @@ describe('AGDSButton — click event', () => {
 describe('AGDSButton — axe accessibility', () => {
   it('has no violations in default (primary, md) state', async () => {
     const { container } = renderButton()
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when variant=secondary', async () => {
     const { container } = renderButton({ variant: 'secondary' })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when variant=tertiary', async () => {
     const { container } = renderButton({ variant: 'tertiary' })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when size=sm', async () => {
     const { container } = renderButton({ size: 'sm' })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when size=lg', async () => {
     const { container } = renderButton({ size: 'lg' })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when disabled=true', async () => {
     const { container } = renderButton({ disabled: true })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when loading=true', async () => {
     const { container } = renderButton({ loading: true })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations for type=submit', async () => {
     const { container } = renderButton({ type: 'submit' })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has a violation when the button has no accessible name', async () => {
     // Verify our a11y helper correctly catches real violations.
     const { container } = render(AGDSButton, { slots: { default: '' } })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

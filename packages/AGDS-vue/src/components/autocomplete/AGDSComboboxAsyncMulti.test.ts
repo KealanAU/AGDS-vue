@@ -364,7 +364,7 @@ describe('AGDSComboboxAsyncMulti — axe accessibility', () => {
       // Remove the for attribute from the label so the association is broken
       container.querySelector('label')?.removeAttribute('for')
     }
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })
 

@@ -330,6 +330,6 @@ describe('AGDSHeader — axe accessibility', () => {
       props: { heading: '' },
     })
     // The header link will have an empty name, triggering a violation.
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

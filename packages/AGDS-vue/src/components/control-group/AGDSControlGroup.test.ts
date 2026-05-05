@@ -168,7 +168,7 @@ describe('AGDSControlGroup — axe accessibility', () => {
     const input = document.createElement('input')
     input.setAttribute('type', 'text')
     container.appendChild(input)
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })
 

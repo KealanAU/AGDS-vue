@@ -244,6 +244,6 @@ describe('AGDSAccordion — axe accessibility', () => {
         </AGDSAccordion>
       `,
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

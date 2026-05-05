@@ -150,6 +150,6 @@ describe('AGDSToggleButton — axe accessibility', () => {
     const { container } = render(AGDSToggleButton, {
       props: { pressed: false, label: '', pressedLabel: '', hiddenLabel: true },
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

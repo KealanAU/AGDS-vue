@@ -170,6 +170,6 @@ describe('AGDSFilterSidebar — axe accessibility', () => {
       {},
       { default: '<img src="test.png" />' },
     )
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

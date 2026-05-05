@@ -190,6 +190,6 @@ describe('AGDSSearchInput — axe accessibility', () => {
   it('has a violation when a search input has no label', async () => {
     // Render a bare input with no label — verifies the axe helper catches real failures
     const { container } = render({ template: '<input type="search" id="unlabelled" />' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

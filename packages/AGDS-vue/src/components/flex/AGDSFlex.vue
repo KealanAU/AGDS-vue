@@ -25,7 +25,6 @@ const props = withDefaults(defineProps<AGDSFlexProps>(), {
  * and omit `inline` itself (Box doesn't know about it).
  */
 const boxProps = computed<AGDSBoxProps>(() => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { inline, display, ...rest } = props
   return {
     ...rest,

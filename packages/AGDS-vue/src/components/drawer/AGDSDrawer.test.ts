@@ -1,5 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
 import { ref, nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
 import AGDSDrawer from './AGDSDrawer.vue'
@@ -304,6 +305,101 @@ describe('AGDSDrawer — focus trap', () => {
     focusable[0].focus()
     await fireEvent.keyDown(dialog, { key: 'Tab', shiftKey: true })
     expect(document.activeElement).toBe(focusable[focusable.length - 1])
+  })
+})
+
+// ── Keyboard navigation ───────────────────────────────────────────────────────
+
+describe('AGDSDrawer — keyboard navigation', () => {
+  it('focus moves into the drawer on open (title receives focus)', async () => {
+    renderDrawer()
+    // The watch(immediate) fires and focuses titleEl after nextTick
+    await nextTick()
+    await nextTick()
+    const dialog = screen.getByRole('dialog')
+    expect(dialog.contains(document.activeElement)).toBe(true)
+  })
+
+  it('Tab via userEvent keeps focus inside the dialog', async () => {
+    renderDrawer({ showActions: true })
+    await nextTick()
+    await nextTick()
+    const user = userEvent.setup()
+    const dialog = screen.getByRole('dialog')
+
+    const focusable = Array.from(
+      dialog.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), ' +
+        'select:not([disabled]), textarea:not([disabled]), [tabindex="0"]',
+      ),
+    )
+    for (let i = 0; i < focusable.length + 1; i++) {
+      await user.tab()
+      expect(dialog.contains(document.activeElement)).toBe(true)
+    }
+  })
+
+  it('Shift+Tab via userEvent keeps focus inside the dialog', async () => {
+    renderDrawer({ showActions: true })
+    await nextTick()
+    await nextTick()
+    const user = userEvent.setup()
+    const dialog = screen.getByRole('dialog')
+
+    const focusable = Array.from(
+      dialog.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), ' +
+        'select:not([disabled]), textarea:not([disabled]), [tabindex="0"]',
+      ),
+    )
+    // Start from the first tabbable element so Shift+Tab has a known origin.
+    // (The title is focused by default but has tabindex="-1" — not in the Tab order.)
+    focusable[0].focus()
+    for (let i = 0; i < focusable.length + 1; i++) {
+      await user.tab({ shift: true })
+      expect(dialog.contains(document.activeElement)).toBe(true)
+    }
+  })
+
+  it('Escape via userEvent.keyboard closes the drawer', async () => {
+    renderDrawer()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+    // Focus must be inside the drawer for keydown to reach its handler
+    await nextTick()
+    await nextTick()
+    const user = userEvent.setup()
+    await user.keyboard('{Escape}')
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+    })
+  })
+
+  it('focus returns to trigger after Escape via userEvent.keyboard', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    const open = ref(false)
+    render({
+      components: { AGDSDrawer },
+      template: `<AGDSDrawer v-model="open" title="Focus return test">Content</AGDSDrawer>`,
+      setup: () => ({ open }),
+    })
+
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    open.value = true
+    await nextTick()
+    await nextTick()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+
+    const user = userEvent.setup()
+    await user.keyboard('{Escape}')
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(trigger)
+    })
+
+    document.body.removeChild(trigger)
   })
 })
 

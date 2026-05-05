@@ -70,7 +70,8 @@ watch(
   <DialogRoot :open="props.modelValue" @update:open="(open) => emit('update:modelValue', open)">
     <DialogPortal force-mount>
       <DialogOverlay class="agds-modal__overlay" />
-      <DialogContent class="agds-modal__dialog" @open-auto-focus="onOpenAutoFocus" @close-auto-focus="onCloseAutoFocus">
+      <!-- aria-modal="true" — APG: hides background content from assistive technology -->
+      <DialogContent class="agds-modal__dialog" aria-modal="true" @open-auto-focus="onOpenAutoFocus" @close-auto-focus="onCloseAutoFocus">
         <!--
           Close button first in DOM: it becomes the first Tab stop after focus
           lands on the title, so users can dismiss immediately.

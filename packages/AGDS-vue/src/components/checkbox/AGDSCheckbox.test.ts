@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
-import { runAxe } from '../../test/a11y'
+import { runAxe, axe } from '../../test/a11y'
 import AGDSCheckbox from './AGDSCheckbox.vue'
 import AGDSCheckboxGroup from './AGDSCheckboxGroup.vue'
 
@@ -312,32 +312,32 @@ describe('AGDSCheckbox — inside AGDSCheckboxGroup', () => {
 describe('AGDSCheckbox — axe accessibility', () => {
   it('has no violations in default state', async () => {
     const { container } = renderCheckbox()
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when checked', async () => {
     const { container } = renderCheckbox({ modelValue: true })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when disabled', async () => {
     const { container } = renderCheckbox({ disabled: true })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when invalid', async () => {
     const { container } = renderCheckbox({ invalid: true })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when indeterminate', async () => {
     const { container } = renderCheckbox({ indeterminate: true })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations for size=sm', async () => {
     const { container } = renderCheckbox({ size: 'sm' })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations in a group', async () => {
@@ -350,12 +350,12 @@ describe('AGDSCheckbox — axe accessibility', () => {
         </AGDSCheckboxGroup>
       `,
     })
-    await runAxe(container, AXE_OPTS)
+    expect(await axe(container, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('detects a violation when checkbox has no accessible name', async () => {
     // Verifies the a11y helper catches real failures.
     const { container } = render(AGDSCheckbox, { slots: { default: '' } })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

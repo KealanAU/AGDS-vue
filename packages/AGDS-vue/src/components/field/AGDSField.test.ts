@@ -158,6 +158,6 @@ describe('AGDSField — axe accessibility', () => {
     // Verify the axe helper catches real violations — an input with no
     // accessible name violates WCAG 4.1.2.
     const { container } = render({ template: '<input type="text" />' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

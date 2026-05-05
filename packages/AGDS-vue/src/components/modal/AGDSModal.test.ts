@@ -1,7 +1,8 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
 import { ref, nextTick } from 'vue'
-import { runAxe } from '../../test/a11y'
+import { runAxe, axe } from '../../test/a11y'
 import AGDSModal from './AGDSModal.vue'
 
 const AXE_OPTS = {
@@ -207,22 +208,113 @@ describe('AGDSModal — open/close behaviour', () => {
   })
 })
 
+// ─── Keyboard navigation ──────────────────────────────────────────────────────
+
+describe('AGDSModal — keyboard navigation', () => {
+  it('focus moves into the dialog on open (title receives focus)', async () => {
+    renderModal()
+    // Reka's onOpenAutoFocus fires after mount — wait two ticks for Vue + Reka
+    await nextTick()
+    await nextTick()
+    const dialog = screen.getByRole('dialog')
+    const title = dialog.querySelector('h2')
+    expect(title).toBeTruthy()
+    // Active element should be inside the dialog
+    expect(dialog.contains(document.activeElement)).toBe(true)
+  })
+
+  it('Tab cycles forward through focusable elements and stays inside the dialog', async () => {
+    renderModal({ showActions: true })
+    await nextTick()
+    await nextTick()
+    const user = userEvent.setup()
+    const dialog = screen.getByRole('dialog')
+
+    // Tab through all focusable elements; each one must stay inside the dialog.
+    // Reka DialogContent provides the focus trap.
+    const focusable = Array.from(
+      dialog.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), [tabindex="0"]',
+      ),
+    )
+    for (let i = 0; i < focusable.length + 1; i++) {
+      await user.tab()
+      expect(dialog.contains(document.activeElement)).toBe(true)
+    }
+  })
+
+  it('Shift+Tab cycles backwards through focusable elements inside the dialog', async () => {
+    renderModal({ showActions: true })
+    await nextTick()
+    await nextTick()
+    const user = userEvent.setup()
+    const dialog = screen.getByRole('dialog')
+
+    const focusable = Array.from(
+      dialog.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], input:not([disabled]), [tabindex="0"]',
+      ),
+    )
+    for (let i = 0; i < focusable.length + 1; i++) {
+      await user.tab({ shift: true })
+      expect(dialog.contains(document.activeElement)).toBe(true)
+    }
+  })
+
+  it('Escape closes the modal via userEvent.keyboard', async () => {
+    renderModal()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+    const user = userEvent.setup()
+    await user.keyboard('{Escape}')
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+    })
+  })
+
+  it('focus returns to trigger after Escape via userEvent.keyboard', async () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    const open = ref(false)
+    render({
+      components: { AGDSModal },
+      template: `<AGDSModal v-model="open" title="Focus return test">Content</AGDSModal>`,
+      setup: () => ({ open }),
+    })
+
+    trigger.focus()
+    expect(document.activeElement).toBe(trigger)
+
+    open.value = true
+    await nextTick()
+    expect(screen.getByRole('dialog')).toBeTruthy()
+
+    const user = userEvent.setup()
+    await user.keyboard('{Escape}')
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull()
+      expect(document.activeElement).toBe(trigger)
+    })
+
+    document.body.removeChild(trigger)
+  })
+})
+
 // ─── Accessibility: axe-core ──────────────────────────────────────────────────
 
 describe('AGDSModal — axe accessibility', () => {
   it('has no violations when open with body content', async () => {
     renderModal()
-    await runAxe(document.body, AXE_OPTS)
+    expect(await axe(document.body, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when open with actions slot', async () => {
     renderModal({ showActions: true })
-    await runAxe(document.body, AXE_OPTS)
+    expect(await axe(document.body, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('has no violations when closed (no dialog in DOM)', async () => {
     renderModal({ initialOpen: false })
-    await runAxe(document.body, AXE_OPTS)
+    expect(await axe(document.body, AXE_OPTS)).toHaveNoViolations()
   })
 
   it('detects a violation when the dialog has no accessible name', async () => {
@@ -232,6 +324,6 @@ describe('AGDSModal — axe accessibility', () => {
       components: { AGDSModal },
       template: `<AGDSModal :model-value="true" title="">Content</AGDSModal>`,
     })
-    await expect(runAxe(document.body, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(document.body, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

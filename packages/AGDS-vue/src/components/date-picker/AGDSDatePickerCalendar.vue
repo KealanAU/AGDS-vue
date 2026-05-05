@@ -808,9 +808,10 @@ const hasNextMonth = computed(() => {
   color: var(--agds-color-text);
 }
 
-/* Other month days are dimmed */
+/* Other month days are dimmed — use an explicit muted colour rather than
+   opacity so the text meets WCAG 2 AA contrast (4.5:1) against white. */
 .agds-calendar__cell--other-month {
-  opacity: 0.4;
+  color: var(--agds-color-text-muted);
 }
 
 .agds-calendar__day-inner {

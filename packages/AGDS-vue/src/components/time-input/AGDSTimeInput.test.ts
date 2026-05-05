@@ -158,6 +158,6 @@ describe('AGDSTimeInput — axe accessibility', () => {
 
   it('detects a violation when a text input has no label', async () => {
     const { container } = render({ template: '<input type="text" id="unlabelled" />' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

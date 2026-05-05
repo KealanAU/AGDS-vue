@@ -236,6 +236,6 @@ describe('AGDSSwitch — axe accessibility', () => {
   it('detects a violation when switch has no accessible name', async () => {
     // Verifies the a11y helper catches real failures.
     const { container } = render(AGDSSwitch, { slots: { default: '' } })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

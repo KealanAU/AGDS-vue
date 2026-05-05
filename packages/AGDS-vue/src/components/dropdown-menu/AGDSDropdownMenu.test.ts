@@ -180,6 +180,62 @@ describe('AGDSDropdownMenu — keyboard navigation', () => {
       expect(['-1', '0']).toContain(tabindex)
     })
   })
+
+  it('Enter on button opens menu', async () => {
+    const { getByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
+    const btn = getByRole('button', { name: 'Options' })
+    btn.focus()
+    await fireEvent.keyDown(btn, { key: 'Enter', code: 'Enter' })
+    await nextTick()
+    await nextTick()
+    expect(screen.queryByRole('menu')).toBeTruthy()
+  })
+
+  it('Space on button opens menu', async () => {
+    const { getByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
+    const btn = getByRole('button', { name: 'Options' })
+    btn.focus()
+    await fireEvent.keyDown(btn, { key: ' ', code: 'Space' })
+    await nextTick()
+    await nextTick()
+    expect(screen.queryByRole('menu')).toBeTruthy()
+  })
+
+  it('ArrowUp in panel navigates focus to previous item', async () => {
+    const { getByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
+    const btn = getByRole('button', { name: 'Options' })
+    await openDropdown(btn)
+    const items = screen.getAllByRole('menuitem')
+    const item2 = items[1]
+    const item1 = items[0]
+    item2.focus()
+    await fireEvent.keyDown(item2, { key: 'ArrowUp', code: 'ArrowUp' })
+    await nextTick()
+    expect(document.activeElement).toBe(item1)
+  })
+
+  it('Home in panel moves focus to first item', async () => {
+    const { getByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
+    const btn = getByRole('button', { name: 'Options' })
+    await openDropdown(btn)
+    const items = screen.getAllByRole('menuitem')
+    const lastItem = items[items.length - 1]
+    lastItem.focus()
+    await fireEvent.keyDown(lastItem, { key: 'Home', code: 'Home' })
+    await nextTick()
+    expect(document.activeElement).toBe(items[0])
+  })
+
+  it('End in panel moves focus to last item', async () => {
+    const { getByRole } = renderDropdown(['item-1', 'item-2', 'item-3'])
+    const btn = getByRole('button', { name: 'Options' })
+    await openDropdown(btn)
+    const items = screen.getAllByRole('menuitem')
+    items[0].focus()
+    await fireEvent.keyDown(items[0], { key: 'End', code: 'End' })
+    await nextTick()
+    expect(document.activeElement).toBe(items[items.length - 1])
+  })
 })
 
 // ─── Click item closes menu ───────────────────────────────────────────────────

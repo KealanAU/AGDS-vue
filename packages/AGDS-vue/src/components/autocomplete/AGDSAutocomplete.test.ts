@@ -457,7 +457,7 @@ describe('AGDSComboboxAsync — axe accessibility', () => {
     // Verify the helper catches real axe failures — an input with no accessible
     // name violates WCAG 4.1.2.
     const { container } = render({ template: '<input type="text" />' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })
 

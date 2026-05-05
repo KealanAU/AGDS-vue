@@ -243,6 +243,6 @@ describe('AGDSSearchBox — axe accessibility', () => {
     const { container } = render({
       template: `<div><input type="search" /></div>`,
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

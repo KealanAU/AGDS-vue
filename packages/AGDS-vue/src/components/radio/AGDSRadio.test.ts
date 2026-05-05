@@ -324,6 +324,6 @@ describe('AGDSRadio — axe accessibility', () => {
   it('detects a violation when radio has no accessible name', async () => {
     // Verifies the a11y helper catches real failures.
     const { container } = render(AGDSRadio, { slots: { default: '' } })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

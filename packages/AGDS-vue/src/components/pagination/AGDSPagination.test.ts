@@ -228,7 +228,7 @@ describe('AGDSPagination — axe accessibility', () => {
     const div = document.createElement('div')
     div.innerHTML = '<a href="/foo"></a>'
     document.body.appendChild(div)
-    await expect(runAxe(div, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(div, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
     div.remove()
   })
 })
@@ -375,7 +375,7 @@ describe('AGDSPaginationButtons — axe accessibility', () => {
     const div = document.createElement('div')
     div.innerHTML = '<button type="button"></button>'
     document.body.appendChild(div)
-    await expect(runAxe(div, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(div, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
     div.remove()
   })
 })

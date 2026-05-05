@@ -91,6 +91,6 @@ describe('AGDSFieldset — axe accessibility', () => {
 
   it('has a violation when a fieldset has no legend', async () => {
     const { container } = render({ template: '<fieldset><input type="text" /></fieldset>' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

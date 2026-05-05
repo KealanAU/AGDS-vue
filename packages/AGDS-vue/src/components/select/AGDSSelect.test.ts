@@ -184,6 +184,6 @@ describe('AGDSSelect — axe accessibility', () => {
 
   it('detects a violation when a select has no label', async () => {
     const { container } = render({ template: '<select id="unlabelled"><option>A</option></select>' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

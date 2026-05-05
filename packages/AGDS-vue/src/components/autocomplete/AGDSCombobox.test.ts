@@ -279,6 +279,6 @@ describe('AGDSCombobox — axe accessibility', () => {
 
   it('detects a violation when an input has no label', async () => {
     const { container } = render({ template: '<input type="text" />' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

@@ -201,6 +201,6 @@ describe('AGDSCollapsingSideBar — axe accessibility', () => {
   it('has a violation when the toggle button has an empty aria-label', async () => {
     // Empty title causes the toggle aria-label to be empty — an axe violation.
     const { container } = renderSidebar({ title: '' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

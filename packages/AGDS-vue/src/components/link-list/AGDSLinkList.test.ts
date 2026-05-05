@@ -132,6 +132,6 @@ describe('AGDSLinkList — axe accessibility', () => {
     const { container } = render(AGDSLinkListItem, {
       props: { href: '/bad', label: '' },
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

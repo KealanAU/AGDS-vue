@@ -116,7 +116,7 @@ describe('AGDSCallToActionLink — axe accessibility', () => {
       props: { href: '/start' },
       slots: { default: '' },
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })
 
@@ -295,6 +295,6 @@ describe('AGDSCallToActionButton — axe accessibility', () => {
 
   it('has a violation when the button has no accessible name', async () => {
     const { container } = render(AGDSCallToActionButton, { slots: { default: '' } })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

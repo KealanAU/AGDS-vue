@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.test.ts", "src/**/*.spec.ts", "env.d.ts"],
+  "include": ["src/**/*.test.ts", "src/**/*.spec.ts", "src/**/*.ct.ts", "src/test/*.ts", "env.d.ts"],
   "exclude": [],
   "compilerOptions": {
     "types": ["vite/client", "vitest/globals"]

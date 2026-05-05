@@ -151,6 +151,6 @@ describe('AGDSDetails — axe accessibility', () => {
     const img = document.createElement('img')
     img.setAttribute('src', 'info.png')
     container.appendChild(img)
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

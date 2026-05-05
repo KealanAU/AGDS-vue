@@ -156,6 +156,6 @@ describe('AGDSTextarea — axe accessibility', () => {
 
   it('has a violation when a textarea has no label', async () => {
     const { container } = render({ template: '<textarea id="unlabelled"></textarea>' })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

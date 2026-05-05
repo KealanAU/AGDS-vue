@@ -77,6 +77,6 @@ describe('AGDSProse — axe accessibility', () => {
 
   it('detects a violation when prose contains an image with no alt text', async () => {
     const { container } = renderProse({}, '<img src="photo.png" />')
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('toHaveNoViolations')
   })
 })

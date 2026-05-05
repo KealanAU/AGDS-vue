@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, fireEvent } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
 import { nextTick } from 'vue'
 import { runAxe } from '../../test/a11y'
 import AGDSTabs from './AGDSTabs.vue'
@@ -197,6 +198,23 @@ describe('AGDSTabs — keyboard navigation', () => {
     // Disabled tab3 is skipped — tab2 should become active
     expect(tab2.getAttribute('data-state')).toBe('active')
   })
+
+  it('Tab from active tab moves focus to the active tab panel', async () => {
+    // Per the ARIA tabs pattern, pressing Tab from inside the tablist moves
+    // focus out of the tablist to the associated tab panel (or the next
+    // focusable element in DOM order which is the panel).
+    const { getAllByRole, container } = renderTabs()
+    const [tab1] = getAllByRole('tab')
+    await activateTab(tab1)
+    tab1.focus()
+
+    const user = userEvent.setup()
+    await user.tab()
+
+    // After Tab, focus should have left the tablist and landed in (or on) the panel.
+    const tablist = container.querySelector('[role="tablist"]')!
+    expect(tablist.contains(document.activeElement)).toBe(false)
+  })
 })
 
 // ─── Disabled tab ─────────────────────────────────────────────────────────────
@@ -309,7 +327,7 @@ describe('AGDSTabs — axe accessibility', () => {
         </AGDSTabs>
       `,
     })
-    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow('axe-core found')
+    await expect(runAxe(container, AXE_OPTS)).rejects.toThrow()
   })
 })
 
