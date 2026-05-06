@@ -9,6 +9,7 @@ export default defineBuildConfig({
     },
   ],
   declaration: true,
+  failOnWarn: false,
   clean: true,
   rollup: {
     emitCJS: false,
@@ -17,7 +18,7 @@ export default defineBuildConfig({
   hooks: {
     'mkdist:entry:options'(_ctx, _entry, options) {
       options.addRelativeDeclarationExtensions = false
-      options.pattern = ['**', '!**/*.test.ts', '!**/test/**']
+      options.pattern = ['**', '!**/*.test.ts', '!**/*.ct.ts', '!**/*Fixture.vue', '!**/test/**']
     },
   },
 })
