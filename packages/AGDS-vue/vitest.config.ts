@@ -18,7 +18,15 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'lcov', 'html', 'json-summary', 'json'],
       include: ['src/components/**/*.vue', 'src/components/**/*.ts'],
-      exclude: ['src/test/**', 'src/index.ts', 'src/components/**/index.ts'],
+      exclude: [
+        'src/test/**',
+        'src/index.ts',
+        'src/components/**/index.ts',
+        'src/components/**/*.ct.ts',
+        'src/components/**/*Fixture.vue',
+        'src/components/**/comboboxTypes.ts',
+        'src/components/**/datePickerTypes.ts',
+      ],
       thresholds: {
         statements: 80,
         branches: 80,
